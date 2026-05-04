@@ -1,0 +1,1793 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mark Norman for Oregon — Official Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2844;
+  --navy-2:#102F4F;
+  --navy-3:#0F3C66;
+  --red:#B62025;
+  --red-2:#921A1F;
+  --red-3:#D63D42;
+  --white:#FFFFFF;
+  --black:#000000;
+  --paper:#F5F2EC;
+  --paper-2:#EDE8DD;
+  --bone:#D4CCB7;
+  --stone:#5F594D;
+  --stone-d:#3E3A33;
+  --ink-soft:#1B3454;
+  --hair:rgba(11,40,68,0.18);
+
+  /* Soft tint for readable captions on dark backgrounds (≈ AA on Navy) */
+  --paper-78:rgba(245,242,236,.82);
+  --paper-65:rgba(245,242,236,.72);
+
+  --ff:'Cabin',sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#0a1a2c;
+  font-family:var(--ff);
+  color:var(--navy);
+  padding:30px 16px;
+  line-height:1.55;
+}
+
+/* ==============================
+   PAGE SHELL — asymmetric canvas
+   ============================== */
+.canvas{
+  width:100%;
+  max-width:1320px;
+  margin:0 auto 30px;
+  background:var(--paper);
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 50px 140px rgba(0,0,0,.55);
+}
+.canvas.dark{background:var(--navy);color:var(--paper)}
+.canvas .pad{padding:80px 70px 100px;position:relative;min-height:100%}
+@media(max-width:820px){body{padding:8px}.canvas .pad{padding:46px 22px 70px}}
+
+/* page tag — sits offset top-left */
+.page-tag{
+  position:absolute;
+  top:32px;
+  left:70px;
+  font-family:var(--ff-mono);
+  font-size:10px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--stone);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.page-tag::before{content:"";width:34px;height:1px;background:var(--red)}
+.canvas.dark .page-tag{color:var(--paper-78)}
+.canvas.dark .page-tag::before{background:var(--red-3)}
+
+/* page foot */
+.page-foot{
+  position:absolute;
+  bottom:32px;
+  left:70px;
+  right:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--ff-mono);
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--stone);
+  padding-top:18px;
+  border-top:1px solid var(--hair);
+}
+.canvas.dark .page-foot{color:var(--paper-78);border-top-color:rgba(245,242,236,.18)}
+@media(max-width:820px){.page-tag{left:22px;top:20px}.page-foot{left:22px;right:22px;bottom:20px}}
+
+/* big section number watermark */
+.wm{
+  position:absolute;
+  font-family:var(--ff);
+  font-weight:700;
+  font-size:340px;
+  line-height:.8;
+  letter-spacing:-.04em;
+  color:rgba(11,40,68,.045);
+  pointer-events:none;
+  z-index:0;
+}
+.canvas.dark .wm{color:rgba(182,32,37,.10)}
+
+/* section heading block */
+.sec-eyebrow{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--red);
+  margin-bottom:18px;
+}
+.sec-title{
+  font-family:var(--ff);
+  font-weight:700;
+  font-size:96px;
+  line-height:.92;
+  letter-spacing:-.03em;
+  color:var(--navy);
+  margin-bottom:24px;
+}
+.sec-title em{
+  font-family:var(--ff);
+  font-style:italic;
+  font-weight:400;
+  color:var(--red);
+}
+.sec-desc{
+  font-size:17px;
+  line-height:1.65;
+  color:var(--stone-d);
+  max-width:62ch;
+}
+.canvas.dark .sec-title{color:var(--paper)}
+.canvas.dark .sec-desc{color:var(--paper-78)}
+@media(max-width:820px){.sec-title{font-size:54px}}
+
+/* ==============================
+   COVER — diagonal split layout
+   ============================== */
+.cover{background:var(--navy);color:var(--paper);min-height:980px;display:flex}
+.cover .pad{padding:60px 70px;width:100%;display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:stretch}
+.cover-l{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between}
+.cover .top-mark{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--paper);
+  display:flex;align-items:center;gap:14px;
+}
+.cover .top-mark::before{content:"";width:50px;height:1px;background:var(--red-3)}
+.cover h1{
+  font-family:var(--ff);
+  font-weight:700;
+  font-size:clamp(80px,11vw,180px);
+  line-height:.86;
+  letter-spacing:-.04em;
+  margin-top:90px;
+}
+.cover h1 em{font-style:italic;font-weight:400;color:var(--red-3)}
+.cover .star{color:var(--red);font-size:34px;line-height:1;margin-bottom:14px;display:block}
+.cover .tag{
+  font-family:var(--ff-mono);
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--paper-78);
+  margin-top:30px;
+}
+.cover-meta{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+  border-top:1px solid rgba(245,242,236,.32);
+  padding-top:30px;
+  margin-top:80px;
+}
+.cover-meta div{font-family:var(--ff-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-78);font-weight:600}
+.cover-meta div b{display:block;font-family:var(--ff);font-weight:700;font-size:22px;color:var(--paper);letter-spacing:-.01em;margin-top:6px;text-transform:none}
+
+/* cover right — angled red wedge with logo */
+.cover-r{
+  position:relative;
+  background:var(--red);
+  margin:-60px -70px -60px 0;
+  clip-path:polygon(20% 0,100% 0,100% 100%,0 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.cover-r::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(circle,rgba(245,242,236,.22) 1.6px,transparent 2px);
+  background-size:18px 18px;
+}
+.cover-r::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(45deg,rgba(11,40,68,.18) 0 1.5px,transparent 1.5px 26px);
+}
+.cover-r .badge{
+  position:relative;z-index:2;
+  background:var(--paper);color:var(--navy);
+  padding:34px 30px;
+  border:2px solid var(--navy);
+  text-align:center;
+  transform:rotate(3deg);
+  box-shadow:14px 14px 0 var(--navy);
+}
+@media(max-width:820px){
+  .cover .pad{grid-template-columns:1fr;gap:40px}
+  .cover-r{margin:0;clip-path:none;padding:60px 30px}
+  .cover h1{font-size:60px;margin-top:40px}
+  .cover-meta{grid-template-columns:1fr 1fr}
+}
+
+/* ==============================
+   LOGO MARK (HTML/CSS lockup)
+   ============================== */
+.mn{display:inline-flex;flex-direction:column;align-items:center;--c-navy:var(--navy);--c-red:var(--red);--c-line:var(--navy)}
+.mn.inv{--c-navy:#fff;--c-red:#fff;--c-line:#fff}
+.mn .top{display:flex;align-items:center;gap:8px;width:100%;justify-content:center}
+.mn .top .ln{flex:1;height:2px;background:var(--c-line);max-width:100px}
+.mn .top .st{color:var(--c-red);font-size:.22em;line-height:1}
+.mn .nm{font-weight:700;line-height:.95;text-align:center;margin:4px 0;letter-spacing:.01em}
+.mn .nm .a{display:block;color:var(--c-navy);font-size:1em}
+.mn .nm .b{display:block;color:var(--c-red);font-size:1em}
+.mn .for{display:flex;align-items:center;gap:8px;justify-content:center;width:100%}
+.mn .for .ln{flex:1;height:2px;background:var(--c-line);max-width:74px}
+.mn .for .ft{font-style:italic;font-weight:400;color:var(--c-navy);font-size:.32em}
+.mn .of{font-size:.22em;font-weight:700;letter-spacing:.04em;color:var(--c-navy);text-transform:uppercase;margin-top:2px}
+.mn .pt{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px}
+.mn .pt .ln{width:26px;height:2px;background:var(--c-red)}
+.mn .pt .lb{font-size:.18em;letter-spacing:.32em;color:var(--c-red);font-weight:500}
+.mn.s-xxs{font-size:14px}
+.mn.s-xs{font-size:22px}
+.mn.s-sm{font-size:36px}
+.mn.s-md{font-size:54px}
+.mn.s-lg{font-size:78px}
+.mn.s-xl{font-size:110px}
+
+/* ==============================
+   TOC — asymmetric, editorial
+   ============================== */
+.toc{position:relative}
+.toc-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:auto;
+  gap:0;
+  margin-top:30px;
+  position:relative;
+  z-index:2;
+}
+.toc-row{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:60px 1fr auto;
+  gap:30px;
+  align-items:baseline;
+  padding:22px 0;
+  border-bottom:1px solid var(--hair);
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+.toc-row:hover{transform:translateX(10px)}
+.toc-row .n{font-family:var(--ff-mono);font-size:13px;color:var(--red);font-weight:600;letter-spacing:.1em}
+.toc-row .t{font-family:var(--ff);font-weight:700;font-size:30px;color:var(--navy);letter-spacing:-.015em}
+.toc-row:hover .t{color:var(--red)}
+.toc-row .meta{font-family:var(--ff-mono);font-size:10px;color:var(--stone);letter-spacing:.18em;text-transform:uppercase}
+.toc-row .t em{font-style:italic;color:var(--red);font-weight:400}
+
+
+/* ==============================
+   01 — DESIGN PRINCIPLES
+   asymmetric bento
+   ============================== */
+.principles{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(110px,auto);
+  gap:18px;
+  margin-top:20px;
+}
+.pr{
+  padding:36px;
+  border-radius:6px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+}
+.pr .pn{font-family:var(--ff-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;opacity:.85}
+.pr h3{font-family:var(--ff);font-weight:700;font-size:30px;line-height:1.05;letter-spacing:-.02em;margin:18px 0 10px}
+.pr p{font-size:14px;line-height:1.65;max-width:42ch}
+.pr.a{grid-column:1/7;grid-row:1/3;background:var(--navy);color:var(--paper);min-height:330px}
+.pr.a::after{
+  content:"";position:absolute;
+  inset:0;
+  background-image:radial-gradient(circle,rgba(245,242,236,.10) 1.4px,transparent 2px);
+  background-size:18px 18px;
+  pointer-events:none;
+}
+.pr.a h3{font-size:46px}
+.pr.a h3 em{font-style:italic;color:var(--red-3);font-weight:400}
+.pr.b{grid-column:7/13;grid-row:1/2;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+.pr.c{grid-column:7/10;grid-row:2/3;background:var(--red);color:var(--paper)}
+.pr.d{grid-column:10/13;grid-row:2/3;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+.pr.e{grid-column:1/5;grid-row:3/4;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+.pr.f{grid-column:5/13;grid-row:3/4;background:var(--navy);color:var(--paper);overflow:hidden}
+.pr.f::after{
+  content:"";position:absolute;
+  top:0;right:0;bottom:0;width:30%;
+  background:repeating-linear-gradient(45deg,rgba(182,32,37,.6) 0 1.5px,transparent 1.5px 18px);
+  pointer-events:none;
+}
+.pr.f h3 em{font-style:italic;color:var(--red-3);font-weight:400}
+.pr .dia{
+  position:absolute;
+  bottom:24px;right:24px;
+  width:60px;height:60px;
+  border-bottom:2px solid var(--red-3);
+  border-right:2px solid var(--red-3);
+}
+@media(max-width:820px){.principles>*{grid-column:1/-1!important;grid-row:auto!important}}
+
+/* ==============================
+   02 — COLOR SYSTEM
+   ============================== */
+.color-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:120px;
+  gap:14px;
+  margin-top:20px;
+}
+.cs{border-radius:6px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cs .role{font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;opacity:.85}
+.cs .nm{font-family:var(--ff);font-weight:700;font-size:24px;letter-spacing:-.015em;line-height:1.1}
+.cs .codes{font-family:var(--ff-mono);font-size:11px;letter-spacing:.04em;line-height:1.55}
+.cs .codes b{font-weight:600;opacity:.7;display:inline-block;width:42px}
+.cs.navy{grid-column:1/7;grid-row:1/4;background:var(--navy);color:var(--paper)}
+.cs.navy .nm{font-size:42px}
+.cs.red{grid-column:7/11;grid-row:1/3;background:var(--red);color:var(--paper)}
+.cs.red .nm{font-size:32px}
+.cs.white{grid-column:11/13;grid-row:1/3;background:var(--white);color:var(--navy);border:1px solid var(--bone)}
+.cs.black{grid-column:7/10;grid-row:3/4;background:var(--black);color:var(--paper)}
+.cs.navy2{grid-column:10/13;grid-row:3/4;background:var(--navy-3);color:var(--paper)}
+.cs.red2{grid-column:7/10;grid-row:4/5;background:var(--red-2);color:var(--paper)}
+.cs.bone{grid-column:10/13;grid-row:4/5;background:var(--bone);color:var(--navy)}
+.cs.paper{grid-column:1/7;grid-row:4/5;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+@media(max-width:820px){.color-bento>*{grid-column:1/-1!important;grid-row:auto!important;min-height:120px}}
+
+/* usage ratio */
+.ratio{
+  display:flex;
+  height:62px;
+  border-radius:4px;
+  overflow:hidden;
+  margin-top:36px;
+  border:1px solid var(--bone);
+}
+.ratio>div{display:flex;align-items:center;padding:0 18px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.ratio .r-navy{flex:60;background:var(--navy);color:var(--paper)}
+.ratio .r-white{flex:30;background:var(--white);color:var(--navy)}
+.ratio .r-red{flex:8;background:var(--red);color:var(--paper);justify-content:center;padding:0 6px}
+.ratio .r-black{flex:2;background:var(--black);color:var(--paper);padding:0;justify-content:center}
+
+/* contrast tags on swatches */
+.ax{
+  display:inline-block;
+  margin-top:6px;
+  padding:3px 10px;
+  font-family:var(--ff-mono);font-size:10px;
+  letter-spacing:.16em;font-weight:600;
+  background:rgba(255,255,255,.18);border-radius:2px;
+}
+.cs.white .ax,.cs.bone .ax,.cs.paper .ax{background:rgba(11,40,68,.1)}
+
+/* ==============================
+   03 — TYPOGRAPHY (Cabin specimen)
+   ============================== */
+.type-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+  margin-top:20px;
+}
+.tb{padding:36px;border-radius:6px;position:relative;overflow:hidden}
+.tb .lbl{font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--red);margin-bottom:18px}
+.tb h3{font-family:var(--ff);font-weight:700;letter-spacing:-.025em;line-height:.95;color:var(--navy)}
+.tb p{font-size:14px;color:var(--stone-d);line-height:1.65;margin-top:12px}
+
+.tb.aa{
+  grid-column:1/5;
+  background:var(--navy);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  min-height:380px;
+}
+.tb.aa .glyph{font-family:var(--ff);font-weight:700;font-size:280px;line-height:.85;color:var(--paper)}
+.tb.aa .glyph i{font-style:italic;font-weight:400;color:var(--red-3)}
+
+.tb.spec{
+  grid-column:5/13;
+  background:var(--paper-2);border:1px solid var(--bone);
+  min-height:380px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.tb.spec h3{font-size:78px}
+.tb.spec h3 em{font-style:italic;color:var(--red);font-weight:400}
+.tb.spec .alpha{
+  font-size:17px;line-height:1.7;color:var(--stone-d);
+  border-top:1px solid var(--bone);
+  padding-top:22px;margin-top:22px;
+  font-family:var(--ff-mono);
+}
+
+.tb.weights{
+  grid-column:1/8;
+  background:var(--white);border:1px solid var(--bone);
+  display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:30px;
+  padding:46px 36px;
+}
+.weight{display:flex;flex-direction:column;align-items:center;gap:8px}
+.weight .ex{font-size:64px;color:var(--navy);line-height:1}
+.weight .l{font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone)}
+.weight.r .ex{font-weight:400}
+.weight.m .ex{font-weight:500}
+.weight.sb .ex{font-weight:600}
+.weight.b .ex{font-weight:700}
+
+.tb.facts{
+  grid-column:8/13;
+  background:var(--red);color:var(--paper);
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:240px;
+}
+.tb.facts .lbl{color:rgba(255,255,255,.85)}
+.tb.facts h3{font-size:30px;color:var(--paper)}
+.tb.facts h3 em{font-style:italic;font-weight:400;color:var(--navy)}
+.tb.facts ul{list-style:none;padding:0;font-size:13px;line-height:1.9;font-family:var(--ff-mono);letter-spacing:.04em}
+.tb.facts ul li::before{content:"→ ";color:var(--navy);font-weight:700}
+
+@media(max-width:820px){.type-bento>*{grid-column:1/-1!important}.tb.aa .glyph{font-size:160px}.tb.spec h3{font-size:48px}}
+
+/* ==============================
+   04 — TYPE SCALE
+   ============================== */
+.scale-row{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:50px;
+  padding:30px 0;
+  border-bottom:1px solid var(--hair);
+  align-items:baseline;
+}
+.scale-row:last-child{border-bottom:0}
+.scale-meta{font-family:var(--ff-mono);font-size:11px;color:var(--stone);line-height:1.7;letter-spacing:.04em}
+.scale-meta b{display:block;font-family:var(--ff-mono);font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.s1{font-family:var(--ff);font-weight:700;font-size:84px;line-height:.95;color:var(--navy);letter-spacing:-.025em}
+.s1 em{font-style:italic;color:var(--red);font-weight:400}
+.s2{font-family:var(--ff);font-weight:700;font-size:54px;line-height:1;color:var(--navy);letter-spacing:-.02em}
+.s3{font-family:var(--ff);font-weight:600;font-size:34px;line-height:1.1;color:var(--navy);letter-spacing:-.01em}
+.s4{font-family:var(--ff);font-weight:600;font-size:22px;line-height:1.2;color:var(--navy)}
+.s5{font-family:var(--ff);font-weight:400;font-size:16px;line-height:1.65;color:var(--stone-d);max-width:60ch}
+.s6{font-family:var(--ff);font-weight:400;font-size:13px;line-height:1.6;color:var(--stone-d);max-width:50ch}
+.s7{font-family:var(--ff-mono);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+@media(max-width:820px){.scale-row{grid-template-columns:1fr;gap:8px}.s1{font-size:50px}.s2{font-size:36px}}
+
+/* ==============================
+   05 — LOGO USAGE
+   ============================== */
+.logo-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:140px;
+  gap:16px;
+  margin-top:20px;
+}
+.lc{
+  border-radius:6px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lc .lbl{position:absolute;top:14px;left:18px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.lc.hero{grid-column:1/8;grid-row:1/4;background:var(--navy)}
+.lc.hero .lbl{color:rgba(255,255,255,.55)}
+.lc.white{grid-column:8/13;grid-row:1/3;background:var(--white);border:1px solid var(--bone)}
+.lc.white .lbl{color:var(--stone)}
+.lc.red{grid-column:8/13;grid-row:3/4;background:var(--red)}
+.lc.red .lbl{color:rgba(255,255,255,.6)}
+.lc.paper{grid-column:1/5;grid-row:4/5;background:var(--paper-2);border:1px solid var(--bone)}
+.lc.paper .lbl{color:var(--stone)}
+.lc.mono{grid-column:5/9;grid-row:4/5;background:var(--navy-3)}
+.lc.mono .lbl{color:rgba(255,255,255,.6)}
+.lc.tiny{grid-column:9/13;grid-row:4/5;background:var(--white);border:1px solid var(--bone)}
+.lc.tiny .lbl{color:var(--stone)}
+
+/* clearspace */
+.clearspace{
+  margin-top:24px;
+  background:var(--paper-2);
+  border:1px dashed var(--stone);
+  padding:60px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  border-radius:6px;
+}
+.clearspace::before{
+  content:"X = HEIGHT OF CAP LETTER";
+  position:absolute;top:14px;left:20px;
+  font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;color:var(--red);font-weight:600;
+}
+.clearspace .x{
+  position:absolute;color:var(--red);font-family:var(--ff-mono);font-size:14px;font-weight:600;
+}
+.clearspace .x.tl{top:14px;left:50%}.clearspace .x.tr{top:14px;right:50%}
+.clearspace .x.bl{bottom:14px;left:50%}.clearspace .x.br{bottom:14px;right:50%}
+
+/* misuse strip */
+.misuse{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+  margin-top:24px;
+}
+.mi{
+  aspect-ratio:1;
+  background:var(--paper-2);
+  border:1px solid var(--bone);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  border-radius:6px;
+}
+.mi::before,.mi::after{
+  content:"";position:absolute;top:50%;left:50%;
+  width:140%;height:2px;background:var(--red);
+}
+.mi::before{transform:translate(-50%,-50%) rotate(28deg)}
+.mi::after{transform:translate(-50%,-50%) rotate(-28deg)}
+.mi .l{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;color:var(--navy);font-weight:700;z-index:5;background:rgba(245,242,236,.92);padding:4px 0;margin:0 8px;border-radius:2px}
+.mi-stretch{transform:scale(1.4,.6)}
+.mi-rotate{transform:rotate(-15deg)}
+.mi-recolor .a{color:#1a8a3a !important}
+.mi-recolor .b{color:#f4a300 !important}
+.mi-flip{transform:scaleY(-1)}
+.mi-blur{filter:blur(1.5px)}
+.mi-cont{background:#ffd84d;border-radius:50%;padding:14px}
+@media(max-width:820px){.misuse{grid-template-columns:repeat(2,1fr)}.logo-bento>*{grid-column:1/-1!important;grid-row:auto!important;min-height:160px}}
+
+/* ==============================
+   06 — LAYOUT & SPACING
+   ============================== */
+.layout-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(100px,auto);
+  gap:16px;
+  margin-top:20px;
+}
+.lb{padding:30px;border-radius:6px;position:relative;overflow:hidden}
+.lb .lbl{font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--red);margin-bottom:16px}
+.lb h3{font-family:var(--ff);font-weight:700;font-size:24px;letter-spacing:-.015em;color:var(--navy);margin-bottom:12px}
+
+.lb.spacing{grid-column:1/6;grid-row:1/3;background:var(--paper-2);border:1px solid var(--bone)}
+.spacing-list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.sp{display:flex;align-items:center;gap:14px}
+.sp .tk{font-family:var(--ff-mono);font-size:10px;letter-spacing:.06em;color:var(--stone);min-width:72px}
+.sp .bar{height:12px;background:var(--navy);border-radius:2px}
+.sp .v{font-family:var(--ff-mono);font-size:10px;color:var(--stone);font-weight:600}
+
+.lb.bento{grid-column:6/13;grid-row:1/3;background:var(--white);border:1px solid var(--bone)}
+.bento-mini{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:46px;gap:8px;margin-top:18px}
+.bento-mini>div{border-radius:3px;display:flex;align-items:flex-end;padding:8px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.bm1{grid-column:1/4;grid-row:1/3;background:var(--navy);color:var(--paper)}
+.bm2{grid-column:4/7;grid-row:1/2;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+.bm3{grid-column:4/6;grid-row:2/3;background:var(--red);color:var(--paper)}
+.bm4{grid-column:6/7;grid-row:2/3;background:var(--navy-3);color:var(--paper)}
+.bm5{grid-column:1/3;grid-row:3/4;background:var(--red-2);color:var(--paper)}
+.bm6{grid-column:3/5;grid-row:3/4;background:var(--bone);color:var(--navy)}
+.bm7{grid-column:5/7;grid-row:3/4;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+
+.lb.grid{grid-column:1/8;grid-row:3/4;background:var(--navy);color:var(--paper)}
+.lb.grid h3{color:var(--paper);font-size:32px}
+.lb.grid h3 em{font-style:italic;color:var(--red-3);font-weight:400}
+.grid-show{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:18px}
+.grid-show div{height:36px;background:rgba(245,242,236,.12);border:1px solid rgba(245,242,236,.18);border-radius:2px}
+.grid-show div:nth-child(odd){background:rgba(182,32,37,.4)}
+
+.lb.diag{grid-column:8/13;grid-row:3/4;background:var(--red);color:var(--paper);min-height:230px}
+.lb.diag .lbl{color:rgba(255,255,255,.85)}
+.lb.diag h3{color:var(--paper);font-size:28px}
+.lb.diag p{font-size:13px;line-height:1.6;color:#fff;max-width:32ch}
+.lb.diag::before{
+  content:"";position:absolute;
+  top:-40px;right:-40px;
+  width:200px;height:200px;
+  background:repeating-linear-gradient(45deg,rgba(245,242,236,.32) 0 2px,transparent 2px 16px);
+  pointer-events:none;
+}
+.lb.diag::after{
+  content:"";position:absolute;
+  bottom:-30px;left:-30px;
+  width:140px;height:140px;
+  background-image:radial-gradient(circle,rgba(245,242,236,.28) 1.6px,transparent 2px);
+  background-size:14px 14px;
+  pointer-events:none;
+}
+@media(max-width:820px){.layout-bento>*{grid-column:1/-1!important;grid-row:auto!important}}
+
+/* ==============================
+   07 — UI COMPONENTS
+   ============================== */
+.comp-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+  margin-top:20px;
+}
+.comp{padding:30px;border-radius:6px;background:var(--white);border:1px solid var(--bone);position:relative}
+.comp .lbl{font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--red);margin-bottom:14px}
+.comp h3{font-family:var(--ff);font-weight:700;font-size:22px;color:var(--navy);margin-bottom:18px;letter-spacing:-.015em}
+
+.comp.btns{grid-column:1/8}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;
+  font-family:var(--ff);font-weight:600;font-size:12px;
+  letter-spacing:.16em;text-transform:uppercase;
+  border-radius:999px;border:1.5px solid var(--navy);
+  cursor:pointer;text-decoration:none;
+}
+.btn.primary{background:var(--navy);color:var(--paper)}
+.btn.red{background:var(--red);color:var(--paper);border-color:var(--red)}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.invert{background:var(--paper);color:var(--navy);border-color:var(--paper)}
+
+.comp.nav{grid-column:8/13;background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.comp.nav .lbl{color:var(--red-3)}
+.comp.nav h3{color:var(--paper)}
+.nav-mock{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:14px 0;border-top:1px solid rgba(245,242,236,.35)}
+.nav-mock .links{display:flex;gap:16px;flex-wrap:wrap}
+.nav-mock .links a{font-family:var(--ff);font-size:12px;font-weight:500;color:var(--paper);text-decoration:none;letter-spacing:.08em}
+
+.comp.cards{grid-column:1/13;background:var(--paper-2);border:1px solid var(--bone)}
+.feat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.feat{background:var(--white);padding:28px;border-radius:6px;border:1px solid var(--bone);position:relative;overflow:hidden}
+.feat::before{content:"";position:absolute;top:0;left:0;width:60px;height:3px;background:var(--red)}
+.feat .ic{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--navy);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;margin-bottom:18px;
+}
+.feat h4{font-family:var(--ff);font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:8px;color:var(--navy)}
+.feat p{font-size:13px;line-height:1.6;color:var(--stone-d)}
+
+.comp.tile{grid-column:1/7;background:var(--navy);color:var(--paper);border-color:var(--navy);min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+.comp.tile .lbl{color:var(--red-3)}
+.comp.tile h3{color:var(--paper);font-size:36px;line-height:1.05}
+.comp.tile h3 em{font-style:italic;color:var(--red-3);font-weight:400}
+.comp.tile p{color:var(--paper-78);font-size:14px;max-width:36ch}
+.comp.tile .arrow{
+  width:46px;height:46px;border-radius:50%;
+  border:1.5px solid var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  align-self:flex-end;
+}
+
+.comp.form{grid-column:7/13}
+.form-grid{display:grid;gap:14px;margin-top:14px}
+.form-grid label{font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600}
+.form-grid input{padding:12px 14px;border:1px solid var(--bone);background:var(--paper-2);font-family:var(--ff);font-size:14px;border-radius:4px;color:var(--navy)}
+@media(max-width:820px){.comp-grid>*{grid-column:1/-1!important}.feat-row{grid-template-columns:1fr}}
+
+/* ==============================
+   08 — ACCESSIBILITY
+   ============================== */
+.a11y-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.con{padding:30px;border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;position:relative;overflow:hidden}
+.con .ratio-num{font-family:var(--ff);font-weight:700;font-size:54px;line-height:1;letter-spacing:-.02em}
+.con .pair{font-family:var(--ff-mono);font-size:11px;letter-spacing:.06em;opacity:.85;margin-top:6px}
+.con .tag{display:inline-block;padding:5px 12px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;font-weight:600;border-radius:3px;align-self:flex-start;margin-top:14px}
+.con.np{grid-column:1/5;background:var(--navy);color:var(--paper)}
+.con.np .tag{background:var(--red);color:var(--paper)}
+.con.rp{grid-column:5/9;background:var(--red);color:var(--paper)}
+.con.rp .tag{background:var(--navy);color:var(--paper)}
+.con.pn{grid-column:9/13;background:var(--paper-2);color:var(--navy);border:1px solid var(--bone)}
+.con.pn .tag{background:var(--navy);color:var(--paper)}
+.con.bp{grid-column:1/7;background:var(--black);color:var(--paper)}
+.con.bp .tag{background:var(--paper);color:var(--navy)}
+.con.nw{grid-column:7/13;background:var(--navy-3);color:var(--paper)}
+.con.nw .tag{background:var(--red);color:var(--paper)}
+
+.checklist{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.chk{
+  background:var(--white);
+  border:1px solid var(--bone);
+  border-radius:4px;
+  padding:14px 18px 14px 44px;
+  position:relative;
+  font-size:14px;color:var(--stone-d);line-height:1.5;
+}
+.chk::before{
+  content:"✓";position:absolute;left:16px;top:13px;
+  color:var(--red);font-weight:700;font-size:18px;
+}
+.chk b{color:var(--navy);font-weight:700}
+@media(max-width:820px){.a11y-bento>*,.checklist>*{grid-column:1/-1!important}}
+
+/* ==============================
+   09 — PHOTOGRAPHY
+   ============================== */
+.photo-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:140px;
+  gap:14px;
+  margin-top:20px;
+}
+.ph{border-radius:6px;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:22px;color:var(--paper)}
+.ph::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(245,242,236,.10) 1.2px,transparent 2px);background-size:16px 16px}
+.ph .lbl{position:relative;z-index:3;font-family:var(--ff-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.ph .lbl b{display:block;font-family:var(--ff);font-weight:700;font-size:18px;color:#fff;text-transform:none;letter-spacing:-.01em;margin-bottom:4px}
+.ph.h1{grid-column:1/7;grid-row:1/3;background:linear-gradient(135deg,var(--navy),#1a3a5e)}
+.ph.h2{grid-column:7/10;grid-row:1/2;background:linear-gradient(135deg,var(--red),var(--red-2))}
+.ph.h3{grid-column:10/13;grid-row:1/2;background:linear-gradient(135deg,var(--navy-3),var(--navy))}
+.ph.h4{grid-column:7/13;grid-row:2/3;background:linear-gradient(135deg,#2a4f73,var(--navy))}
+.ph.h5{grid-column:1/5;grid-row:3/4;background:linear-gradient(135deg,var(--red-2),#5c1216)}
+.ph.h6{grid-column:5/9;grid-row:3/4;background:linear-gradient(135deg,var(--navy),var(--black))}
+.ph.h7{grid-column:9/13;grid-row:3/4;background:linear-gradient(135deg,var(--navy-2),var(--navy-3))}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.6) 95%)}
+.ph .lbl{z-index:3}
+
+.dosdonts{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+.dosdonts h4{font-family:var(--ff);font-weight:700;font-size:22px;letter-spacing:-.01em;margin-bottom:14px}
+.dosdonts .do h4{color:var(--navy)}
+.dosdonts .do h4::after{content:"";display:inline-block;width:30px;height:2px;background:var(--red);margin-left:14px;vertical-align:middle}
+.dosdonts .dont h4{color:var(--red)}
+.dosdonts ul{list-style:none;padding:0}
+.dosdonts li{padding:10px 0 10px 28px;position:relative;font-size:14px;color:var(--stone-d);border-bottom:1px solid var(--hair);line-height:1.55}
+.dosdonts .do li::before{content:"+";position:absolute;left:6px;color:var(--navy);font-weight:700}
+.dosdonts .dont li::before{content:"×";position:absolute;left:6px;color:var(--red);font-weight:700}
+@media(max-width:820px){.photo-bento>*{grid-column:1/-1!important;grid-row:auto!important;min-height:160px}.dosdonts{grid-template-columns:1fr}}
+
+/* ==============================
+   10 — DESIGN PATTERN LANGUAGE
+   Six unified motifs sharing
+   one rule book: 45° angles,
+   12px rhythm, navy/red palette.
+   ============================== */
+.pattern-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(260px,auto);
+  gap:18px;
+  margin-top:20px;
+}
+.pat{
+  padding:36px;border-radius:6px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:300px;
+}
+.pat-head{position:relative;z-index:3}
+.pat .lbl{font-family:var(--ff-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.pat .lbl::before{content:"";display:inline-block;width:24px;height:1px;background:currentColor}
+.pat h3{font-family:var(--ff);font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--navy);margin-bottom:10px;line-height:1.1}
+.pat h3 em{font-style:italic;font-weight:400;color:var(--red)}
+.pat p{font-size:14px;color:var(--stone-d);max-width:42ch;line-height:1.65}
+.pat .params{margin-top:18px;font-family:var(--ff-mono);font-size:11px;color:var(--red-2);letter-spacing:.04em;font-weight:600;background:rgba(182,32,37,.08);padding:8px 12px;border-radius:3px;display:inline-block;align-self:flex-start;position:relative;z-index:3}
+.pat.dark{background:var(--navy);color:var(--paper)}
+.pat.dark h3{color:var(--paper)}
+.pat.dark p{color:var(--paper-78)}
+.pat.dark .lbl{color:var(--red-3)}
+.pat.dark .params{background:rgba(255,255,255,.12);color:#fff}
+
+/* the patterns themselves — utility classes */
+.bg-pat{position:absolute;inset:0;z-index:1}
+
+/* 01 — civic stripe */
+.bg-stripe{
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(182,32,37,.85) 0 2px,
+      transparent 2px 24px);
+}
+.bg-stripe.on-paper{
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(11,40,68,.18) 0 1.5px,
+      transparent 1.5px 14px);
+}
+
+/* 02 — halftone dot field */
+.bg-halftone{
+  background-image:radial-gradient(circle,var(--navy) 1.6px,transparent 2px);
+  background-size:14px 14px;
+  opacity:.85;
+}
+.bg-halftone.red{background-image:radial-gradient(circle,var(--red) 1.6px,transparent 2px)}
+.bg-halftone.paper{background-image:radial-gradient(circle,rgba(245,242,236,.55) 1.4px,transparent 2px)}
+
+/* 03 — ballot perforation edge */
+.bg-perf{
+  background-image:
+    linear-gradient(90deg,var(--paper) 50%,transparent 50%),
+    linear-gradient(0deg,transparent calc(50% - 0.5px),var(--bone) calc(50% - 0.5px),var(--bone) calc(50% + 0.5px),transparent calc(50% + 0.5px));
+  background-size:14px 1px,100% 100%;
+  background-repeat:repeat-x,no-repeat;
+  background-position:center bottom,center;
+  height:2px;
+  top:auto;bottom:36px;left:36px;right:36px;
+  inset:auto 36px 36px 36px;
+}
+
+/* 04 — registration crosshair grid */
+.bg-cross{
+  background-image:
+    linear-gradient(rgba(11,40,68,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(11,40,68,.14) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.bg-cross.dark{
+  background-image:
+    linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);
+}
+.cross-mark{position:absolute;width:14px;height:14px;z-index:2}
+.cross-mark::before,.cross-mark::after{content:"";position:absolute;background:var(--red)}
+.cross-mark::before{top:50%;left:0;right:0;height:1.5px;transform:translateY(-50%)}
+.cross-mark::after{left:50%;top:0;bottom:0;width:1.5px;transform:translateX(-50%)}
+
+/* 05 — star constellation */
+.bg-stars{position:absolute;inset:0;z-index:1;overflow:hidden}
+.bg-stars i{
+  position:absolute;
+  font-style:normal;
+  color:var(--red);
+  font-size:14px;
+  line-height:1;
+}
+.bg-stars i.lg{font-size:22px}
+.bg-stars i.sm{font-size:10px;opacity:.6}
+.bg-stars.dark i{color:var(--red-3)}
+
+/* 06 — diagonal wedge */
+.bg-wedge{
+  background:var(--red);
+  clip-path:polygon(100% 0,100% 100%,0 100%);
+  position:absolute;
+  bottom:0;right:0;
+  width:55%;height:55%;
+  z-index:1;
+}
+.bg-wedge.navy{background:var(--navy)}
+
+/* badge / sticker (used inside pattern card) */
+.sticker-tag{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) rotate(-6deg);
+  background:var(--red);color:#fff;
+  padding:14px 26px;border-radius:999px;
+  font-family:var(--ff-mono);font-weight:700;font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;
+  box-shadow:8px 8px 0 var(--navy);
+  z-index:3;
+}
+
+/* corner brackets (security-document style) */
+.corner-bracket{position:absolute;width:20px;height:20px;z-index:3}
+.corner-bracket.tl{top:14px;left:14px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+.corner-bracket.tr{top:14px;right:14px;border-top:2px solid var(--red);border-right:2px solid var(--red)}
+.corner-bracket.bl{bottom:14px;left:14px;border-bottom:2px solid var(--red);border-left:2px solid var(--red)}
+.corner-bracket.br{bottom:14px;right:14px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+
+/* pattern grid placement */
+.pat.p1{grid-column:1/8}
+.pat.p2{grid-column:8/13}
+.pat.p3{grid-column:1/5}
+.pat.p4{grid-column:5/9}
+.pat.p5{grid-column:9/13}
+.pat.p6{grid-column:1/13;min-height:200px}
+
+@media(max-width:820px){.pattern-grid>*{grid-column:1/-1!important;grid-row:auto!important;min-height:260px}}
+
+/* ==============================
+   11 — QUICK REFERENCE
+   ============================== */
+.qr-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.qr{padding:30px;border-radius:6px;background:var(--white);border:1px solid var(--bone);position:relative}
+.qr h3{
+  font-family:var(--ff);font-weight:700;font-size:22px;
+  color:var(--navy);margin-bottom:18px;
+  padding-bottom:12px;border-bottom:2px solid var(--red);
+  letter-spacing:-.015em;
+}
+.qr-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--hair);font-family:var(--ff-mono);font-size:11px;letter-spacing:.04em}
+.qr-row:last-child{border-bottom:0}
+.qr-row .k{color:var(--stone);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:10px}
+.qr-row .v{color:var(--navy);font-weight:500}
+.qr.colors{grid-column:1/5}
+.qr.type{grid-column:5/9}
+.qr.dont{grid-column:9/13;background:var(--red);color:var(--paper);border:none}
+.qr.dont h3{color:var(--paper);border-bottom-color:var(--paper)}
+.qr.dont ul{list-style:none;padding:0}
+.qr.dont li{padding:8px 0 8px 22px;position:relative;font-size:13px;line-height:1.55;border-bottom:1px solid rgba(255,255,255,.32);color:#fff}
+.qr.dont li::before{content:"×";position:absolute;left:0;color:var(--paper);font-weight:700;font-size:16px}
+.qr.dont li:last-child{border-bottom:0}
+.qr.do{grid-column:1/8;background:var(--navy);color:var(--paper);border:none}
+.qr.do h3{color:var(--paper);border-bottom-color:var(--red-3)}
+.qr.do ul{list-style:none;padding:0}
+.qr.do li{padding:8px 0 8px 22px;position:relative;font-size:13px;line-height:1.55;border-bottom:1px solid rgba(245,242,236,.3);color:var(--paper)}
+.qr.do li::before{content:"→";position:absolute;left:0;color:var(--red-3);font-weight:700}
+.qr.do li:last-child{border-bottom:0}
+.qr.contact{grid-column:8/13;background:var(--paper-2);border:1px solid var(--bone)}
+.qr.contact h3{color:var(--navy)}
+.qr.contact .url{font-family:var(--ff);font-weight:700;font-size:24px;color:var(--red);letter-spacing:-.015em;margin:14px 0}
+@media(max-width:820px){.qr-bento>*{grid-column:1/-1!important}}
+
+/* ==============================
+   THANK YOU page
+   ============================== */
+.thanks{background:var(--navy);color:var(--paper);min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.thanks::before{content:"";position:absolute;top:0;left:0;width:240px;height:240px;background:var(--red);clip-path:polygon(0 0,100% 0,0 100%)}
+.thanks::after{content:"";position:absolute;bottom:0;right:0;width:160px;height:160px;background:var(--red);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.thanks .pad{position:relative;z-index:2;padding:80px 40px}
+.thanks h2{font-family:var(--ff);font-weight:700;font-size:clamp(80px,14vw,200px);line-height:.9;letter-spacing:-.04em}
+.thanks h2 em{font-style:italic;font-weight:400;color:var(--red-3)}
+.thanks .rule{width:80px;height:3px;background:var(--red);margin:24px auto}
+.thanks .org{font-family:var(--ff-mono);font-size:13px;letter-spacing:.28em;font-weight:600}
+.thanks .meta{font-family:var(--ff-mono);font-size:11px;color:var(--paper-78);letter-spacing:.18em;margin-top:8px}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     PAGE 01 — COVER (asymmetric split)
+     ════════════════════════════════════════ -->
+<section class="canvas cover">
+  <div class="pad">
+    <div class="cover-l">
+      <div>
+        <span class="star">&#9733;</span>
+        <div class="top-mark">Official Brand Guidelines · Internal Use</div>
+        <h1>Mark<br>Norman<br><em>for Oregon.</em></h1>
+        <div class="tag">Oregon · House District 27 · Republican · 2026</div>
+      </div>
+      <div class="cover-meta">
+        <div>Version<b>1.0</b></div>
+        <div>Date<b>April 2026</b></div>
+        <div>Status<b>Internal</b></div>
+        <div>Pages<b>13</b></div>
+      </div>
+    </div>
+    <div class="cover-r">
+      <div class="badge">
+        <div class="mn s-md">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 02 — TABLE OF CONTENTS
+     ════════════════════════════════════════ -->
+<section class="canvas toc">
+  <div class="wm" style="top:-60px;right:-30px">00</div>
+  <div class="page-tag">N° 00 — Overview</div>
+  <div class="pad">
+    <div style="max-width:780px;margin-top:30px">
+      <div class="sec-eyebrow">CONTENTS</div>
+      <h2 class="sec-title">Table of <em>Contents.</em></h2>
+      <p class="sec-desc">A complete brand system for the Mark Norman for Oregon campaign — covering identity, color, typography, layout, components, accessibility, photography, and the design pattern language that runs through every voter touchpoint.</p>
+    </div>
+    <div class="toc-grid">
+      <div class="toc-row"><span class="n">01</span><span class="t">Brand Foundation &amp; Design <em>Principles</em></span><span class="meta">Foundations</span></div>
+      <div class="toc-row"><span class="n">02</span><span class="t">Color System</span><span class="meta">Identity</span></div>
+      <div class="toc-row"><span class="n">03</span><span class="t">Typography</span><span class="meta">Cabin</span></div>
+      <div class="toc-row"><span class="n">04</span><span class="t">Type Scale</span><span class="meta">Hierarchy</span></div>
+      <div class="toc-row"><span class="n">05</span><span class="t">Logo <em>Usage</em></span><span class="meta">Identity</span></div>
+      <div class="toc-row"><span class="n">06</span><span class="t">Layout &amp; Spacing</span><span class="meta">System</span></div>
+      <div class="toc-row"><span class="n">07</span><span class="t">UI Components</span><span class="meta">Toolkit</span></div>
+      <div class="toc-row"><span class="n">08</span><span class="t">Accessibility</span><span class="meta">WCAG</span></div>
+      <div class="toc-row"><span class="n">09</span><span class="t">Photography &amp; <em>Imagery</em></span><span class="meta">Direction</span></div>
+      <div class="toc-row"><span class="n">10</span><span class="t">Design Patterns</span><span class="meta">Language</span></div>
+      <div class="toc-row"><span class="n">11</span><span class="t">Quick Reference Sheet</span><span class="meta">Cheat sheet</span></div>
+    </div>
+  </div>
+  <div class="page-foot"><span>Friends of Mark Norman · OR-27</span><span>Brand Guide v1.0</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 03 — 01 BRAND FOUNDATION & PRINCIPLES
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-50px;right:-20px">01</div>
+  <div class="page-tag">N° 01 — Foundation</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">BRAND FOUNDATION</div>
+      <h2 class="sec-title">Design <em>Principles.</em></h2>
+      <p class="sec-desc">Six principles ground every decision — from a yard sign on a country road to a hero section on the website. They reflect the candidate himself: a Navy veteran, longtime veterinarian, and small-business owner running on practical leadership for House District 27.</p>
+    </div>
+
+    <div class="principles">
+      <div class="pr a">
+        <div class="pn">PRINCIPLE 01</div>
+        <div>
+          <h3>Practical, <em>not partisan.</em></h3>
+          <p>Lead with solutions, not slogans. Frame every issue around the family at the kitchen table, not the party platform.</p>
+        </div>
+        <div class="dia"></div>
+      </div>
+      <div class="pr b">
+        <div class="pn">PRINCIPLE 02</div>
+        <h3>Calm &amp; steady.</h3>
+        <p>Speak plainly. Avoid outrage. Oregon needs adults in the room — that posture shapes typography, color, and tone.</p>
+      </div>
+      <div class="pr c">
+        <div class="pn">PRINCIPLE 03</div>
+        <h3>Experienced.</h3>
+        <p>30 years of service — Navy, vet, small business — without lecturing.</p>
+      </div>
+      <div class="pr d">
+        <div class="pn">PRINCIPLE 04</div>
+        <h3>Accountable.</h3>
+        <p>Spend taxpayer dollars carefully. Measure results, not effort.</p>
+      </div>
+      <div class="pr e">
+        <div class="pn">PRINCIPLE 05</div>
+        <h3>Respectful.</h3>
+        <p>Disagree without being disagreeable. Every voter, every time.</p>
+      </div>
+      <div class="pr f">
+        <div class="pn">PRINCIPLE 06</div>
+        <h3>Honest, <em>brief, and earned.</em></h3>
+        <p>Assume the reader is busy, smart, and skeptical. Be brief. Be honest. Earn the next sentence — that rule applies to copy, photography, and layout density alike.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>01 / Foundation &amp; Principles</span><span>Page 03</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 04 — 02 COLOR SYSTEM
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">02</div>
+  <div class="page-tag">N° 02 — Identity</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">COLOR SYSTEM</div>
+      <h2 class="sec-title">A palette of <em>two</em>.</h2>
+      <p class="sec-desc">Navy is the foundation — confident, steady, trustworthy. Red is the accent of energy and conviction, used sparingly to draw the eye to one thing at a time. White breathes. Black anchors text. Tints exist only to extend the same conversation.</p>
+    </div>
+
+    <div class="color-bento">
+      <div class="cs navy">
+        <div class="role">Primary · Foundation</div>
+        <div>
+          <div class="nm">Mark Norman Navy</div>
+          <div class="codes" style="margin-top:14px">
+            <div><b>HEX</b>#0B2844</div>
+            <div><b>RGB</b>11 · 40 · 68</div>
+            <div><b>CMYK</b>84 · 41 · 0 · 73</div>
+          </div>
+          <span class="ax">AAA · 13.4:1</span>
+        </div>
+      </div>
+      <div class="cs red">
+        <div class="role">Secondary · Accent</div>
+        <div>
+          <div class="nm">Mark Norman Red</div>
+          <div class="codes" style="margin-top:10px">
+            <div><b>HEX</b>#B62025</div>
+            <div><b>RGB</b>182 · 32 · 37</div>
+          </div>
+          <span class="ax">AA · 5.6:1</span>
+        </div>
+      </div>
+      <div class="cs white">
+        <div class="role">Tertiary</div>
+        <div><div class="nm">Pure White</div><div class="codes">#FFFFFF</div></div>
+      </div>
+      <div class="cs black"><div class="role">Tertiary</div><div><div class="nm">Black</div><div class="codes">#000000</div></div></div>
+      <div class="cs navy2"><div class="role">Tint · Hover</div><div><div class="nm">Navy 80</div><div class="codes">#0F3C66</div></div></div>
+      <div class="cs red2"><div class="role">Tint · Press</div><div><div class="nm">Red Deep</div><div class="codes">#921A1F</div></div></div>
+      <div class="cs bone"><div class="role">Surface</div><div><div class="nm">Bone</div><div class="codes">#E2DCCC</div></div></div>
+      <div class="cs paper"><div class="role">Background · Default</div><div><div class="nm">Paper</div><div class="codes">#F5F2EC · #EDE8DD</div></div></div>
+    </div>
+
+    <div class="ratio" aria-label="recommended usage ratio">
+      <div class="r-navy">Navy · 60%</div>
+      <div class="r-white">White · 30%</div>
+      <div class="r-red">Red · 8%</div>
+      <div class="r-black">2</div>
+    </div>
+  </div>
+  <div class="page-foot"><span>02 / Color System</span><span>Page 04</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 05 — 03 TYPOGRAPHY
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">03</div>
+  <div class="page-tag">N° 03 — Cabin</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">TYPOGRAPHY</div>
+      <h2 class="sec-title">One typeface. <em>Cabin.</em></h2>
+      <p class="sec-desc">Cabin — designed by Pablo Impallari — is the brand's only typeface. Open source, highly legible, confident, clear, and approachable. Four weights cover every campaign communication, from a yard sign to a footnote.</p>
+    </div>
+
+    <div class="type-bento">
+      <div class="tb aa">
+        <div class="glyph">A<i>a</i></div>
+      </div>
+      <div class="tb spec">
+        <div class="lbl">Specimen · Cabin</div>
+        <h3>Practical leadership <em>for Oregon families.</em></h3>
+        <div class="alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0 1 2 3 4 5 6 7 8 9 ! @ # $ % &amp; * ?</div>
+      </div>
+      <div class="tb weights">
+        <div class="weight r"><div class="ex">Aa</div><div class="l">Regular · 400</div></div>
+        <div class="weight m"><div class="ex">Aa</div><div class="l">Medium · 500</div></div>
+        <div class="weight sb"><div class="ex">Aa</div><div class="l">SemiBold · 600</div></div>
+        <div class="weight b"><div class="ex">Aa</div><div class="l">Bold · 700</div></div>
+      </div>
+      <div class="tb facts">
+        <div>
+          <div class="lbl">Facts</div>
+          <h3>Open <em>source.</em><br>Always free.</h3>
+        </div>
+        <ul>
+          <li>Pablo Impallari, 2010</li>
+          <li>Google Fonts hosted</li>
+          <li>SIL Open Font License</li>
+          <li>4 weights · upright + italic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>03 / Typography</span><span>Page 05</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 06 — 04 TYPE SCALE
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">04</div>
+  <div class="page-tag">N° 04 — Hierarchy</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">TYPE SCALE</div>
+      <h2 class="sec-title">A clear <em>hierarchy.</em></h2>
+      <p class="sec-desc">Distinct weights and sizes keep voter-facing copy scannable. Body text never drops below 12pt in print to respect older readers. Italic Cabin is reserved for emphasis and short, human moments.</p>
+    </div>
+
+    <div style="margin-top:30px">
+      <div class="scale-row">
+        <div class="scale-meta"><b>Display · 84pt</b>Bold · -2.5% tracking<br>Yard signs · website hero</div>
+        <div class="s1">Practical <em>Leadership.</em></div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta"><b>H1 · 54pt</b>Bold · -2% tracking<br>Section openers · mailers</div>
+        <div class="s2">Affordability, accountability, common sense.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta"><b>H2 · 34pt</b>SemiBold · -1% tracking<br>Card headers</div>
+        <div class="s3">Where Mark stands on the issues.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta"><b>H3 · 22pt</b>SemiBold<br>Sub-sections</div>
+        <div class="s4">Affordability for working families.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta"><b>Body · 16pt</b>Regular · 1.65 leading<br>Paragraphs · web copy</div>
+        <div class="s5">Mark Norman is a Navy veteran, longtime veterinarian, and small-business owner running for Oregon House District 27 because Oregon families deserve a representative who solves problems and listens to the people paying the bills.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta"><b>Caption · 13pt</b>Regular<br>Disclosures · captions</div>
+        <div class="s6">Visit MarkNormanForOregon.com to learn more, sign up to volunteer, or send a question to the campaign team.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta"><b>Eyebrow · 11pt</b>Mono · 600 · uppercase<br>Tags · category labels</div>
+        <div class="s7">Practical Leadership for Oregon</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>04 / Type Scale</span><span>Page 06</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 07 — 05 LOGO USAGE
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">05</div>
+  <div class="page-tag">N° 05 — Identity</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">LOGO USAGE</div>
+      <h2 class="sec-title">One <em>fixed</em> lockup.</h2>
+      <p class="sec-desc">The mark is a single, locked unit — stacked name, red star, office line, party affiliation. Reproduce at scale. Never rebuild, redraw, or recompose from parts. Below: approved backgrounds, then the six things that are not allowed.</p>
+    </div>
+
+    <div class="logo-bento">
+      <div class="lc hero">
+        <div class="lbl">Hero · Inverted</div>
+        <div class="mn inv s-lg">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+      <div class="lc white">
+        <div class="lbl">On White · Default</div>
+        <div class="mn s-md">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+      <div class="lc red">
+        <div class="lbl">On Red · Sparingly</div>
+        <div class="mn inv s-sm">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+      <div class="lc paper">
+        <div class="lbl">On Paper</div>
+        <div class="mn s-sm">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+      <div class="lc mono">
+        <div class="lbl">Tinted Surface</div>
+        <div class="mn inv s-sm">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+      <div class="lc tiny">
+        <div class="lbl">Compact · 70px min</div>
+        <div class="mn s-xs">
+          <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+          <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+          <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+          <div class="of">OREGON HOUSE DISTRICT 27</div>
+          <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearspace">
+      <span class="x tl">x</span><span class="x tr">x</span>
+      <span class="x bl">x</span><span class="x br">x</span>
+      <div class="mn s-sm">
+        <div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div>
+        <div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div>
+        <div class="for"><span class="ln"></span><span class="ft">for</span><span class="ln"></span></div>
+        <div class="of">OREGON HOUSE DISTRICT 27</div>
+        <div class="pt"><span class="ln"></span><span class="lb">REPUBLICAN</span><span class="ln"></span></div>
+      </div>
+    </div>
+
+    <div class="misuse">
+      <div class="mi"><div class="mi-stretch"><div class="mn s-xxs"><div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div><div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div><div class="of">OR HD 27</div></div></div><div class="l">DON'T STRETCH</div></div>
+      <div class="mi"><div class="mi-rotate"><div class="mn s-xxs"><div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div><div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div><div class="of">OR HD 27</div></div></div><div class="l">DON'T ROTATE</div></div>
+      <div class="mi"><div class="mi-cont"><div class="mn s-xxs"><div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div><div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div><div class="of">OR HD 27</div></div></div><div class="l">NO CONTAINER</div></div>
+      <div class="mi"><div class="mi-flip"><div class="mn s-xxs"><div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div><div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div><div class="of">OR HD 27</div></div></div><div class="l">DON'T FLIP</div></div>
+      <div class="mi"><div class="mi-recolor"><div class="mn s-xxs"><div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div><div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div><div class="of">OR HD 27</div></div></div><div class="l">DON'T RECOLOR</div></div>
+      <div class="mi"><div class="mi-blur"><div class="mn s-xxs"><div class="top"><span class="ln"></span><span class="st">&#9733;</span><span class="ln"></span></div><div class="nm"><span class="a">MARK</span><span class="b">NORMAN</span></div><div class="of">OR HD 27</div></div></div><div class="l">NO EFFECTS</div></div>
+    </div>
+  </div>
+  <div class="page-foot"><span>05 / Logo Usage</span><span>Page 07</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 08 — 06 LAYOUT & SPACING
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">06</div>
+  <div class="page-tag">N° 06 — System</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">LAYOUT &amp; SPACING</div>
+      <h2 class="sec-title">A 12-column <em>asymmetric</em> grid.</h2>
+      <p class="sec-desc">All campaign surfaces — web, mailer, social — derive from the same 12-column structure with a 4pt base spacing scale. Layouts are intentionally asymmetric: heavy on one side, breathing on the other. Bento composition keeps the eye moving.</p>
+    </div>
+
+    <div class="layout-bento">
+      <div class="lb spacing">
+        <div class="lbl">Spacing scale · 4pt base</div>
+        <h3>Tokens.</h3>
+        <div class="spacing-list">
+          <div class="sp"><div class="tk">XS · 4</div><div class="bar" style="width:10px"></div><div class="v">4 px</div></div>
+          <div class="sp"><div class="tk">SM · 8</div><div class="bar" style="width:20px"></div><div class="v">8 px</div></div>
+          <div class="sp"><div class="tk">MD · 16</div><div class="bar" style="width:42px"></div><div class="v">16 px</div></div>
+          <div class="sp"><div class="tk">LG · 32</div><div class="bar" style="width:88px"></div><div class="v">32 px</div></div>
+          <div class="sp"><div class="tk">XL · 64</div><div class="bar" style="width:160px"></div><div class="v">64 px</div></div>
+          <div class="sp"><div class="tk">XXL · 96</div><div class="bar" style="width:240px"></div><div class="v">96 px</div></div>
+        </div>
+      </div>
+      <div class="lb bento">
+        <div class="lbl">Bento composition</div>
+        <h3>Different sizes. <span style="color:var(--red);font-style:italic;font-weight:400">One rhythm.</span></h3>
+        <div class="bento-mini">
+          <div class="bm1">A · Hero</div>
+          <div class="bm2">B</div>
+          <div class="bm3">C</div>
+          <div class="bm4">D</div>
+          <div class="bm5">E</div>
+          <div class="bm6">F</div>
+          <div class="bm7">G</div>
+        </div>
+      </div>
+      <div class="lb grid">
+        <div class="lbl" style="color:var(--red-3)">Underlying grid · 12 col</div>
+        <h3>12 columns. <em>Asymmetric.</em></h3>
+        <div class="grid-show">
+          <div></div><div></div><div></div><div></div><div></div><div></div>
+          <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+      </div>
+      <div class="lb diag">
+        <div class="lbl">Diagonal energy</div>
+        <h3>Tilt &amp; offset.</h3>
+        <p>Headlines, badges, and pull-quotes rotate 2–7° to inject motion. Grid stays straight; content leans.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>06 / Layout &amp; Spacing</span><span>Page 08</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 09 — 07 UI COMPONENTS
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">07</div>
+  <div class="page-tag">N° 07 — Toolkit</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">UI COMPONENTS</div>
+      <h2 class="sec-title">Reusable <em>parts.</em></h2>
+      <p class="sec-desc">Buttons, navigation, cards, tiles, and forms — built from the same color, type, and spacing tokens. Each component should feel inevitable: one primary action per screen, plenty of breathing room, no decorative noise.</p>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp btns">
+        <div class="lbl">Buttons</div>
+        <h3>Calls to action.</h3>
+        <div class="btn-row" style="margin-bottom:14px">
+          <a class="btn primary" href="#">Donate Now</a>
+          <a class="btn red" href="#">Volunteer</a>
+          <a class="btn ghost" href="#">Learn More</a>
+        </div>
+        <div class="btn-row">
+          <a class="btn primary" style="padding:10px 22px;font-size:11px" href="#">Small CTA</a>
+          <a class="btn ghost" style="padding:10px 22px;font-size:11px" href="#">Secondary</a>
+          <a class="btn red" style="padding:10px 22px;font-size:11px" href="#">Sign Up</a>
+        </div>
+      </div>
+      <div class="comp nav">
+        <div class="lbl">Navigation</div>
+        <h3>Always 5 links.</h3>
+        <div class="nav-mock">
+          <div style="font-family:var(--ff);font-weight:700;font-size:18px">MARK NORMAN</div>
+          <div class="links">
+            <a>About</a><a>Issues</a><a>Endorse</a><a>Events</a><a>Donate</a>
+          </div>
+        </div>
+      </div>
+      <div class="comp cards">
+        <div class="lbl">Feature cards</div>
+        <h3>Issue tiles.</h3>
+        <div class="feat-row">
+          <div class="feat">
+            <div class="ic">$</div>
+            <h4>Affordability.</h4>
+            <p>Hold the line on taxes. Lower the cost of housing, energy, and everyday living.</p>
+          </div>
+          <div class="feat">
+            <div class="ic">A</div>
+            <h4>Education.</h4>
+            <p>Strong academic standards. Respect parents. Fund classrooms, not bureaucracy.</p>
+          </div>
+          <div class="feat">
+            <div class="ic">✓</div>
+            <h4>Accountability.</h4>
+            <p>Independent audits. Real oversight. Government that listens to constituents.</p>
+          </div>
+        </div>
+      </div>
+      <div class="comp tile">
+        <div class="lbl">Hero tile</div>
+        <div>
+          <h3>Oregon deserves <em>common sense.</em></h3>
+          <p>A practical, accountable representative for House District 27.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="comp form">
+        <div class="lbl">Form · sign-up</div>
+        <h3>Join the campaign.</h3>
+        <div class="form-grid">
+          <label>Full name</label>
+          <input type="text" placeholder="Your name">
+          <label>Email</label>
+          <input type="email" placeholder="you@oregon.com">
+          <label>ZIP code</label>
+          <input type="text" placeholder="97000">
+          <a class="btn red" style="justify-content:center;margin-top:8px">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>07 / UI Components</span><span>Page 09</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 10 — 08 ACCESSIBILITY
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">08</div>
+  <div class="page-tag">N° 08 — WCAG</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">ACCESSIBILITY</div>
+      <h2 class="sec-title">Designed to be <em>read.</em></h2>
+      <p class="sec-desc">Every approved color pair clears WCAG 2.2 AA at body size or better. Type sizes respect older voters. Focus states never disappear. The brand should be just as legible in a kitchen at dawn as on a phone in bright Oregon sun.</p>
+    </div>
+
+    <div class="a11y-bento">
+      <div class="con np">
+        <div>
+          <div class="ratio-num">13.4</div>
+          <div class="pair">Navy on Paper</div>
+        </div>
+        <span class="tag">AAA · LARGE + BODY</span>
+      </div>
+      <div class="con rp">
+        <div>
+          <div class="ratio-num">5.6</div>
+          <div class="pair">Red on Paper</div>
+        </div>
+        <span class="tag">AA · BODY</span>
+      </div>
+      <div class="con pn">
+        <div>
+          <div class="ratio-num">15.1</div>
+          <div class="pair">Paper on Navy</div>
+        </div>
+        <span class="tag">AAA · BODY</span>
+      </div>
+      <div class="con bp">
+        <div>
+          <div class="ratio-num">19.3</div>
+          <div class="pair">Black on Paper</div>
+        </div>
+        <span class="tag">AAA · BODY</span>
+      </div>
+      <div class="con nw">
+        <div>
+          <div class="ratio-num">7.8</div>
+          <div class="pair">Navy on White</div>
+        </div>
+        <span class="tag">AAA · LARGE</span>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="chk"><b>Body text 16px+.</b> Minimum on web. Print copy never below 12pt.</div>
+      <div class="chk"><b>Focus visible.</b> 2px red outline + 2px paper offset on every interactive element.</div>
+      <div class="chk"><b>Color is never the only signal.</b> Pair red with weight, label, or icon.</div>
+      <div class="chk"><b>Tap targets ≥ 44 × 44px.</b> Buttons and form fields meet WCAG 2.5.5.</div>
+      <div class="chk"><b>Alt text mandatory.</b> Decorative images get <em>alt=""</em>; informative ones get a sentence.</div>
+      <div class="chk"><b>No critical info in red alone.</b> Use Navy for primary, Red for emphasis only.</div>
+      <div class="chk"><b>Captioned video.</b> Every campaign video ships with English captions and a transcript.</div>
+      <div class="chk"><b>Form labels never hidden.</b> Placeholder ≠ label. Always provide both.</div>
+    </div>
+  </div>
+  <div class="page-foot"><span>08 / Accessibility</span><span>Page 10</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 11 — 09 PHOTOGRAPHY & IMAGERY
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">09</div>
+  <div class="page-tag">N° 09 — Direction</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">PHOTOGRAPHY &amp; IMAGERY</div>
+      <h2 class="sec-title">Authentic <em>moments.</em></h2>
+      <p class="sec-desc">Photography is human-centered, naturally lit, and never overproduced. Mark in the room with constituents. The dogs (Doug the sheepadoodle leads the pack) when natural. No suit-and-podium clichés. No heavy filters. The voter should recognize the moment from real life.</p>
+    </div>
+
+    <div class="photo-bento">
+      <div class="ph h1"><div class="lbl"><b>Headshot · primary</b>Eye-line at camera</div></div>
+      <div class="ph h2"><div class="lbl"><b>Constituents</b>Town hall</div></div>
+      <div class="ph h3"><div class="lbl"><b>At the practice</b>Veterinary work</div></div>
+      <div class="ph h4"><div class="lbl"><b>Lifestyle · candidate-in-community</b>Outdoor light · with the dogs</div></div>
+      <div class="ph h5"><div class="lbl"><b>Small business visit</b>Listening posture</div></div>
+      <div class="ph h6"><div class="lbl"><b>Service · Navy</b>Archive only when relevant</div></div>
+      <div class="ph h7"><div class="lbl"><b>Family · candid</b>Use sparingly</div></div>
+    </div>
+
+    <div class="dosdonts">
+      <div class="do">
+        <h4>Do</h4>
+        <ul>
+          <li>Shoot in natural daylight whenever possible.</li>
+          <li>Eye-level. Candid. Listening, not posing.</li>
+          <li>True skin tones — no orange grading.</li>
+          <li>Show the hands of working Oregonians.</li>
+          <li>Crop tight on the subject. Clean backgrounds.</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4>Don't</h4>
+        <ul>
+          <li>Stiff suit-and-podium photography.</li>
+          <li>Heavy color grading or fake skin tones.</li>
+          <li>Generic stock photography. Ever.</li>
+          <li>Background clutter, busy crowds, mid-blink.</li>
+          <li>Flag-draped backgrounds — restraint over rah-rah.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>09 / Photography</span><span>Page 11</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 12 — 10 DESIGN PATTERNS
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">10</div>
+  <div class="page-tag">N° 10 — Language</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">DESIGN PATTERNS</div>
+      <h2 class="sec-title">A pattern <em>language.</em></h2>
+      <p class="sec-desc">Repeatable motifs that turn a yard sign, a mailer, and an Instagram story into the same campaign. Use sparingly — one motif per layout — and keep them in service of the message, never as decoration for its own sake.</p>
+    </div>
+
+    <div class="pattern-grid">
+
+      <!-- 01 · CIVIC STRIPE FIELD -->
+      <div class="pat p1 dark">
+        <div class="bg-pat bg-stripe" style="opacity:.5"></div>
+        <div class="bg-pat bg-halftone paper" style="opacity:.35"></div>
+        <div class="pat-head">
+          <div class="lbl">01 · Civic Stripe Field</div>
+          <h3>Stripes &amp; <em>halftone.</em></h3>
+          <p>Navy ground with red diagonal pinstripes at 45°, layered with a subtle paper-tone halftone. Civic without the flag-waving. Use behind hero quotes, on door hangers, and as a full-bleed event backdrop.</p>
+        </div>
+        <div class="params">stripe 2px · 24px gap · halftone 14px · 45°</div>
+      </div>
+
+      <!-- 02 · TILTED STAMP -->
+      <div class="pat p2">
+        <div class="bg-pat bg-cross"></div>
+        <span class="cross-mark" style="top:24px;left:24px"></span>
+        <span class="cross-mark" style="bottom:24px;right:24px"></span>
+        <div class="pat-head">
+          <div class="lbl">02 · Tilted Stamp</div>
+          <h3>Rotated badge.</h3>
+          <p>For tagline drops and one-line CTAs. Hard offset shadow, no soft blur.</p>
+        </div>
+        <div class="params">rotate(-6deg) · shadow 8/8/0 navy</div>
+        <div class="sticker-tag">Service · Solutions · Accountability</div>
+      </div>
+
+      <!-- 03 · BALLOT CORNER BRACKETS -->
+      <div class="pat p3">
+        <div class="bg-pat bg-cross"></div>
+        <span class="corner-bracket tl"></span>
+        <span class="corner-bracket tr"></span>
+        <span class="corner-bracket bl"></span>
+        <span class="corner-bracket br"></span>
+        <div class="pat-head">
+          <div class="lbl">03 · Ballot Marks</div>
+          <h3>Corner brackets.</h3>
+          <p>Security-document corners frame letterheads, briefings, and donor packets.</p>
+        </div>
+        <div class="params">2px · 20×20 · #B62025</div>
+      </div>
+
+      <!-- 04 · STAR CONSTELLATION -->
+      <div class="pat p4 dark">
+        <div class="bg-stars dark">
+          <i class="lg" style="top:18%;left:14%">&#9733;</i>
+          <i style="top:36%;left:42%">&#9733;</i>
+          <i class="sm" style="top:62%;left:24%">&#9733;</i>
+          <i class="lg" style="top:72%;left:68%">&#9733;</i>
+          <i style="top:24%;left:78%">&#9733;</i>
+          <i class="sm" style="top:48%;left:88%">&#9733;</i>
+          <i class="sm" style="top:12%;left:60%">&#9733;</i>
+          <i style="top:84%;left:46%">&#9733;</i>
+        </div>
+        <div class="pat-head">
+          <div class="lbl">04 · Star Field</div>
+          <h3>Constellation.</h3>
+          <p>A scatter of red stars on navy — used sparingly behind quotes &amp; testimonials.</p>
+        </div>
+        <div class="params">3 sizes · 22 · 14 · 10px · red on navy</div>
+      </div>
+
+      <!-- 05 · DIAGONAL WEDGE -->
+      <div class="pat p5">
+        <div class="bg-wedge"></div>
+        <div class="pat-head" style="position:relative;z-index:3">
+          <div class="lbl">05 · Diagonal Wedge</div>
+          <h3>Cut corner.</h3>
+          <p>The campaign's quiet signature. Cover, business card, Thank You.</p>
+        </div>
+        <div class="params" style="background:rgba(255,255,255,.85);color:var(--navy)">clip-path triangle · 55% · navy on paper</div>
+      </div>
+
+      <!-- 06 · TYPOGRAPHIC BANNER (replaces marquee) -->
+      <div class="pat p6 dark" style="min-height:240px">
+        <div class="bg-pat bg-stripe" style="opacity:.4"></div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;z-index:3;height:100%">
+          <div>
+            <div class="lbl">06 · Typographic Banner</div>
+            <h3>Values, set in <em>oversize Cabin.</em></h3>
+            <p>The campaign values rendered as the headline itself — no decorative noise. Used at the close of long-form pages and in the footer of mailers.</p>
+            <div class="params">Cabin 700 · 56px · -2.5% tracking · paper on navy</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-family:var(--ff);font-weight:700;letter-spacing:-.02em;line-height:.95;color:var(--paper);font-size:42px;text-align:right">
+            <span>PRACTICAL.</span>
+            <span style="color:var(--red-3);font-style:italic;font-weight:400">Accountable.</span>
+            <span>STEADY.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:36px;padding:26px 32px;background:var(--paper-2);border:1px solid var(--bone);border-radius:6px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center">
+      <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:700">Pattern Rules</div>
+      <div style="font-size:14px;color:var(--stone-d);line-height:1.65">
+        One motif per layout. All patterns share the same vocabulary: 45° angles, 12–24px rhythm, navy &amp; red only.
+        Patterns sit behind copy, never on top of it. Decorative density caps at 40% area. Never combine stripes &amp; halftone &amp; stars in the same frame.
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>10 / Design Patterns</span><span>Page 12</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 13 — 11 QUICK REFERENCE
+     ════════════════════════════════════════ -->
+<section class="canvas">
+  <div class="wm" style="top:-60px;right:-20px">11</div>
+  <div class="page-tag">N° 11 — Cheat sheet</div>
+  <div class="pad">
+    <div style="max-width:760px">
+      <div class="sec-eyebrow">QUICK REFERENCE</div>
+      <h2 class="sec-title">The whole brand, <em>one page.</em></h2>
+      <p class="sec-desc">Pin this to the wall. The complete Mark Norman for Oregon brand system at a glance — colors, type, the do's and don'ts that make every touchpoint feel like the same campaign.</p>
+    </div>
+
+    <div class="qr-bento">
+      <div class="qr colors">
+        <h3>Color tokens</h3>
+        <div class="qr-row"><span class="k">Navy</span><span class="v">#0B2844</span></div>
+        <div class="qr-row"><span class="k">Red</span><span class="v">#B62025</span></div>
+        <div class="qr-row"><span class="k">Paper</span><span class="v">#F5F2EC</span></div>
+        <div class="qr-row"><span class="k">Bone</span><span class="v">#E2DCCC</span></div>
+        <div class="qr-row"><span class="k">Black</span><span class="v">#000000</span></div>
+        <div class="qr-row"><span class="k">Ratio</span><span class="v">60·30·8·2</span></div>
+      </div>
+      <div class="qr type">
+        <h3>Type tokens</h3>
+        <div class="qr-row"><span class="k">Family</span><span class="v">Cabin</span></div>
+        <div class="qr-row"><span class="k">Weights</span><span class="v">400·500·600·700</span></div>
+        <div class="qr-row"><span class="k">Display</span><span class="v">84pt · -2.5%</span></div>
+        <div class="qr-row"><span class="k">H1</span><span class="v">54pt · 700</span></div>
+        <div class="qr-row"><span class="k">Body</span><span class="v">16pt · 400</span></div>
+        <div class="qr-row"><span class="k">Eyebrow</span><span class="v">11pt · mono · upper</span></div>
+      </div>
+      <div class="qr dont">
+        <h3>Never do</h3>
+        <ul>
+          <li>Recolor, stretch, rotate, or container the logo.</li>
+          <li>Use Red as a background for body copy.</li>
+          <li>Put critical info in Red alone.</li>
+          <li>Use stock photography or staged podium shots.</li>
+          <li>Mix any other typeface with Cabin.</li>
+          <li>Drop body type below 12pt in print.</li>
+        </ul>
+      </div>
+      <div class="qr do">
+        <h3>Always do</h3>
+        <ul>
+          <li>Lead with one primary action per screen.</li>
+          <li>Use Navy 60% / White 30% / Red 8% / Black 2%.</li>
+          <li>Pair Red with weight, label, or icon.</li>
+          <li>Hit WCAG 2.2 AA on every color pair.</li>
+          <li>Rotate badges 5–8° for energy, never copy.</li>
+          <li>Sign every print piece with the PAC disclosure.</li>
+        </ul>
+      </div>
+      <div class="qr contact">
+        <h3>Campaign</h3>
+        <div class="url">MarkNormanForOregon.com</div>
+        <div class="qr-row"><span class="k">Tagline</span><span class="v">Service · Solutions · Accountability</span></div>
+        <div class="qr-row"><span class="k">Office</span><span class="v">Oregon House District 27</span></div>
+        <div class="qr-row"><span class="k">Cycle</span><span class="v">2026</span></div>
+        <div class="qr-row"><span class="k">Committee</span><span class="v">CI-0189</span></div>
+        <div class="qr-row"><span class="k">PAC</span><span class="v">#24927</span></div>
+        <div class="qr-row"><span class="k">Email</span><span class="v">info@marknormanfororegon.com</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span>11 / Quick Reference</span><span>Page 13</span></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PAGE 14 — THANK YOU
+     ════════════════════════════════════════ -->
+<section class="canvas thanks">
+  <div class="pad">
+    <h2>Thank<br><em>You.</em></h2>
+    <div class="rule"></div>
+    <div class="org">FRIENDS OF MARK NORMAN</div>
+    <div class="meta">Oregon House District 27 · 2026</div>
+    <div class="meta" style="margin-top:18px">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</section>
+
+</body>
+</html>
