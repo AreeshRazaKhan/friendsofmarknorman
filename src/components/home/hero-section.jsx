@@ -2,68 +2,65 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import BrandMark from '@/components/brand/brand-mark'
 
 import { CAMPAIGN, ELEVATOR_PITCH } from '@/constants/site'
 
+const CREDENTIALS = ['Navy Veteran', 'Veterinarian', 'Small-Business Owner']
+
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-navy text-paper">
-      <div className="bg-stripe pointer-events-none absolute inset-0 opacity-25" aria-hidden="true" />
+    <section className="relative flex h-[calc(100svh-5rem)] items-center justify-center overflow-hidden bg-navy text-paper sm:h-[calc(100svh-5.5rem)]">
+      <div
+        className="bg-halftone-paper pointer-events-none absolute inset-0 opacity-20"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy to-transparent"
+        aria-hidden="true"
+      />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[1.4fr_1fr] lg:gap-16 lg:px-10 lg:py-32">
-        <div className="flex flex-col gap-8">
-          <span className="font-mono text-[11px] font-semibold uppercase tracking-eyebrow text-red-3">
-            <span aria-hidden="true">★</span> Friends of Mark Norman · {CAMPAIGN.cycle}
-          </span>
+      <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-5 px-6 py-12 text-center lg:gap-6 lg:px-10 lg:py-16">
+        <span className="eyebrow-bracket font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-red-3">
+          friends of mark norman / {CAMPAIGN.cycle}
+        </span>
 
-          <h1 className="display text-6xl sm:text-7xl lg:text-[140px]">
-            Mark<br />Norman<br />
-            <em>for Oregon.</em>
-          </h1>
+        <h1 className="display text-[clamp(2.75rem,8vw,6rem)]">
+          Practical leadership.<br />
+          <em>For Oregon.</em>
+        </h1>
 
-          <p className="font-mono text-[11px] uppercase tracking-eyebrow text-paper-78">
-            Oregon House District 27 · Republican
-          </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-paper-78">
+          {CAMPAIGN.office} · {CAMPAIGN.party} · {CAMPAIGN.cycle}
+        </p>
 
-          <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
-            {ELEVATOR_PITCH}
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <Button asChild variant="red">
-              <Link href="/donate">
-                Donate Now
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button asChild variant="invert">
-              <Link href="/issues">Where Mark stands</Link>
-            </Button>
-            <Button asChild variant="ghost" className="border-paper text-paper hover:bg-navy-3">
-              <Link href="/about">About Mark</Link>
-            </Button>
-          </div>
-        </div>
-
-        <div className="relative hidden lg:block">
-          <div
-            className="absolute inset-0 bg-red"
-            style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0 100%)' }}
-            aria-hidden="true"
-          />
-          <div
-            className="bg-halftone-paper pointer-events-none absolute inset-0 opacity-40"
-            aria-hidden="true"
-          />
-          <div className="relative flex h-full items-center justify-center p-12">
-            <div
-              className="rounded-sm border-2 border-navy bg-paper p-8 text-navy shadow-stamp"
-              style={{ transform: 'rotate(3deg)' }}
+        <ul role="list" className="flex flex-wrap justify-center gap-2">
+          {CREDENTIALS.map((credential) => (
+            <li
+              key={credential}
+              className="inline-flex items-center gap-2 rounded-pill border border-paper-78/30 px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-paper"
             >
-              <BrandMark size="md" />
-            </div>
-          </div>
+              <span aria-hidden="true" className="text-red-3">
+                ★
+              </span>
+              {credential}
+            </li>
+          ))}
+        </ul>
+
+        <p className="max-w-[58ch] text-sm leading-relaxed text-paper-78 lg:text-base">
+          {ELEVATOR_PITCH}
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button asChild variant="red">
+            <Link href="/donate">
+              Donate Now
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button asChild variant="invert">
+            <Link href="/volunteer">Join the campaign</Link>
+          </Button>
         </div>
       </div>
     </section>

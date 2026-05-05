@@ -18,6 +18,7 @@ module.exports = {
         paper: {
           DEFAULT: 'var(--brand-paper)',
           2: 'var(--brand-paper-2)',
+          78: 'var(--brand-paper-78)',
         },
         bone: 'var(--brand-bone)',
         stone: {

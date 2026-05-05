@@ -38,5 +38,6 @@ next-env.d.ts
 .vscode/
 .idea/
 
-# claude — keep skills/node_modules out
+# claude — keep skills/node_modules and temp executions out
 .claude/skills/**/node_modules/
+.claude/skills/**/.temp-execution-*.js

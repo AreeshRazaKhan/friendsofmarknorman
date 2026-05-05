@@ -1,21 +1,19 @@
 import HeroSection from '@/components/home/hero-section'
+import PillarsSection from '@/components/home/pillars-section'
 import IssueGrid from '@/components/home/issue-grid'
-import WhyRunning from '@/components/home/why-running'
-import BioByNumbers from '@/components/home/bio-by-numbers'
-import PrinciplesBanner from '@/components/home/principles-banner'
-import VoterFeel from '@/components/home/voter-feel'
-import SignUpForm from '@/components/home/sign-up-form'
+import AboutSection from '@/components/home/about-section'
+import FaqSection from '@/components/home/faq-section'
+import EngagementSection from '@/components/home/engagement-section'
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
+      <PillarsSection />
       <IssueGrid />
-      <WhyRunning />
-      <BioByNumbers />
-      <PrinciplesBanner />
-      <VoterFeel />
-      <SignUpForm />
+      <AboutSection />
+      <FaqSection />
+      <EngagementSection />
     </>
   )
 }

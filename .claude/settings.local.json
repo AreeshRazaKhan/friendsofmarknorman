@@ -11,7 +11,24 @@
       "Bash(npm install *)",
       "Bash(curl *)",
       "Bash(taskkill //F //IM node.exe)",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(git commit *)",
+      "WebFetch(domain:www.coos.gop)",
+      "Bash(node -e \"require\\('./lib/helpers'\\).detectDevServers\\(\\).then\\(s => console.log\\(JSON.stringify\\(s\\)\\)\\)\")",
+      "Bash(node run.js /tmp/playwright-test-audit.js)",
+      "Bash(node run.js \"C:\\\\Users\\\\Dev\\\\AppData\\\\Local\\\\Temp\\\\playwright-test-audit.js\")",
+      "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp ok'\\)}catch\\(e\\){console.log\\('no sharp'\\)}\")",
+      "Bash(ffmpeg -y -i \"c:\\\\Users\\\\Dev\\\\Downloads\\\\Mark Norman logo_Cabin font.jpg\" -c:v libwebp -q:v 88 \"c:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-norman-logo.webp\")",
+      "Bash(python -c \"from PIL import Image; print\\('pillow ok'\\)\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('pillow ok'\\)\")",
+      "Bash(node run.js)",
+      "WebFetch(domain:nirax.wpengine.com)",
+      "Bash(awk -F',' 'NR==1' \"c:\\\\Users\\\\Dev\\\\Downloads\\\\2026-04-30T22_40_18.914Z Operation 1776 - Operations - Onboarding - Website Content Form.csv\")",
+      "Bash(node *)",
+      "Bash(mkdir -p \"c:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\src\\\\app\\\\events\\\\[id]\")",
+      "Bash(mv \"c:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\src\\\\app\\\\events\\\\[slug]\\\\page.jsx\" \"c:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\src\\\\app\\\\events\\\\[id]\\\\page.jsx\")",
+      "Bash(rmdir \"c:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\src\\\\app\\\\events\\\\[slug]\")",
+      "Bash(git reset *)"
     ],
     "deny": []
   }

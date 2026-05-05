@@ -10,7 +10,7 @@ import './globals.css'
 const cabin = Cabin({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+  style: ['normal'],
   variable: '--font-cabin',
   display: 'swap',
 })

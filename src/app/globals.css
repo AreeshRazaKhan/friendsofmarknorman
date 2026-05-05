@@ -47,8 +47,45 @@
 }
 
 @layer components {
+  .prose-legal h2 {
+    @apply mt-6 font-sans text-2xl font-bold text-navy sm:text-3xl;
+    letter-spacing: -0.015em;
+  }
+
+  .prose-legal h3 {
+    @apply mt-4 font-sans text-lg font-bold text-navy sm:text-xl;
+  }
+
+  .prose-legal p {
+    @apply text-stone-dark;
+  }
+
+  .prose-legal ul {
+    @apply ml-6 list-disc space-y-2 text-stone-dark;
+  }
+
+  .prose-legal ol {
+    @apply ml-6 list-decimal space-y-2 text-stone-dark;
+  }
+
+  .prose-legal a {
+    @apply text-red underline underline-offset-4 hover:text-red-2;
+  }
+
+  .prose-legal strong {
+    @apply font-semibold text-navy;
+  }
+
   .eyebrow {
-    @apply font-mono text-[11px] font-semibold uppercase tracking-eyebrow text-red;
+    @apply font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-red;
+  }
+
+  .eyebrow-bracket::before {
+    content: '[ ';
+  }
+
+  .eyebrow-bracket::after {
+    content: ' ]';
   }
 
   .display {
@@ -56,12 +93,51 @@
   }
 
   .display em {
-    @apply not-italic font-normal text-red;
-    font-style: italic;
+    @apply font-normal text-red;
+    font-style: normal;
+  }
+
+  .stat-numeral {
+    @apply font-sans font-bold leading-none text-navy;
+    font-size: clamp(40px, 4.5vw, 64px);
+    letter-spacing: -0.025em;
+  }
+
+  .stat-numeral-paper {
+    @apply font-sans font-bold leading-none text-paper;
+    font-size: clamp(40px, 4.5vw, 64px);
+    letter-spacing: -0.025em;
+  }
+
+  .stat-plus {
+    @apply font-sans font-normal text-red;
+    font-size: 0.6em;
+  }
+
+  .stat-descriptor {
+    @apply font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-stone;
+  }
+
+  .stat-descriptor-dark {
+    @apply font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-paper-78;
   }
 }
 
 @layer utilities {
+  details:not([open]) > .mobile-nav-panel {
+    display: none;
+  }
+  details[open] > .mobile-nav-panel {
+    display: flex;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
   .bg-stripe {
     background-image: repeating-linear-gradient(
       45deg,

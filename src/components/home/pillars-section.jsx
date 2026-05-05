@@ -1,0 +1,59 @@
+import Link from 'next/link'
+import PropTypes from 'prop-types'
+import { ArrowRight } from 'lucide-react'
+
+import { PILLARS } from '@/constants/site'
+
+const PillarCard = ({ number, name, headline, summary }) => {
+  return (
+    <article className="flex h-full flex-col justify-between gap-8 border-t border-bone px-6 py-10 first:border-t-0 lg:border-l lg:border-t-0 lg:px-10 lg:first:border-l-0">
+      <div className="flex flex-col gap-4">
+        <p className="eyebrow-bracket eyebrow">
+          {`pillar ${number} / ${name.toLowerCase()}`}
+        </p>
+        <h3
+          className="display text-3xl text-navy sm:text-4xl"
+          dangerouslySetInnerHTML={{ __html: headline }}
+        />
+        <p className="text-sm leading-relaxed text-stone-dark">{summary}</p>
+      </div>
+      <Link
+        href="#platform"
+        className="inline-flex min-h-[44px] items-center gap-2 self-start py-2 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-red hover:text-red-2"
+      >
+        Read the position
+        <ArrowRight className="h-3 w-3" aria-hidden="true" />
+      </Link>
+    </article>
+  )
+}
+
+PillarCard.propTypes = {
+  number: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  headline: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+}
+
+const PillarsSection = () => {
+  return (
+    <section className="relative bg-paper">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
+        <div className="flex flex-col gap-4 border-y border-bone py-10">
+          <p className="eyebrow-bracket eyebrow">priorities</p>
+          <h2 className="display text-3xl text-navy sm:text-4xl lg:text-5xl">
+            Three priorities. <em>One campaign.</em>
+          </h2>
+        </div>
+
+        <div className="mt-2 grid gap-0 lg:grid-cols-3">
+          {PILLARS.map((pillar) => (
+            <PillarCard key={pillar.number} {...pillar} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default PillarsSection

@@ -120,8 +120,8 @@ Any new color pair must clear AA at body size. Verify before shipping.
 - **Never mix any other typeface with Cabin.** Cabin is the brand.
 - **Never drop body type below 12pt in print.** Respects older voters.
 - **Web body minimum: 16px.**
-- **Italic only for emphasis** — usually a 1–3 word accent inside a headline. Never italicize entire paragraphs.
-- **Display headlines may use a red italic emphasis** on a single phrase: `<h1>Mark Norman <em>for Oregon.</em></h1>` with `em { font-style:italic; font-weight:400; color:var(--red); }`.
+- **No italic anywhere on the site.** All copy is upright.
+- **Emphasis is red, not italic.** Display headlines use a red phrase at weight 400 (or matching the surrounding weight): `<h1>Mark Norman <em>for Oregon.</em></h1>` with `em { font-style:normal; font-weight:400; color:var(--red); }`.
 
 ---
 
@@ -304,6 +304,137 @@ Six unified motifs sharing one rule book: **45° angles · 12–24px rhythm · n
 - Use stock photography or staged podium shots.
 - Mix any other typeface with Cabin.
 - Drop body type below 12pt in print.
+
+---
+
+## 13. Editorial Micros (v1.1 add-on)
+
+A small set of signature micro-patterns. Use them consistently — they are the "tells" that make every page recognizably ours.
+
+### 13.1 Bracket eyebrows
+
+Every section is labelled with a square-bracket eyebrow in mono caps:
+
+```
+[ where mark stands ]
+[ about mark / 03 ]
+[ questions ]
+```
+
+- Lowercase content, single space inside each bracket.
+- Optional `/ NN` suffix to carry a section number.
+- Style: `font-mono · 11px · 600 · uppercase · tracking-[0.22em] · text-red`.
+- The brackets are part of the label, not decoration — never use them around buttons or body copy.
+
+### 13.2 Oversized stat numerals
+
+Credibility statistics use a fat numeral with a `+` prefix and a small descriptor below.
+
+```
++22         +28         +30         +4
+years       years        years      dogs
+U.S. Navy   vet practice in district at home
+```
+
+- Numeral: Cabin 700 · clamp(40px, 4.5vw, 64px) · -2.5% tracking · navy on paper / paper on navy.
+- Plus sign: 60% size of the numeral, red, baseline-aligned.
+- Descriptor: mono · 10–11px · 600 · uppercase · `tracking-[0.22em]` · stone (or paper-78 on dark).
+- Up to four stats per row. Never more.
+
+### 13.3 Soft image masks
+
+Photography wrappers move from sharp 6px corners to soft editorial radii:
+
+| Use | Radius |
+|-----|-------:|
+| Hero / portrait feature | `rounded-[2rem]` (32px) |
+| Card thumbnails | `rounded-2xl` (16px) |
+| Inline / tile imagery | `rounded-md` (6px — unchanged) |
+
+Pair with a 1.5px navy or paper border to keep the edges crisp. **Never** combine soft masks with a hard-stamp shadow on the same image — pick one.
+
+### 13.4 Asymmetric ratios
+
+Two-column layouts must lean — never 50/50.
+
+| Pattern | Ratio (text : image) |
+|---------|---------------------:|
+| Editorial hero/about | 1 : 1.2 (image side wins) |
+| Quote + portrait | 1.4 : 1 (text side wins) |
+| Form + supporting copy | 1.1 : 1 |
+
+The "heavy" side should also carry the section's pattern motif (halftone, stripe, wedge); the "light" side stays clean.
+
+### 13.5 Text-coded social icons
+
+Footer social links are typeset, not iconographic:
+
+```
+FB · IG · X · YT
+```
+
+- Mono · 11px · 600 · uppercase · tracking-eyebrow.
+- Hover: text-red.
+- 44px tap target via `inline-flex min-h-[44px] items-center px-2`.
+- Order matches priority of platform for the campaign.
+
+### 13.6 Whitespace rhythm
+
+Section vertical padding scales with content density:
+
+| Section type | Mobile | Desktop |
+|--------------|-------:|--------:|
+| Hero | `py-24` | `py-32` |
+| Editorial section | `py-20` | `py-28` |
+| Compact strip (stats, pillars) | `py-14` | `py-20` |
+| FAQ / list | `py-20` | `py-28` |
+
+Generous padding is part of the brand. **Never tighten below these floors** — density is for the data, not the chrome.
+
+---
+
+## 14. A2P 10DLC / TCPA compliance (load-bearing — do not break)
+
+This site is registered (or registers) for A2P 10DLC SMS through The Campaign Registry (TCR). Carrier review checks the live site against an industry checklist. **Every change to a form, footer, or legal page must preserve every item below**, or registration will be rejected and SMS traffic blocked.
+
+### 14.1 Required pages
+
+- `/privacy-policy` — must include the legal entity name (`Friends of Mark Norman`), an SMS section covering what numbers are collected for, how they're used, retention, and deletion requests, and the explicit non-sharing statement.
+- `/terms-of-service` — must include all six carrier-required elements: program name + description, STOP, HELP, carrier-liability disclaimer, message/data-rates and frequency, link to Privacy Policy.
+
+Both pages must respond 200 (no 404s) and link to each other. Footer links to both must appear on **every** page.
+
+### 14.2 SMS consent on every form that collects a phone number
+
+- **Two separate optional checkboxes** (informational + promotional). A single combined checkbox is not compliant.
+- Placed at the **bottom of the form, above the submit button** — never adjacent to the phone field.
+- **Not pre-checked.**
+- Each label must include: legal entity name, use case, message frequency disclosure, message-and-data-rates disclosure, STOP, HELP.
+- Use the shared `<SmsConsent />` component — never re-implement.
+
+### 14.3 Footer requirements (every page)
+
+- Copyright with legal entity name (`© YEAR Friends of Mark Norman`).
+- Phone, email, and mailing address all visible.
+- Privacy Policy link.
+- Terms of Service link.
+- PAC disclosure (`Paid for by Friends of Mark Norman PAC #24927`).
+
+### 14.4 Legal entity name consistency
+
+The legal entity name `Friends of Mark Norman` (single source: `LEGAL.entity` in `src/constants/site.js`) must appear identically in:
+
+1. Privacy Policy
+2. Terms of Service
+3. SMS consent checkbox language (both checkboxes)
+4. Footer copyright
+5. Contact page
+
+DBA/casual names (e.g. "Mark Norman", "the campaign") are fine for marketing copy elsewhere — but never substitute them in the five locations above. Mismatched names are a top A2P rejection reason.
+
+### 14.5 Active opt-in language only
+
+Use **"I agree to receive…"** — never passive forms ("By providing your number, you consent to…"). Per TCPA enforcement, passive language is not valid express consent.
 
 ---
 

@@ -1,45 +1,42 @@
 import PropTypes from 'prop-types'
 
-const IssueCard = ({ icon, title, eyebrow, summary, bullets }) => {
+const IssueCard = ({ index, title, summary, bullets }) => {
+  const num = String(index + 1).padStart(2, '0')
+
   return (
-    <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-bone bg-white p-7">
-      <span className="absolute left-0 top-0 h-[3px] w-16 bg-red" aria-hidden="true" />
+    <article className="flex h-full flex-col gap-6 px-2 py-10 md:px-6 md:py-12 lg:px-10">
+      <div className="flex items-baseline gap-4">
+        <span className="font-sans text-6xl font-bold leading-none tracking-tight text-red lg:text-7xl">
+          {num}
+        </span>
+        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-stone">
+          / Policy
+        </span>
+      </div>
 
-      <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red">
-        {eyebrow}
-      </span>
+      <h3 className="display text-3xl text-navy sm:text-4xl">{title}.</h3>
 
-      <span
-        className="mt-5 mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-navy font-bold text-paper"
-        aria-hidden="true"
-      >
-        {icon}
-      </span>
-
-      <h3 className="font-sans text-2xl font-bold tracking-tight text-navy">{title}.</h3>
-      <p className="mt-3 text-sm leading-relaxed text-stone-dark">{summary}</p>
+      <p className="text-base leading-relaxed text-stone-dark">{summary}</p>
 
       {bullets?.length > 0 && (
-        <ul className="mt-5 flex flex-col gap-2 border-t border-bone pt-5 text-sm text-stone-dark">
-          {bullets.map((line) => (
-            <li key={line} className="relative pl-5 leading-relaxed">
-              <span
-                className="absolute left-0 top-[10px] h-[1.5px] w-3 bg-red"
-                aria-hidden="true"
-              />
-              {line}
+        <ol className="mt-2 flex flex-col gap-4 text-sm text-stone-dark">
+          {bullets.map((line, i) => (
+            <li key={line} className="grid grid-cols-[2rem_1fr] items-start gap-3">
+              <span className="pt-[3px] font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-red">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="leading-relaxed">{line}</span>
             </li>
           ))}
-        </ul>
+        </ol>
       )}
     </article>
   )
 }
 
 IssueCard.propTypes = {
-  icon: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  eyebrow: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   bullets: PropTypes.arrayOf(PropTypes.string),
 }
