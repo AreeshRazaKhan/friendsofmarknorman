@@ -5,17 +5,21 @@ import PropTypes from 'prop-types'
 import { AnimatePresence, motion } from 'motion/react'
 import { Plus } from 'lucide-react'
 
+import Reveal from '@/components/motion/reveal'
+import RevealGroup from '@/components/motion/reveal-group'
+import RevealItem from '@/components/motion/reveal-item'
+
 import { FAQS } from '@/constants/site'
 
 const EASE = [0.2, 0, 0.2, 1]
 
-const FaqItem = ({ question, answer, index }) => {
+const FaqItemInner = ({ question, answer, index }) => {
   const [isOpen, setIsOpen] = useState(false)
   const panelId = useId()
   const buttonId = useId()
 
   return (
-    <li className="border-b border-bone last:border-b-0">
+    <>
       <button
         id={buttonId}
         type="button"
@@ -73,11 +77,11 @@ const FaqItem = ({ question, answer, index }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </li>
+    </>
   )
 }
 
-FaqItem.propTypes = {
+FaqItemInner.propTypes = {
   question: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
@@ -87,26 +91,32 @@ const FaqSection = () => {
   return (
     <section id="faq" className="bg-paper">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.6fr] lg:gap-16 lg:px-10 lg:py-28">
-        <div className="flex flex-col gap-6">
-          <p className="eyebrow-bracket eyebrow">questions / 07</p>
-          <h2 className="display text-4xl text-navy sm:text-5xl">
-            Asked <em>and answered.</em>
-          </h2>
-          <p className="max-w-prose text-stone-dark">
-            The questions voters most often ask the campaign team — about the candidate, the
-            district, and how to help. If yours isn&apos;t here, send it to{' '}
-            <a className="text-red hover:text-red-2" href="mailto:info@marknormanfororegon.com">
-              info@marknormanfororegon.com
-            </a>
-            .
-          </p>
-        </div>
+        <Reveal variant="left" duration={0.7}>
+          <div className="flex flex-col gap-6">
+            <p className="eyebrow-bracket eyebrow">questions / 07</p>
+            <h2 className="display text-4xl text-navy sm:text-5xl">
+              Asked <em>and answered.</em>
+            </h2>
+            <p className="max-w-prose text-stone-dark">
+              The questions voters most often ask the campaign team — about the candidate, the
+              district, and how to help. If yours isn&apos;t here, send it to{' '}
+              <a className="text-red hover:text-red-2" href="mailto:info@marknormanfororegon.com">
+                info@marknormanfororegon.com
+              </a>
+              .
+            </p>
+          </div>
+        </Reveal>
 
-        <ul className="flex flex-col">
+        <RevealGroup stagger={0.06} delay={0.1} as="ul" className="flex flex-col">
           {FAQS.map((item, idx) => (
-            <FaqItem key={item.q} question={item.q} answer={item.a} index={idx} />
+            <RevealItem key={item.q} variant="right" duration={0.5} as="li">
+              <div className="border-b border-bone last:border-b-0">
+                <FaqItemInner question={item.q} answer={item.a} index={idx} />
+              </div>
+            </RevealItem>
           ))}
-        </ul>
+        </RevealGroup>
       </div>
     </section>
   )

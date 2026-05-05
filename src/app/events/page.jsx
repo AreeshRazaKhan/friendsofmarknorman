@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import PageHero from '@/components/layout/page-hero'
 import EventCard from '@/components/events/event-card'
+import RevealGroup from '@/components/motion/reveal-group'
+import RevealItem from '@/components/motion/reveal-item'
 
 import { CAMPAIGN, EVENTS } from '@/constants/site'
 
@@ -46,11 +48,16 @@ const EventsPage = () => {
           </div>
 
           {upcoming.length > 0 ? (
-            <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4">
+            <RevealGroup
+              stagger={0.1}
+              className="mt-12 grid md:grid-cols-2 lg:grid-cols-4"
+            >
               {upcoming.map((event) => (
-                <EventCard key={event.slug} {...event} />
+                <RevealItem key={event.slug} variant="scale" duration={0.6}>
+                  <EventCard {...event} />
+                </RevealItem>
               ))}
-            </div>
+            </RevealGroup>
           ) : (
             <div className="mt-12 rounded-2xl border border-bone bg-paper-2 p-10 text-center">
               <p className="font-sans text-lg font-bold text-navy">No events scheduled right now.</p>

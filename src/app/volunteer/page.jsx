@@ -1,5 +1,7 @@
 import PageHero from '@/components/layout/page-hero'
 import VolunteerSignup from '@/components/volunteer/volunteer-signup'
+import RevealGroup from '@/components/motion/reveal-group'
+import RevealItem from '@/components/motion/reveal-item'
 
 import { CAMPAIGN, VOLUNTEER_ROLES } from '@/constants/site'
 
@@ -31,22 +33,29 @@ const VolunteerPage = () => {
             </p>
           </div>
 
-          <ul className="mt-12 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-3">
+          <RevealGroup
+            stagger={0.07}
+            delay={0.1}
+            className="mt-12 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-3"
+            as="ul"
+          >
             {VOLUNTEER_ROLES.map((role, idx) => (
-              <li key={role.title} className="flex flex-col gap-3 bg-paper p-6 lg:p-8">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-sans text-3xl font-bold leading-none text-red lg:text-4xl">
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
-                    / {role.commitment}
-                  </span>
+              <RevealItem key={role.title} variant="up" duration={0.55} as="li">
+                <div className="flex h-full flex-col gap-3 bg-paper p-6 lg:p-8">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-sans text-3xl font-bold leading-none text-red lg:text-4xl">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
+                      / {role.commitment}
+                    </span>
+                  </div>
+                  <h3 className="display text-xl text-navy lg:text-2xl">{role.title}.</h3>
+                  <p className="text-sm leading-relaxed text-stone-dark">{role.body}</p>
                 </div>
-                <h3 className="display text-xl text-navy lg:text-2xl">{role.title}.</h3>
-                <p className="text-sm leading-relaxed text-stone-dark">{role.body}</p>
-              </li>
+              </RevealItem>
             ))}
-          </ul>
+          </RevealGroup>
         </div>
       </section>
 

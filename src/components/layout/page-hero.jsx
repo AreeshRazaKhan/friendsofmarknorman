@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+import Reveal from '@/components/motion/reveal'
 import { cn } from '@/lib/utils'
 
 const PageHero = ({ eyebrow, title, lead, align, children, className }) => {
@@ -12,10 +13,7 @@ const PageHero = ({ eyebrow, title, lead, align, children, className }) => {
 
   return (
     <section
-      className={cn(
-        'relative overflow-hidden bg-navy text-paper',
-        className
-      )}
+      className={cn('relative overflow-hidden bg-navy text-paper', className)}
     >
       <div
         className="bg-halftone-paper pointer-events-none absolute inset-0 opacity-20"
@@ -28,15 +26,30 @@ const PageHero = ({ eyebrow, title, lead, align, children, className }) => {
           alignClass
         )}
       >
-        <p className="eyebrow-bracket eyebrow text-red-3">{eyebrow}</p>
-        <h1
-          className="display text-5xl sm:text-6xl lg:text-7xl"
-          dangerouslySetInnerHTML={{ __html: title }}
-        />
+        <Reveal variant="fade" duration={0.5}>
+          <p className="eyebrow-bracket eyebrow text-red-3">{eyebrow}</p>
+        </Reveal>
+
+        <Reveal variant="blur" delay={0.1} duration={0.85}>
+          <h1
+            className="display text-5xl sm:text-6xl lg:text-7xl"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+        </Reveal>
+
         {lead && (
-          <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">{lead}</p>
+          <Reveal variant="up" delay={0.3} duration={0.7}>
+            <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
+              {lead}
+            </p>
+          </Reveal>
         )}
-        {children}
+
+        {children && (
+          <Reveal variant="scale" delay={0.45} duration={0.6}>
+            {children}
+          </Reveal>
+        )}
       </div>
     </section>
   )

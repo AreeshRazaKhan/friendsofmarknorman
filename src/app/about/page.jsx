@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import PageHero from '@/components/layout/page-hero'
 import PlaceholderImage from '@/components/brand/placeholder-image'
+import Reveal from '@/components/motion/reveal'
+import RevealGroup from '@/components/motion/reveal-group'
+import RevealItem from '@/components/motion/reveal-item'
 
 import { ABOUT_BLOCKS, ABOUT_STATS, ABOUT_STORY, CAMPAIGN } from '@/constants/site'
 
@@ -59,42 +62,54 @@ const AboutPage = () => {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2">
+          <RevealGroup
+            stagger={0.14}
+            delay={0.1}
+            className="mt-12 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2"
+          >
             {ABOUT_BLOCKS.map((block) => (
-              <article
-                key={block.number}
-                className="flex flex-col gap-4 bg-paper p-8 lg:p-10"
-              >
-                <div className="flex items-baseline gap-4">
-                  <span className="font-sans text-5xl font-bold leading-none text-red lg:text-6xl">
-                    {block.number}
-                  </span>
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
-                    / {block.eyebrow}
-                  </span>
-                </div>
-                <h3 className="display text-2xl text-navy lg:text-3xl">{block.title}</h3>
-                <p className="text-sm leading-relaxed text-stone-dark">{block.body}</p>
-              </article>
+              <RevealItem key={block.number} variant="rotate" duration={0.7}>
+                <article className="flex h-full flex-col gap-4 bg-paper p-8 lg:p-10">
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-sans text-5xl font-bold leading-none text-red lg:text-6xl">
+                      {block.number}
+                    </span>
+                    <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
+                      / {block.eyebrow}
+                    </span>
+                  </div>
+                  <h3 className="display text-2xl text-navy lg:text-3xl">{block.title}</h3>
+                  <p className="text-sm leading-relaxed text-stone-dark">{block.body}</p>
+                </article>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       <section className="bg-navy text-paper">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
-          <p className="eyebrow-bracket eyebrow text-red-3">by the numbers / 03</p>
-          <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+          <Reveal variant="fade" duration={0.6}>
+            <p className="eyebrow-bracket eyebrow text-red-3">by the numbers / 03</p>
+          </Reveal>
+          <RevealGroup
+            stagger={0.12}
+            delay={0.15}
+            className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
+            as="dl"
+          >
             {ABOUT_STATS.map((stat) => (
-              <div key={stat.descriptor} className="flex flex-col gap-2">
-                <dt className="flex items-baseline">
-                  <span className="stat-plus" aria-hidden="true">+</span>
-                  <span className="stat-numeral-paper">{stat.number}</span>
-                </dt>
-                <dd className="stat-descriptor-dark">{stat.descriptor}</dd>
-              </div>
+              <RevealItem key={stat.descriptor} variant="scale" duration={0.6}>
+                <div className="flex flex-col gap-2">
+                  <dt className="flex items-baseline">
+                    <span className="stat-plus" aria-hidden="true">+</span>
+                    <span className="stat-numeral-paper">{stat.number}</span>
+                  </dt>
+                  <dd className="stat-descriptor-dark">{stat.descriptor}</dd>
+                </div>
+              </RevealItem>
             ))}
-          </dl>
+          </RevealGroup>
         </div>
       </section>
 
