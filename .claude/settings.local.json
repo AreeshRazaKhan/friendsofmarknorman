@@ -6,7 +6,12 @@
       "Bash(mkdir -p .claude/skills)",
       "Bash(cp -r /tmp/playwright-skill-temp/skills/playwright-skill .claude/skills/)",
       "Bash(npm run *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(npm install *)",
+      "Bash(curl *)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(netstat -ano)"
     ],
     "deny": []
   }

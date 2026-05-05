@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-navy:        #0B2844;
+    --brand-navy-2:      #102F4F;
+    --brand-navy-3:      #0F3C66;
+    --brand-red:         #B62025;
+    --brand-red-2:       #921A1F;
+    --brand-red-3:       #D63D42;
+    --brand-paper:       #F5F2EC;
+    --brand-paper-2:     #EDE8DD;
+    --brand-bone:        #D4CCB7;
+    --brand-stone:       #5F594D;
+    --brand-stone-dark:  #3E3A33;
+    --brand-ink-soft:    #1B3454;
+    --brand-paper-78:    rgba(245, 242, 236, 0.82);
+    --brand-hair:        rgba(11, 40, 68, 0.18);
+
+    --background: var(--brand-paper);
+    --foreground: var(--brand-navy);
+    --muted: var(--brand-paper-2);
+    --muted-foreground: var(--brand-stone);
+    --border: var(--brand-bone);
+    --ring: var(--brand-red);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-red);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[11px] font-semibold uppercase tracking-eyebrow text-red;
+  }
+
+  .display {
+    @apply font-sans font-bold leading-[0.92] tracking-tightest;
+  }
+
+  .display em {
+    @apply not-italic font-normal text-red;
+    font-style: italic;
+  }
+}
+
+@layer utilities {
+  .bg-stripe {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(182, 32, 37, 0.85) 0 2px,
+      transparent 2px 24px
+    );
+  }
+
+  .bg-halftone {
+    background-image: radial-gradient(circle, var(--brand-navy) 1.6px, transparent 2px);
+    background-size: 14px 14px;
+  }
+
+  .bg-halftone-paper {
+    background-image: radial-gradient(circle, rgba(245, 242, 236, 0.55) 1.4px, transparent 2px);
+    background-size: 14px 14px;
+  }
+}
