@@ -95,6 +95,7 @@
   .display em {
     @apply font-normal text-red;
     font-style: normal;
+    white-space: nowrap;
   }
 
   .stat-numeral {
