@@ -50,7 +50,7 @@ const EventsPage = () => {
           {upcoming.length > 0 ? (
             <RevealGroup
               stagger={0.1}
-              className="mt-12 grid md:grid-cols-2 lg:grid-cols-4"
+              className="mt-12 grid gap-x-10 gap-y-16 md:grid-cols-2"
             >
               {upcoming.map((event) => (
                 <RevealItem key={event.slug} variant="scale" duration={0.6}>

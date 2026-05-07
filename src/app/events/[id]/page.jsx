@@ -155,7 +155,7 @@ const EventDetailPage = ({ params }) => {
                 <Link href="/events">See all events</Link>
               </Button>
             </div>
-            <div className="mt-12 grid md:grid-cols-3">
+            <div className="mt-12 grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
               {others.map((other) => (
                 <EventCard key={other.slug} {...other} />
               ))}
