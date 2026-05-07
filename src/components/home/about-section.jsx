@@ -35,7 +35,7 @@ const AboutSection = () => {
           <Reveal variant="right" delay={0.15} duration={0.7}>
             <p className="eyebrow-bracket eyebrow text-red-3">about mark / 03</p>
             <h2 className="display mt-4 text-4xl text-paper sm:text-5xl lg:text-6xl">
-              From Oregon, <em>for Oregon.</em>
+              A voice for <em>working families.</em>
             </h2>
           </Reveal>
 
@@ -75,7 +75,7 @@ const AboutSection = () => {
           <Reveal variant="rise" delay={0.5} duration={0.6}>
             <div className="flex flex-wrap gap-3">
               <Button asChild variant="invert">
-                <Link href="/about">Read the full bio</Link>
+                <Link href="/about">Read more about Mark</Link>
               </Button>
               <Button asChild variant="ghost" className="border-paper text-paper hover:bg-navy-3">
                 <Link href="#faq">Common questions</Link>

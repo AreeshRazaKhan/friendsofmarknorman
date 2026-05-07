@@ -16,20 +16,20 @@ const VolunteerPage = () => {
     <>
       <PageHero
         eyebrow="volunteer / 01"
-        title="The time <em>is now.</em>"
-        lead="Campaigns are won by people. Door knockers, callers, hosts, drivers, designers, friends. Pick any role below — we'll meet you where you are and train you on the rest."
+        title="Campaigns run <em>on people.</em>"
+        lead="Every conversation matters. Some volunteers knock doors. Others help behind the scenes. You can help any way you can — pick a role below."
       />
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="max-w-2xl">
-            <p className="eyebrow-bracket eyebrow">six ways to help / 02</p>
+            <p className="eyebrow-bracket eyebrow">ways to help / 02</p>
             <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
-              Pick a <em>role.</em>
+              Pick what works <em>for you.</em>
             </h2>
             <p className="mt-4 max-w-prose text-stone-dark">
-              No experience required. We train, we pair, and we keep it light. Want to help in
-              another way? Tell us in the form below.
+              No political experience needed — just a willingness to help and a bit of time when
+              available. Want to help in another way? Tell us in the form below.
             </p>
           </div>
 
@@ -64,11 +64,11 @@ const VolunteerPage = () => {
           <div className="flex flex-col gap-4">
             <p className="eyebrow-bracket eyebrow">sign up / 03</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
-              Tell us how to <em>find you.</em>
+              Tell us a little <em>about yourself.</em>
             </h2>
             <p className="max-w-prose text-stone-dark">
-              The team will reach out within 48 hours to walk through what you signed up for. No
-              spam, no pressure, no ridiculous asks.
+              Once you sign up, you&apos;ll receive a call from a member of the campaign team within
+              48 hours to help you get started.
             </p>
           </div>
           <div className="rounded-2xl border border-bone bg-white p-8 lg:p-10">

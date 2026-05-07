@@ -17,11 +17,11 @@ const IssueGrid = () => {
             <div className="max-w-2xl">
               <p className="eyebrow-bracket eyebrow">the platform / 04</p>
               <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
-                The full <em>position.</em>
+                The full <em>picture.</em>
               </h2>
               <p className="mt-4 max-w-prose text-stone-dark">
-                Three priorities, drawn from the conversations Mark has every day with neighbors,
-                clients, and small-business owners across House District 27.
+                This campaign is shaped by real conversations Mark has had with people across Oregon
+                about what they&apos;re actually facing in their homes and workplaces.
               </p>
             </div>
           </Reveal>

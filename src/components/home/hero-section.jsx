@@ -31,8 +31,8 @@ const HeroSection = () => {
 
         <Reveal variant="blur" delay={0.15} duration={1}>
           <h1 className="display text-[clamp(2.75rem,8vw,6rem)]">
-            Practical leadership.<br />
-            <em>For Oregon.</em>
+            Grounded leadership<br />
+            <em>for Oregon.</em>
           </h1>
         </Reveal>
 
@@ -72,7 +72,7 @@ const HeroSection = () => {
               </Link>
             </Button>
             <Button asChild variant="invert">
-              <Link href="/volunteer">Join the campaign</Link>
+              <Link href="/volunteer">Join Us</Link>
             </Button>
           </div>
         </Reveal>

@@ -15,8 +15,8 @@ const AskMarkPage = () => {
     <>
       <PageHero
         eyebrow="ask mark / 01"
-        title="Ask Mark <em>anything.</em>"
-        lead="Direct questions get direct answers. Mark reads every submission and the campaign team replies within a week — sometimes the same day."
+        title="Ask Mark <em>directly.</em>"
+        lead="If there's something you want to ask about the district, the campaign, or a specific issue, send it in. Honest questions deserve honest answers."
       />
 
       <section className="bg-paper">
@@ -24,12 +24,11 @@ const AskMarkPage = () => {
           <div className="flex flex-col gap-4">
             <p className="eyebrow-bracket eyebrow">submit a question / 02</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
-              No filter, <em>no PR.</em>
+              All answered <em>by Mark.</em>
             </h2>
             <p className="max-w-prose text-stone-dark">
-              We don&apos;t triage questions through a comms team. Mark personally answers a slice of
-              what comes in here on the blog every week. Selected questions are published with first
-              name and ZIP only, and only with consent.
+              Some questions are answered privately. Others may be shared publicly so more people can
+              hear the response. Either way, every message gets read and answered by Mark directly.
             </p>
           </div>
           <div className="rounded-2xl border border-bone bg-white p-8 lg:p-10">

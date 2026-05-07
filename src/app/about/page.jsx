@@ -20,8 +20,8 @@ const AboutPage = () => {
     <>
       <PageHero
         eyebrow="about / 01"
-        title="From Oregon, <em>for Oregon.</em>"
-        lead="Mark Norman is a Navy veteran, longtime veterinarian, and small-business owner running for Oregon House District 27. Thirty years in Washington County, four dogs at home, and a steady belief that Oregon families deserve leaders who solve problems instead of posing for them."
+        title="Who is <em>Mark Norman?</em>"
+        lead="Mark Norman is a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27. For almost 30 years he has lived, practiced, and heard the issues families face in their daily lives in Washington County. He believes Oregon needs better leadership — practical and more connected to real life."
         align="left"
       />
 
@@ -41,7 +41,7 @@ const AboutPage = () => {
             <div>
               <p className="eyebrow-bracket eyebrow">the story</p>
               <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
-                Why he&apos;s <em>running.</em>
+                A voice for <em>working families.</em>
               </h2>
             </div>
             <div className="space-y-5 text-base leading-relaxed text-stone-dark">
@@ -117,11 +117,11 @@ const AboutPage = () => {
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-6 py-20 lg:px-10 lg:py-24">
           <p className="eyebrow-bracket eyebrow">what&apos;s next / 04</p>
           <h2 className="display text-4xl text-navy sm:text-5xl">
-            Want to <em>help?</em>
+            Want to help <em>Oregon?</em>
           </h2>
           <p className="max-w-prose text-stone-dark">
-            Volunteer, donate, host a meet-and-greet, or just sign up to hear from the campaign.
-            Every bit of help moves the field.
+            Volunteer, attend an event, or support the campaign financially. Every bit of involvement
+            helps the campaign reach more people across District 27.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="red">

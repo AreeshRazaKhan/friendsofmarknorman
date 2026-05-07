@@ -20,8 +20,8 @@ const EventsPage = () => {
     <>
       <PageHero
         eyebrow="events / 01"
-        title="Where the campaign will <em>be.</em>"
-        lead="Town halls, coffee chats, door-knocking days, and small-business roundtables across House District 27. Mark shows up — bring a friend, a neighbor, or a skeptical relative."
+        title="Meet Mark <em>in person.</em>"
+        lead="This campaign primarily takes place through conversations at District 27 kitchens, coffee tables, and community spaces. These events are an opportunity for direct conversation, for questions, and to hear where things are."
       >
         <div className="mt-4 flex flex-wrap gap-3">
           <Button asChild variant="red">
@@ -39,8 +39,11 @@ const EventsPage = () => {
             <div className="max-w-2xl">
               <p className="eyebrow-bracket eyebrow">on the calendar / 02</p>
               <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
-                Next <em>up.</em>
+                Upcoming <em>events.</em>
               </h2>
+              <p className="mt-4 max-w-prose text-stone-dark">
+                These are open community events. No formal setup needed — just show up.
+              </p>
             </div>
             <p className="font-mono text-[11px] font-semibold uppercase tracking-eyebrow text-stone">
               {upcoming.length} event{upcoming.length === 1 ? '' : 's'} scheduled
@@ -82,12 +85,12 @@ const EventsPage = () => {
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-6 py-16 lg:px-10 lg:py-20">
           <p className="eyebrow-bracket eyebrow text-red-3">host an event / 03</p>
           <h2 className="display text-4xl text-paper sm:text-5xl">
-            Open your <em>door.</em>
+            Bring the conversation <em>home.</em>
           </h2>
           <p className="max-w-prose text-paper-78">
-            The strongest events on the schedule are the ones a neighbor invited us to. House
-            parties, coffee groups, book clubs, business networks, faith communities — anywhere ten
-            people are willing to gather. We bring the candidate. You bring the room.
+            Some of the most meaningful events happen when local residents open their doors. Whether
+            it&apos;s a small group of neighbors or a casual gathering, the campaign team will help
+            organize everything. We bring the candidate. You bring the space.
           </p>
           <Button asChild variant="invert">
             <Link href="mailto:events@marknormanfororegon.com">Email events team</Link>

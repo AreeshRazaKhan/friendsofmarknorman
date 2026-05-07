@@ -32,7 +32,7 @@ export const LEGAL = {
 }
 
 export const ELEVATOR_PITCH =
-  'I\'m Mark Norman — running for Oregon House District 27 because families here deserve practical leadership focused on affordability, accountability, and common sense. Navy veteran. Veterinarian. Small-business owner. Nearly 30 years of solving problems and making responsible decisions. Not a career politician — just someone who believes Oregon can do better, and is willing to step forward to help.'
+  'Mark Norman is running for Oregon House District 27, bringing decades of service in the Navy, veterinary medicine, and small business to the state. He is focused on bringing practical decisions, responsible government, and everyday affordability for the people of Oregon.'
 
 export const NAV_LINKS = [
   { href: '/about', label: 'About' },
@@ -46,23 +46,23 @@ export const PILLARS = [
   {
     number: '01',
     name: 'Affordability',
-    headline: 'Lower the cost of living. <em>Today.</em>',
+    headline: 'Costs should be <em>manageable.</em>',
     summary:
-      'Stop piling new taxes, fees, and mandates on working families and small businesses.',
+      'Right now, too many households are adjusting their lives around rising expenses. The priority is easing pressure.',
   },
   {
     number: '02',
     name: 'Education',
-    headline: 'Strong standards. <em>Real results.</em>',
+    headline: 'Kids need <em>strong schooling.</em>',
     summary:
-      'Reading, math, science, career prep — and parents respected as partners in their kids\' education.',
+      'Students need strong fundamentals and a system that prepares them for real opportunities with parents fully in the loop.',
   },
   {
     number: '03',
     name: 'Accountability',
-    headline: 'Spend it like <em>your money.</em>',
+    headline: 'The public deserves <em>transparency.</em>',
     summary:
-      'Independent audits. Real oversight. A government that listens to the people paying the bills.',
+      'Public resources need careful oversight. People should be able to see where money goes and what it produces.',
   },
 ]
 
@@ -73,13 +73,13 @@ export const ISSUES = [
     title: 'Affordability',
     eyebrow: 'Issue 01',
     summary:
-      'Oregon families are being squeezed by rising taxes, fees, utility costs, housing prices, and inflation. Government should focus on making life more affordable — not piling on the bill.',
+      'Households across District 27 are carrying more weight than they should. The cost of housing, utilities, and daily living is on the rise. The goal should be clear: make it easier to live and work here.',
     bullets: [
-      'Responsible budgeting and real transparency in state spending.',
-      'Oppose unnecessary tax and fee increases on working families.',
-      'Regulatory reform that lowers housing construction costs and increases supply.',
-      'Review energy and climate policies that drive consumer costs higher.',
-      'Encourage small-business growth and family-wage jobs.',
+      'Ensure state spending is controlled and transparent.',
+      'Oppose unnecessary tax and fee increases.',
+      'Lift obstacles to housing affordability.',
+      'Revisit policies that raise everyday expenses.',
+      'Help small businesses stay viable and provide jobs.',
     ],
     personal:
       'After nearly 30 years as a veterinarian and small-business owner, I have watched ordinary families struggle with everyday expenses. I\'ve seen firsthand how inflation, energy costs, insurance, and taxes hit working people hardest.',
@@ -90,13 +90,13 @@ export const ISSUES = [
     title: 'Education',
     eyebrow: 'Issue 02',
     summary:
-      'Every child deserves a quality education focused on academic excellence — literacy, math, science, and real preparation for adulthood. Parents are partners, and schools must be accountable for results.',
+      'Schools should help students build strong skills and real confidence for the future. Parents should know how their schools are doing and have a voice in the process.',
     bullets: [
-      'Restore strong academic standards and measurable outcomes.',
-      'Refocus on reading, math, science, and career preparation.',
-      'Transparency and meaningful parental involvement in schools.',
-      'Support vocational training, skilled trades, and CTE pathways.',
-      'Direct education funding to classrooms and student achievement.',
+      'Set and maintain high standards of academic achievement.',
+      'Prioritize reading, math, science, and career readiness.',
+      'Keep parents informed and involved.',
+      'Increase opportunities for students to enter technical fields.',
+      'Direct funding toward student achievement.',
     ],
     personal:
       'As a parent and a longtime employer, I see how much strong schools matter — for kids preparing for adulthood and for the businesses and communities counting on them.',
@@ -107,13 +107,13 @@ export const ISSUES = [
     title: 'Accountability',
     eyebrow: 'Issue 03',
     summary:
-      'Oregonians deserve a government that is transparent, fiscally responsible, and focused on core priorities — public safety, infrastructure, and services that work. Trust is earned by listening and spending taxpayer dollars carefully.',
+      'Trust is built when decisions are transparent and results are visible. That applies to budgets, programs, and public safety — and Oregonians deserve that.',
     bullets: [
-      'Independent audits and stronger oversight of state spending.',
-      'Real transparency in state agencies and programs.',
-      'Support law enforcement recruitment and retention.',
-      'Prioritize community safety and reduce crime.',
-      'Measure outcomes — not the size of the bureaucracy.',
+      'Improve independent review of spending.',
+      'Improve transparency across agencies.',
+      'Support recruitment in law enforcement.',
+      'Focus on safe, stable communities.',
+      'Evaluate programs based on results, not size.',
     ],
     personal:
       'In military, veterinary, and nonprofit leadership, accountability has always mattered. Whether managing budgets or caring for patients, results were expected — government should be no different.',
@@ -135,43 +135,43 @@ export const ABOUT_STATS = [
 ]
 
 export const ABOUT_STORY = [
-  'The decision to run came gradually. Then one conversation stayed with me — a hardworking middle-class family doing everything right, but feeling further behind every year. Rising utility bills. Insurance. Fuel. Housing.',
-  'They no longer believed anyone in Salem understood the impact those decisions were having on everyday lives. I had spent my whole adult life in service — Navy, veterinary medicine, nonprofit work — stepping forward when there was a problem to solve.',
-  'So I asked myself whether I was willing to keep watching, or willing to help. I chose to help.',
+  'This campaign didn\'t start with a political plan. It all started with conversations. For years, Mark observed and listened to people talking about managing budgets and everyday challenges. Housing costs. Utility bills. Insurance. Small businesses trying to stay ahead while families stretched every paycheck further than before.',
+  'Many decisions coming out of Salem didn\'t seem grounded in how people actually live. That mattered to him because most of his life has been spent in positions where responsibility is real. The Navy teaches discipline and accountability. Veterinary medicine teaches calm decision-making and trust. Running a business teaches that problems don\'t fix themselves.',
+  'That\'s when he realized the leadership system wasn\'t working for everyday people, and decided to step forward and lead.',
 ]
 
 export const FAQS = [
   {
     q: 'Who is Mark Norman?',
-    a: 'A Navy veteran, longtime veterinarian, and small-business owner running for Oregon House District 27. Nearly 30 years in Washington County. Christian. Husband. Father. Owner of four dogs — two of them rescues.',
+    a: 'Mark is a Navy veteran, longtime veterinarian, and small-business owner running for Oregon House District 27. He\'s spent nearly 30 years in Washington County. He\'s a husband, a father, owner of four dogs (two of them rescues), and a man who built a career observing and solving real problems.',
   },
   {
     q: 'Why is he running?',
-    a: 'Because Oregon families deserve practical leadership focused on affordability, accountability, and common sense — and because the state needs more citizen legislators with real-world experience outside politics.',
+    a: 'Too many people feel ignored by the decisions being made in Salem, especially around costs, schools, and public safety. Mark is running to bring practical thinking, accountability, and real-world experience into those decisions.',
   },
   {
     q: 'What district is HD-27?',
-    a: 'Parts of unincorporated Portland, unincorporated Beaverton, and unincorporated Washington County.',
+    a: 'It includes parts of unincorporated Portland, Beaverton, and surrounding areas in Washington County.',
   },
   {
-    q: 'What are his top three priorities?',
-    a: 'Affordability and the cost of living. Education and academic excellence. Accountability and public safety. Detail on each is in the platform section above.',
+    q: 'What are his top priorities?',
+    a: 'Lowering the cost of living, strengthening education outcomes, and bringing back accountability in how public resources are managed.',
   },
   {
     q: 'Has he held office before?',
-    a: 'No. Mark is a citizen candidate — Navy veteran, veterinarian, and small-business owner — running because he believes Oregon needs leaders with real-world experience outside politics.',
+    a: 'No. This is a citizen campaign. It is built on real experience outside politics.',
   },
   {
     q: 'How can I help?',
-    a: 'Donate, volunteer, host a meet-and-greet, put up a yard sign, or simply share this site with a neighbor. Sign up below and the campaign team will reach out.',
+    a: 'Donate, volunteer, host a small event, or simply stay informed and share information with others. Every action of yours helps build momentum.',
   },
   {
     q: 'How are donations used?',
-    a: 'Every contribution funds direct voter contact in HD-27 — door-knocking, mailers, digital outreach, and events. The campaign reports all activity to the Oregon Secretary of State.',
+    a: 'Every dollar supports direct outreach conversations with voters across the district through field work, events, and communication.',
   },
   {
     q: 'Who runs the campaign?',
-    a: 'Friends of Mark Norman PAC (#24927), a registered campaign committee in the State of Oregon (CI-0189).',
+    a: 'Friends of Mark Norman PAC (#24927), a registered committee in Oregon.',
   },
 ]
 
@@ -184,26 +184,26 @@ export const ABOUT_BLOCKS = [
   {
     number: '01',
     eyebrow: 'Roots',
-    title: 'A neighbor, before a candidate.',
-    body: 'Mark moved to Washington County nearly 30 years ago for the same reasons most Oregonians did — beauty, opportunity, strong communities, and the independent spirit. He built a life here. Built a business here. Raised dogs here.',
+    title: 'A local life built over time.',
+    body: 'Mark came to Washington County almost 30 years ago and established his life here through his career, his community involvement, and a long history of relationships with the people around him. Eventually, Oregon became home.',
   },
   {
     number: '02',
     eyebrow: 'Service',
     title: 'Twenty-two years in the Navy.',
-    body: 'Active and reserve. Combined service taught him the discipline of solving problems under pressure, the responsibility of managing budgets that aren\'t yours, and the basic posture of accountability — measure results, not effort.',
+    body: 'Gained a solid understanding of what it means to be steadfast, to be clear, and to make decisions with accountability — through more than 20 years in the Navy. Great leadership starts with listening attentively and remaining calm during challenging moments.',
   },
   {
     number: '03',
     eyebrow: 'Practice',
     title: 'Twenty-eight years in veterinary medicine.',
-    body: 'Owner-operator of a small business in Washington County. Thousands of conversations across the exam-room counter with families balancing rising costs, careful decisions, and the ordinary worry of doing right by the people you love.',
+    body: 'Veterinary medicine is about more than animals. It\'s about trust. Families approach you with concerns, stress, and a need for truthful answers. Those conversations had a lasting impact on Mark\'s outlook on responsibility and service.',
   },
   {
     number: '04',
     eyebrow: 'Why',
-    title: 'Stepping forward, not stepping up.',
-    body: 'Politics wasn\'t the plan. After conversations with neighbors who felt unheard, Mark realized the choice was simple: keep watching, or help. He chose to help. That is the entire premise of this campaign.',
+    title: 'Stepping forward with a plan.',
+    body: 'Mark didn\'t spend years planning to run for office. It was inspired by the realization that more people were becoming frustrated, unheard, and concerned about where Oregon was going — and that it was time to help rather than just talk about it.',
   },
 ]
 
@@ -248,42 +248,42 @@ export const VOLUNTEER_HELP_OPTIONS = [
 export const VOLUNTEER_ROLES = [
   {
     title: 'Phone Banking',
-    body: 'Call neighbors from home or HQ. Scripts, training, and good company provided.',
+    body: 'Talk with voters from home or campaign events using simple training and scripts.',
     commitment: '1 – 3 hours · evenings',
   },
   {
     title: 'Door Knocking',
-    body: 'Walk a precinct with a teammate. The single most effective thing a campaign can do.',
+    body: 'Walk neighborhoods with another volunteer and have real conversations with voters.',
     commitment: '2 – 4 hours · weekends',
   },
   {
     title: 'Host a Meet & Greet',
-    body: 'Open your home or yard for an hour with Mark and a small group of neighbors.',
+    body: 'Invite a few friends and neighbors over for a casual conversation with Mark.',
     commitment: '1 evening · once',
   },
   {
     title: 'Host a Fundraiser',
-    body: 'Bring friends together for a focused giving event — high-impact, easy with our help.',
+    body: 'Help bring supporters together for a focused campaign event in your community.',
     commitment: '1 evening · once',
   },
   {
     title: 'Digital/Social Media',
-    body: 'Help us reach voters online. Content, posts, ads, and sharing — at home, on your time.',
+    body: 'Help share campaign updates online and connect with voters across the district.',
     commitment: 'Flexible · weekly',
   },
   {
     title: 'Volunteer Coordination',
-    body: 'Help the back-office: roster, scheduling, lit drops, event prep, light writing.',
+    body: 'Assist with scheduling, organizing volunteers, and preparing campaign materials.',
     commitment: 'Flexible · weekly',
   },
   {
     title: 'Event Planning',
-    body: 'Logistics for town halls, coffees, fundraisers, and field events.',
+    body: 'Support logistics for community events, town halls, and campaign gatherings.',
     commitment: 'Project-based',
   },
   {
     title: 'Media',
-    body: 'Photo, video, design, copy. Tell us what you can do — we need it.',
+    body: 'Photo, video, design, writing, or creative support for the campaign team.',
     commitment: 'Project-based',
   },
 ]

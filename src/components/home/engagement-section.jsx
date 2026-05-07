@@ -7,13 +7,13 @@ import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
 
-import { CAMPAIGN, DONATION_TIERS } from '@/constants/site'
+import { DONATION_TIERS } from '@/constants/site'
 
 const HELP_BULLETS = [
-  'Walk a precinct on a Saturday.',
-  'Make calls from home, on your evenings.',
-  'Host a coffee or a meet-and-greet.',
-  'Drop a yard sign for a neighbor.',
+  'Walk a neighborhood on a weekend.',
+  'Make calls from home in the evenings.',
+  'Host a coffee or meet-and-greet.',
+  'Help spread campaign updates.',
 ]
 
 const EngagementSection = () => {
@@ -25,11 +25,11 @@ const EngagementSection = () => {
             <div className="flex max-w-2xl flex-col gap-4">
               <p className="eyebrow-bracket eyebrow">get involved / 06</p>
               <h2 className="display text-4xl text-navy sm:text-5xl lg:text-6xl">
-                The time <em>is now.</em>
+                Oregon <em>needs you.</em>
               </h2>
               <p className="text-stone-dark">
-                Every contribution funds direct voter contact in House District 27 — door-knocking,
-                mailers, digital outreach, and events. Pick an amount, or set your own.
+                Campaigns are built by people like you who show up. Every contribution helps us reach
+                more voters across House District 27, directly, person to person.
               </p>
             </div>
           </Reveal>
@@ -68,51 +68,6 @@ const EngagementSection = () => {
           />
         </Reveal>
 
-        <RevealGroup
-          stagger={0.12}
-          className="mt-12 grid gap-x-10 gap-y-8 border-t border-bone pt-10 sm:grid-cols-3"
-          as="dl"
-        >
-          <RevealItem variant="up" duration={0.5}>
-            <div className="flex flex-col gap-2">
-              <dt className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red">
-                Email
-              </dt>
-              <dd>
-                <a
-                  className="inline-flex min-h-[44px] items-center font-sans text-base font-semibold text-navy hover:text-red"
-                  href={`mailto:${CAMPAIGN.email}`}
-                >
-                  {CAMPAIGN.email}
-                </a>
-              </dd>
-            </div>
-          </RevealItem>
-          <RevealItem variant="up" duration={0.5}>
-            <div className="flex flex-col gap-2">
-              <dt className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red">
-                Phone
-              </dt>
-              <dd>
-                <a
-                  className="inline-flex min-h-[44px] items-center font-sans text-base font-semibold text-navy hover:text-red"
-                  href={`tel:${CAMPAIGN.phone.replace(/[^0-9+]/g, '')}`}
-                >
-                  {CAMPAIGN.phone}
-                </a>
-              </dd>
-            </div>
-          </RevealItem>
-          <RevealItem variant="up" duration={0.5}>
-            <div className="flex flex-col gap-2">
-              <dt className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red">
-                Mail a check
-              </dt>
-              <dd className="font-sans text-base text-navy">{CAMPAIGN.mailing}</dd>
-            </div>
-          </RevealItem>
-        </RevealGroup>
-
         <Reveal variant="blur" duration={0.9}>
           <article
             id="join"
@@ -127,11 +82,10 @@ const EngagementSection = () => {
               <div className="flex flex-col gap-5">
                 <p className="eyebrow-bracket eyebrow text-red-3">join us</p>
                 <h3 className="display text-3xl text-paper sm:text-4xl lg:text-5xl">
-                  The campaign <em>needs you.</em>
+                  There&apos;s room <em>to help.</em>
                 </h3>
                 <p className="max-w-prose text-paper-78">
-                  Door-knock, make a call, host a coffee, drop a yard sign. Pick whatever fits —
-                  every bit moves the field.
+                  Pick what fits you best. Your every move matters.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild variant="red">

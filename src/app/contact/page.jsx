@@ -13,15 +13,15 @@ const ContactPage = () => {
     <>
       <PageHero
         eyebrow="contact / 01"
-        title="Drop a line. <em>We answer.</em>"
-        lead="Questions, press requests, scheduling, or just a note — write us. The team checks email daily and replies within two business days."
+        title="Reach out <em>anytime.</em>"
+        lead="The campaign team reads every message and replies directly and promptly to inquiries, questions, event requests, or any message from the community."
       />
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <p className="eyebrow-bracket eyebrow">the basics / 02</p>
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
-            Four ways to <em>reach us.</em>
+            Here&apos;s how to <em>reach us.</em>
           </h2>
 
           <dl className="mt-10 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-4">
@@ -57,8 +57,8 @@ const ContactPage = () => {
               Send a <em>message.</em>
             </h2>
             <p className="max-w-prose text-stone-dark">
-              The campaign team reads every message. Press inquiries with a same-day deadline should
-              email{' '}
+              We want to hear your question, concern, or local issue. The campaign team checks
+              messages every day. Press inquiries with a same-day deadline should email{' '}
               <a className="text-red hover:text-red-2" href="mailto:press@marknormanfororegon.com">
                 press@marknormanfororegon.com
               </a>{' '}

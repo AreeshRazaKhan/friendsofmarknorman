@@ -95,7 +95,7 @@ const FaqSection = () => {
           <div className="flex flex-col gap-6">
             <p className="eyebrow-bracket eyebrow">questions / 07</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
-              Asked <em>and answered.</em>
+              You asked. <em>We answered.</em>
             </h2>
             <p className="max-w-prose text-stone-dark">
               The questions voters most often ask the campaign team — about the candidate, the

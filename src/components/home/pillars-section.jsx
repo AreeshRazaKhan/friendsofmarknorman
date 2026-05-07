@@ -47,7 +47,7 @@ const PillarsSection = () => {
           <div className="flex flex-col gap-4 border-y border-bone py-10">
             <p className="eyebrow-bracket eyebrow">priorities</p>
             <h2 className="display text-3xl text-navy sm:text-4xl lg:text-5xl">
-              Three priorities. <em>One campaign.</em>
+              Focused on the <em>priorities.</em>
             </h2>
           </div>
         </Reveal>
