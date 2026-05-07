@@ -16,10 +16,10 @@ const NavBar = () => {
           className="inline-flex"
         >
           <Image
-            src="/images/mark-norman-logo-inverted.webp"
+            src="/images/mark-norman-logo-cabin.png"
             alt="Mark Norman for Oregon — House District 27 — Republican"
-            width={1685}
-            height={1380}
+            width={1688}
+            height={1390}
             priority
             sizes="96px"
             className="h-16 w-auto sm:h-[72px]"
