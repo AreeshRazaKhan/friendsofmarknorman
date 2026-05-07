@@ -9,7 +9,7 @@ import { NAV_LINKS } from '@/constants/site'
 const NavBar = () => {
   return (
     <header className="sticky top-0 z-50 bg-navy text-paper">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 lg:px-10 lg:py-2.5">
         <Link
           href="/"
           aria-label="Mark Norman for Oregon — home"
@@ -21,8 +21,8 @@ const NavBar = () => {
             width={1685}
             height={1380}
             priority
-            sizes="80px"
-            className="h-12 w-auto sm:h-14"
+            sizes="96px"
+            className="h-16 w-auto sm:h-[72px]"
           />
         </Link>
 
