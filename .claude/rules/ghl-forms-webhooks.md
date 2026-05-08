@@ -23,9 +23,10 @@ Client (React form)  →  Local API Route (/api/*)  →  GHL Webhook (POST)
 - Client-side validation runs before submission
 - Server-side validation in the API route catches anything missed
 - Data is forwarded to GHL via webhook trigger URLs (NOT the REST API)
-- The campaign uses **two** GHL location hooks:
-  - `xpk2cvMlHO4xSLm4NgAz` — primary location for the active workflows
-  - `HK7KWJYbw33yisOBMGEO` — legacy hook still serving one Ask Mark trigger
+- All current webhooks live behind the `xpk2cvMlHO4xSLm4NgAz` location hook.
+  An older `HK7KWJYbw33yisOBMGEO` hook from a previous campaign's account
+  is intentionally **not** wired up — see the Ask Mark section below for
+  the email-leak incident that retired it
 - Each form type has its own workflow trigger UUID
 - **Source of truth for every URL is `src/lib/ghl.js`** — never hardcode a
   webhook URL in a route file
@@ -43,9 +44,9 @@ or contacts. The webhook base pattern is:
 https://services.leadconnectorhq.com/hooks/{locationHook}/webhook-trigger/{workflow-uuid}
 ```
 
-`{locationHook}` is `xpk2cvMlHO4xSLm4NgAz` for current workflows. One legacy
-Ask Mark trigger still sits behind `HK7KWJYbw33yisOBMGEO`. Each form type maps
-to a different `{workflow-uuid}` that triggers a specific GHL workflow.
+`{locationHook}` is `xpk2cvMlHO4xSLm4NgAz` for every current workflow. Each
+form type maps to a different `{workflow-uuid}` that triggers a specific GHL
+workflow.
 
 ### 2. SMS Consent Is Mandatory
 
@@ -274,19 +275,21 @@ the existing CRM workflow keeps routing the data into the right place.
 | API Route | `src/app/api/ask/route.js` |
 | Page | `src/app/ask-mark/page.jsx` |
 
-### GHL Webhook URLs (2 Parallel Webhooks)
-
-The Ask Mark form fans out to **two** GHL webhooks via `Promise.all`.
-Both URLs live in `GHL_WEBHOOKS.askMark` and are sent the same payload:
+### GHL Webhook URL (`GHL_WEBHOOKS.askMark`)
 
 ```
-1. https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt
-2. https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/3c2d23be-00aa-49d5-9d14-6597d2e93123
+https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt
 ```
 
-The route additionally appends the shared **A2P compliance webhook**
-(see `forms-compliance-pattern.md`) because the form collects a phone
-number — three webhooks total, fanned out in parallel.
+The route additionally fans out to `A2P_COMPLIANCE_WEBHOOK` because the
+form collects a phone number — two webhooks total, in parallel.
+
+**Removed (do not re-add):** an earlier legacy URL on the
+`HK7KWJYbw33yisOBMGEO` location hook
+(`3c2d23be-00aa-49d5-9d14-6597d2e93123`) used to live in this array. It
+pointed at a previous campaign's account and was triggering a "Barbara
+Kahl" auto-reply on every Ask Mark submission. Keep `askMark` scoped to
+the current campaign's location only.
 
 ### Form Fields
 
@@ -510,7 +513,7 @@ When creating a new form that submits to GHL:
 |------|-------------------|---------------|
 | Contact | `GHL_WEBHOOKS.contact` | 1 + compliance |
 | Volunteer | `GHL_WEBHOOKS.volunteer` (3 URLs) | 3 + compliance |
-| Ask Mark | `GHL_WEBHOOKS.askMark` (2 URLs) | 2 + compliance |
+| Ask Mark | `GHL_WEBHOOKS.askMark` | 1 + compliance |
 | Event RSVP | `GHL_WEBHOOKS.rsvp` | 1 + compliance + appointment |
 
 All routes that collect a phone number additionally fan out to
@@ -520,11 +523,8 @@ route files.
 
 **Base URL pattern:**
 ```
-https://services.leadconnectorhq.com/hooks/{locationHook}/webhook-trigger/{uuid}
+https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/{uuid}
 ```
-
-`{locationHook}` is `xpk2cvMlHO4xSLm4NgAz` for current workflows; one
-legacy Ask Mark trigger still uses `HK7KWJYbw33yisOBMGEO`.
 
 ---
 

@@ -1,11 +1,6 @@
-const GHL_HOOK = process.env.GHL_WEBHOOK_HOOK || 'HK7KWJYbw33yisOBMGEO'
-
-const hook = (uuid) =>
-  `https://services.leadconnectorhq.com/hooks/${GHL_HOOK}/webhook-trigger/${uuid}`
-
 // A2P 10DLC compliance webhook. Single URL shared by every form that
-// collects a phone number (contact, volunteer, rsvp). Drives the SMS
-// consent / subscription workflow and rides alongside each form's
+// collects a phone number (contact, volunteer, rsvp, ask mark). Drives
+// the SMS consent / subscription workflow and rides alongside each form's
 // primary webhook(s).
 export const A2P_COMPLIANCE_WEBHOOK =
   'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/hqfmuiOqLxlS0k9VV4lc'
@@ -20,7 +15,6 @@ export const GHL_WEBHOOKS = {
   rsvp: 'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/lmGoHsLcbAbTYKQn5oep',
   askMark: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt',
-    hook('3c2d23be-00aa-49d5-9d14-6597d2e93123'),
   ],
 }
 
