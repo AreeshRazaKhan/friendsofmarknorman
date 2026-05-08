@@ -93,7 +93,6 @@ const FaqSection = () => {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.6fr] lg:gap-16 lg:px-10 lg:py-28">
         <Reveal variant="left" duration={0.7}>
           <div className="flex flex-col gap-6">
-            <p className="eyebrow-bracket eyebrow">questions / 07</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
               You asked. <em>We answered.</em>
             </h2>

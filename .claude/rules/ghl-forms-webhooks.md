@@ -241,57 +241,95 @@ GHL webhooks handle flat strings better than nested arrays.
 
 ---
 
-## 3. Issue Report Form
+## 3. Ask Mark Form
+
+This form replaces the legacy Issue Report form. It collects a direct
+question for the candidate but reuses the same `issue_*` GHL fields so
+the existing CRM workflow keeps routing the data into the right place.
 
 ### Files
 
 | Purpose | Path |
 |---------|------|
-| Form UI | `src/components/issues/issue-form.jsx` |
-| API Route | `src/app/api/issues/route.js` |
-| Page | `src/app/issues/page.jsx` |
+| Form UI | `src/components/ask/ask-form.jsx` |
+| API Route | `src/app/api/ask/route.js` |
+| Page | `src/app/ask-mark/page.jsx` |
 
-### GHL Webhook URL
+### GHL Webhook URLs (2 Parallel Webhooks)
+
+The Ask Mark form fans out to **two** GHL webhooks via `Promise.all`.
+Both URLs live in `GHL_WEBHOOKS.askMark` and are sent the same payload:
 
 ```
-https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/3c2d23be-00aa-49d5-9d14-6597d2e93123
+1. https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt
+2. https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/3c2d23be-00aa-49d5-9d14-6597d2e93123
 ```
+
+The route additionally appends the shared **A2P compliance webhook**
+(see `forms-compliance-pattern.md`) because the form collects a phone
+number — three webhooks total, fanned out in parallel.
 
 ### Form Fields
 
 | Field | Type | Required | Notes |
 |-------|------|----------|-------|
-| Full Name | text input | Yes | Split into firstName/lastName in payload |
+| Full Name | text input | No | Single field, split into `firstName` / `lastName` in the API route |
 | Email | email input | Yes | |
-| Category | select dropdown | Yes | Values from `src/constants/issues.js` |
-| Location | text input | No | Street address or neighborhood |
-| Subject | text input | Yes | |
-| Description | textarea (6 rows) | Yes | |
+| Phone | tel input | No | Formatted via `formatPhoneInput` (`+1 (xxx) xxx-xxxx`) |
+| ZIP Code | text input | No | Sent as `issue_location` |
+| Topic | select dropdown | No | Affordability, Education, Public safety, Government accountability, District services, Other |
+| Question | textarea (6 rows) | Yes | Sent as both `issue_description` and (truncated) `issue_subject` |
+| SMS Updates | checkbox | No | A2P consent — disabled when phone is empty |
+| SMS Promo | checkbox | No | A2P consent — disabled when phone is empty |
 
 ### Name Splitting Logic
 
-The issue form collects a single "Full Name" field but splits it for GHL:
+The form collects a single `name` field; the API route splits it into
+`firstName` / `lastName` before forwarding to GHL:
 
 ```js
-const nameParts = name.trim().split(' ')
-const firstName = nameParts[0]
-const lastName = nameParts.slice(1).join(' ') || ''
+const splitFullName = (name) => {
+  const parts = (name || '').trim().split(/\s+/).filter(Boolean)
+  if (parts.length === 0) return { firstName: '', lastName: '' }
+  const [firstName, ...rest] = parts
+  return { firstName, lastName: rest.join(' ') }
+}
+```
+
+Single-word names land in `firstName` with `lastName: ''`. Empty input
+yields both fields empty.
+
+### Subject Derivation
+
+The form does not expose a separate subject field. The API route
+derives `issue_subject` from the question — the first 80 characters,
+with an ellipsis when truncated:
+
+```js
+const deriveSubject = (question) => {
+  const trimmed = (question || '').trim()
+  if (trimmed.length <= 80) return trimmed
+  return trimmed.slice(0, 77).trimEnd() + '…'
+}
 ```
 
 ### Webhook Payload
 
 ```js
 {
-  type: 'Issue_Report',
-  firstName: string,              // first word of full name
-  lastName: string,               // remaining words of full name
+  type: 'Ask_Mark',
+  firstName: string,              // first word of full name, may be empty
+  lastName: string,               // remaining words, may be empty
   email: string,
-  issue_category: string,         // selected category value
-  issue_location: string,         // address/neighborhood, may be empty
-  issue_subject: string,
-  issue_description: string,
+  phone: string,                  // '+1 (xxx) xxx-xxxx' or '' (normalized)
+  issue_category: string,         // selected topic, may be empty
+  issue_location: string,         // ZIP, may be empty
+  issue_subject: string,          // derived from question (≤ 80 chars)
+  issue_description: string,      // full question text
   issue_image: '',                // empty string placeholder (no upload yet)
-  source: 'src_issue',
+  sms_updates: 'Yes' | 'No',
+  sms_promo: 'Yes' | 'No',
+  source: 'src_ask',
   submitted_at: '2026-04-12T10:30:00.000Z'
 }
 ```
@@ -299,8 +337,9 @@ const lastName = nameParts.slice(1).join(' ') || ''
 ### API Route Validation
 
 ```js
-// Server validates: name, email, subject, description are non-empty after trim
-// Returns 400 with { error: 'Missing required fields' } if any are empty
+// Server validates: email, question are non-empty after trim
+// Returns 400 with { error: 'Missing required fields' } if either is empty
+// Returns 502 only when every webhook (including compliance) fails
 ```
 
 ---
@@ -444,12 +483,17 @@ When creating a new form that submits to GHL:
 
 ## 6. GHL Webhook URLs Reference
 
-| Form | Webhook UUID | Webhook Count |
-|------|-------------|---------------|
-| Contact | `cf2eced9-14ad-4109-ba4f-fd244858af10` | 1 |
-| Volunteer | `23834100-...`, `df947411-...`, `19e7758c-...` | 3 (parallel) |
-| Issue Report | `3c2d23be-00aa-49d5-9d14-6597d2e93123` | 1 |
-| Event RSVP | `b8b53720-18c4-4cde-9db9-c549de6264ee` | 1 + appointment |
+| Form | Primary Webhook(s) | Webhook Count |
+|------|-------------------|---------------|
+| Contact | `GHL_WEBHOOKS.contact` | 1 + compliance |
+| Volunteer | `GHL_WEBHOOKS.volunteer` (3 URLs) | 3 + compliance |
+| Ask Mark | `GHL_WEBHOOKS.askMark` (2 URLs) | 2 + compliance |
+| Event RSVP | `GHL_WEBHOOKS.rsvp` | 1 + compliance + appointment |
+
+All routes that collect a phone number additionally fan out to
+`A2P_COMPLIANCE_WEBHOOK` — see `forms-compliance-pattern.md`. Source
+of truth for every URL is `src/lib/ghl.js`; do not duplicate URLs in
+route files.
 
 **Base URL pattern:**
 ```
@@ -463,11 +507,11 @@ https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/
 ```js
 // Always included in every webhook payload:
 {
-  type: string,              // 'Contact_Form', 'Volunteer_Form', 'Issue_Report', 'Event_RSVP'
+  type: string,              // 'Contact_Form', 'Volunteer_Form', 'Ask_Mark', 'Event_RSVP'
   firstName: string,         // always split from name if needed
-  lastName: string,
+  lastName: string,          // may be '' for Ask Mark
   email: string,
-  source: string,            // 'src_contact', 'src_volunteer', 'src_issue', 'src_event'
+  source: string,            // 'src_contact', 'src_volunteer', 'src_ask', 'src_event'
   submitted_at: string,      // ISO 8601 UTC timestamp
 }
 ```

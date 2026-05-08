@@ -12,15 +12,13 @@ const ContactPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="contact / 01"
         title="Reach out <em>anytime.</em>"
         lead="The campaign team reads every message and replies directly and promptly to inquiries, questions, event requests, or any message from the community."
       />
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <p className="eyebrow-bracket eyebrow">the basics / 02</p>
-          <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
+          <h2 className="display text-3xl text-navy sm:text-4xl">
             Here&apos;s how to <em>reach us.</em>
           </h2>
 
@@ -52,7 +50,6 @@ const ContactPage = () => {
       <section className="bg-paper-2">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:px-10 lg:py-28">
           <div className="flex flex-col gap-4">
-            <p className="eyebrow-bracket eyebrow">write us / 03</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
               Send a <em>message.</em>
             </h2>

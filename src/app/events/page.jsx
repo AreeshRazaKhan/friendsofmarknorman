@@ -19,15 +19,11 @@ const EventsPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="events / 01"
         title="Meet Mark <em>in person.</em>"
         lead="This campaign primarily takes place through conversations at District 27 kitchens, coffee tables, and community spaces. These events are an opportunity for direct conversation, for questions, and to hear where things are."
       >
         <div className="mt-4 flex flex-wrap gap-3">
           <Button asChild variant="red">
-            <Link href="#calendar">See the calendar</Link>
-          </Button>
-          <Button asChild variant="invert">
             <Link href="mailto:events@marknormanfororegon.com">Host an event</Link>
           </Button>
         </div>
@@ -37,8 +33,7 @@ const EventsPage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <p className="eyebrow-bracket eyebrow">on the calendar / 02</p>
-              <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
+              <h2 className="display text-4xl text-navy sm:text-5xl">
                 Upcoming <em>events.</em>
               </h2>
               <p className="mt-4 max-w-prose text-stone-dark">
@@ -83,7 +78,7 @@ const EventsPage = () => {
 
       <section className="bg-navy text-paper">
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-6 py-16 lg:px-10 lg:py-20">
-          <p className="eyebrow-bracket eyebrow text-red-3">host an event / 03</p>
+          <p className="eyebrow-bracket eyebrow text-red-3">host an event</p>
           <h2 className="display text-4xl text-paper sm:text-5xl">
             Bring the conversation <em>home.</em>
           </h2>

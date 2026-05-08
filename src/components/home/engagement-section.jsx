@@ -23,7 +23,6 @@ const EngagementSection = () => {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-16">
           <Reveal variant="up" duration={0.75}>
             <div className="flex max-w-2xl flex-col gap-4">
-              <p className="eyebrow-bracket eyebrow">get involved / 06</p>
               <h2 className="display text-4xl text-navy sm:text-5xl lg:text-6xl">
                 Oregon <em>needs you.</em>
               </h2>

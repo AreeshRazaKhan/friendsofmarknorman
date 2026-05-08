@@ -26,9 +26,11 @@ const PageHero = ({ eyebrow, title, lead, align, children, className }) => {
           alignClass
         )}
       >
-        <Reveal variant="fade" duration={0.5}>
-          <p className="eyebrow-bracket eyebrow text-red-3">{eyebrow}</p>
-        </Reveal>
+        {eyebrow && (
+          <Reveal variant="fade" duration={0.5}>
+            <p className="eyebrow-bracket eyebrow text-red-3">{eyebrow}</p>
+          </Reveal>
+        )}
 
         <Reveal variant="blur" delay={0.1} duration={0.85}>
           <h1
@@ -56,7 +58,7 @@ const PageHero = ({ eyebrow, title, lead, align, children, className }) => {
 }
 
 PageHero.propTypes = {
-  eyebrow: PropTypes.string.isRequired,
+  eyebrow: PropTypes.string,
   title: PropTypes.string.isRequired,
   lead: PropTypes.string,
   align: PropTypes.oneOf(['left', 'center', 'right']),
@@ -65,6 +67,7 @@ PageHero.propTypes = {
 }
 
 PageHero.defaultProps = {
+  eyebrow: '',
   lead: '',
   align: 'left',
   children: null,

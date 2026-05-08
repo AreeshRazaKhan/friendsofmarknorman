@@ -14,7 +14,6 @@ const AskMarkPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="ask mark / 01"
         title="Ask Mark <em>directly.</em>"
         lead="If there's something you want to ask about the district, the campaign, or a specific issue, send it in. Honest questions deserve honest answers."
       />
@@ -22,7 +21,7 @@ const AskMarkPage = () => {
       <section className="bg-paper">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:px-10 lg:py-28">
           <div className="flex flex-col gap-4">
-            <p className="eyebrow-bracket eyebrow">submit a question / 02</p>
+            <p className="eyebrow-bracket eyebrow">submit a question</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
               All answered <em>by Mark.</em>
             </h2>
@@ -40,8 +39,7 @@ const AskMarkPage = () => {
       <section className="bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="max-w-2xl">
-            <p className="eyebrow-bracket eyebrow">already asked / 03</p>
-            <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
+            <h2 className="display text-4xl text-navy sm:text-5xl">
               Recent <em>answers.</em>
             </h2>
             <p className="mt-4 max-w-prose text-stone-dark">

@@ -1,19 +1,42 @@
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 import { LEGAL } from '@/constants/site'
+import { cn } from '@/lib/utils'
 
-const SmsConsent = () => {
+const SmsConsent = ({
+  hasPhone,
+  smsUpdates,
+  smsPromo,
+  onSmsUpdatesChange,
+  onSmsPromoChange,
+}) => {
+  const labelClass = cn(
+    'flex items-start gap-3 text-sm leading-relaxed',
+    hasPhone ? 'cursor-pointer text-stone-dark' : 'cursor-not-allowed text-stone-dark/50'
+  )
+
   return (
     <fieldset className="grid gap-3 border-t border-bone pt-6">
       <legend className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-red">
         SMS messaging (optional)
       </legend>
 
-      <label className="flex items-start gap-3 text-sm leading-relaxed text-stone-dark">
+      {!hasPhone && (
+        <p className="text-xs italic text-stone">
+          Enter a phone number above to opt in to SMS messages.
+        </p>
+      )}
+
+      <label className={labelClass}>
         <input
           type="checkbox"
           name="sms_updates"
-          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red"
+          checked={smsUpdates}
+          onChange={(e) => onSmsUpdatesChange(e.target.checked)}
+          disabled={!hasPhone}
+          required={hasPhone}
+          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red disabled:cursor-not-allowed disabled:opacity-40"
         />
         <span>
           By checking this box, I consent to receive campaign updates from{' '}
@@ -31,11 +54,15 @@ const SmsConsent = () => {
         </span>
       </label>
 
-      <label className="flex items-start gap-3 text-sm leading-relaxed text-stone-dark">
+      <label className={labelClass}>
         <input
           type="checkbox"
           name="sms_promo"
-          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red"
+          checked={smsPromo}
+          onChange={(e) => onSmsPromoChange(e.target.checked)}
+          disabled={!hasPhone}
+          required={hasPhone}
+          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red disabled:cursor-not-allowed disabled:opacity-40"
         />
         <span>
           By checking this box, I consent to receive promotional messages, event invitations, and
@@ -50,6 +77,14 @@ const SmsConsent = () => {
       </p>
     </fieldset>
   )
+}
+
+SmsConsent.propTypes = {
+  hasPhone: PropTypes.bool.isRequired,
+  smsUpdates: PropTypes.bool.isRequired,
+  smsPromo: PropTypes.bool.isRequired,
+  onSmsUpdatesChange: PropTypes.func.isRequired,
+  onSmsPromoChange: PropTypes.func.isRequired,
 }
 
 export default SmsConsent

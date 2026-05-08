@@ -1,14 +1,18 @@
 import { NextResponse } from 'next/server'
 
 import {
+  A2P_COMPLIANCE_WEBHOOK,
   GHL_REST,
   GHL_WEBHOOKS,
   buildBasePayload,
   forwardWebhook,
   restHeaders,
 } from '@/lib/ghl'
+import { normalizePhoneForSubmit } from '@/lib/phone'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
+
+const WEBHOOK_URLS = [GHL_WEBHOOKS.rsvp, A2P_COMPLIANCE_WEBHOOK]
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -92,19 +96,24 @@ export const POST = async (request) => {
       firstName,
       lastName: (body?.lastName || '').trim(),
       email,
-      phone: (body?.phone || '').trim(),
+      phone: normalizePhoneForSubmit(body?.phone),
       eventName: (body?.eventName || '').trim(),
       eventDate: (body?.eventDate || '').trim(),
       eventTime: (body?.eventTime || '').trim(),
       eventCategory: (body?.eventCategory || '').trim(),
     }
 
-    const res = await forwardWebhook(GHL_WEBHOOKS.rsvp, payload)
-    if (!res.ok) {
-      return NextResponse.json(
-        { error: 'Upstream webhook failed', upstream: res.status },
-        { status: 502 }
+    const results = await Promise.all(
+      WEBHOOK_URLS.map((url) =>
+        forwardWebhook(url, payload).catch((err) => {
+          console.error('[api/events/rsvp fanout]:', err)
+          return { ok: false }
+        })
       )
+    )
+
+    if (!results.some((r) => r.ok)) {
+      return NextResponse.json({ error: 'Webhook delivery failed' }, { status: 502 })
     }
 
     // Wait for GHL workflow to upsert the contact

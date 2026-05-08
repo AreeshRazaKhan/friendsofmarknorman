@@ -3,15 +3,25 @@ const GHL_HOOK = process.env.GHL_WEBHOOK_HOOK || 'HK7KWJYbw33yisOBMGEO'
 const hook = (uuid) =>
   `https://services.leadconnectorhq.com/hooks/${GHL_HOOK}/webhook-trigger/${uuid}`
 
+// A2P 10DLC compliance webhook. Single URL shared by every form that
+// collects a phone number (contact, volunteer, rsvp). Drives the SMS
+// consent / subscription workflow and rides alongside each form's
+// primary webhook(s).
+export const A2P_COMPLIANCE_WEBHOOK =
+  'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/hqfmuiOqLxlS0k9VV4lc'
+
 export const GHL_WEBHOOKS = {
-  contact: hook('cf2eced9-14ad-4109-ba4f-fd244858af10'),
+  contact: 'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/09g46Cj3ygV1R5aoAM2o',
   volunteer: [
-    hook('23834100-4e00-4579-82e7-f9ec69ed8542'),
-    hook('df947411-0c7e-4a6c-8c2e-7f20291c333f'),
-    hook('19e7758c-f5c5-44fa-a770-5c18cefa0645'),
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/QfDhvzPhlwkovxmcFEZl',
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/xCO2smONLmx8CsZZuVus',
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/TGF8MYaxXDm7YC9t2OkD',
   ],
-  issues: hook('3c2d23be-00aa-49d5-9d14-6597d2e93123'),
-  rsvp: hook('b8b53720-18c4-4cde-9db9-c549de6264ee'),
+  rsvp: 'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/lmGoHsLcbAbTYKQn5oep',
+  askMark: [
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt',
+    hook('3c2d23be-00aa-49d5-9d14-6597d2e93123'),
+  ],
 }
 
 export const GHL_REST = {

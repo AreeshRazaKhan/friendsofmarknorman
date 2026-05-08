@@ -1,27 +1,31 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { Button } from '@/components/ui/button'
-import PageHero from '@/components/layout/page-hero'
-import PlaceholderImage from '@/components/brand/placeholder-image'
-import Reveal from '@/components/motion/reveal'
-import RevealGroup from '@/components/motion/reveal-group'
-import RevealItem from '@/components/motion/reveal-item'
+import { Button } from "@/components/ui/button";
+import PageHero from "@/components/layout/page-hero";
+import PlaceholderImage from "@/components/brand/placeholder-image";
+import Reveal from "@/components/motion/reveal";
+import RevealGroup from "@/components/motion/reveal-group";
+import RevealItem from "@/components/motion/reveal-item";
 
-import { ABOUT_BLOCKS, ABOUT_STATS, ABOUT_STORY, CAMPAIGN } from '@/constants/site'
+import {
+  ABOUT_BLOCKS,
+  ABOUT_STATS,
+  ABOUT_STORY,
+  CAMPAIGN,
+} from "@/constants/site";
 
 export const metadata = {
   title: `About — ${CAMPAIGN.candidate} for Oregon`,
   description:
-    'A Navy veteran, longtime veterinarian, and small-business owner running for Oregon House District 27 on practical leadership.',
-}
+    "A Navy veteran, longtime veterinarian, and small-business owner running for Oregon House District 27 on practical leadership.",
+};
 
 const AboutPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="about / 01"
         title="Who is <em>Mark Norman?</em>"
-        lead="Mark Norman is a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27. For almost 30 years he has lived, practiced, and heard the issues families face in their daily lives in Washington County. He believes Oregon needs better leadership — practical and more connected to real life."
+        lead="Mark Norman is a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27. For almost 30 years he has lived, practiced, and heard the issues families face in their daily lives in Washington County. He believes Oregon needs better leadership that is practical and more connected to real life."
         align="left"
       />
 
@@ -56,8 +60,7 @@ const AboutPage = () => {
       <section className="bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="max-w-2xl">
-            <p className="eyebrow-bracket eyebrow">in his words / 02</p>
-            <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
+            <h2 className="display text-4xl text-navy sm:text-5xl">
               The four <em>chapters.</em>
             </h2>
           </div>
@@ -78,8 +81,12 @@ const AboutPage = () => {
                       / {block.eyebrow}
                     </span>
                   </div>
-                  <h3 className="display text-2xl text-navy lg:text-3xl">{block.title}</h3>
-                  <p className="text-sm leading-relaxed text-stone-dark">{block.body}</p>
+                  <h3 className="display text-2xl text-navy lg:text-3xl">
+                    {block.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-stone-dark">
+                    {block.body}
+                  </p>
                 </article>
               </RevealItem>
             ))}
@@ -89,20 +96,19 @@ const AboutPage = () => {
 
       <section className="bg-navy text-paper">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
-          <Reveal variant="fade" duration={0.6}>
-            <p className="eyebrow-bracket eyebrow text-red-3">by the numbers / 03</p>
-          </Reveal>
           <RevealGroup
             stagger={0.12}
             delay={0.15}
-            className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
+            className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
             as="dl"
           >
             {ABOUT_STATS.map((stat) => (
               <RevealItem key={stat.descriptor} variant="scale" duration={0.6}>
                 <div className="flex flex-col gap-2">
                   <dt className="flex items-baseline">
-                    <span className="stat-plus" aria-hidden="true">+</span>
+                    <span className="stat-plus" aria-hidden="true">
+                      +
+                    </span>
                     <span className="stat-numeral-paper">{stat.number}</span>
                   </dt>
                   <dd className="stat-descriptor-dark">{stat.descriptor}</dd>
@@ -115,13 +121,13 @@ const AboutPage = () => {
 
       <section className="bg-paper">
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-6 py-20 lg:px-10 lg:py-24">
-          <p className="eyebrow-bracket eyebrow">what&apos;s next / 04</p>
           <h2 className="display text-4xl text-navy sm:text-5xl">
             Want to help <em>Oregon?</em>
           </h2>
           <p className="max-w-prose text-stone-dark">
-            Volunteer, attend an event, or support the campaign financially. Every bit of involvement
-            helps the campaign reach more people across District 27.
+            Volunteer, attend an event, or support the campaign financially.
+            Every bit of involvement helps the campaign reach more people across
+            District 27.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="red">
@@ -134,7 +140,7 @@ const AboutPage = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

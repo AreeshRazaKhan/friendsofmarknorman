@@ -80,14 +80,6 @@
     @apply font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-red;
   }
 
-  .eyebrow-bracket::before {
-    content: '[ ';
-  }
-
-  .eyebrow-bracket::after {
-    content: ' ]';
-  }
-
   .display {
     @apply font-sans font-bold leading-[0.92] tracking-tightest;
   }

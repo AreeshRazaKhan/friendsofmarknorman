@@ -1,10 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
+import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
+import { formatPhoneInput } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -31,6 +33,18 @@ const AskForm = () => {
   const [status, setStatus] = useState(STATUS.idle)
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
+  const [phone, setPhone] = useState('')
+  const [smsUpdates, setSmsUpdates] = useState(false)
+  const [smsPromo, setSmsPromo] = useState(false)
+
+  const hasPhone = phone.trim().length > 0
+
+  useEffect(() => {
+    if (!hasPhone) {
+      setSmsUpdates(false)
+      setSmsPromo(false)
+    }
+  }, [hasPhone])
 
   const validate = (data) => {
     const next = {}
@@ -44,12 +58,14 @@ const AskForm = () => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const data = {
-      firstName: formData.get('firstName') || '',
+      name: formData.get('name') || '',
       email: formData.get('email') || '',
+      phone,
       zip: formData.get('zip') || '',
       topic: formData.get('topic') || '',
       question: formData.get('question') || '',
-      publishOk: formData.get('publishOk') === 'on',
+      sms_updates: smsUpdates,
+      sms_promo: smsPromo,
     }
 
     const validation = validate(data)
@@ -67,6 +83,9 @@ const AskForm = () => {
       setStatus(STATUS.success)
       setMessage('Got it — Mark reads every question. The team will follow up.')
       event.currentTarget.reset()
+      setPhone('')
+      setSmsUpdates(false)
+      setSmsPromo(false)
     } catch (error) {
       console.error('[AskForm]:', error)
       setStatus(STATUS.error)
@@ -78,10 +97,10 @@ const AskForm = () => {
     <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
-          name="firstName"
-          label="First name"
-          autoComplete="given-name"
-          placeholder="Alex"
+          name="name"
+          label="Full name"
+          autoComplete="name"
+          placeholder="Alex Rivera"
         />
         <FormField
           name="email"
@@ -96,23 +115,33 @@ const AskForm = () => {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
+          name="phone"
+          label="Phone (optional)"
+          type="tel"
+          autoComplete="tel"
+          placeholder="+1 (503) 555-0123"
+          value={phone}
+          onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+        />
+        <FormField
           name="zip"
           label="ZIP code"
           inputMode="numeric"
           pattern="[0-9]{5}"
           placeholder="97000"
         />
-        <FormField name="topic" label="Topic">
-          <select id="topic" name="topic" className={SELECT_CLASS}>
-            <option value="">Select…</option>
-            {TOPICS.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </FormField>
       </div>
+
+      <FormField name="topic" label="Topic">
+        <select id="topic" name="topic" className={SELECT_CLASS}>
+          <option value="">Select…</option>
+          {TOPICS.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      </FormField>
 
       <FormField name="question" label="Your question" required error={errors.question}>
         <textarea
@@ -126,16 +155,13 @@ const AskForm = () => {
         />
       </FormField>
 
-      <label className="flex items-start gap-3 text-sm text-stone-dark">
-        <input
-          type="checkbox"
-          name="publishOk"
-          className="mt-1 h-4 w-4 rounded border-bone text-red focus:ring-red"
-        />
-        <span>
-          You can publish my question (with first name and ZIP only) on the campaign blog.
-        </span>
-      </label>
+      <SmsConsent
+        hasPhone={hasPhone}
+        smsUpdates={smsUpdates}
+        smsPromo={smsPromo}
+        onSmsUpdatesChange={setSmsUpdates}
+        onSmsPromoChange={setSmsPromo}
+      />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>
         {status === STATUS.submitting ? 'Sending…' : 'Send to Mark'}

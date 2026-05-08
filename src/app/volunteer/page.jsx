@@ -15,7 +15,6 @@ const VolunteerPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="volunteer / 01"
         title="Campaigns run <em>on people.</em>"
         lead="Every conversation matters. Some volunteers knock doors. Others help behind the scenes. You can help any way you can — pick a role below."
       />
@@ -23,7 +22,7 @@ const VolunteerPage = () => {
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="max-w-2xl">
-            <p className="eyebrow-bracket eyebrow">ways to help / 02</p>
+            <p className="eyebrow-bracket eyebrow">ways to help</p>
             <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
               Pick what works <em>for you.</em>
             </h2>
@@ -62,7 +61,6 @@ const VolunteerPage = () => {
       <section className="bg-paper-2">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:px-10 lg:py-28">
           <div className="flex flex-col gap-4">
-            <p className="eyebrow-bracket eyebrow">sign up / 03</p>
             <h2 className="display text-4xl text-navy sm:text-5xl">
               Tell us a little <em>about yourself.</em>
             </h2>

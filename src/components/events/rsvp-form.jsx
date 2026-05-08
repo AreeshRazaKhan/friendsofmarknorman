@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
+import { formatPhoneInput } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -20,6 +21,7 @@ const RsvpForm = ({ event }) => {
   const [status, setStatus] = useState(STATUS.idle)
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
+  const [phone, setPhone] = useState('')
 
   const validate = (data) => {
     const next = {}
@@ -37,7 +39,7 @@ const RsvpForm = ({ event }) => {
       firstName: formData.get('firstName') || '',
       lastName: formData.get('lastName') || '',
       email: formData.get('email') || '',
-      phone: formData.get('phone') || '',
+      phone,
       eventName: event.title,
       eventDate: event.date,
       eventTime: event.time,
@@ -59,6 +61,7 @@ const RsvpForm = ({ event }) => {
       setStatus(STATUS.success)
       setMessage('You\'re on the list. Confirmation in your inbox shortly.')
       e.currentTarget.reset()
+      setPhone('')
     } catch (error) {
       console.error('[RsvpForm]:', error)
       setStatus(STATUS.error)
@@ -102,7 +105,9 @@ const RsvpForm = ({ event }) => {
         label="Contact number (optional)"
         type="tel"
         autoComplete="tel"
-        placeholder="(503) 555-0123"
+        placeholder="+1 (503) 555-0123"
+        value={phone}
+        onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
       />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>

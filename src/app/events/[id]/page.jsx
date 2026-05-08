@@ -86,7 +86,7 @@ const EventDetailPage = ({ params }) => {
       <section className="bg-paper">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.4fr_1fr] lg:gap-16 lg:px-10 lg:py-28">
           <div className="flex flex-col gap-6">
-            <p className="eyebrow-bracket eyebrow">about this event / 02</p>
+            <p className="eyebrow-bracket eyebrow">about this event</p>
             <h2 className="display text-3xl text-navy sm:text-4xl">
               What to <em>expect.</em>
             </h2>
@@ -146,7 +146,7 @@ const EventDetailPage = ({ params }) => {
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-xl">
-                <p className="eyebrow-bracket eyebrow">also coming up / 03</p>
+                <p className="eyebrow-bracket eyebrow">also coming up</p>
                 <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
                   Other <em>events.</em>
                 </h2>

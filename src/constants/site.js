@@ -298,12 +298,12 @@ export const AVAILABILITY_OPTIONS = [
 ]
 
 export const CAMPAIGN_EXPERIENCE_LEVELS = [
-  'None',
-  'Some Volunteering',
-  'Regular Volunteer',
-  'Campaign Staff',
-  'Campaign Management',
-  'Elected/Appointed Office',
+  'Yes, local (school board, county commissioner, etc.)',
+  'Yes, state level (House, Senate, State Assembly, etc.)',
+  'Yes, statewide (AG, Governor, etc.)',
+  'Yes, federal (Congressional)',
+  'Yes, federal (Presidential)',
+  'No',
 ]
 
 export const OREGON_REGIONS = [

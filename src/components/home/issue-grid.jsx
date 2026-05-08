@@ -1,6 +1,3 @@
-import Link from 'next/link'
-
-import { Button } from '@/components/ui/button'
 import IssueCard from '@/components/home/issue-card'
 import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
@@ -15,8 +12,7 @@ const IssueGrid = () => {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <Reveal variant="up" duration={0.7}>
             <div className="max-w-2xl">
-              <p className="eyebrow-bracket eyebrow">the platform / 04</p>
-              <h2 className="display mt-4 text-4xl text-navy sm:text-5xl">
+              <h2 className="display text-4xl text-navy sm:text-5xl">
                 The full <em>picture.</em>
               </h2>
               <p className="mt-4 max-w-prose text-stone-dark">
@@ -26,11 +22,6 @@ const IssueGrid = () => {
             </div>
           </Reveal>
 
-          <Reveal variant="right" delay={0.2} duration={0.6}>
-            <Button asChild variant="primary">
-              <Link href="/issues">Read the full platform</Link>
-            </Button>
-          </Reveal>
         </div>
 
         <RevealGroup

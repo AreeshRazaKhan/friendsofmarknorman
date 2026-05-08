@@ -9,9 +9,6 @@ const IssueCard = ({ index, title, summary, bullets }) => {
         <span className="font-sans text-6xl font-bold leading-none tracking-tight text-red lg:text-7xl">
           {num}
         </span>
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-stone">
-          / Policy
-        </span>
       </div>
 
       <h3 className="display text-3xl text-navy sm:text-4xl">{title}.</h3>

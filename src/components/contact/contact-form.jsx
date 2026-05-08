@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
+import { formatPhoneInput } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -20,6 +21,18 @@ const ContactForm = () => {
   const [status, setStatus] = useState(STATUS.idle)
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
+  const [phone, setPhone] = useState('')
+  const [smsUpdates, setSmsUpdates] = useState(false)
+  const [smsPromo, setSmsPromo] = useState(false)
+
+  const hasPhone = phone.trim().length > 0
+
+  useEffect(() => {
+    if (!hasPhone) {
+      setSmsUpdates(false)
+      setSmsPromo(false)
+    }
+  }, [hasPhone])
 
   const validate = (form) => {
     const next = {}
@@ -38,10 +51,10 @@ const ContactForm = () => {
       firstName: formData.get('firstName') || '',
       lastName: formData.get('lastName') || '',
       email: formData.get('email') || '',
-      phone: formData.get('phone') || '',
+      phone,
       message: formData.get('message') || '',
-      sms_updates: formData.get('sms_updates') === 'on',
-      sms_promo: formData.get('sms_promo') === 'on',
+      sms_updates: smsUpdates,
+      sms_promo: smsPromo,
     }
 
     const validation = validate(data)
@@ -59,6 +72,9 @@ const ContactForm = () => {
       setStatus(STATUS.success)
       setMessage('Thanks — we got it. The team will follow up shortly.')
       event.currentTarget.reset()
+      setPhone('')
+      setSmsUpdates(false)
+      setSmsPromo(false)
     } catch (error) {
       console.error('[ContactForm]:', error)
       setStatus(STATUS.error)
@@ -102,7 +118,9 @@ const ContactForm = () => {
           label="Phone (optional)"
           type="tel"
           autoComplete="tel"
-          placeholder="(503) 555-0123"
+          placeholder="+1 (503) 555-0123"
+          value={phone}
+          onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
         />
       </div>
 
@@ -118,7 +136,13 @@ const ContactForm = () => {
         />
       </FormField>
 
-      <SmsConsent />
+      <SmsConsent
+        hasPhone={hasPhone}
+        smsUpdates={smsUpdates}
+        smsPromo={smsPromo}
+        onSmsUpdatesChange={setSmsUpdates}
+        onSmsPromoChange={setSmsPromo}
+      />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>
         {status === STATUS.submitting ? 'Sending…' : 'Send message'}

@@ -1,8 +1,17 @@
 import { NextResponse } from 'next/server'
 
-import { GHL_WEBHOOKS, buildBasePayload, forwardWebhook, yesNo } from '@/lib/ghl'
+import {
+  A2P_COMPLIANCE_WEBHOOK,
+  GHL_WEBHOOKS,
+  buildBasePayload,
+  forwardWebhook,
+  yesNo,
+} from '@/lib/ghl'
+import { normalizePhoneForSubmit } from '@/lib/phone'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
+
+const WEBHOOK_URLS = [...GHL_WEBHOOKS.volunteer, A2P_COMPLIANCE_WEBHOOK]
 
 export const POST = async (request) => {
   try {
@@ -24,7 +33,7 @@ export const POST = async (request) => {
       firstName,
       lastName,
       email,
-      phone: (body?.phone || '').trim(),
+      phone: normalizePhoneForSubmit(body?.phone),
       zipCode: (body?.zipCode || '').trim(),
       county: (body?.county || '').trim(),
       region: (body?.region || '').trim(),
@@ -39,17 +48,16 @@ export const POST = async (request) => {
     }
 
     const results = await Promise.all(
-      GHL_WEBHOOKS.volunteer.map((url) =>
+      WEBHOOK_URLS.map((url) =>
         forwardWebhook(url, payload).catch((err) => {
           console.error('[api/volunteer fanout]:', err)
-          return null
+          return { ok: false }
         })
       )
     )
 
-    const anySuccess = results.some((r) => r && r.ok)
-    if (!anySuccess) {
-      return NextResponse.json({ error: 'Upstream webhook failed' }, { status: 502 })
+    if (!results.some((r) => r.ok)) {
+      return NextResponse.json({ error: 'Webhook delivery failed' }, { status: 502 })
     }
 
     return NextResponse.json({ success: true }, { status: 200 })
