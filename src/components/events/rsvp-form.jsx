@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
+import Toast from '@/components/ui/toast'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput } from '@/lib/phone'
 
@@ -22,6 +23,7 @@ const RsvpForm = ({ event }) => {
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
+  const [toastOpen, setToastOpen] = useState(false)
 
   const validate = (data) => {
     const next = {}
@@ -61,16 +63,25 @@ const RsvpForm = ({ event }) => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
       setStatus(STATUS.success)
       setMessage('You\'re on the list. Confirmation in your inbox shortly.')
+      setToastOpen(true)
       form.reset()
       setPhone('')
     } catch (error) {
       console.error('[RsvpForm]:', error)
       setStatus(STATUS.error)
       setMessage('Something went wrong. Please try again.')
+      setToastOpen(true)
     }
   }
 
   return (
+    <>
+    <Toast
+      open={toastOpen && (status === STATUS.success || status === STATUS.error)}
+      message={message}
+      variant={status === STATUS.error ? 'error' : 'success'}
+      onClose={() => setToastOpen(false)}
+    />
     <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
@@ -117,16 +128,8 @@ const RsvpForm = ({ event }) => {
 
       <FormDisclaimer />
 
-      {message && (
-        <p
-          className="text-sm"
-          role={status === STATUS.error ? 'alert' : 'status'}
-          aria-live="polite"
-        >
-          <span className={status === STATUS.error ? 'text-red' : 'text-navy'}>{message}</span>
-        </p>
-      )}
     </form>
+    </>
   )
 }
 

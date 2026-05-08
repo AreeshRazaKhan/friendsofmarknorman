@@ -18,6 +18,11 @@
     --brand-ink-soft:    #1B3454;
     --brand-paper-78:    rgba(245, 242, 236, 0.82);
     --brand-hair:        rgba(11, 40, 68, 0.18);
+    /* Editorial forest green — used only for status indicators (toast
+       success icon). Picked to sit calmly alongside navy + brand red and
+       not compete with them as a brand color. */
+    --brand-green:       #1F6E47;
+    --brand-green-2:     #155538;
 
     --background: var(--brand-paper);
     --foreground: var(--brand-navy);

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
+import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput } from '@/lib/phone'
@@ -24,6 +25,7 @@ const ContactForm = () => {
   const [phone, setPhone] = useState('')
   const [smsUpdates, setSmsUpdates] = useState(false)
   const [smsPromo, setSmsPromo] = useState(false)
+  const [toastOpen, setToastOpen] = useState(false)
 
   const hasPhone = phone.trim().length > 0
 
@@ -72,6 +74,7 @@ const ContactForm = () => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
       setStatus(STATUS.success)
       setMessage('Thanks — we got it. The team will follow up shortly.')
+      setToastOpen(true)
       form.reset()
       setPhone('')
       setSmsUpdates(false)
@@ -80,10 +83,18 @@ const ContactForm = () => {
       console.error('[ContactForm]:', error)
       setStatus(STATUS.error)
       setMessage('Something went wrong. Please try again.')
+      setToastOpen(true)
     }
   }
 
   return (
+    <>
+    <Toast
+      open={toastOpen && (status === STATUS.success || status === STATUS.error)}
+      message={message}
+      variant={status === STATUS.error ? 'error' : 'success'}
+      onClose={() => setToastOpen(false)}
+    />
     <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
@@ -151,16 +162,8 @@ const ContactForm = () => {
 
       <FormDisclaimer />
 
-      {message && (
-        <p
-          className="text-sm"
-          role={status === STATUS.error ? 'alert' : 'status'}
-          aria-live="polite"
-        >
-          <span className={status === STATUS.error ? 'text-red' : 'text-navy'}>{message}</span>
-        </p>
-      )}
     </form>
+    </>
   )
 }
 

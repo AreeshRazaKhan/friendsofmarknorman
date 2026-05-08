@@ -15,6 +15,10 @@ module.exports = {
           2: 'var(--brand-red-2)',
           3: 'var(--brand-red-3)',
         },
+        green: {
+          DEFAULT: 'var(--brand-green)',
+          2: 'var(--brand-green-2)',
+        },
         paper: {
           DEFAULT: 'var(--brand-paper)',
           2: 'var(--brand-paper-2)',
