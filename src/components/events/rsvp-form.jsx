@@ -34,7 +34,8 @@ const RsvpForm = ({ event }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const data = {
       firstName: formData.get('firstName') || '',
       lastName: formData.get('lastName') || '',
@@ -60,7 +61,7 @@ const RsvpForm = ({ event }) => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
       setStatus(STATUS.success)
       setMessage('You\'re on the list. Confirmation in your inbox shortly.')
-      e.currentTarget.reset()
+      form.reset()
       setPhone('')
     } catch (error) {
       console.error('[RsvpForm]:', error)

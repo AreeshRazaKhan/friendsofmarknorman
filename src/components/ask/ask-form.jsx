@@ -56,7 +56,8 @@ const AskForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const formData = new FormData(event.currentTarget)
+    const form = event.currentTarget
+    const formData = new FormData(form)
     const data = {
       name: formData.get('name') || '',
       email: formData.get('email') || '',
@@ -82,7 +83,7 @@ const AskForm = () => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
       setStatus(STATUS.success)
       setMessage('Got it — Mark reads every question. The team will follow up.')
-      event.currentTarget.reset()
+      form.reset()
       setPhone('')
       setSmsUpdates(false)
       setSmsPromo(false)

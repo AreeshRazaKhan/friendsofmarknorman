@@ -46,7 +46,8 @@ const ContactForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const formData = new FormData(event.currentTarget)
+    const form = event.currentTarget
+    const formData = new FormData(form)
     const data = {
       firstName: formData.get('firstName') || '',
       lastName: formData.get('lastName') || '',
@@ -71,7 +72,7 @@ const ContactForm = () => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
       setStatus(STATUS.success)
       setMessage('Thanks — we got it. The team will follow up shortly.')
-      event.currentTarget.reset()
+      form.reset()
       setPhone('')
       setSmsUpdates(false)
       setSmsPromo(false)
