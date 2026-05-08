@@ -44,7 +44,7 @@ const SiteFooter = () => {
             className="inline-flex w-fit"
           >
             <Image
-              src="/images/mark-norman-logo.webp"
+              src="/images/mark-norman-logo-paper.png"
               alt={`${LEGAL.entity} — ${CAMPAIGN.office} — ${CAMPAIGN.party}`}
               width={1685}
               height={1380}
@@ -141,20 +141,9 @@ const SiteFooter = () => {
           <p>{CAMPAIGN.disclosure}</p>
         </div>
         <div className="border-t border-bone">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-stone lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-stone lg:flex-row lg:items-center lg:px-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em]">
               © {year} {LEGAL.entity}
-            </p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em]">
-              Powered by{' '}
-              <a
-                href="https://op1776.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-navy transition-colors hover:text-red"
-              >
-                Operation 1776
-              </a>
             </p>
           </div>
         </div>
