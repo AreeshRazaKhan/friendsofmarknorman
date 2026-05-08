@@ -75,7 +75,7 @@ export const ISSUES = [
     title: 'Affordability',
     eyebrow: 'Issue 01',
     summary:
-      'Households across District 27 are carrying more weight than they should. The cost of housing, utilities, and daily living is on the rise. The goal should be clear: make it easier to live and work here.',
+      'Households across District 27 are carrying more weight than they should. Housing, utilities, and daily-living costs keep rising. The goal: make it easier to live and work here.',
     bullets: [
       'Ensure state spending is controlled and transparent.',
       'Oppose unnecessary tax and fee increases.',

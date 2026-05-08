@@ -46,7 +46,7 @@ const HeroSection = () => {
           <ul role="list" className="flex flex-wrap justify-center gap-2">
             {CREDENTIALS.map((credential) => (
               <RevealItem key={credential} variant="scale" duration={0.5} as="li">
-                <span className="inline-flex items-center gap-2 rounded-pill border border-paper-78/30 px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-paper">
+                <span className="inline-flex items-center gap-2 rounded-pill border border-paper-78/30 px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-paper [word-spacing:-0.22em]">
                   <span aria-hidden="true" className="text-red-3">
                     ★
                   </span>

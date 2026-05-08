@@ -16,16 +16,17 @@ const IssueCard = ({ index, title, summary, bullets }) => {
       <p className="text-base leading-relaxed text-stone-dark">{summary}</p>
 
       {bullets?.length > 0 && (
-        <ol className="mt-2 flex flex-col gap-4 text-sm text-stone-dark">
-          {bullets.map((line, i) => (
-            <li key={line} className="grid grid-cols-[2rem_1fr] items-start gap-3">
-              <span className="pt-[3px] font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-red">
-                {String(i + 1).padStart(2, '0')}
-              </span>
+        <ul className="mt-2 flex flex-col gap-3 text-base text-stone-dark">
+          {bullets.map((line) => (
+            <li key={line} className="flex items-start gap-3">
+              <span
+                aria-hidden="true"
+                className="mt-[10px] h-1.5 w-1.5 shrink-0 rounded-full bg-red"
+              />
               <span className="leading-relaxed">{line}</span>
             </li>
           ))}
-        </ol>
+        </ul>
       )}
     </article>
   )

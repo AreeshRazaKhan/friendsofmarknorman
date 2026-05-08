@@ -33,7 +33,9 @@ const AboutSection = () => {
 
         <div className="flex flex-col gap-8 lg:pt-4">
           <Reveal variant="right" delay={0.15} duration={0.7}>
-            <p className="eyebrow-bracket eyebrow text-red-3">Mark Norman</p>
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-red-3 [word-spacing:-0.22em]">
+              Mark Norman
+            </p>
             <h2 className="display mt-4 text-4xl text-paper sm:text-5xl lg:text-6xl">
               A voice for <em>working families.</em>
             </h2>
