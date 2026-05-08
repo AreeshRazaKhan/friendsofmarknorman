@@ -125,14 +125,17 @@ const parseDate = (dateStr) => {
 
 const normalizeEvent = (record) => {
   const props = record?.properties || {}
-  const startDate = parseDate(props.event_date) || SAFE_DATE
+  // GHL field names: `event_start_date`, `event_start_time`, `event_end_time`.
+  // Older legacy keys (`event_date`, `select_time`, `end_time`) are read as
+  // fallbacks so a schema rename in GHL does not break rendering instantly.
+  const startDate = parseDate(props.event_start_date || props.event_date) || SAFE_DATE
   const endDate = parseDate(props.event_end_date)
   const imageUrl = Array.isArray(props.event_image) && props.event_image[0]?.url
     ? props.event_image[0].url
     : '/placeholder-event.svg'
   const categorySlug = props.event_category || ''
-  const timeSlug = props.select_time || ''
-  const endTimeSlug = props.end_time || ''
+  const timeSlug = props.event_start_time || props.select_time || ''
+  const endTimeSlug = props.event_end_time || props.end_time || ''
   const location = props.event_location || ''
 
   return {

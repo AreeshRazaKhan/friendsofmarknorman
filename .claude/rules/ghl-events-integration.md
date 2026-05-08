@@ -59,19 +59,24 @@ GHL returns custom object records in this shape:
   id: 'record_id',
   properties: {
     event_name: '...',
-    event_date: 'YYYY-MM-DD',
-    event_end_date: 'YYYY-MM-DD',
-    select_time: '600_pm',         // slug-encoded time
-    end_time: '800_pm',
+    event_start_date: 'YYYY-MM-DD',
+    event_end_date: 'YYYY-MM-DD',     // optional, may be absent
+    event_start_time: '600_pm',       // slug-encoded time
+    event_end_time: '800_pm',         // slug-encoded time
     event_location: '...',
     event_description: '...',
-    event_category: 'rally',       // slug-encoded category
-    event_image: [{ url: '...' }], // array of media objects
+    event_category: 'rally',          // slug-encoded category
+    event_image: [{ url: '...' }],    // array of media objects
   },
 }
 ```
 
 Always read from `record.properties` — never from the record root.
+
+**Legacy keys:** Some older docs reference `event_date` / `select_time` /
+`end_time` for the same fields. `normalizeEvent` reads the new names first
+and falls back to the legacy names so a partial schema rollback in GHL does
+not break rendering. New code should write the new names.
 
 ### 4. Time and Category Values Are Slugs — Map Them to Labels
 
