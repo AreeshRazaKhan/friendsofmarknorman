@@ -5,10 +5,10 @@ export const CAMPAIGN = {
   party: 'Republican',
   cycle: '2026',
   tagline: 'Service · Solutions · Accountability',
-  domain: 'MarkNormanForOregon.com',
-  email: 'info@marknormanfororegon.com',
+  domain: 'markfororegon.com',
+  email: 'mark@markfororegon.com',
   phone: '(503) 555-0127',
-  mailing: 'PO Box 0000 · Beaverton, OR 97000',
+  mailing: 'PO Box 122 · Beaverton, OR 97075',
   pacId: '24927',
   committee: 'CI-0189',
   disclosure: 'Paid for by Friends of Mark Norman PAC #24927',
@@ -22,11 +22,13 @@ export const LEGAL = {
   pacId: '24927',
   committeeId: 'CI-0189',
   state: 'Oregon',
-  email: 'info@marknormanfororegon.com',
-  privacyEmail: 'privacy@marknormanfororegon.com',
+  email: 'mark@markfororegon.com',
+  // No separate privacy@ inbox is provisioned yet — privacy/access/deletion
+  // requests route to the candidate's mailbox until that's set up.
+  privacyEmail: 'mark@markfororegon.com',
   phone: '(503) 555-0127',
   phoneTel: '+15035550127',
-  address: 'PO Box 0000, Beaverton, OR 97000',
+  address: 'PO Box 122, Beaverton, OR 97075',
   effectiveDate: 'May 5, 2026',
   programName: 'Friends of Mark Norman SMS Program',
 }
@@ -184,20 +186,20 @@ export const ABOUT_BLOCKS = [
   {
     number: '01',
     eyebrow: 'Roots',
-    title: 'A local life built over time.',
-    body: 'Mark came to Washington County almost 30 years ago and established his life here through his career, his community involvement, and a long history of relationships with the people around him. Eventually, Oregon became home.',
+    title: 'Iowa-born, Oregon-built.',
+    body: 'Born in Iowa City and raised in Keokuk, Mark came to Washington County almost 30 years ago — drawn by the small-business opportunity, natural beauty, and independent spirit. He built his career here, raised his dogs here, and made Oregon home.',
   },
   {
     number: '02',
     eyebrow: 'Service',
     title: 'Twenty-two years in the Navy.',
-    body: 'Gained a solid understanding of what it means to be steadfast, to be clear, and to make decisions with accountability — through more than 20 years in the Navy. Great leadership starts with listening attentively and remaining calm during challenging moments.',
+    body: 'A U.S. Naval Academy graduate and decorated Naval Officer with twenty-two combined years of active and reserve service. Mark learned what it means to be steadfast, to be clear, and to make decisions with accountability. Great leadership starts with listening attentively and staying calm under pressure.',
   },
   {
     number: '03',
     eyebrow: 'Practice',
     title: 'Twenty-eight years in veterinary medicine.',
-    body: 'Veterinary medicine is about more than animals. It\'s about trust. Families approach you with concerns, stress, and a need for truthful answers. Those conversations had a lasting impact on Mark\'s outlook on responsibility and service.',
+    body: 'Iowa State University DVM. Twenty-eight years owner-operating a small veterinary practice in Washington County, with continued part-time relief work today. Veterinary medicine is about more than animals — it\'s about trust. Families approach you with concerns, stress, and a need for truthful answers. Those conversations shaped Mark\'s outlook on responsibility and service.',
   },
   {
     number: '04',
@@ -210,14 +212,14 @@ export const ABOUT_BLOCKS = [
 export const CONTACT_METHODS = [
   {
     label: 'General',
-    value: 'info@marknormanfororegon.com',
-    href: 'mailto:info@marknormanfororegon.com',
+    value: 'mark@markfororegon.com',
+    href: 'mailto:mark@markfororegon.com',
     detail: 'For volunteers, supporters, and questions.',
   },
   {
     label: 'Press',
-    value: 'press@marknormanfororegon.com',
-    href: 'mailto:press@marknormanfororegon.com',
+    value: 'mark@markfororegon.com',
+    href: 'mailto:mark@markfororegon.com',
     detail: 'Media requests and statements.',
   },
   {
@@ -228,7 +230,7 @@ export const CONTACT_METHODS = [
   },
   {
     label: 'Mail',
-    value: 'PO Box 0000 · Beaverton, OR 97000',
+    value: 'PO Box 122 · Beaverton, OR 97075',
     href: null,
     detail: 'For checks and physical mail.',
   },

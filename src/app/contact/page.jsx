@@ -56,8 +56,8 @@ const ContactPage = () => {
             <p className="max-w-prose text-stone-dark">
               We want to hear your question, concern, or local issue. The campaign team checks
               messages every day. Press inquiries with a same-day deadline should email{' '}
-              <a className="text-red hover:text-red-2" href="mailto:press@marknormanfororegon.com">
-                press@marknormanfororegon.com
+              <a className="text-red hover:text-red-2" href="mailto:mark@markfororegon.com">
+                mark@markfororegon.com
               </a>{' '}
               directly.
             </p>

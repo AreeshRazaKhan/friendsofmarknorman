@@ -99,8 +99,8 @@ const FaqSection = () => {
             <p className="max-w-prose text-stone-dark">
               The questions voters most often ask the campaign team — about the candidate, the
               district, and how to help. If yours isn&apos;t here, send it to{' '}
-              <a className="text-red hover:text-red-2" href="mailto:info@marknormanfororegon.com">
-                info@marknormanfororegon.com
+              <a className="text-red hover:text-red-2" href="mailto:mark@markfororegon.com">
+                mark@markfororegon.com
               </a>
               .
             </p>

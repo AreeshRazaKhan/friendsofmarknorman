@@ -34,7 +34,7 @@ const EventsPage = async () => {
       >
         <div className="mt-4 flex flex-wrap gap-3">
           <Button asChild variant="red">
-            <Link href="mailto:events@marknormanfororegon.com">Host an event</Link>
+            <Link href="mailto:mark@markfororegon.com">Host an event</Link>
           </Button>
         </div>
       </PageHero>
@@ -78,7 +78,7 @@ const EventsPage = async () => {
                   <Link href="/#sign-up">Get updates</Link>
                 </Button>
                 <Button asChild variant="primary">
-                  <Link href="mailto:events@marknormanfororegon.com">Host an event</Link>
+                  <Link href="mailto:mark@markfororegon.com">Host an event</Link>
                 </Button>
               </div>
             </div>
@@ -98,7 +98,7 @@ const EventsPage = async () => {
             organize everything. We bring the candidate. You bring the space.
           </p>
           <Button asChild variant="invert">
-            <Link href="mailto:events@marknormanfororegon.com">Email events team</Link>
+            <Link href="mailto:mark@markfororegon.com">Email events team</Link>
           </Button>
         </div>
       </section>

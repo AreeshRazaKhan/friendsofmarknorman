@@ -446,8 +446,8 @@ Use **"I agree to receive…"** — never passive forms ("By providing your numb
 | Party | Republican |
 | Cycle | 2026 |
 | Tagline | Service · Solutions · Accountability |
-| Domain | MarkNormanForOregon.com |
-| Email | info@marknormanfororegon.com |
+| Domain | markfororegon.com (canonical; marknormanfororegon.com redirects here) |
+| Email | mark@markfororegon.com |
 | Committee | CI-0189 |
 | PAC | #24927 |
 | Disclosure | Paid for by Friends of Mark Norman PAC #24927 |
