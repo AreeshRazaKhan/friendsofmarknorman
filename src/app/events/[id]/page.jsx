@@ -6,10 +6,15 @@ import { Button } from '@/components/ui/button'
 import EventCard from '@/components/events/event-card'
 import RsvpForm from '@/components/events/rsvp-form'
 
-import { CAMPAIGN, EVENTS } from '@/constants/site'
+import { CAMPAIGN } from '@/constants/site'
+import { fetchGHLEvent, fetchGHLEvents } from '@/lib/ghl'
 
-const formatDate = (iso) => {
+export const revalidate = 60
+
+const formatLongDate = (iso) => {
+  if (!iso) return ''
   const d = new Date(`${iso}T00:00:00`)
+  if (Number.isNaN(d.getTime())) return ''
   return d.toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
@@ -18,22 +23,23 @@ const formatDate = (iso) => {
   })
 }
 
-export const generateStaticParams = () => EVENTS.map((e) => ({ id: e.slug }))
-
-export const generateMetadata = ({ params }) => {
-  const event = EVENTS.find((e) => e.slug === params.id)
+export const generateMetadata = async ({ params }) => {
+  const event = await fetchGHLEvent(params.id)
   if (!event) return { title: `Event not found — ${CAMPAIGN.candidate} for Oregon` }
   return {
     title: `${event.title} — ${CAMPAIGN.candidate} for Oregon`,
-    description: event.summary,
+    description: event.description?.slice(0, 160) || `Event with ${CAMPAIGN.candidate} in Oregon House District 27.`,
   }
 }
 
-const EventDetailPage = ({ params }) => {
-  const event = EVENTS.find((e) => e.slug === params.id)
+const EventDetailPage = async ({ params }) => {
+  const event = await fetchGHLEvent(params.id)
   if (!event) notFound()
 
-  const others = EVENTS.filter((e) => e.slug !== event.slug).slice(0, 3)
+  const allEvents = await fetchGHLEvents()
+  const others = allEvents.filter((e) => e.id !== event.id).slice(0, 3)
+
+  const timeRange = event.endTime ? `${event.time} – ${event.endTime}` : event.time
 
   return (
     <>
@@ -51,9 +57,13 @@ const EventDetailPage = ({ params }) => {
           </Link>
 
           <div className="mt-8 flex flex-col gap-5">
-            <p className="eyebrow-bracket eyebrow text-red-3">{event.eyebrow.toLowerCase()}</p>
+            {event.type && (
+              <p className="eyebrow-bracket eyebrow text-red-3">{event.type.toLowerCase()}</p>
+            )}
             <h1 className="display text-4xl sm:text-5xl lg:text-6xl">{event.title}.</h1>
-            <p className="max-w-prose text-paper-78 lg:text-lg">{event.summary}</p>
+            {event.description && (
+              <p className="max-w-prose text-paper-78 lg:text-lg">{event.description}</p>
+            )}
 
             <dl className="mt-2 grid gap-3 sm:grid-cols-2">
               <div className="flex items-start gap-3">
@@ -63,21 +73,22 @@ const EventDetailPage = ({ params }) => {
                     When
                   </dt>
                   <dd className="font-sans text-base font-semibold text-paper">
-                    {formatDate(event.date)}
+                    {formatLongDate(event.date?.raw)}
                   </dd>
-                  <dd className="text-sm text-paper-78">{event.time}</dd>
+                  {timeRange && <dd className="text-sm text-paper-78">{timeRange}</dd>}
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-1 h-4 w-4 text-red-3" aria-hidden="true" />
-                <div>
-                  <dt className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red-3">
-                    Where
-                  </dt>
-                  <dd className="font-sans text-base font-semibold text-paper">{event.location}</dd>
-                  <dd className="text-sm text-paper-78">{event.address}</dd>
+              {event.location && (
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-4 w-4 text-red-3" aria-hidden="true" />
+                  <div>
+                    <dt className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red-3">
+                      Where
+                    </dt>
+                    <dd className="font-sans text-base font-semibold text-paper">{event.location}</dd>
+                  </div>
                 </div>
-              </div>
+              )}
             </dl>
           </div>
         </div>
@@ -90,7 +101,15 @@ const EventDetailPage = ({ params }) => {
             <h2 className="display text-3xl text-navy sm:text-4xl">
               What to <em>expect.</em>
             </h2>
-            <p className="text-base leading-relaxed text-stone-dark">{event.description}</p>
+            {event.description ? (
+              <p className="text-base leading-relaxed text-stone-dark whitespace-pre-line">
+                {event.description}
+              </p>
+            ) : (
+              <p className="text-base leading-relaxed text-stone-dark">
+                Join Mark for a conversation with neighbors across House District 27.
+              </p>
+            )}
 
             <ul className="mt-2 grid gap-3 border-t border-bone pt-6 text-sm text-stone-dark sm:grid-cols-2">
               <li>
@@ -157,7 +176,7 @@ const EventDetailPage = ({ params }) => {
             </div>
             <div className="mt-12 grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
               {others.map((other) => (
-                <EventCard key={other.slug} {...other} />
+                <EventCard key={other.id} event={other} />
               ))}
             </div>
           </div>

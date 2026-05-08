@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Mark Norman for Oregon — campaign event">
+  <rect width="1200" height="630" fill="#0B2844"/>
+  <g fill="none" stroke="#B62025" stroke-width="2" opacity="0.45">
+    <line x1="-100" y1="200" x2="700" y2="-600"/>
+    <line x1="-100" y1="260" x2="760" y2="-600"/>
+    <line x1="-100" y1="320" x2="820" y2="-600"/>
+    <line x1="-100" y1="380" x2="880" y2="-600"/>
+    <line x1="-100" y1="440" x2="940" y2="-600"/>
+    <line x1="-100" y1="500" x2="1000" y2="-600"/>
+    <line x1="-100" y1="560" x2="1060" y2="-600"/>
+    <line x1="-100" y1="620" x2="1120" y2="-600"/>
+    <line x1="-100" y1="680" x2="1180" y2="-600"/>
+    <line x1="-100" y1="740" x2="1240" y2="-600"/>
+    <line x1="-100" y1="800" x2="1300" y2="-600"/>
+    <line x1="-100" y1="860" x2="1360" y2="-600"/>
+  </g>
+  <rect x="60" y="60" width="60" height="3" fill="#B62025"/>
+  <text x="60" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="600" letter-spacing="3" fill="#B62025">[ EVENT · MARK NORMAN ]</text>
+  <text x="60" y="350" font-family="'Cabin', system-ui, sans-serif" font-size="120" font-weight="700" letter-spacing="-3" fill="#F5F2EC">Mark Norman</text>
+  <text x="60" y="450" font-family="'Cabin', system-ui, sans-serif" font-size="120" font-weight="400" font-style="italic" letter-spacing="-3" fill="#D63D42">for Oregon.</text>
+  <text x="60" y="560" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="600" letter-spacing="3" fill="rgba(245,242,236,.72)">OREGON HOUSE DISTRICT 27 · REPUBLICAN · 2026</text>
+</svg>

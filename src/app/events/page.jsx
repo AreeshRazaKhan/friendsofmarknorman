@@ -6,15 +6,25 @@ import EventCard from '@/components/events/event-card'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
 
-import { CAMPAIGN, EVENTS } from '@/constants/site'
+import { CAMPAIGN } from '@/constants/site'
+import { fetchGHLEvents } from '@/lib/ghl'
+
+export const revalidate = 60
 
 export const metadata = {
   title: `Events — ${CAMPAIGN.candidate} for Oregon`,
   description: 'Where the campaign will be — town halls, coffee chats, door-knocking days, and more across House District 27.',
 }
 
-const EventsPage = () => {
-  const upcoming = EVENTS.filter((e) => new Date(`${e.date}T00:00:00`) >= new Date('2026-05-05'))
+const isUpcoming = (event) => {
+  if (!event?.date?.raw) return false
+  const todayIso = new Date().toISOString().slice(0, 10)
+  return event.date.raw >= todayIso
+}
+
+const EventsPage = async () => {
+  const events = await fetchGHLEvents()
+  const upcoming = events.filter(isUpcoming)
 
   return (
     <>
@@ -51,8 +61,8 @@ const EventsPage = () => {
               className="mt-12 grid gap-x-10 gap-y-16 md:grid-cols-2"
             >
               {upcoming.map((event) => (
-                <RevealItem key={event.slug} variant="scale" duration={0.6}>
-                  <EventCard {...event} />
+                <RevealItem key={event.id} variant="scale" duration={0.6}>
+                  <EventCard event={event} />
                 </RevealItem>
               ))}
             </RevealGroup>

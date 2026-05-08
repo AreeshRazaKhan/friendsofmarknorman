@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { ArrowRight, MapPin } from 'lucide-react'
 
 const formatDateParts = (iso) => {
+  if (!iso) return { weekday: '', day: '', month: '' }
   const d = new Date(`${iso}T00:00:00`)
+  if (Number.isNaN(d.getTime())) return { weekday: '', day: '', month: '' }
   return {
     weekday: d.toLocaleDateString('en-US', { weekday: 'short' }),
     day: d.toLocaleDateString('en-US', { day: 'numeric' }),
@@ -11,20 +13,19 @@ const formatDateParts = (iso) => {
   }
 }
 
-const EventCard = ({ slug, title, eyebrow, date, time, location, summary, rsvpRequired }) => {
-  const { weekday, day, month } = formatDateParts(date)
+const EventCard = ({ event }) => {
+  const { id, title, type, date, time, location, description } = event
+  const { weekday, day, month } = formatDateParts(date?.raw)
 
   return (
     <article className="relative flex h-full flex-col gap-6 pt-9 before:absolute before:left-0 before:top-0 before:h-[3px] before:w-[60px] before:bg-red before:content-['']">
       <div className="flex items-baseline gap-3">
         <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red">
-          {eyebrow}
+          {type || 'Event'}
         </span>
-        {rsvpRequired && (
-          <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
-            / RSVP
-          </span>
-        )}
+        <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
+          / RSVP
+        </span>
       </div>
 
       <div className="flex items-start gap-5">
@@ -45,18 +46,20 @@ const EventCard = ({ slug, title, eyebrow, date, time, location, summary, rsvpRe
 
         <div className="flex flex-col gap-2 pt-0.5">
           <h3 className="display text-2xl text-navy lg:text-[28px]">{title}.</h3>
-          <p className="font-sans text-base font-semibold text-navy">{time}</p>
-          <p className="flex items-start gap-1.5 text-sm text-stone-dark">
-            <MapPin className="mt-[3px] h-3.5 w-3.5 shrink-0 text-red" aria-hidden="true" />
-            <span>{location}</span>
-          </p>
+          {time && <p className="font-sans text-base font-semibold text-navy">{time}</p>}
+          {location && (
+            <p className="flex items-start gap-1.5 text-sm text-stone-dark">
+              <MapPin className="mt-[3px] h-3.5 w-3.5 shrink-0 text-red" aria-hidden="true" />
+              <span>{location}</span>
+            </p>
+          )}
         </div>
       </div>
 
-      <p className="text-sm leading-relaxed text-stone-dark">{summary}</p>
+      {description && <p className="text-sm leading-relaxed text-stone-dark">{description}</p>}
 
       <Link
-        href={`/events/${slug}`}
+        href={`/events/${id}`}
         className="mt-auto inline-flex min-h-[44px] items-center gap-2 self-start font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
       >
         Details &amp; RSVP
@@ -67,18 +70,17 @@ const EventCard = ({ slug, title, eyebrow, date, time, location, summary, rsvpRe
 }
 
 EventCard.propTypes = {
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  eyebrow: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  rsvpRequired: PropTypes.bool,
-}
-
-EventCard.defaultProps = {
-  rsvpRequired: false,
+  event: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    date: PropTypes.shape({
+      raw: PropTypes.string,
+    }),
+    time: PropTypes.string,
+    location: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
 }
 
 export default EventCard

@@ -41,9 +41,9 @@ const RsvpForm = ({ event }) => {
       email: formData.get('email') || '',
       phone,
       eventName: event.title,
-      eventDate: event.date,
+      eventDate: event.date?.raw || '',
       eventTime: event.time,
-      eventCategory: event.eyebrow,
+      eventCategory: event.type,
     }
 
     const validation = validate(data)
@@ -132,9 +132,9 @@ const RsvpForm = ({ event }) => {
 RsvpForm.propTypes = {
   event: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired,
-    eyebrow: PropTypes.string.isRequired,
+    date: PropTypes.shape({ raw: PropTypes.string }),
+    time: PropTypes.string,
+    type: PropTypes.string,
   }).isRequired,
 }
 

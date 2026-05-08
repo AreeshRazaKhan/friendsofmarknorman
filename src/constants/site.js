@@ -354,61 +354,6 @@ export const OREGON_COUNTIES = [
   'Yamhill',
 ]
 
-export const EVENTS = [
-  {
-    slug: 'beaverton-meet-and-greet-may',
-    title: 'Beaverton meet-and-greet',
-    eyebrow: 'Town hall',
-    date: '2026-05-22',
-    time: '6:30 PM – 8:00 PM PT',
-    location: 'Beaverton Library — Cathy Stanley Room',
-    address: '12375 SW 5th St, Beaverton, OR 97005',
-    summary:
-      'A neighborhood conversation with Mark — affordability, schools, and what voters want from House District 27. Coffee, cookies, no podium.',
-    description:
-      'Open to anyone who lives in or near House District 27. Mark will spend a few minutes on why he\'s running, then turn the floor over for questions. Bring a friend, a neighbor, or a skeptical relative. Childcare available with 24h notice.',
-    rsvpRequired: true,
-  },
-  {
-    slug: 'aloha-coffee-with-mark-june',
-    title: 'Coffee with Mark — Aloha',
-    eyebrow: 'Coffee',
-    date: '2026-06-07',
-    time: '9:00 AM – 10:30 AM PT',
-    location: 'Insomnia Coffee — Aloha',
-    address: '5389 SW 185th Ave, Aloha, OR 97078',
-    summary:
-      'Drop in for coffee with the candidate. No agenda — just a conversation about what HD-27 families need from Salem.',
-    description:
-      'A casual stop on the campaign trail. Mark will be there for ninety minutes; come for ten or for the whole thing. Bring questions, complaints, or both.',
-    rsvpRequired: false,
-  },
-  {
-    slug: 'small-business-roundtable-june',
-    title: 'Small-business roundtable',
-    eyebrow: 'Roundtable',
-    date: '2026-06-19',
-    time: '5:30 PM – 7:00 PM PT',
-    location: 'Washington County Chamber of Commerce',
-    address: '12655 SW Center St, Beaverton, OR 97005',
-    summary:
-      'A working roundtable for small-business owners across HD-27 — costs, regulation, hiring, and what would actually help.',
-    description:
-      'A working session, not a stump speech. Bring a problem you want fixed and the kind of policy that would fix it. Hosted with the local Chamber.',
-    rsvpRequired: true,
-  },
-  {
-    slug: 'door-knocking-launch-july',
-    title: 'Door-knocking kickoff',
-    eyebrow: 'Field',
-    date: '2026-07-12',
-    time: '10:00 AM – 1:00 PM PT',
-    location: 'Campaign HQ — meet at the front door',
-    address: '12200 SW Allen Blvd, Beaverton, OR 97005',
-    summary:
-      'Our first big door-knocking weekend. Training, lists, partners, lunch, water bottles. All you bring is comfortable shoes.',
-    description:
-      'No experience required. We\'ll pair you with a teammate, give you a tight script and a small turf, and send you off with a clipboard. Plan for a two-hour walk plus debrief.',
-    rsvpRequired: true,
-  },
-]
+// Events are fetched from GHL custom objects at runtime via fetchGHLEvents()
+// in src/lib/ghl.js. Do not add a static EVENTS array here — see
+// .claude/rules/ghl-events-integration.md for the integration contract.
