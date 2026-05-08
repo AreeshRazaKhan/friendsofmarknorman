@@ -23,8 +23,12 @@ Client (React form)  →  Local API Route (/api/*)  →  GHL Webhook (POST)
 - Client-side validation runs before submission
 - Server-side validation in the API route catches anything missed
 - Data is forwarded to GHL via webhook trigger URLs (NOT the REST API)
-- All webhooks use the same GHL location hook: `HK7KWJYbw33yisOBMGEO`
+- The campaign uses **two** GHL location hooks:
+  - `xpk2cvMlHO4xSLm4NgAz` — primary location for the active workflows
+  - `HK7KWJYbw33yisOBMGEO` — legacy hook still serving one Ask Mark trigger
 - Each form type has its own workflow trigger UUID
+- **Source of truth for every URL is `src/lib/ghl.js`** — never hardcode a
+  webhook URL in a route file
 
 ---
 
@@ -32,33 +36,41 @@ Client (React form)  →  Local API Route (/api/*)  →  GHL Webhook (POST)
 
 ### 1. Webhooks, Not REST API
 
-Forms use **GHL webhook trigger URLs** — NOT the GHL REST API used by the shop.
-The webhook base pattern is:
+Forms use **GHL webhook trigger URLs** — NOT the GHL REST API used for events
+or contacts. The webhook base pattern is:
 
 ```
-https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/{workflow-uuid}
+https://services.leadconnectorhq.com/hooks/{locationHook}/webhook-trigger/{workflow-uuid}
 ```
 
-Each form type maps to a different `{workflow-uuid}` that triggers a specific
-GHL workflow/automation.
+`{locationHook}` is `xpk2cvMlHO4xSLm4NgAz` for current workflows. One legacy
+Ask Mark trigger still sits behind `HK7KWJYbw33yisOBMGEO`. Each form type maps
+to a different `{workflow-uuid}` that triggers a specific GHL workflow.
 
 ### 2. SMS Consent Is Mandatory
 
 Every form that collects phone numbers MUST include two A2P-compliant SMS consent
 checkboxes with full legal text:
 
+The exact copy is rendered by the shared `<SmsConsent />` component
+(`src/components/layout/sms-consent.jsx`) and reads the campaign's legal
+entity name from `LEGAL.entity` (`Friends of Mark Norman`). Do not
+duplicate the consent text in individual forms — always import the
+component so every form stays A2P-compliant in lockstep.
+
 ```jsx
 // SMS Updates checkbox
-"By checking this box, I consent to receive campaign updates from Dr Kahl for
-Congress via automated text messages at the phone number provided. Message
-frequency may vary. Message and data rates may apply. Text STOP to opt out
-or HELP for help. View our Privacy Policy and Terms of Service."
+"By checking this box, I consent to receive campaign updates from
+Friends of Mark Norman via automated text messages at the phone number
+provided. Message frequency may vary. Message and data rates may apply.
+Text STOP to opt out or HELP for help. View our Privacy Policy and
+Terms of Service."
 
 // SMS Promotions checkbox
 "By checking this box, I consent to receive promotional messages, event
-invitations, and fundraising communications from Dr Kahl for Congress via
-automated text messages. Message frequency may vary. Message and data rates
-may apply. Text STOP to opt out or HELP for help."
+invitations, and fundraising communications from Friends of Mark Norman
+via automated text messages. Message frequency may vary. Message and
+data rates may apply. Text STOP to opt out or HELP for help."
 ```
 
 Send consent as `'Yes'` or `'No'` strings in the payload — never booleans.
@@ -102,11 +114,14 @@ building custom input markup.
 | API Route | `src/app/api/contact/route.js` |
 | Page | `src/app/contact/page.jsx` |
 
-### GHL Webhook URL
+### GHL Webhook URL (`GHL_WEBHOOKS.contact`)
 
 ```
-https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/cf2eced9-14ad-4109-ba4f-fd244858af10
+https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/09g46Cj3ygV1R5aoAM2o
 ```
+
+The route additionally fans out to `A2P_COMPLIANCE_WEBHOOK` because the
+form collects a phone number — two webhooks total.
 
 ### Form Fields
 
@@ -115,10 +130,10 @@ https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/
 | First Name | text input | Yes | |
 | Last Name | text input | Yes | |
 | Email | email input | Yes | |
-| Phone | tel input | No | |
+| Phone | tel input | No | Formatted via `formatPhoneInput` |
 | Message | textarea (5 rows) | Yes | |
-| SMS Updates | checkbox | No | A2P consent for campaign updates |
-| SMS Promo | checkbox | No | A2P consent for promotions |
+| SMS Updates | checkbox | No | A2P consent — disabled when phone is empty |
+| SMS Promo | checkbox | No | A2P consent — disabled when phone is empty |
 
 ### Client-Side Validation
 
@@ -163,23 +178,27 @@ https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/
 | API Route | `src/app/api/volunteer/route.js` |
 | Page | `src/app/volunteer/page.jsx` |
 
-### GHL Webhook URLs (3 Parallel Webhooks)
+### GHL Webhook URLs (`GHL_WEBHOOKS.volunteer`, 3 Parallel Webhooks)
 
 The volunteer form sends to **three** GHL webhooks simultaneously using
 `Promise.all`. Each triggers a different GHL workflow:
 
 ```
-1. https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/23834100-4e00-4579-82e7-f9ec69ed8542
-2. https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/df947411-0c7e-4a6c-8c2e-7f20291c333f
-3. https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/19e7758c-f5c5-44fa-a770-5c18cefa0645
+1. https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/QfDhvzPhlwkovxmcFEZl
+2. https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/xCO2smONLmx8CsZZuVus
+3. https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/TGF8MYaxXDm7YC9t2OkD
 ```
 
-**All three receive the same payload.** The API route sends the payload to all
-three in parallel and checks that at least one succeeds:
+The route additionally fans out to `A2P_COMPLIANCE_WEBHOOK` — four
+webhooks total, all in parallel.
+
+**All four receive the same payload.** The API route sends the payload to
+every URL in parallel and treats the submission as successful if at
+least one returns 2xx:
 
 ```js
 const results = await Promise.all(
-  webhookUrls.map((url) => fetch(url, { method: 'POST', ... }))
+  WEBHOOK_URLS.map((url) => fetch(url, { method: 'POST', ... }))
 )
 const anySuccess = results.some((r) => r.ok)
 ```
@@ -354,23 +373,27 @@ const deriveSubject = (question) => {
 | API Route | `src/app/api/events/rsvp/route.js` |
 | Page | `src/app/events/[id]/page.jsx` |
 
-### GHL Webhook URL
+### GHL Webhook URL (`GHL_WEBHOOKS.rsvp`)
 
 ```
-https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/b8b53720-18c4-4cde-9db9-c549de6264ee
+https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/lmGoHsLcbAbTYKQn5oep
 ```
+
+The route additionally fans out to `A2P_COMPLIANCE_WEBHOOK` because the
+form collects a phone number.
 
 ### Form Fields
 
 | Field | Type | Required | Notes |
 |-------|------|----------|-------|
-| First Name | text input | Yes | Placeholder: "Barbara" |
-| Last Name | text input | Yes | Placeholder: "Kahl" |
-| Email | email input | Yes | Placeholder: "you@email.com" |
-| Contact Number | tel input | No | Placeholder: "(503) 555-1234" |
+| First Name | text input | Yes | Placeholder: "Alex" |
+| Last Name | text input | Yes | Placeholder: "Reed" |
+| Email | email input | Yes | Placeholder: "you@oregon.com" |
+| Contact Number | tel input | No | Formatted via `formatPhoneInput` (`+1 (xxx) xxx-xxxx`) |
 
-**Note:** The RSVP form does NOT have SMS consent checkboxes — it only collects
-contact info to register for a specific event.
+**Note:** The RSVP form does NOT render SMS consent checkboxes itself — A2P
+opt-in is captured upstream on the contact/volunteer/ask forms. RSVP just
+collects the contact info needed to register for a specific event.
 
 ### Webhook Payload
 
@@ -497,8 +520,11 @@ route files.
 
 **Base URL pattern:**
 ```
-https://services.leadconnectorhq.com/hooks/HK7KWJYbw33yisOBMGEO/webhook-trigger/{uuid}
+https://services.leadconnectorhq.com/hooks/{locationHook}/webhook-trigger/{uuid}
 ```
+
+`{locationHook}` is `xpk2cvMlHO4xSLm4NgAz` for current workflows; one
+legacy Ask Mark trigger still uses `HK7KWJYbw33yisOBMGEO`.
 
 ---
 
