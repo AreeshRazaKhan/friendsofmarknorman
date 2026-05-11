@@ -7,11 +7,7 @@ import Reveal from "@/components/motion/reveal";
 import RevealGroup from "@/components/motion/reveal-group";
 import RevealItem from "@/components/motion/reveal-item";
 
-import {
-  ABOUT_BLOCKS,
-  ABOUT_STORY,
-  CAMPAIGN,
-} from "@/constants/site";
+import { ABOUT_BLOCKS, ABOUT_STORY, CAMPAIGN } from "@/constants/site";
 
 export const metadata = {
   title: `About — ${CAMPAIGN.candidate} for Oregon`,
@@ -32,7 +28,7 @@ const AboutPage = () => {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:px-10 lg:py-28">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-bone">
             <Image
-              src="/images/mark-norman-portrait.png"
+              src="/images/ORL_3137.jpg"
               alt="Mark Norman, smiling, in a blue button-down shirt, photographed outdoors with a lake and ridgeline behind him."
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
@@ -108,7 +104,11 @@ const AboutPage = () => {
               <Link href="/volunteer">Volunteer</Link>
             </Button>
             <Button asChild variant="primary">
-              <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={CAMPAIGN.donateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Donate
               </a>
             </Button>
