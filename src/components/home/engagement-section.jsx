@@ -7,7 +7,7 @@ import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
 
-import { DONATION_TIERS } from '@/constants/site'
+import { CAMPAIGN, DONATION_TIERS, buildDonateUrl } from '@/constants/site'
 
 const HELP_BULLETS = [
   'Walk a neighborhood on a weekend.',
@@ -41,15 +41,23 @@ const EngagementSection = () => {
               <div className="flex flex-wrap items-center gap-3 lg:justify-end">
                 {DONATION_TIERS.map((tier) => (
                   <Button key={tier.amount} asChild variant="primary" size="sm">
-                    <Link href={`/donate?amount=${tier.amount}`}>{tier.label}</Link>
+                    <a
+                      href={buildDonateUrl(tier.amount)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {tier.label}
+                    </a>
                   </Button>
                 ))}
-                <Link
-                  href="/donate"
+                <a
+                  href={CAMPAIGN.donateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex min-h-[44px] items-center font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
                 >
                   Other amount →
-                </Link>
+                </a>
               </div>
             </div>
           </Reveal>

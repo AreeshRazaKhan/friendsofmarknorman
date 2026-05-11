@@ -108,7 +108,9 @@ const AboutPage = () => {
               <Link href="/volunteer">Volunteer</Link>
             </Button>
             <Button asChild variant="primary">
-              <Link href="/donate">Donate</Link>
+              <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+                Donate
+              </a>
             </Button>
           </div>
         </div>

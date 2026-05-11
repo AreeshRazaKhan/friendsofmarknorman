@@ -62,10 +62,10 @@ const HeroSection = () => {
         <Reveal variant="rise" delay={1.15} duration={0.6}>
           <div className="flex flex-wrap justify-center gap-3">
             <Button asChild variant="red">
-              <Link href="/donate">
+              <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
                 Donate Now
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="invert">
               <Link href="/volunteer">Join Us</Link>

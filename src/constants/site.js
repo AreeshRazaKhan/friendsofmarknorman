@@ -32,7 +32,18 @@ export const CAMPAIGN = {
   email: 'mark@markfororegon.com',
   phone: '+1 503-905-9275',
   mailing: 'PO Box 122 · Beaverton, OR 97075',
+  donateUrl:
+    'https://secure.winred.com/friends-of-mark-norman/donate-today?sc=winred-directory&money_bomb=false&recurring=false',
   disclosure: `Paid for by ${LEGAL.entity} PAC #${LEGAL.pacId}`,
+}
+
+// Build a tier-specific donate URL. Falls back to the base donateUrl
+// when no amount is provided. Handles either `?`- or `&`-prefixed
+// appends so the helper is robust if the base URL ever changes.
+export const buildDonateUrl = (amount) => {
+  const base = CAMPAIGN.donateUrl
+  if (!amount) return base
+  return `${base}${base.includes('?') ? '&' : '?'}amount=${amount}`
 }
 
 export const ELEVATOR_PITCH =

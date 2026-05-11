@@ -4,7 +4,7 @@ import { Menu } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 
-import { NAV_LINKS } from '@/constants/site'
+import { CAMPAIGN, NAV_LINKS } from '@/constants/site'
 
 const NavBar = () => {
   return (
@@ -41,14 +41,18 @@ const NavBar = () => {
               <Link href="/volunteer">Join</Link>
             </Button>
             <Button asChild variant="red" size="sm">
-              <Link href="/donate">Donate</Link>
+              <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+                Donate
+              </a>
             </Button>
           </div>
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
           <Button asChild variant="red" size="sm">
-            <Link href="/donate">Donate</Link>
+            <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+              Donate
+            </a>
           </Button>
           <details className="group relative">
             <summary

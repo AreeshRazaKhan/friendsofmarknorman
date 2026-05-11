@@ -90,7 +90,7 @@
   }
 
   .display em {
-    @apply font-normal text-red;
+    @apply font-bold text-red;
     font-style: normal;
     white-space: nowrap;
   }
