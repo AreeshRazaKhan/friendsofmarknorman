@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/layout/page-hero";
-import PlaceholderImage from "@/components/brand/placeholder-image";
 import Reveal from "@/components/motion/reveal";
 import RevealGroup from "@/components/motion/reveal-group";
 import RevealItem from "@/components/motion/reveal-item";
@@ -30,15 +30,15 @@ const AboutPage = () => {
 
       <section className="bg-paper">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:px-10 lg:py-28">
-          <PlaceholderImage
-            width={640}
-            height={800}
-            seed="mark-norman-portrait-about"
-            alt="Placeholder portrait — replace with the official campaign portrait of Mark Norman"
-            badge="About · Portrait"
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="aspect-[4/5] w-full rounded-[2rem] border border-bone"
-          />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-bone">
+            <Image
+              src="/images/mark-norman-portrait.png"
+              alt="Mark Norman, smiling, in a blue button-down shirt, photographed outdoors with a lake and ridgeline behind him."
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover"
+            />
+          </div>
 
           <div className="flex flex-col gap-8">
             <div>
