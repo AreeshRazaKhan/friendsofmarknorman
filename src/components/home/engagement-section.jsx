@@ -1,8 +1,8 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import PlaceholderImage from '@/components/brand/placeholder-image'
 import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
@@ -56,15 +56,16 @@ const EngagementSection = () => {
         </div>
 
         <Reveal variant="scale" delay={0.1} duration={0.85}>
-          <PlaceholderImage
-            width={1280}
-            height={520}
-            seed="mark-norman-door-knocking-volunteers-hd27"
-            alt="Placeholder image — replace with a candid field photo of campaign volunteers door-knocking in HD-27"
-            badge="Field · Volunteers"
-            sizes="(min-width: 1024px) 1100px, 100vw"
-            className="mt-12 aspect-[12/5] w-full rounded-2xl border border-bone"
-          />
+          <div className="relative mt-12 aspect-[12/5] w-full overflow-hidden rounded-2xl border border-bone">
+            <Image
+              src="/images/volunteers-door-knocking.jpg"
+              alt="Volunteers walking a neighborhood with clipboards, knocking on a door at golden hour."
+              fill
+              loading="lazy"
+              sizes="(min-width: 1024px) 1100px, 100vw"
+              className="object-cover"
+            />
+          </div>
         </Reveal>
 
         <Reveal variant="blur" duration={0.9}>
