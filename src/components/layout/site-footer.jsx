@@ -37,11 +37,11 @@ const SiteFooter = () => {
             className="inline-flex w-fit"
           >
             <Image
-              src="/images/mark-norman-logo-paper.png"
+              src="/images/mark-norman-logo-cabin-transparent.png"
               alt={`${LEGAL.entity} — ${CAMPAIGN.office} — ${CAMPAIGN.party}`}
-              width={1685}
-              height={1380}
-              sizes="80px"
+              width={1704}
+              height={1369}
+              sizes="128px"
               loading="lazy"
               className="h-[5.5rem] w-auto"
             />
