@@ -21,8 +21,8 @@ const NavBar = () => {
             width={1688}
             height={1390}
             priority
-            sizes="96px"
-            className="h-16 w-auto sm:h-[72px]"
+            sizes="128px"
+            className="h-20 w-auto sm:h-24"
           />
         </Link>
 

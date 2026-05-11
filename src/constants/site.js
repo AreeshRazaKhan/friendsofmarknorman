@@ -132,10 +132,10 @@ export const ABOUT_META = [
 ]
 
 export const ABOUT_STATS = [
-  { number: '22', unit: 'Years', detail: 'U.S. Navy Veteran' },
-  { number: '28', unit: 'Years', detail: 'In Practice' },
-  { number: '30', unit: 'Years', detail: 'In District' },
-  { number: '4', unit: 'Dogs', detail: 'Doug Leads' },
+  { number: '22', descriptor: 'Year U.S. Navy Veteran' },
+  { number: '28', descriptor: 'Years in Practice' },
+  { number: '30', descriptor: 'Years in District' },
+  { number: '4', descriptor: 'Dogs (Doug Leads)' },
 ]
 
 export const ABOUT_STORY = [

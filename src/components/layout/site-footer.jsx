@@ -3,13 +3,6 @@ import Image from 'next/image'
 
 import { CAMPAIGN, LEGAL, NAV_LINKS } from '@/constants/site'
 
-const SOCIAL = [
-  { code: 'FB', href: 'https://facebook.com', label: 'Facebook' },
-  { code: 'IG', href: 'https://instagram.com', label: 'Instagram' },
-  { code: 'X', href: 'https://x.com', label: 'X (Twitter)' },
-  { code: 'YT', href: 'https://youtube.com', label: 'YouTube' },
-]
-
 const LEGAL_LINKS = [
   { href: '/privacy-policy', label: 'Privacy Policy' },
   { href: '/terms-of-service', label: 'Terms of Service' },
@@ -50,7 +43,7 @@ const SiteFooter = () => {
               height={1380}
               sizes="80px"
               loading="lazy"
-              className="h-14 w-auto"
+              className="h-[4.5rem] w-auto"
             />
           </Link>
 
@@ -75,26 +68,6 @@ const SiteFooter = () => {
             </div>
           </dl>
 
-          <ul className="mt-2 flex items-center gap-1" role="list" aria-label="Social media">
-            {SOCIAL.map((s, i) => (
-              <li key={s.code} className="flex items-center">
-                <a
-                  href={s.href}
-                  aria-label={s.label}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center px-2 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-navy transition-colors hover:text-red"
-                >
-                  {s.code}
-                </a>
-                {i < SOCIAL.length - 1 && (
-                  <span className="font-mono text-[11px] text-bone" aria-hidden="true">
-                    /
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <nav aria-label="Footer site nav" className="lg:col-span-2">
@@ -141,9 +114,20 @@ const SiteFooter = () => {
           <p>{CAMPAIGN.disclosure}</p>
         </div>
         <div className="border-t border-bone">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-stone lg:flex-row lg:items-center lg:px-10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-stone lg:flex-row lg:items-center lg:justify-between lg:px-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em]">
               © {year} {LEGAL.entity}
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em]">
+              Powered by{' '}
+              <a
+                href="https://op1776.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-stone-dark transition-colors hover:text-red"
+              >
+                Operation 1776
+              </a>
             </p>
           </div>
         </div>
