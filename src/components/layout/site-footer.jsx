@@ -43,7 +43,7 @@ const SiteFooter = () => {
               height={1380}
               sizes="80px"
               loading="lazy"
-              className="h-[4.5rem] w-auto"
+              className="h-[5.5rem] w-auto"
             />
           </Link>
 
