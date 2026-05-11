@@ -49,7 +49,7 @@ const SiteFooter = () => {
               width={1685}
               height={1380}
               sizes="80px"
-              loading="eager"
+              loading="lazy"
               className="h-14 w-auto"
             />
           </Link>

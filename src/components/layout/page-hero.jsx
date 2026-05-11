@@ -32,19 +32,15 @@ const PageHero = ({ eyebrow, title, lead, align, children, className }) => {
           </Reveal>
         )}
 
-        <Reveal variant="blur" delay={0.1} duration={0.85}>
-          <h1
-            className="display text-5xl sm:text-6xl lg:text-7xl"
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
-        </Reveal>
+        <h1
+          className="display text-5xl sm:text-6xl lg:text-7xl"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
 
         {lead && (
-          <Reveal variant="up" delay={0.3} duration={0.7}>
-            <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
-              {lead}
-            </p>
-          </Reveal>
+          <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
+            {lead}
+          </p>
         )}
 
         {children && (

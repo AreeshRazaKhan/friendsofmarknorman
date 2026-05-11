@@ -29,12 +29,10 @@ const HeroSection = () => {
           </span>
         </Reveal>
 
-        <Reveal variant="blur" delay={0.15} duration={1}>
-          <h1 className="display text-[clamp(2.75rem,8vw,6rem)]">
-            Grounded leadership<br />
-            <em>for Oregon.</em>
-          </h1>
-        </Reveal>
+        <h1 className="display text-[clamp(2.75rem,8vw,6rem)]">
+          Grounded leadership<br />
+          <em>for Oregon.</em>
+        </h1>
 
         <Reveal variant="fade" delay={0.45} duration={0.6}>
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-paper-78">
@@ -57,11 +55,9 @@ const HeroSection = () => {
           </ul>
         </RevealGroup>
 
-        <Reveal variant="up" delay={0.95} duration={0.7}>
-          <p className="max-w-[58ch] text-sm leading-relaxed text-paper-78 lg:text-base">
-            {ELEVATOR_PITCH}
-          </p>
-        </Reveal>
+        <p className="max-w-[58ch] text-sm leading-relaxed text-paper-78 lg:text-base">
+          {ELEVATOR_PITCH}
+        </p>
 
         <Reveal variant="rise" delay={1.15} duration={0.6}>
           <div className="flex flex-wrap justify-center gap-3">

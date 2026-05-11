@@ -34,10 +34,9 @@ const PlaceholderImage = ({
         alt={alt}
         fill
         priority={priority}
-        loading={priority ? undefined : 'eager'}
+        loading={priority ? undefined : 'lazy'}
         sizes={sizes}
         className="object-cover"
-        unoptimized
       />
       <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-2 rounded-sm bg-paper px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red shadow-sm">
         <span aria-hidden="true">★</span>
