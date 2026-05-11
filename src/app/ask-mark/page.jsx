@@ -16,6 +16,8 @@ const AskMarkPage = () => {
       <PageHero
         title="Ask Mark <em>directly.</em>"
         lead="If there's something you want to ask about the district, the campaign, or a specific issue, send it in. Honest questions deserve honest answers."
+        image="/images/mark-listening.jpg"
+        imageAlt="Mark Norman, seated outside, smiling and listening attentively in a navy blazer."
       />
 
       <section className="bg-paper">

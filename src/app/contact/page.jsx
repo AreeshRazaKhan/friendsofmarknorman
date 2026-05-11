@@ -14,6 +14,8 @@ const ContactPage = () => {
       <PageHero
         title="Reach out <em>anytime.</em>"
         lead="The campaign team reads every message and replies directly and promptly to inquiries, questions, event requests, or any message from the community."
+        image="/images/mark-headshot.jpg"
+        imageAlt="Mark Norman, gentle smile, photographed head-on in a gray plaid blazer with a charcoal backdrop."
       />
 
       <section className="bg-paper">

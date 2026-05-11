@@ -26,6 +26,8 @@ const AboutPage = () => {
         title="Who is <em>Mark Norman?</em>"
         lead="Mark Norman is a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27. For almost 30 years he has lived, practiced, and heard the issues families face in their daily lives in Washington County. He believes Oregon needs better leadership that is practical and more connected to real life."
         align="left"
+        image="/images/mark-portrait-flag.jpg"
+        imageAlt="Mark Norman, smiling, in a navy blazer with an American flag lapel pin, photographed outdoors."
       />
 
       <section className="bg-paper">
