@@ -17,8 +17,8 @@ const VolunteerPage = () => {
       <PageHero
         title="Campaigns run <em>on people.</em>"
         lead="Every conversation matters. Some volunteers knock doors. Others help behind the scenes. You can help any way you can — pick a role below."
-        image="/images/mark-cafe-portrait.jpg"
-        imageAlt="Mark Norman, seated outside a café, hands clasped, smiling at the camera in a navy blazer."
+        image="/images/mark-cafe-laughing.jpg"
+        imageAlt="Mark Norman, seated outside a café, laughing warmly with hands clasped, in a navy blazer."
       />
 
       <section className="bg-paper">
