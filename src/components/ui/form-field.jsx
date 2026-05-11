@@ -43,17 +43,17 @@ const FormField = ({
         />
       )}
 
-      {hint && !error && (
-        <p id={hintId} className="text-xs text-stone">
-          {hint}
-        </p>
-      )}
-
-      {error && (
-        <p id={errorId} role="alert" className="text-xs font-medium text-red">
-          {error}
-        </p>
-      )}
+      <div className="min-h-4">
+        {error ? (
+          <p id={errorId} role="alert" className="text-xs font-medium text-red">
+            {error}
+          </p>
+        ) : hint ? (
+          <p id={hintId} className="text-xs text-stone">
+            {hint}
+          </p>
+        ) : null}
+      </div>
     </div>
   )
 }

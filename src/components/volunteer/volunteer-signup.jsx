@@ -59,6 +59,8 @@ const VolunteerSignup = () => {
     if (!data.lastName.trim()) next.lastName = 'Required'
     if (!data.email.trim()) next.email = 'Required'
     else if (!EMAIL_RE.test(data.email)) next.email = 'Invalid email'
+    if (!data.zipCode.trim()) next.zipCode = 'Required'
+    else if (!/^[0-9]{5}$/.test(data.zipCode.trim())) next.zipCode = 'Enter a 5-digit ZIP'
     if (!data.region) next.region = 'Required'
     if (!data.registeredVoter) next.registeredVoter = 'Required'
     if (!data.campaignExperience) next.campaignExperience = 'Required'
@@ -103,7 +105,7 @@ const VolunteerSignup = () => {
       })
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
       setStatus(STATUS.success)
-      setMessage('Thanks — we\'ll be in touch within 48 hours with next steps.')
+      setMessage('Thanks — we\'ll be in touch with next steps.')
       setToastOpen(true)
       form.reset()
       setHelpOptions([])
@@ -171,10 +173,12 @@ const VolunteerSignup = () => {
         <FormField
           name="zipCode"
           label="ZIP code"
+          required
           inputMode="numeric"
           pattern="[0-9]{5}"
           autoComplete="postal-code"
           placeholder="97000"
+          error={errors.zipCode}
         />
         <FormField name="county" label="County">
           <select id="county" name="county" className={SELECT_CLASS}>
@@ -259,11 +263,13 @@ const VolunteerSignup = () => {
             </label>
           ))}
         </div>
-        {errors.helpOptions && (
-          <p role="alert" className="text-xs font-medium text-red">
-            {errors.helpOptions}
-          </p>
-        )}
+        <div className="min-h-4">
+          {errors.helpOptions && (
+            <p role="alert" className="text-xs font-medium text-red">
+              {errors.helpOptions}
+            </p>
+          )}
+        </div>
       </fieldset>
 
       <FormField
@@ -295,7 +301,7 @@ const VolunteerSignup = () => {
           required
           aria-invalid={Boolean(errors.issues)}
           placeholder="Affordability, schools, public safety, accountability — what brought you in?"
-          className="rounded border border-bone bg-paper-2 px-[14px] py-3 font-sans text-sm text-navy placeholder:text-stone focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red"
+          className="rounded border border-bone bg-paper-2 px-[14px] py-3 font-sans text-sm text-navy placeholder:text-[#5F594D99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red"
         />
       </FormField>
 

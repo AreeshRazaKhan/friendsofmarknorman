@@ -7,6 +7,7 @@ import {
   buildBasePayload,
   forwardWebhook,
   restHeaders,
+  yesNo,
 } from '@/lib/ghl'
 import { normalizePhoneForSubmit } from '@/lib/phone'
 
@@ -101,6 +102,8 @@ export const POST = async (request) => {
       eventDate: (body?.eventDate || '').trim(),
       eventTime: (body?.eventTime || '').trim(),
       eventCategory: (body?.eventCategory || '').trim(),
+      sms_updates: yesNo(body?.sms_updates),
+      sms_promo: yesNo(body?.sms_promo),
     }
 
     const results = await Promise.all(

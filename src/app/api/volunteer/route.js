@@ -8,6 +8,7 @@ import {
   yesNo,
 } from '@/lib/ghl'
 import { normalizePhoneForSubmit } from '@/lib/phone'
+import { districtFlag, isValidZip } from '@/lib/zip'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
 
@@ -20,8 +21,9 @@ export const POST = async (request) => {
     const firstName = (body?.firstName || '').trim()
     const lastName = (body?.lastName || '').trim()
     const email = (body?.email || '').trim()
+    const zipCode = (body?.zipCode || '').trim()
 
-    if (!required(firstName) || !required(lastName) || !required(email)) {
+    if (!required(firstName) || !required(lastName) || !required(email) || !isValidZip(zipCode)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
@@ -34,7 +36,8 @@ export const POST = async (request) => {
       lastName,
       email,
       phone: normalizePhoneForSubmit(body?.phone),
-      zipCode: (body?.zipCode || '').trim(),
+      zipCode,
+      in_district: districtFlag(zipCode),
       county: (body?.county || '').trim(),
       region: (body?.region || '').trim(),
       registeredVoter: (body?.registeredVoter || '').trim(),

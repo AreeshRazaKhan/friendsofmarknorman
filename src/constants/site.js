@@ -1,3 +1,26 @@
+// Legal entity used everywhere A2P 10DLC / TCR / TCPA requires the registered
+// business name, plus the canonical Oregon committee + PAC filing values that
+// every other surface (disclosure line, FAQ, footer, Privacy Policy, Terms of
+// Service) must match. Single source of truth — update once here when the
+// client confirms the real filing data, and every consumer follows.
+export const LEGAL = {
+  entity: 'Friends of Mark Norman',
+  // TODO: replace with the real PAC number from the client's filing.
+  pacId: 'XXX',
+  // TODO: replace with the real Oregon committee ID from the client's filing.
+  committeeId: 'XXX',
+  state: 'Oregon',
+  email: 'mark@markfororegon.com',
+  // No separate privacy@ inbox is provisioned yet — privacy/access/deletion
+  // requests route to the candidate's mailbox until that's set up.
+  privacyEmail: 'mark@markfororegon.com',
+  phone: '+1 503-905-9275',
+  phoneTel: '+15039059275',
+  address: 'PO Box 122, Beaverton, OR 97075',
+  effectiveDate: 'May 5, 2026',
+  programName: 'Friends of Mark Norman SMS Program',
+}
+
 export const CAMPAIGN = {
   candidate: 'Mark Norman',
   office: 'Oregon House District 27',
@@ -7,30 +30,9 @@ export const CAMPAIGN = {
   tagline: 'Service · Solutions · Accountability',
   domain: 'markfororegon.com',
   email: 'mark@markfororegon.com',
-  phone: '(503) 555-0127',
+  phone: '+1 503-905-9275',
   mailing: 'PO Box 122 · Beaverton, OR 97075',
-  pacId: '24927',
-  committee: 'CI-0189',
-  disclosure: 'Paid for by Friends of Mark Norman PAC #24927',
-}
-
-// Legal entity used everywhere A2P 10DLC / TCR / TCPA requires the registered
-// business name. Must match the CP 575 / state filing exactly. Do not use a
-// DBA or candidate-only name in any of these compliance touch-points.
-export const LEGAL = {
-  entity: 'Friends of Mark Norman',
-  pacId: '24927',
-  committeeId: 'CI-0189',
-  state: 'Oregon',
-  email: 'mark@markfororegon.com',
-  // No separate privacy@ inbox is provisioned yet — privacy/access/deletion
-  // requests route to the candidate's mailbox until that's set up.
-  privacyEmail: 'mark@markfororegon.com',
-  phone: '(503) 555-0127',
-  phoneTel: '+15035550127',
-  address: 'PO Box 122, Beaverton, OR 97075',
-  effectiveDate: 'May 5, 2026',
-  programName: 'Friends of Mark Norman SMS Program',
+  disclosure: `Paid for by ${LEGAL.entity} PAC #${LEGAL.pacId}`,
 }
 
 export const ELEVATOR_PITCH =
@@ -130,10 +132,10 @@ export const ABOUT_META = [
 ]
 
 export const ABOUT_STATS = [
-  { number: '22', descriptor: 'Years U.S. Navy' },
-  { number: '28', descriptor: 'Years in practice' },
-  { number: '30', descriptor: 'Years in district' },
-  { number: '4', descriptor: 'Dogs (Doug leads)' },
+  { number: '22', unit: 'Years', detail: 'U.S. Navy Veteran' },
+  { number: '28', unit: 'Years', detail: 'In Practice' },
+  { number: '30', unit: 'Years', detail: 'In District' },
+  { number: '4', unit: 'Dogs', detail: 'Doug Leads' },
 ]
 
 export const ABOUT_STORY = [
@@ -173,7 +175,7 @@ export const FAQS = [
   },
   {
     q: 'Who runs the campaign?',
-    a: 'Friends of Mark Norman PAC (#24927), a registered committee in Oregon.',
+    a: `${LEGAL.entity} PAC (#${LEGAL.pacId}), a registered committee in Oregon.`,
   },
 ]
 
@@ -224,8 +226,8 @@ export const CONTACT_METHODS = [
   },
   {
     label: 'Phone',
-    value: '(503) 555-0127',
-    href: 'tel:+15035550127',
+    value: '+1 503-905-9275',
+    href: 'tel:+15039059275',
     detail: 'Mon – Fri · 9 AM – 5 PM PT.',
   },
   {
@@ -234,6 +236,23 @@ export const CONTACT_METHODS = [
     href: null,
     detail: 'For checks and physical mail.',
   },
+]
+
+// Oregon House District 27 ZIP code list. Used to flag in-district vs
+// out-of-district records on form submissions so the CRM workflow can
+// route them appropriately. The starter list below covers the Beaverton
+// and Cedar Hills core of the district; edge ZIPs with partial overlap
+// (e.g. 97003, 97123, 97221, 97223) are intentionally excluded until
+// confirmed against the most recent legislative boundary map.
+// TODO: confirm canonical HD-27 ZIP list with the campaign team.
+export const HD27_ZIPS = [
+  '97005', // Beaverton (central)
+  '97006', // Beaverton / Aloha
+  '97007', // Beaverton / Aloha
+  '97008', // Beaverton
+  '97078', // Beaverton
+  '97225', // Cedar Hills / West Slope
+  '97229', // Cedar Mill / Cedar Hills
 ]
 
 export const VOLUNTEER_HELP_OPTIONS = [

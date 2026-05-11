@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
+import SmsConsent from '@/components/layout/sms-consent'
 import { formatPhoneInput } from '@/lib/phone'
 
 const STATUS = {
@@ -23,7 +24,18 @@ const RsvpForm = ({ event }) => {
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
+  const [smsUpdates, setSmsUpdates] = useState(false)
+  const [smsPromo, setSmsPromo] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
+
+  const hasPhone = phone.trim().length > 0
+
+  useEffect(() => {
+    if (!hasPhone) {
+      setSmsUpdates(false)
+      setSmsPromo(false)
+    }
+  }, [hasPhone])
 
   const validate = (data) => {
     const next = {}
@@ -47,6 +59,8 @@ const RsvpForm = ({ event }) => {
       eventDate: event.date?.raw || '',
       eventTime: event.time,
       eventCategory: event.type,
+      sms_updates: smsUpdates,
+      sms_promo: smsPromo,
     }
 
     const validation = validate(data)
@@ -66,6 +80,8 @@ const RsvpForm = ({ event }) => {
       setToastOpen(true)
       form.reset()
       setPhone('')
+      setSmsUpdates(false)
+      setSmsPromo(false)
     } catch (error) {
       console.error('[RsvpForm]:', error)
       setStatus(STATUS.error)
@@ -120,6 +136,14 @@ const RsvpForm = ({ event }) => {
         placeholder="+1 (503) 555-0123"
         value={phone}
         onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+      />
+
+      <SmsConsent
+        hasPhone={hasPhone}
+        smsUpdates={smsUpdates}
+        smsPromo={smsPromo}
+        onSmsUpdatesChange={setSmsUpdates}
+        onSmsPromoChange={setSmsPromo}
       />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>

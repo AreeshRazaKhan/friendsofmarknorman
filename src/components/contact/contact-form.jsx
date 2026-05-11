@@ -144,7 +144,7 @@ const ContactForm = () => {
           required
           aria-invalid={Boolean(errors.message)}
           placeholder="Tell us what's on your mind — questions, ideas, scheduling, anything."
-          className="rounded border border-bone bg-paper-2 px-[14px] py-3 font-sans text-sm text-navy placeholder:text-stone focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+          className="rounded border border-bone bg-paper-2 px-[14px] py-3 font-sans text-sm text-navy placeholder:text-[#5F594D99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
         />
       </FormField>
 

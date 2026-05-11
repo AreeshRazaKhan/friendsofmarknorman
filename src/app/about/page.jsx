@@ -9,7 +9,6 @@ import RevealItem from "@/components/motion/reveal-item";
 
 import {
   ABOUT_BLOCKS,
-  ABOUT_STATS,
   ABOUT_STORY,
   CAMPAIGN,
 } from "@/constants/site";
@@ -88,31 +87,6 @@ const AboutPage = () => {
                     {block.body}
                   </p>
                 </article>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </div>
-      </section>
-
-      <section className="bg-navy text-paper">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
-          <RevealGroup
-            stagger={0.12}
-            delay={0.15}
-            className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
-            as="dl"
-          >
-            {ABOUT_STATS.map((stat) => (
-              <RevealItem key={stat.descriptor} variant="scale" duration={0.6}>
-                <div className="flex flex-col gap-2">
-                  <dt className="flex items-baseline">
-                    <span className="stat-plus" aria-hidden="true">
-                      +
-                    </span>
-                    <span className="stat-numeral-paper">{stat.number}</span>
-                  </dt>
-                  <dd className="stat-descriptor-dark">{stat.descriptor}</dd>
-                </div>
               </RevealItem>
             ))}
           </RevealGroup>

@@ -52,6 +52,8 @@ const AskForm = () => {
     const next = {}
     if (!data.email.trim()) next.email = 'Required'
     else if (!EMAIL_RE.test(data.email)) next.email = 'Invalid email'
+    if (!data.zip.trim()) next.zip = 'Required'
+    else if (!/^[0-9]{5}$/.test(data.zip.trim())) next.zip = 'Enter a 5-digit ZIP'
     if (!data.question.trim()) next.question = 'Required'
     return next
   }
@@ -138,9 +140,12 @@ const AskForm = () => {
         <FormField
           name="zip"
           label="ZIP code"
+          required
           inputMode="numeric"
           pattern="[0-9]{5}"
+          autoComplete="postal-code"
           placeholder="97000"
+          error={errors.zip}
         />
       </div>
 
@@ -162,7 +167,7 @@ const AskForm = () => {
           rows={6}
           required
           aria-invalid={Boolean(errors.question)}
-          className="rounded border border-bone bg-paper-2 px-[14px] py-3 font-sans text-sm text-navy placeholder:text-stone focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red"
+          className="rounded border border-bone bg-paper-2 px-[14px] py-3 font-sans text-sm text-navy placeholder:text-[#5F594D99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red"
           placeholder="Be as direct as you like. Mark prefers it that way."
         />
       </FormField>

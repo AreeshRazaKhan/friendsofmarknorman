@@ -31,13 +31,7 @@ const EventsPage = async () => {
       <PageHero
         title="Meet Mark <em>in person.</em>"
         lead="This campaign primarily takes place through conversations at District 27 kitchens, coffee tables, and community spaces. These events are an opportunity for direct conversation, for questions, and to hear where things are."
-      >
-        <div className="mt-4 flex flex-wrap gap-3">
-          <Button asChild variant="red">
-            <Link href="mailto:mark@markfororegon.com">Host an event</Link>
-          </Button>
-        </div>
-      </PageHero>
+      />
 
       <section id="calendar" className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">

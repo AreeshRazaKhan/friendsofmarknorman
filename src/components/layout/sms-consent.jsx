@@ -24,7 +24,8 @@ const SmsConsent = ({
 
       {!hasPhone && (
         <p className="text-xs italic text-stone">
-          Enter a phone number above to opt in to SMS messages.
+          Entering your phone number does not opt you in to SMS. The consent checkboxes below must
+          also be checked.
         </p>
       )}
 

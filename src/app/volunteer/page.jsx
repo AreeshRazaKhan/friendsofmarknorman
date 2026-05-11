@@ -35,7 +35,7 @@ const VolunteerPage = () => {
           <RevealGroup
             stagger={0.07}
             delay={0.1}
-            className="mt-12 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-3"
+            className="mt-12 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-4"
             as="ul"
           >
             {VOLUNTEER_ROLES.map((role, idx) => (
@@ -65,8 +65,8 @@ const VolunteerPage = () => {
               Tell us a little <em>about yourself.</em>
             </h2>
             <p className="max-w-prose text-stone-dark">
-              Once you sign up, you&apos;ll receive a call from a member of the campaign team within
-              48 hours to help you get started.
+              Once you sign up, you&apos;ll receive a call from a member of the campaign team to
+              help you get started.
             </p>
           </div>
           <div className="rounded-2xl border border-bone bg-white p-8 lg:p-10">

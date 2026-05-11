@@ -106,7 +106,7 @@ const EngagementSection = () => {
               <RevealGroup
                 stagger={0.1}
                 delay={0.35}
-                className="grid gap-3 border-t border-paper-78/20 pt-6 text-sm leading-relaxed text-paper-78 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0"
+                className="grid gap-3 border-t border-paper-78/20 pt-6 text-base leading-relaxed text-paper-78 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0"
                 as="ul"
               >
                 {HELP_BULLETS.map((line, i) => (
