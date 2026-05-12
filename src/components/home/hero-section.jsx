@@ -78,8 +78,8 @@ const HeroSection = () => {
 
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-paper-78/20 lg:max-w-[460px] lg:justify-self-end">
           <Image
-            src="/images/mark-portrait-flag.jpg"
-            alt="Mark Norman, smiling, in a navy blazer with an American flag lapel pin, photographed outdoors."
+            src="/images/mark-hero-portrait.jpg"
+            alt="Mark Norman, smiling, in a navy blazer with an American flag lapel pin, photographed outdoors against a green backdrop."
             fill
             sizes="(min-width: 1024px) 460px, 100vw"
             className="object-cover"
