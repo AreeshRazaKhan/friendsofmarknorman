@@ -137,15 +137,15 @@ export const ISSUES = [
 
 export const ABOUT_META = [
   { label: 'Service', value: 'U.S. Navy', detail: '22 years active and reserve' },
-  { label: 'Practice', value: 'Veterinary medicine', detail: '28 years · still operating in Washington County' },
+  { label: 'Practice', value: 'Veterinary medicine', detail: '30 years · still operating in Washington County' },
   { label: 'Family', value: '4 dogs', detail: 'Doug the sheepadoodle leads the pack' },
-  { label: 'Based', value: 'Washington County', detail: '30 years in Oregon' },
+  { label: 'Based', value: 'Washington County', detail: '25 years in Oregon' },
 ]
 
 export const ABOUT_STATS = [
   { number: '22', descriptor: 'Year U.S. Navy Veteran' },
-  { number: '28', descriptor: 'Years in Practice' },
-  { number: '30', descriptor: 'Years in District' },
+  { number: '30', descriptor: 'Years in Practice' },
+  { number: '25', descriptor: 'Years in District' },
   { number: '4', descriptor: 'Dogs (Doug Leads)' },
 ]
 
