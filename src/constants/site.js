@@ -244,7 +244,7 @@ export const CONTACT_METHODS = [
   {
     label: 'Mail',
     value: 'PO Box 122 · Beaverton, OR 97075',
-    href: null,
+    href: 'https://maps.app.goo.gl/dJCbf1zmxuAYEwP89',
     detail: 'For checks and physical mail.',
   },
 ]

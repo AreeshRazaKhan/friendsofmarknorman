@@ -35,6 +35,9 @@ const ContactPage = () => {
                     <a
                       className="inline-flex min-h-[44px] items-center hover:text-red"
                       href={m.href}
+                      {...(m.href.startsWith('http')
+                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                        : {})}
                     >
                       {m.value}
                     </a>

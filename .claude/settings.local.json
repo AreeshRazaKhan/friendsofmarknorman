@@ -63,7 +63,17 @@
       "PowerShell($body = @{ firstName='Compliance'; lastName='Rsvp'; email='compliance-rsvp@marknormanfororegon.com'; phone='+1 \\(503\\) 555-0127'; eventName='Beaverton meet-and-greet'; eventDate='2026-05-22'; eventTime='6:30 PM – 8:00 PM PT'; eventCategory='Town hall' } | ConvertTo-Json; $r = Invoke-WebRequest -Uri 'http://localhost:3001/api/events/rsvp' -Method Post -ContentType 'application/json' -Body $body -UseBasicParsing; \"rsvp: $\\($r.StatusCode\\) $\\($r.Content\\)\")",
       "PowerShell($body = @{ firstName='VolHook'; lastName='Test'; email='vol-hook-test@marknormanfororegon.com'; phone='+1 \\(503\\) 555-0127'; helpOptions=@\\('Phone Banking','Door Knocking'\\); region='Portland Metro'; registeredVoter='Yes'; campaignExperience='No'; availability='3-5 hours/week'; issues='Affordability and schools'; sms_updates=$true; sms_promo=$false } | ConvertTo-Json; $r = Invoke-WebRequest -Uri 'http://localhost:3001/api/volunteer' -Method Post -ContentType 'application/json' -Body $body -UseBasicParsing; \"$\\($r.StatusCode\\) $\\($r.Content\\)\")",
       "PowerShell($body = @{ firstName='Ask'; email='ask-a2p@marknormanfororegon.com'; phone='+1 \\(503\\) 555-0127'; zip='97005'; topic='Affordability'; question='Compliance test - phone field, sms consent, A2P fan-out wired into Ask Mark.'; publishOk=$true; sms_updates=$true; sms_promo=$false } | ConvertTo-Json; $r = Invoke-WebRequest -Uri 'http://localhost:3001/api/ask' -Method Post -ContentType 'application/json' -Body $body -UseBasicParsing; \"$\\($r.StatusCode\\) $\\($r.Content\\)\")",
-      "WebFetch(domain:www.morseforidaho.com)"
+      "WebFetch(domain:www.morseforidaho.com)",
+      "Bash(grep -nE \"^.{0,200}\\(Error:|Failed to compile|✗\\)\" \"C:\\\\Users\\\\Dev\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Dev-Documents-GitHub-friendsofmarknorman\\\\69728c97-6100-4eda-9f09-0810b2d03f2b\\\\tasks\\\\bs8ck95py.output\")",
+      "Bash(where pdftoppm *)",
+      "Bash(pdftotext -layout \"c:\\\\Users\\\\Dev\\\\Downloads\\\\Friends_of_Mark_Norman_QA_Report \\(1\\).pdf\" \"C:\\\\Users\\\\Dev\\\\AppData\\\\Local\\\\Temp\\\\qa-report.txt\")",
+      "Bash(npx next *)",
+      "Bash(taskkill *)",
+      "Bash(where magick *)",
+      "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3253.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-portrait-flag.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3147.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-confident.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3193.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-spring-outdoor.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3157.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-smiling.jpg\")"
     ],
     "deny": []
   }

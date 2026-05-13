@@ -104,7 +104,14 @@ const SiteFooter = () => {
             >
               {LEGAL.phone}
             </a>
-            <p className="mt-1 max-w-[24ch] text-sm text-stone-dark">{LEGAL.address}</p>
+            <a
+              href="https://maps.app.goo.gl/dJCbf1zmxuAYEwP89"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="-ml-1 inline-flex min-h-[44px] w-fit max-w-[24ch] items-center px-1 py-2 font-sans text-sm text-navy transition-colors hover:text-red"
+            >
+              {LEGAL.address}
+            </a>
           </FooterColumn>
         </div>
       </div>
