@@ -28,8 +28,8 @@ const AboutPage = () => {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:px-10 lg:py-28">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-bone">
             <Image
-              src="/images/ORL_3137.jpg"
-              alt="Mark Norman, smiling, in a blue button-down shirt, photographed outdoors with a lake and ridgeline behind him."
+              src="/images/mark-about-portrait.png"
+              alt="Mark Norman, laughing warmly, in a gray plaid blazer photographed against a charcoal backdrop."
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="object-cover"
