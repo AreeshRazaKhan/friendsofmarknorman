@@ -20,7 +20,7 @@ const AboutPage = () => {
     <>
       <PageHero
         title="Who is <em>Mark Norman?</em>"
-        lead="Mark Norman is a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27. For almost 30 years he has lived, practiced, and heard the issues families face in their daily lives in Washington County. He believes Oregon needs better leadership that is practical and more connected to real life."
+        lead="Mark Norman is a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27. For almost 25 years, he has lived and heard the issues families face in their daily lives in Washington County. He believes Oregon needs better leadership that is practical and more connected to real life."
         align="center"
       />
 
