@@ -206,7 +206,7 @@ export const ABOUT_BLOCKS = [
     number: '02',
     eyebrow: 'Service',
     title: 'Twenty-two years in the Navy.',
-    body: 'A U.S. Naval Academy graduate and decorated Naval Officer with twenty-two combined years of active and reserve service. Mark learned what it means to be steadfast, to be clear, and to make decisions with accountability. Great leadership starts with listening attentively and staying calm under pressure.',
+    body: 'A U.S. Naval Academy graduate and commendated Naval Officer with twenty-two combined years of active and reserve service. Mark learned what it means to be steadfast, to be clear, and to make decisions with accountability. Great leadership starts with listening attentively and staying calm under pressure.',
   },
   {
     number: '03',
