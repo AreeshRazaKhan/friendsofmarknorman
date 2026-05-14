@@ -66,13 +66,10 @@ const EventsPage = async () => {
             <div className="mt-12 rounded-2xl border border-bone bg-paper-2 p-10 text-center">
               <p className="font-sans text-lg font-bold text-navy">No events scheduled right now.</p>
               <p className="mt-3 max-w-prose text-stone-dark">
-                Check back soon — or sign up for updates and we&apos;ll send the next event the
-                moment it drops.
+                Check back soon — new events are added across House District 27 as they&apos;re
+                scheduled.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Button asChild variant="red">
-                  <Link href="/#sign-up">Get updates</Link>
-                </Button>
                 <Button asChild variant="primary">
                   <Link href="mailto:mark@markfororegon.com">Host an event</Link>
                 </Button>

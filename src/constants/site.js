@@ -230,12 +230,6 @@ export const CONTACT_METHODS = [
     detail: 'For volunteers, supporters, and questions.',
   },
   {
-    label: 'Press',
-    value: 'mark@markfororegon.com',
-    href: 'mailto:mark@markfororegon.com',
-    detail: 'Media requests and statements.',
-  },
-  {
     label: 'Phone',
     value: '+1 971-278-6520',
     href: 'tel:+19712786520',

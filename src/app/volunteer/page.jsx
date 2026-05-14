@@ -43,11 +43,11 @@ const VolunteerPage = () => {
             {VOLUNTEER_ROLES.map((role, idx) => (
               <RevealItem key={role.title} variant="up" duration={0.55} as="li">
                 <div className="flex h-full flex-col gap-3 bg-paper p-6 lg:p-8">
-                  <div className="flex items-baseline gap-3">
+                  <div className="flex min-h-[2.75rem] items-baseline gap-3 lg:min-h-[3.25rem]">
                     <span className="font-sans text-3xl font-bold leading-none text-red lg:text-4xl">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-stone">
+                    <span className="font-mono text-[10px] font-semibold uppercase leading-relaxed tracking-eyebrow text-stone">
                       / {role.commitment}
                     </span>
                   </div>

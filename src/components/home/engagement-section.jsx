@@ -102,13 +102,6 @@ const EngagementSection = () => {
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </Button>
-                  <Button
-                    asChild
-                    variant="ghost"
-                    className="border-paper text-paper hover:bg-navy-3"
-                  >
-                    <Link href="/contact">Get updates</Link>
-                  </Button>
                 </div>
               </div>
 

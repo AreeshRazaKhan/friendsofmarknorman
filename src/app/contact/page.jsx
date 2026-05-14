@@ -24,7 +24,7 @@ const ContactPage = () => {
             Here&apos;s how to <em>reach us.</em>
           </h2>
 
-          <dl className="mt-10 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-10 grid gap-px overflow-hidden border border-bone bg-bone md:grid-cols-2 lg:grid-cols-3">
             {CONTACT_METHODS.map((m) => (
               <div key={m.label} className="flex flex-col gap-2 bg-paper p-6 lg:p-8">
                 <dt className="font-mono text-[10px] font-semibold uppercase tracking-eyebrow text-red">
