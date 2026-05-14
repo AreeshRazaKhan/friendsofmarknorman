@@ -73,7 +73,8 @@
       "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3253.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-portrait-flag.jpg\")",
       "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3147.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-confident.jpg\")",
       "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3193.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-spring-outdoor.jpg\")",
-      "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3157.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-smiling.jpg\")"
+      "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3157.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-smiling.jpg\")",
+      "Skill(playwright-skill)"
     ],
     "deny": []
   }
