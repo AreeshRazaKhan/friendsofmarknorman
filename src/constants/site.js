@@ -57,6 +57,24 @@ export const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
+export const SOCIAL_LINKS = [
+  {
+    code: 'FB',
+    name: 'Facebook',
+    href: 'https://www.facebook.com/profile.php?id=61589031000348',
+  },
+  {
+    code: 'IG',
+    name: 'Instagram',
+    href: 'https://www.instagram.com/markfororhd27/',
+  },
+  {
+    code: 'TT',
+    name: 'TikTok',
+    href: 'https://www.tiktok.com/@gmnorman99',
+  },
+]
+
 export const PILLARS = [
   {
     number: '01',

@@ -1,7 +1,26 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Facebook, Instagram } from 'lucide-react'
 
-import { CAMPAIGN, LEGAL, NAV_LINKS } from '@/constants/site'
+import { CAMPAIGN, LEGAL, NAV_LINKS, SOCIAL_LINKS } from '@/constants/site'
+
+const TikTokIcon = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.74a8.16 8.16 0 0 0 4.77 1.52V6.81a4.85 4.85 0 0 1-1.84-.12z" />
+  </svg>
+)
+
+const SOCIAL_ICONS = {
+  Facebook,
+  Instagram,
+  TikTok: TikTokIcon,
+}
 
 const LEGAL_LINKS = [
   { href: '/privacy-policy', label: 'Privacy Policy' },
@@ -68,6 +87,27 @@ const SiteFooter = () => {
             </div>
           </dl>
 
+          <div className="flex flex-col gap-2">
+            <p className="eyebrow-bracket eyebrow">follow</p>
+            <ul className="flex flex-wrap items-center gap-2">
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.name]
+                return (
+                  <li key={social.code}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${LEGAL.entity} on ${social.name}`}
+                      className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-navy transition-colors hover:text-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red"
+                    >
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
 
         <nav aria-label="Footer site nav" className="lg:col-span-2">
