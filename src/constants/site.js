@@ -14,8 +14,8 @@ export const LEGAL = {
   // No separate privacy@ inbox is provisioned yet — privacy/access/deletion
   // requests route to the candidate's mailbox until that's set up.
   privacyEmail: 'mark@markfororegon.com',
-  phone: '+1 503-905-9275',
-  phoneTel: '+15039059275',
+  phone: '+1 971-278-6520',
+  phoneTel: '+19712786520',
   address: 'PO Box 122, Beaverton, OR 97075',
   effectiveDate: 'May 5, 2026',
   programName: 'Friends of Mark Norman SMS Program',
@@ -30,7 +30,7 @@ export const CAMPAIGN = {
   tagline: 'Service · Solutions · Accountability',
   domain: 'markfororegon.com',
   email: 'mark@markfororegon.com',
-  phone: '+1 503-905-9275',
+  phone: '+1 971-278-6520',
   mailing: 'PO Box 122 · Beaverton, OR 97075',
   donateUrl:
     'https://secure.winred.com/friends-of-mark-norman/donate-today?sc=winred-directory&money_bomb=false&recurring=false',
@@ -249,8 +249,8 @@ export const CONTACT_METHODS = [
   },
   {
     label: 'Phone',
-    value: '+1 503-905-9275',
-    href: 'tel:+15039059275',
+    value: '+1 971-278-6520',
+    href: 'tel:+19712786520',
     detail: 'Mon – Fri · 9 AM – 5 PM PT.',
   },
   {
