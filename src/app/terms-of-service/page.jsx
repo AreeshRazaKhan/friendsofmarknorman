@@ -21,16 +21,6 @@ const TermsOfServicePage = () => {
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
-          <div className="mb-10 max-w-3xl rounded-md border border-red/40 bg-red/5 p-5 text-sm leading-relaxed text-stone-dark">
-            <p>
-              <strong className="text-red">Draft for legal review.</strong> This document was
-              prepared to satisfy A2P 10DLC carrier review (program description, STOP/HELP,
-              carrier liability, message &amp; data rates, privacy reference) and TCPA standards.
-              Final language must be reviewed and approved by {LEGAL.entity}&apos;s qualified legal
-              counsel before publication.
-            </p>
-          </div>
-
           <LegalProse>
             <p>
               These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of the{' '}
