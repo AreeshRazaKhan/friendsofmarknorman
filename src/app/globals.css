@@ -107,11 +107,6 @@
     letter-spacing: -0.025em;
   }
 
-  .stat-plus {
-    @apply font-sans font-normal text-red;
-    font-size: 0.6em;
-  }
-
   .stat-descriptor {
     @apply font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-stone;
   }

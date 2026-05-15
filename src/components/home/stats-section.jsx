@@ -21,9 +21,6 @@ const StatsSection = () => {
             <RevealItem key={`${stat.number}-${stat.descriptor}`} variant="scale" duration={0.6}>
               <div className="flex flex-col gap-3">
                 <dt className="flex items-baseline leading-none">
-                  <span className="stat-plus" aria-hidden="true">
-                    +
-                  </span>
                   <span className="stat-numeral-paper">{stat.number}</span>
                 </dt>
                 <dd className="stat-descriptor-dark leading-snug tracking-[0.16em]">
