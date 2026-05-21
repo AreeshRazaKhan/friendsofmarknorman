@@ -69,6 +69,11 @@ export const SOCIAL_LINKS = [
     href: 'https://www.instagram.com/markfororhd27/',
   },
   {
+    code: 'X',
+    name: 'X',
+    href: 'https://x.com/MarkForHD27',
+  },
+  {
     code: 'TT',
     name: 'TikTok',
     href: 'https://www.tiktok.com/@gmnorman99',
