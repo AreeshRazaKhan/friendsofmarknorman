@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>01 · Meet Mark Norman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0B2844; --red:#B62025; --red-3:#D63D42;
+    --paper:#F5F2EC; --bone:#D4CCB7; --stone:#5F594D;
+    --ff:'Cabin',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#1a1a1a;display:grid;place-items:center;min-height:100vh;font-family:var(--ff)}
+  .canvas{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--navy);color:var(--paper)}
+  /* stripe + halftone */
+  .canvas::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(182,32,37,.16) 0 2px,transparent 2px 26px);z-index:1}
+  .canvas::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(245,242,236,.05) 1.4px,transparent 1.6px);background-size:14px 14px;z-index:1}
+  /* real portrait image */
+  .portrait{position:absolute;top:120px;right:60px;width:380px;height:480px;z-index:3;border-radius:10px;overflow:hidden;border:6px solid var(--paper);box-shadow:14px 14px 0 var(--red)}
+  .portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
+  /* corner star accents */
+  .star{position:absolute;color:var(--red-3);z-index:3;font-family:var(--ff);font-weight:700}
+  .star.s1{top:80px;left:80px;font-size:38px}
+  .star.s2{top:140px;left:160px;font-size:22px;opacity:.7}
+  .star.s3{top:90px;left:250px;font-size:14px;opacity:.55}
+  /* hero — left-aligned, fills top-left two-thirds */
+  .hero{position:absolute;left:60px;top:220px;width:580px;z-index:4}
+  .hero h1{font-family:var(--ff);font-weight:700;font-size:120px;line-height:.82;letter-spacing:-.04em;color:var(--paper)}
+  .hero h1 em{font-style:normal;font-weight:400;color:var(--red-3)}
+  /* horizontal divider */
+  .div-rule{position:absolute;left:60px;right:60px;top:700px;height:3px;background:var(--paper);z-index:4}
+  /* name row */
+  .name-row{position:absolute;left:60px;right:60px;top:730px;display:flex;align-items:baseline;gap:30px;z-index:4}
+  .name-row .lbl{font-family:var(--ff-mono);font-size:22px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--red-3)}
+  .name-row .n{font-family:var(--ff);font-weight:700;font-size:108px;letter-spacing:-.035em;line-height:.85}
+  .name-row .n em{font-style:normal;font-weight:400;color:var(--red-3)}
+  /* credential stamps spread along bottom */
+  .stamps{position:absolute;left:60px;right:60px;bottom:90px;display:flex;justify-content:space-between;gap:14px;z-index:5}
+  .stamp{font-family:var(--ff-mono);font-size:16px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:14px 22px;background:var(--paper);color:var(--navy);border:2px solid var(--paper);position:relative}
+  .stamp:nth-child(1){transform:rotate(-2deg)}
+  .stamp:nth-child(2){transform:rotate(1deg);background:var(--red);color:var(--paper);border-color:var(--red)}
+  .stamp:nth-child(3){transform:rotate(-1deg)}
+  /* PAC */
+  .pac{position:absolute;left:60px;right:60px;bottom:32px;text-align:center;font-family:var(--ff-mono);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,236,.85);z-index:5}
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <span class="star s1">★</span>
+    <span class="star s2">★</span>
+    <span class="star s3">★</span>
+    <div class="portrait">
+      <img src="https://assets.cdn.filesafe.space/xpk2cvMlHO4xSLm4NgAz/media/6a10bb62fe2210f89e455468.png" alt="Mark Norman" />
+    </div>
+    <div class="hero">
+      <h1>Grounded<br/>leadership <em>for Oregon.</em></h1>
+    </div>
+    <div class="div-rule"></div>
+    <div class="name-row">
+      <span class="lbl">Meet</span>
+      <span class="n">Mark <em>Norman</em></span>
+    </div>
+    <div class="stamps">
+      <div class="stamp">Navy Veteran</div>
+      <div class="stamp">Veterinarian</div>
+      <div class="stamp">Small-business owner</div>
+    </div>
+    <div class="pac">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</body>
+</html>

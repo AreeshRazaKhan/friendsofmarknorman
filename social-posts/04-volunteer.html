@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>04 · Volunteer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0B2844; --red:#B62025; --red-3:#D63D42;
+    --paper:#F5F2EC; --bone:#D4CCB7; --stone:#5F594D;
+    --ff:'Cabin',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#1a1a1a;display:grid;place-items:center;min-height:100vh;font-family:var(--ff)}
+  .canvas{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--paper);color:var(--navy)}
+  /* hero banner across top */
+  .banner{position:absolute;left:0;right:0;top:0;height:400px;background:var(--red);color:var(--paper);display:flex;align-items:center;padding:0 60px;z-index:4}
+  .banner::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.10) 0 2px,transparent 2px 22px)}
+  .banner h1{position:relative;font-family:var(--ff);font-weight:700;font-size:152px;line-height:.86;letter-spacing:-.04em}
+  .banner h1 em{font-style:normal;font-weight:400;color:var(--navy);display:inline-block;background:var(--paper);padding:0 16px;transform:rotate(-2deg);box-shadow:8px 8px 0 var(--navy)}
+  /* 2x2 verb grid filling middle */
+  .grid{position:absolute;left:0;right:0;top:430px;bottom:130px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;z-index:3}
+  .cell{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;padding:30px;position:relative;overflow:hidden}
+  .cell .ico{width:120px;height:120px;display:grid;place-items:center}
+  .cell .ico svg{width:100%;height:100%}
+  .cell .t{font-family:var(--ff);font-weight:700;font-size:124px;letter-spacing:-.04em;line-height:.85}
+  .cell.a{background:var(--paper);color:var(--navy)}
+  .cell.b{background:var(--navy);color:var(--paper)}
+  .cell.c{background:var(--navy);color:var(--paper)}
+  .cell.d{background:var(--paper);color:var(--navy)}
+  /* PAC */
+  .pac{position:absolute;left:60px;right:60px;bottom:36px;font-family:var(--ff-mono);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);text-align:center;z-index:5}
+  /* footer rule */
+  .rule-foot{position:absolute;left:0;right:0;bottom:130px;height:6px;background:var(--red);z-index:5}
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="banner">
+      <h1>There's room <em>to help.</em></h1>
+    </div>
+    <div class="grid">
+      <div class="cell a">
+        <span class="ico">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 30 100 L 50 60 L 35 40 L 55 30 L 75 50 L 65 80 L 90 95" stroke="#0B2844" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="20" r="9" fill="#B62025"/>
+          </svg>
+        </span>
+        <span class="t">Walk</span>
+      </div>
+      <div class="cell b">
+        <span class="ico">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 30 70 C 30 50 50 40 60 60 L 80 95 C 80 105 70 110 60 105 L 35 90 C 25 85 25 78 30 70 Z" stroke="#F5F2EC" stroke-width="6" fill="none"/>
+            <path d="M 60 30 Q 80 30 90 50" stroke="#D63D42" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M 70 22 Q 95 22 105 50" stroke="#D63D42" stroke-width="5" fill="none" stroke-linecap="round" opacity=".6"/>
+          </svg>
+        </span>
+        <span class="t">Call</span>
+      </div>
+      <div class="cell c">
+        <span class="ico">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 20 65 L 60 30 L 100 65 L 100 100 L 20 100 Z" stroke="#F5F2EC" stroke-width="6" fill="none" stroke-linejoin="round"/>
+            <rect x="50" y="75" width="20" height="25" fill="#D63D42"/>
+            <path d="M 60 20 L 60 35" stroke="#D63D42" stroke-width="6"/>
+          </svg>
+        </span>
+        <span class="t">Host</span>
+      </div>
+      <div class="cell d">
+        <span class="ico">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="60" r="14" fill="#0B2844"/>
+            <circle cx="90" cy="30" r="14" fill="#B62025"/>
+            <circle cx="90" cy="90" r="14" fill="#B62025"/>
+            <path d="M 42 54 L 78 35 M 42 66 L 78 85" stroke="#0B2844" stroke-width="5"/>
+          </svg>
+        </span>
+        <span class="t">Share</span>
+      </div>
+    </div>
+    <div class="rule-foot"></div>
+    <div class="pac">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</body>
+</html>

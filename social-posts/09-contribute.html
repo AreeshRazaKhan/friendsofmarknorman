@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>09 · Contribute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0B2844; --red:#B62025; --red-3:#D63D42;
+    --paper:#F5F2EC; --paper-2:#EDE8DD; --bone:#D4CCB7; --stone:#5F594D;
+    --ff:'Cabin',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#1a1a1a;display:grid;place-items:center;min-height:100vh;font-family:var(--ff)}
+  .canvas{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--navy);color:var(--paper)}
+  /* stripes */
+  .canvas::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(182,32,37,.18) 0 2px,transparent 2px 24px);z-index:1}
+  /* halftone */
+  .canvas::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(245,242,236,.07) 1.4px,transparent 1.6px);background-size:14px 14px;z-index:1}
+  /* enormous $ watermark behind */
+  .dollar{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);font-family:var(--ff);font-weight:700;font-size:1400px;line-height:.78;color:rgba(245,242,236,.06);z-index:2;letter-spacing:-.06em;pointer-events:none}
+  /* star burst SVG corners */
+  .burst{position:absolute;top:50px;right:50px;width:140px;height:140px;z-index:5}
+  .burst svg{width:100%;height:100%}
+  /* hero filling top */
+  .hero{position:absolute;left:60px;right:60px;top:100px;z-index:4}
+  .hero h1{font-family:var(--ff);font-weight:700;font-size:106px;line-height:.88;letter-spacing:-.03em;color:var(--paper);max-width:920px}
+  .hero h1 em{font-style:normal;font-weight:400;color:var(--red-3)}
+  /* MASSIVE URL block as the design */
+  .url{position:absolute;left:0;right:0;bottom:140px;background:var(--paper);color:var(--navy);padding:40px 60px;border-top:6px solid var(--red);border-bottom:6px solid var(--red);z-index:5;display:flex;justify-content:space-between;align-items:center}
+  .url .l{font-family:var(--ff);font-weight:700;font-size:88px;letter-spacing:-.035em;line-height:1;color:var(--navy);white-space:nowrap}
+  .url .l em{font-style:normal;font-weight:400;color:var(--red);display:inline-block}
+  .url .arr{width:112px;height:112px;border-radius:50%;background:var(--red);color:var(--paper);display:grid;place-items:center;font-family:var(--ff);font-weight:700;font-size:54px;flex-shrink:0;line-height:1;box-shadow:8px 8px 0 var(--navy)}
+  /* PAC */
+  .pac{position:absolute;left:60px;right:60px;bottom:42px;font-family:var(--ff-mono);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,236,.85);text-align:center;z-index:5}
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="dollar">$</div>
+    <div class="burst">
+      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g transform="translate(70 70)" stroke="#D63D42" stroke-width="4" stroke-linecap="round">
+          <line x1="0" y1="-50" x2="0" y2="-30"/>
+          <line x1="0" y1="50" x2="0" y2="30"/>
+          <line x1="-50" y1="0" x2="-30" y2="0"/>
+          <line x1="50" y1="0" x2="30" y2="0"/>
+          <line x1="-36" y1="-36" x2="-22" y2="-22"/>
+          <line x1="36" y1="36" x2="22" y2="22"/>
+          <line x1="-36" y1="36" x2="-22" y2="22"/>
+          <line x1="36" y1="-36" x2="22" y2="-22"/>
+        </g>
+        <circle cx="70" cy="70" r="18" fill="#D63D42"/>
+      </svg>
+    </div>
+    <div class="hero">
+      <h1>Official contribution information is available on the <em>campaign website.</em></h1>
+    </div>
+    <div class="url">
+      <span class="l">markfororegon<em>.com</em></span>
+      <span class="arr">→</span>
+    </div>
+    <div class="pac">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</body>
+</html>

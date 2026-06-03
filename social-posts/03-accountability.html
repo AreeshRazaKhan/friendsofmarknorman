@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>03 · Accountability</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0B2844; --red:#B62025; --red-3:#D63D42;
+    --paper:#F5F2EC; --paper-2:#EDE8DD; --bone:#D4CCB7; --stone:#5F594D;
+    --ff:'Cabin',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#1a1a1a;display:grid;place-items:center;min-height:100vh;font-family:var(--ff)}
+  .canvas{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--paper);color:var(--navy)}
+  /* paper texture */
+  .canvas::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(11,40,68,.05) 1.4px,transparent 1.6px);background-size:14px 14px;z-index:1}
+  /* government-document corner brackets */
+  .bracket{position:absolute;width:64px;height:64px;border:5px solid var(--red);z-index:3}
+  .bracket.tl{top:48px;left:48px;border-right:none;border-bottom:none}
+  .bracket.tr{top:48px;right:48px;border-left:none;border-bottom:none}
+  .bracket.bl{bottom:230px;left:48px;border-right:none;border-top:none}
+  .bracket.br{bottom:230px;right:48px;border-left:none;border-top:none}
+  /* mid red rule */
+  .rule{position:absolute;left:160px;right:160px;top:48%;height:4px;background:var(--red);z-index:3}
+  /* hero — fills upper area */
+  .hero{position:absolute;left:80px;right:80px;top:140px;z-index:4}
+  .hero h1{font-family:var(--ff);font-weight:700;font-size:116px;line-height:.88;letter-spacing:-.035em;color:var(--navy);max-width:920px}
+  .hero h1 em{font-style:normal;font-weight:400;color:var(--red);position:relative;display:inline-block}
+  .hero h1 em::before{content:"";position:absolute;left:-12px;right:-12px;top:0;bottom:0;background:rgba(182,32,37,.13);z-index:-1}
+  /* faint big watermark star bottom-right */
+  .watermark{position:absolute;right:-100px;bottom:80px;width:520px;height:520px;z-index:2;opacity:.07}
+  .watermark svg{width:100%;height:100%;display:block}
+  /* learn more — full bleed banner */
+  .learn{position:absolute;left:0;right:0;bottom:120px;background:var(--navy);color:var(--paper);padding:32px 80px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+  .learn::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(182,32,37,.18) 0 2px,transparent 2px 24px);pointer-events:none}
+  .learn .l{position:relative;font-family:var(--ff);font-weight:700;font-size:52px;letter-spacing:-.02em;line-height:1}
+  .learn .l em{font-style:normal;font-weight:400;color:var(--red-3)}
+  .learn .arr{position:relative;width:80px;height:80px;border-radius:50%;background:var(--red);color:var(--paper);display:grid;place-items:center;font-family:var(--ff);font-weight:700;font-size:38px;flex-shrink:0;line-height:1;box-shadow:6px 6px 0 var(--paper)}
+  /* PAC */
+  .pac{position:absolute;left:80px;right:80px;bottom:44px;font-family:var(--ff-mono);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);z-index:5;text-align:center}
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="watermark">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 5 L61 38 L96 38 L67 58 L78 92 L50 72 L22 92 L33 58 L4 38 L39 38 Z" fill="#B62025"/>
+      </svg>
+    </div>
+    <span class="bracket tl"></span>
+    <span class="bracket tr"></span>
+    <span class="bracket bl"></span>
+    <span class="bracket br"></span>
+    <div class="hero">
+      <h1>Calling out for more <em>transparency and accountability</em> in state government.</h1>
+    </div>
+    <div class="learn">
+      <span class="l">Learn more → <em>markfororegon.com</em></span>
+      <span class="arr">→</span>
+    </div>
+    <div class="pac">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</body>
+</html>

@@ -74,7 +74,17 @@
       "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3147.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-confident.jpg\")",
       "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3193.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-spring-outdoor.jpg\")",
       "Bash(cp \"c:\\\\Users\\\\Dev\\\\Downloads\\\\photos\\\\ORL_3157.jpg\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\public\\\\images\\\\mark-smiling.jpg\")",
-      "Skill(playwright-skill)"
+      "Skill(playwright-skill)",
+      "PowerShell(Out-File *)",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\08-ask-mark.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\01-meet-mark.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\02-education.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\03-accountability.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\04-volunteer.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\05-events.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\06-immigration.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\09-contribute.html')",
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\10-closing.html')"
     ],
     "deny": []
   }
