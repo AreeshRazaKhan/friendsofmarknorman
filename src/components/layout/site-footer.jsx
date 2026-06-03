@@ -174,6 +174,14 @@ const SiteFooter = () => {
           <p>{CAMPAIGN.disclosure}</p>
         </div>
         <div className="border-t border-bone">
+          <div className="mx-auto max-w-7xl px-6 py-4 lg:px-10">
+            <p className="text-center font-sans text-[11px] leading-relaxed text-stone">
+              Some images, audio, video, or written content may be created or
+              enhanced using artificial intelligence (AI) tools.
+            </p>
+          </div>
+        </div>
+        <div className="border-t border-bone">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-stone lg:flex-row lg:items-center lg:justify-between lg:px-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em]">
               © {year} {LEGAL.entity}
