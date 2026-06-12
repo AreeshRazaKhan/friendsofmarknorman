@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Where Mark Stands — 2026 Issues Guide · Mark Norman for Oregon HD-27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:    #0B2844;
+    --navy-2:  #102F4F;
+    --navy-3:  #0F3C66;
+    --red:     #B62025;
+    --red-2:   #921A1F;
+    --red-3:   #D63D42;
+    --white:   #FFFFFF;
+    --black:   #000000;
+    --paper:   #F5F2EC;
+    --paper-2: #EDE8DD;
+    --bone:    #D4CCB7;
+    --stone:   #5F594D;
+    --stone-d: #3E3A33;
+    --ink-soft:#1B3454;
+    --hair:    rgba(11,40,68,0.18);
+    --paper-78:rgba(245,242,236,.82);
+    --paper-65:rgba(245,242,236,.72);
+    --ff:      'Cabin', sans-serif;
+    --ff-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  @page{ size: letter; margin: 0; }
+
+  html, body{ font-family: var(--ff); background: var(--paper); color: var(--navy); }
+
+  .page{
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    background: var(--paper);
+  }
+  .page:last-child{ page-break-after: auto; break-after: auto; }
+
+  /* ---- shared chrome ---------------------------------------------------- */
+
+  .chrome-top{
+    position: absolute; top: .55in; left: .7in; right: .7in;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .page-tag{
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
+  }
+  .page-tag::before{ content:''; width: 34px; height: 2px; background: var(--red); }
+  .page-num{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .28em; color: var(--stone);
+  }
+
+  .chrome-foot{
+    position: absolute; bottom: .5in; left: .7in; right: .7in;
+    border-top: 1px solid var(--hair); padding-top: 10px;
+    display: flex; justify-content: space-between;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--stone);
+  }
+
+  .wm{
+    position: absolute; right: -0.35in; bottom: 0.4in;
+    font-family: var(--ff); font-weight: 700; font-size: 340px; line-height: 1;
+    letter-spacing: -0.025em; color: rgba(11,40,68,.045);
+    pointer-events: none; user-select: none;
+  }
+
+  .eyebrow{
+    font-family: var(--ff-mono); font-size: 15px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+  }
+
+  em{ font-style: normal; color: var(--red); }
+
+  /* ---- cover ------------------------------------------------------------ */
+
+  .cover{ background: var(--navy); color: var(--paper); }
+  .cover .halftone{
+    position: absolute; inset: 0; opacity: .16;
+    background-image: radial-gradient(circle, rgba(245,242,236,.55) 1.4px, transparent 2px);
+    background-size: 14px 14px;
+  }
+  .cover-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: .85in .85in .75in;
+  }
+  .cover-tag{
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-78);
+  }
+  .cover-tag::before{ content:''; width: 34px; height: 2px; background: var(--red-3); }
+  .cover-star{
+    margin-top: 1.05in;
+    color: var(--red-3); font-size: 44px; line-height: 1;
+  }
+  /* TITLE PLACEHOLDER — Fakiha will provide the final title.
+     Swap the contents of .cover-title (and the matching cover line on the
+     back page + the <title> tag) when it lands. Keep the <em> on the
+     emphasis word per brand rules. */
+  .cover-title{
+    margin-top: .3in;
+    font-size: 84px; font-weight: 700; line-height: .94; letter-spacing: -0.025em;
+    max-width: 6.4in;
+  }
+  .cover-title em{ color: var(--red-3); }
+  .cover-sub{
+    margin-top: .42in; max-width: 5.1in;
+    font-size: 17px; line-height: 1.6; color: var(--paper-78);
+  }
+  .cover-bottom{ margin-top: auto; }
+  .cover-rule{ height: 1px; background: rgba(245,242,236,.25); margin-bottom: .28in; }
+  .cover-name{
+    font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--paper);
+  }
+  .cover-office{
+    margin-top: 8px;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-65);
+  }
+  .cover-disclosure{
+    margin-top: .26in;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+  }
+
+  /* ---- intro / contents -------------------------------------------------- */
+
+  .intro-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 1.25in .85in 1.1in;
+  }
+  .intro-title{
+    font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.02;
+    margin-top: 14px; max-width: 6in;
+  }
+  .intro-lead{
+    margin-top: 22px; max-width: 6in;
+    font-size: 16px; line-height: 1.6; color: var(--stone-d);
+  }
+  .intro-lead p + p{ margin-top: 12px; }
+  .intro-sign{
+    margin-top: 18px; font-size: 15px; font-weight: 700; color: var(--navy);
+  }
+  .intro-sign span{
+    display: block; margin-top: 3px;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--stone);
+  }
+  .toc{
+    margin-top: .42in; border-top: 2px solid var(--navy); padding-top: .22in;
+    columns: 2; column-gap: .6in;
+  }
+  .toc-item{
+    display: flex; align-items: baseline; gap: 14px;
+    padding: 9px 0; border-bottom: 1px solid var(--hair);
+    break-inside: avoid;
+  }
+  .toc-item .n{
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600; color: var(--red);
+  }
+  .toc-item .t{ font-size: 16px; font-weight: 600; color: var(--navy); }
+
+  /* ---- issue pages -------------------------------------------------------- */
+
+  .issue-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 1.02in .7in .95in;
+  }
+  .issue-title{
+    margin-top: 12px;
+    font-size: 36px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.0;
+  }
+  .issue-rule{ width: 60px; height: 3px; background: var(--red); margin: 16px 0 14px; }
+  .issue-lead{
+    font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--ink-soft);
+    max-width: 6.9in; margin-bottom: 12px;
+  }
+  .issue-body{ max-width: 7in; }
+  .issue-body p{
+    font-size: 16px; line-height: 1.52; color: var(--stone-d); margin-bottom: 11px;
+  }
+  .issue-body strong{ color: var(--navy); }
+
+  .supports{
+    margin-top: 14px; margin-bottom: 18px;
+    position: relative;
+    background: var(--white); border: 1px solid var(--bone);
+    padding: 20px 24px 16px;
+  }
+  /* ballot-mark corners */
+  .supports::before, .supports::after{
+    content:''; position: absolute; width: 20px; height: 20px;
+  }
+  .supports::before{ top: -2px; left: -2px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); }
+  .supports::after{ bottom: -2px; right: -2px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
+  .supports-label{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 10px;
+  }
+  .supports ul{
+    list-style: none; columns: 2; column-gap: 30px;
+  }
+  .supports li{
+    position: relative; padding-left: 24px; margin-bottom: 8px;
+    font-size: 16px; line-height: 1.4; color: var(--navy); font-weight: 500;
+    break-inside: avoid;
+  }
+  .supports li::before{
+    content:''; position: absolute; left: 0; top: 5px;
+    width: 10px; height: 10px; border: 2px solid var(--red);
+  }
+
+  .pull{
+    border-left: 3px solid var(--red); padding: 2px 0 2px 16px;
+    font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--navy);
+    max-width: 6.9in; margin-bottom: 0;
+  }
+
+  /* ---- back cover ---------------------------------------------------------- */
+
+  .back{ background: var(--navy); color: var(--paper); }
+  .back-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 1in .85in .75in;
+  }
+  .back-banner{
+    margin-top: 1.6in;
+    font-size: 56px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.0;
+    max-width: 6.4in; color: var(--paper);
+  }
+  .back-banner em{ color: var(--red-3); }
+  .back-tagline{
+    margin-top: .35in;
+    font-family: var(--ff-mono); font-size: 12px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-78);
+  }
+  .back-contact{
+    margin-top: auto; border-top: 1px solid rgba(245,242,236,.25); padding-top: .3in;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px;
+  }
+  .back-contact .cell .k{
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--paper-65);
+    margin-bottom: 4px;
+  }
+  .back-contact .cell .v{ font-size: 14px; font-weight: 600; color: var(--paper); }
+  .back-social{
+    margin-top: .3in;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--paper-78);
+  }
+  .back-disclosure{
+    margin-top: .22in;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= COVER ======================= -->
+<section class="page cover">
+  <div class="halftone"></div>
+  <div class="cover-inner">
+    <div class="cover-tag">[ 2026 voter issues guide ]</div>
+    <div class="cover-star">★</div>
+    <!-- TITLE PLACEHOLDER — replace with Fakiha's final title -->
+    <h1 class="cover-title">Where Mark <em>stands.</em></h1>
+    <p class="cover-sub">
+      Nine issues that matter at Oregon kitchen tables — and one candidate's
+      plain answers on every single one. No outrage. No spin. Just where he
+      stands and why.
+    </p>
+    <div class="cover-bottom">
+      <div class="cover-rule"></div>
+      <div class="cover-name">Mark Norman</div>
+      <div class="cover-office">Oregon House District 27 &nbsp;·&nbsp; Republican &nbsp;·&nbsp; 2026</div>
+      <div class="cover-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INTRO + CONTENTS ======================= -->
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-tag">From Mark</div>
+    <div class="page-num">02</div>
+  </div>
+  <div class="intro-inner">
+    <div class="eyebrow">[ before you read ]</div>
+    <h2 class="intro-title">You deserve straight answers. Here they are.</h2>
+    <div class="intro-lead">
+      <p>
+        I'm not a career politician. I spent 22 years in the U.S. Navy, nearly 30 years
+        as a veterinarian, and 25 years living and working right here in Washington
+        County. This guide exists because I believe you're busy, smart, and skeptical —
+        and you shouldn't have to dig through slogans to find out where a candidate
+        actually stands.
+      </p>
+      <p>
+        Inside are the nine issues people ask me about most, in my own words. You may
+        not agree with everything — that's fine. Most Oregonians are exhausted by
+        constant outrage and ideological purity tests. What you'll get from me is the
+        same thing every time: a plain answer, the reasoning behind it, and respect for
+        your right to disagree.
+      </p>
+      <div class="intro-sign">Mark Norman <span>Navy veteran · Veterinarian · Small-business owner</span></div>
+    </div>
+    <div class="toc">
+      <div class="toc-item"><span class="n">01</span><span class="t">Public Safety</span></div>
+      <div class="toc-item"><span class="n">02</span><span class="t">Education</span></div>
+      <div class="toc-item"><span class="n">03</span><span class="t">Small Business</span></div>
+      <div class="toc-item"><span class="n">04</span><span class="t">Transportation &amp; Energy</span></div>
+      <div class="toc-item"><span class="n">05</span><span class="t">Data Centers</span></div>
+      <div class="toc-item"><span class="n">06</span><span class="t">Health Care</span></div>
+      <div class="toc-item"><span class="n">07</span><span class="t">Veteran Support</span></div>
+      <div class="toc-item"><span class="n">08</span><span class="t">Animal Welfare</span></div>
+      <div class="toc-item"><span class="n">09</span><span class="t">Local Issues First</span></div>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 01 · PUBLIC SAFETY ======================= -->
+<section class="page">
+  <div class="wm">01</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">03</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 01 / public safety ]</div>
+    <h2 class="issue-title">Public safety is the first job of government.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      Families should feel safe in their homes, children walking to school, seniors on
+      public transportation, and businesses investing in their communities. Too many
+      Oregonians no longer feel that basic sense of security.
+    </p>
+    <div class="issue-body">
+      <p>
+        Oregon has seen rising frustration over crime, drug activity, repeat offenders,
+        property crime, and slow emergency response — while law enforcement agencies
+        struggle with staffing shortages, low morale, and recruiting. Oregon already
+        ranks near the bottom nationally in officers per capita. I support
+        <strong>fully funding public safety</strong> so agencies have the personnel,
+        training, technology, and resources to protect communities effectively and
+        professionally.
+      </p>
+      <p>
+        We must also address the policy failures behind public disorder: untreated
+        addiction, mental illness, chronic homelessness, and weak prosecution of repeat
+        offenders. Supporting law enforcement and supporting accountability are not
+        mutually exclusive — most officers serve honorably under increasingly difficult
+        conditions, and they deserve leadership that supports both effective policing
+        and public trust.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark supports</div>
+      <ul>
+        <li>Improved recruitment, retention &amp; competitive pay</li>
+        <li>Behavioral health &amp; crisis response partnerships</li>
+        <li>Stronger community policing</li>
+        <li>Better coordination between local agencies</li>
+        <li>De-escalation &amp; constitutional policing training</li>
+        <li>Real treatment access &amp; accountability</li>
+      </ul>
+    </div>
+    <div class="pull">“Oregonians should not have to choose between compassion and safety. We must have both.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 02 · EDUCATION ======================= -->
+<section class="page">
+  <div class="wm">02</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">04</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 02 / education ]</div>
+    <h2 class="issue-title">Oregon's children deserve far better.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      Despite spending billions of taxpayer dollars on education, Oregon ranks near the
+      bottom nationally in reading and math. That should concern every parent, taxpayer,
+      and employer — regardless of party.
+    </p>
+    <div class="issue-body">
+      <p>
+        This is <strong>not a criticism of our teachers</strong>. Oregon has many
+        dedicated educators who care deeply about their students. The problem is that
+        state education leadership lost focus on academic fundamentals. While other
+        states aggressively implemented evidence-based reading and math reforms, Oregon
+        moved slowly and too often prioritized bureaucracy and ideology over measurable
+        academic success.
+      </p>
+      <p>
+        Families see the results: declining reading proficiency, poor math performance,
+        classroom disruption, chronic absenteeism, and graduates without the skills they
+        need for college, trades, military service, or work. Schools should focus first
+        on reading, writing, mathematics, science, civics, discipline, and critical
+        thinking — and local districts need flexibility to serve their own students
+        rather than one-size-fits-all mandates from Salem.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark supports</div>
+      <ul>
+        <li>Reading instruction grounded in the science of reading</li>
+        <li>Strong math fundamentals</li>
+        <li>Clear academic standards &amp; classroom accountability</li>
+        <li>Parent transparency &amp; partnership</li>
+        <li>Safe, orderly learning environments</li>
+        <li>Local flexibility over Salem mandates</li>
+      </ul>
+    </div>
+    <div class="pull">“Our teachers should be empowered to teach. Parents should be respected as partners. And students should leave school truly prepared for adult life.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 03 · SMALL BUSINESS ======================= -->
+<section class="page">
+  <div class="wm">03</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">05</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 03 / small business ]</div>
+    <h2 class="issue-title">Small businesses are Oregon's backbone.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      Family-owned businesses, contractors, restaurants, farms, retailers, and startups
+      are struggling under growing layers of taxes, regulations, permit delays, and
+      rising costs coming out of Salem.
+    </p>
+    <div class="issue-body">
+      <p>
+        Rising payroll taxes, the Corporate Activity Tax, escalating insurance costs,
+        energy prices driven by the Climate Protection Program, and permitting delays
+        have many entrepreneurs questioning whether they can survive in Oregon. Small
+        businesses cannot simply absorb endless new costs — those costs become higher
+        prices, reduced hiring, lower wages, or closures. Meanwhile, large corporations
+        have the attorneys and influence to navigate these systems far more easily than
+        small local employers. <strong>That is backwards.</strong>
+      </p>
+      <p>
+        One of my first legislative priorities will be policies specifically focused on
+        small-business growth, regulatory reform, and economic opportunity. Oregon's
+        economy will not be strengthened by expanding bureaucracy — it will be
+        strengthened by rewarding hard work and restoring an environment where small
+        businesses can succeed.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark supports</div>
+      <ul>
+        <li>Cutting duplicative regulations &amp; permitting</li>
+        <li>Streamlined licensing &amp; approvals</li>
+        <li>Limits on excessive fee increases</li>
+        <li>Access to startup capital &amp; workforce training</li>
+        <li>Protecting independent contractors from heavy mandates</li>
+        <li>Targeted small-business tax relief</li>
+      </ul>
+    </div>
+    <div class="pull">“We should be making it easier — not harder — for hardworking Oregonians to start businesses, create jobs, and build successful futures.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 04 · TRANSPORTATION & ENERGY ======================= -->
+<section class="page">
+  <div class="wm">04</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">06</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 04 / transportation &amp; energy ]</div>
+    <h2 class="issue-title">Policies grounded in reality, not ideology.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      The transportation landscape changed permanently after 2020. Remote and hybrid
+      work reduced commuter traffic, and TriMet ridership remains roughly one-third
+      below its peak — yet Salem keeps pushing multi-billion-dollar rail projects built
+      on outdated assumptions.
+    </p>
+    <div class="issue-body">
+      <p>
+        I support public transportation — but it must serve <strong>actual rider
+        behavior</strong>, not planning models. Buses already carry more riders in many
+        corridors because they are flexible, less expensive, and faster to deploy.
+        Before committing taxpayers to more rail, we must honestly evaluate ridership
+        trends, operating deficits, public safety, and financial sustainability.
+      </p>
+      <p>
+        The same honesty applies to energy. The Climate Protection Program is raising
+        utility, fuel, food, and housing costs for Oregon families — while having
+        virtually no measurable impact on global climate outcomes. Environmental
+        stewardship matters, but good policy balances it with affordability,
+        reliability, and scientific honesty.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark supports</div>
+      <ul>
+        <li>Transit investment driven by real ridership</li>
+        <li>Affordability &amp; mobility as first measures</li>
+        <li>All-of-the-above energy: hydro, natural gas, renewables</li>
+        <li>Next-generation nuclear, including SMRs</li>
+        <li>Honest review before new rail spending</li>
+        <li>Relief from cost-raising climate surcharges</li>
+      </ul>
+    </div>
+    <div class="pull">“We should invest in infrastructure people actually use, energy systems that reliably work, and policies that strengthen Oregon families.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 05 · DATA CENTERS ======================= -->
+<section class="page">
+  <div class="wm">05</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">07</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 05 / data centers ]</div>
+    <h2 class="issue-title">Growth, yes — but responsible growth.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      Data centers are becoming one of the defining infrastructure and economic issues
+      facing Washington County and Oregon. I support responsible development — and clear
+      standards that protect the communities around it.
+    </p>
+    <div class="issue-body">
+      <p>
+        Technology, AI, and digital infrastructure are critical to the modern economy
+        and can strengthen Oregon's long-term competitiveness. But residents are right
+        to be concerned about electricity demand, water consumption, land use, utility
+        costs, and tax fairness. <strong>Oregon families should not bear higher costs so
+        multinational corporations can receive unlimited subsidies without
+        accountability.</strong> I do not support reckless expansion that strains our
+        grid or threatens groundwater.
+      </p>
+      <p>
+        If Oregon wants advanced manufacturing, semiconductors, and AI infrastructure,
+        we must be honest about the energy required. That is why I strongly support
+        expanding modern nuclear energy — especially Small Modular Reactor (SMR)
+        technology — alongside hydro, natural gas, and renewables. Smart regulation
+        beats blanket moratoriums that drive investment and jobs out of Oregon.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark's standards for new development</div>
+      <ul>
+        <li>Adequate power generation</li>
+        <li>Water sustainability</li>
+        <li>Environmental stewardship</li>
+        <li>Real infrastructure investment</li>
+        <li>Fair tax contribution</li>
+        <li>Protection for local ratepayers</li>
+      </ul>
+    </div>
+    <div class="pull">“We need balanced leadership that understands both economic growth and resource stewardship — not reactionary policies.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 06 · HEALTH CARE ======================= -->
+<section class="page">
+  <div class="wm">06</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">08</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 06 / health care ]</div>
+    <h2 class="issue-title">Practical reform, not a government takeover.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      As a medical professional who has spent nearly 30 years caring for patients and
+      families, I understand the frustration: costs are too high, insurance bureaucracy
+      is overwhelming, and too many families delay care over affordability.
+    </p>
+    <div class="issue-body">
+      <p>
+        But Oregon families deserve solutions grounded in reality — not ideological
+        promises that risk making healthcare more expensive and less accessible.
+        <strong>I do not support a government-run single-payer healthcare system for
+        Oregon.</strong> A state-run system would almost certainly require massive new
+        taxes on working families, employers, and providers, while creating more
+        bureaucracy, workforce shortages, and longer waits — and risks driving
+        physicians and specialists out of Oregon when access is already strained.
+      </p>
+      <p>
+        Healthcare reform should increase affordability, access, transparency, and
+        patient choice. Healthcare decisions should remain between patients and their
+        healthcare professionals — not centralized through expanding layers of
+        government control.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark's priorities</div>
+      <ul>
+        <li>More access to primary &amp; preventive care</li>
+        <li>Less administrative burden on providers</li>
+        <li>Real price transparency</li>
+        <li>Competition, innovation &amp; independent practices</li>
+        <li>Stronger rural &amp; community healthcare access</li>
+        <li>Practical mental health &amp; addiction treatment</li>
+      </ul>
+    </div>
+    <div class="pull">“Compassion must be paired with competence, sustainability, accountability, and honesty about costs and consequences.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 07 · VETERAN SUPPORT ======================= -->
+<section class="page">
+  <div class="wm">07</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">09</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 07 / veteran support ]</div>
+    <h2 class="issue-title">The commitment runs both ways.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      As a retired Navy veteran, I understand that military service leaves a lasting
+      impact long after the uniform is removed. Our veterans fulfilled their commitment
+      to this nation — government and society should fulfill their commitment to them.
+    </p>
+    <div class="issue-body">
+      <p>
+        Military service builds discipline, leadership, resilience, and purpose. But too
+        many veterans still struggle with the transition to civilian life: homelessness,
+        unemployment or underemployment, barriers to medical care, mental health
+        challenges, substance abuse, social isolation, and increasingly complex
+        government systems.
+      </p>
+      <p>
+        Oregon should strengthen partnerships between veterans organizations, healthcare
+        providers, employers, local communities, and state agencies — so veterans never
+        fall through bureaucratic cracks while trying to obtain services
+        <strong>they earned through their service</strong>. Veterans bring tremendous
+        leadership, technical skill, and work ethic to our communities long after
+        military retirement.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark supports improving access to</div>
+      <ul>
+        <li>Quality healthcare</li>
+        <li>Mental health services</li>
+        <li>Addiction treatment</li>
+        <li>Housing assistance</li>
+        <li>Workforce training &amp; career transition</li>
+        <li>Jobs for veterans &amp; military families</li>
+      </ul>
+    </div>
+    <div class="pull">“My oath did not end when I took off the uniform. Service is not simply a career — it is a lifelong responsibility.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 08 · ANIMAL WELFARE ======================= -->
+<section class="page">
+  <div class="wm">08</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">10</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 08 / animal welfare ]</div>
+    <h2 class="issue-title">Thirty years of caring for Oregon's animals.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      As a veterinarian with over 30 years of experience serving communities around
+      Portland, I have seen both the best and the worst of how animals are treated. This
+      issue is deeply personal to me.
+    </p>
+    <div class="issue-body">
+      <p>
+        I strongly support responsible efforts to reduce animal cruelty, neglect, and
+        pet overpopulation — through education, access to veterinary care, rescue
+        support, and practical spay and neuter programs.
+      </p>
+      <p>
+        While <strong>I do not support IP28</strong>, I believe we have a moral
+        responsibility to ensure animals are treated humanely and ethically. I will
+        continue supporting practical, science-based approaches that improve animal
+        welfare while respecting Oregon families, veterinarians, farmers, ranchers,
+        hunters, and pet owners.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Mark supports</div>
+      <ul>
+        <li>Humane education &amp; owner support</li>
+        <li>Access to affordable veterinary care</li>
+        <li>Rescue &amp; shelter support</li>
+        <li>Practical spay &amp; neuter programs</li>
+        <li>Science-based welfare standards</li>
+        <li>Respect for responsible animal ownership</li>
+      </ul>
+    </div>
+    <div class="pull">“Compassion for animals and respect for responsible animal ownership can — and should — exist together.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 09 · LOCAL ISSUES FIRST ======================= -->
+<section class="page">
+  <div class="wm">09</div>
+  <div class="chrome-top">
+    <div class="page-tag">Issues Guide</div>
+    <div class="page-num">11</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ issue 09 / local issues first ]</div>
+    <h2 class="issue-title">For the politically homeless.</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      Many people today feel politically homeless — uncomfortable with the extremism,
+      division, and hostility entering our public discourse from multiple directions,
+      and hesitant to speak openly about their beliefs for fear of being labeled.
+    </p>
+    <div class="issue-body">
+      <p>
+        Oregon must remain a place where people of different backgrounds, faiths,
+        viewpoints, and political beliefs can live and work together respectfully.
+        Antisemitism, anti-Christian hostility, racism, and hatred toward any group have
+        no place in a healthy society.
+      </p>
+      <p>
+        At the same time, our state legislature should not be consumed by national
+        ideological battles that distract from the real issues affecting Oregon families
+        every single day. People do not need to agree on every national issue to work
+        together to improve our communities. Most Oregonians want
+        <strong>balanced leadership, respectful dialogue, and common sense</strong> —
+        elected officials focused on solving problems rather than inflaming conflict.
+      </p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">This campaign is focused on</div>
+      <ul>
+        <li>Affordability</li>
+        <li>Education</li>
+        <li>Public safety</li>
+        <li>Small business growth</li>
+        <li>Energy costs &amp; transportation</li>
+        <li>Housing &amp; government accountability</li>
+      </ul>
+    </div>
+    <div class="pull">“I welcome support from anyone — Republican, Democrat, independent, or unaffiliated — who believes Oregon can do better.”</div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= BACK COVER ======================= -->
+<section class="page back">
+  <div class="back-inner">
+    <div class="cover-tag">[ get involved ]</div>
+    <h2 class="back-banner">Practical leadership <em>for Oregon families.</em></h2>
+    <div class="back-tagline">Service · Solutions · Accountability</div>
+    <div class="back-contact">
+      <div class="cell">
+        <div class="k">Website</div>
+        <div class="v">markfororegon.com</div>
+      </div>
+      <div class="cell">
+        <div class="k">Email</div>
+        <div class="v">mark@markfororegon.com</div>
+      </div>
+      <div class="cell">
+        <div class="k">Phone</div>
+        <div class="v">+1 971-278-6520</div>
+      </div>
+      <div class="cell">
+        <div class="k">Mail</div>
+        <div class="v">PO Box 122 · Beaverton, OR 97075</div>
+      </div>
+    </div>
+    <div class="back-social">FB · IG · X · TT &nbsp;—&nbsp; @MarkForHD27</div>
+    <div class="back-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</section>
+
+</body>
+</html>

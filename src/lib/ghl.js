@@ -16,6 +16,12 @@ export const GHL_WEBHOOKS = {
   askMark: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt',
   ],
+  // Voter Guide opt-in funnel (/voter-guide). TODO: add the primary
+  // workflow webhook trigger URL once the GHL workflow is created in the
+  // campaign's location — until then the route fans out to the shared
+  // A2P compliance webhook only, so submissions still land in the CRM
+  // consent workflow.
+  voterGuide: [],
 }
 
 export const GHL_REST = {

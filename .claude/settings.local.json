@@ -84,7 +84,22 @@
       "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\05-events.html')",
       "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\06-immigration.html')",
       "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\09-contribute.html')",
-      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\10-closing.html')"
+      "PowerShell(Start-Process 'C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\social-posts\\\\10-closing.html')",
+      "WebFetch(domain:washco.gop)",
+      "WebSearch",
+      "PowerShell($tools = @\\('pandoc','python','py','node'\\); foreach \\($t in $tools\\) { $c = Get-Command $t -ErrorAction SilentlyContinue; if \\($c\\) { \"$t -> $\\($c.Source\\)\" } else { \"$t -> not found\" } })",
+      "PowerShell(py *)",
+      "PowerShell($paths = @\\(\"$env:ProgramFiles\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\", \"${env:ProgramFiles\\(x86\\)}\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\", \"$env:ProgramFiles\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\", \"${env:ProgramFiles\\(x86\\)}\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { $p } })",
+      "PowerShell(Start-Sleep -Seconds 5; \\(Invoke-WebRequest -Uri 'http://localhost:3000/voter-guide' -UseBasicParsing -TimeoutSec 15\\).StatusCode)",
+      "PowerShell(Start-Sleep -Seconds 6; \\(Invoke-WebRequest -Uri 'http://localhost:3001/voter-guide' -UseBasicParsing -TimeoutSec 15\\).StatusCode; \\(Invoke-WebRequest -Uri 'http://localhost:3001/downloads/mark-norman-issues-guide.pdf' -UseBasicParsing -Method Head -TimeoutSec 15\\).StatusCode)",
+      "PowerShell(Start-Sleep -Seconds 6; \\(Invoke-WebRequest -Uri 'http://localhost:3107/voter-guide' -UseBasicParsing -TimeoutSec 20\\).StatusCode; \\(Invoke-WebRequest -Uri 'http://localhost:3107/downloads/mark-norman-issues-guide.pdf' -UseBasicParsing -Method Head -TimeoutSec 20\\).StatusCode)",
+      "PowerShell($chrome = 'C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe'; $p = Start-Process -FilePath $chrome -Wait -PassThru -ArgumentList '--headless=new','--disable-gpu','--no-sandbox',\"--user-data-dir=$env:TEMP\\\\chrome-vg-desk\",'--hide-scrollbars','--window-size=1440,2400','--virtual-time-budget=15000',\"--screenshot=$env:TEMP\\\\vg-desktop.png\",'http://localhost:3107/voter-guide'; $p2 = Start-Process -FilePath $chrome -Wait -PassThru -ArgumentList '--headless=new','--disable-gpu','--no-sandbox',\"--user-data-dir=$env:TEMP\\\\chrome-vg-mob\",'--hide-scrollbars','--window-size=390,2800','--virtual-time-budget=15000',\"--screenshot=$env:TEMP\\\\vg-mobile.png\",'http://localhost:3107/voter-guide'; \"exits: $\\($p.ExitCode\\) $\\($p2.ExitCode\\)\")",
+      "PowerShell(try { Invoke-WebRequest -Uri 'http://localhost:3107/api/voter-guide' -Method Post -ContentType 'application/json' -Body '{\"firstName\":\"\",\"lastName\":\"\",\"email\":\"\"}' -UseBasicParsing } catch { \"validation status: $\\($_.Exception.Response.StatusCode.value__\\)\" })",
+      "PowerShell(Test-Path *)",
+      "PowerShell(New-Item *)",
+      "Bash(Get-ChildItem -Recurse social-posts)",
+      "Bash(Select-Object FullName, Length)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\scripts\\\\render-social-posts.ps1\")"
     ],
     "deny": []
   }
