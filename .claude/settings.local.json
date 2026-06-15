@@ -99,7 +99,14 @@
       "PowerShell(New-Item *)",
       "Bash(Get-ChildItem -Recurse social-posts)",
       "Bash(Select-Object FullName, Length)",
-      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\scripts\\\\render-social-posts.ps1\")"
+      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\scripts\\\\render-social-posts.ps1\")",
+      "PowerShell(npx eslint src/app/voter-guide/page.jsx src/components/voter-guide/voter-guide-form.jsx 2>&1 | Select-Object -First 30)",
+      "PowerShell(npm run *)",
+      "PowerShell(Start-Process \"http://localhost:3000/voter-guide\")",
+      "PowerShell(npx eslint src/app/voter-guide/page.jsx 2>&1 | Select-Object -First 20)",
+      "Bash(npx eslint *)",
+      "Bash(xargs echo \"form_tags=\")",
+      "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:\\\\Users\\\\Dev\\\\Downloads\\\\Screenshot 2026-06-15 232439.png'\\); im.thumbnail\\(\\(1400,1400\\)\\); im.save\\('/tmp/ss-resized.png'\\); print\\('size', im.size\\)\")"
     ],
     "deny": []
   }
