@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import PropTypes from 'prop-types'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
@@ -21,7 +23,15 @@ const ZIP_RE = /^[0-9]{5}$/
 
 const GUIDE_PDF = '/downloads/mark-norman-issues-guide.pdf'
 
-const VoterGuideForm = () => {
+const VoterGuideForm = ({
+  submitLabel,
+  successEyebrow,
+  successHeading,
+  successBody,
+  showDownload,
+  redirectTo,
+}) => {
+  const router = useRouter()
   const [status, setStatus] = useState(STATUS.idle)
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
@@ -75,6 +85,10 @@ const VoterGuideForm = () => {
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
+      if (redirectTo) {
+        router.push(redirectTo)
+        return
+      }
       setStatus(STATUS.success)
     } catch (error) {
       console.error('[VoterGuideForm]:', error)
@@ -87,19 +101,16 @@ const VoterGuideForm = () => {
   if (status === STATUS.success) {
     return (
       <div className="flex flex-col items-start gap-4">
-        <p className="eyebrow-bracket eyebrow">[ you&rsquo;re in ]</p>
-        <h3 className="display text-3xl text-navy sm:text-4xl">
-          Your guide is <em>ready.</em>
-        </h3>
-        <p className="max-w-prose text-stone-dark">
-          Thanks — the 2026 Issues Guide is yours. Download it below, and keep an eye on
-          your inbox for a copy and occasional updates from the campaign.
-        </p>
-        <Button asChild variant="red">
-          <a href={GUIDE_PDF} download>
-            Download the guide (PDF)
-          </a>
-        </Button>
+        <p className="eyebrow-bracket eyebrow">{successEyebrow}</p>
+        <h3 className="display text-3xl text-navy sm:text-4xl">{successHeading}</h3>
+        <p className="max-w-prose text-stone-dark">{successBody}</p>
+        {showDownload && (
+          <Button asChild variant="red">
+            <a href={GUIDE_PDF} download>
+              Download the guide (PDF)
+            </a>
+          </Button>
+        )}
       </div>
     )
   }
@@ -172,13 +183,39 @@ const VoterGuideForm = () => {
         />
 
         <Button type="submit" variant="red" disabled={status === STATUS.submitting}>
-          {status === STATUS.submitting ? 'Sending…' : 'Get my free guide'}
+          {status === STATUS.submitting ? 'Sending…' : submitLabel}
         </Button>
 
         <FormDisclaimer />
       </form>
     </>
   )
+}
+
+VoterGuideForm.propTypes = {
+  submitLabel: PropTypes.string,
+  successEyebrow: PropTypes.string,
+  successHeading: PropTypes.node,
+  successBody: PropTypes.node,
+  showDownload: PropTypes.bool,
+  redirectTo: PropTypes.string,
+}
+
+VoterGuideForm.defaultProps = {
+  submitLabel: 'Get my free guide',
+  successEyebrow: '[ your guide is ready ]',
+  successHeading: (
+    <>
+      Your guide is <em>ready.</em>
+    </>
+  ),
+  successBody:
+    'Thank you for downloading Mark Norman’s Practical Priorities for Oregon House District 27. ' +
+    'Inside, you’ll find a clear overview of Mark’s positions on affordability, education, ' +
+    'accountability, public safety, small business, animal welfare, energy, transportation, ' +
+    'healthcare, veterans support, and local issues.',
+  showDownload: true,
+  redirectTo: '',
 }
 
 export default VoterGuideForm
