@@ -13,7 +13,7 @@ const SmsConsent = ({
 }) => {
   const labelClass = cn(
     'flex items-start gap-3 text-sm leading-relaxed',
-    hasPhone ? 'cursor-pointer text-stone-dark' : 'cursor-not-allowed text-stone-dark/50'
+    hasPhone ? 'cursor-pointer text-stone-dark' : 'cursor-not-allowed text-stone'
   )
 
   return (
@@ -37,7 +37,7 @@ const SmsConsent = ({
           onChange={(e) => onSmsUpdatesChange(e.target.checked)}
           disabled={!hasPhone}
           required={hasPhone}
-          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red disabled:cursor-not-allowed disabled:opacity-60"
         />
         <span>
           By checking this box, I consent to receive campaign updates from{' '}
@@ -63,7 +63,7 @@ const SmsConsent = ({
           onChange={(e) => onSmsPromoChange(e.target.checked)}
           disabled={!hasPhone}
           required={hasPhone}
-          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red disabled:cursor-not-allowed disabled:opacity-60"
         />
         <span>
           By checking this box, I consent to receive promotional messages, event invitations, and
