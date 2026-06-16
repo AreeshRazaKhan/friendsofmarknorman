@@ -85,53 +85,91 @@
 
   em{ font-style: normal; color: var(--red); }
 
-  /* ---- cover ------------------------------------------------------------ */
+  /* ---- cover (concept-3 — light editorial) ------------------------------ */
 
-  .cover{ background: var(--navy); color: var(--paper); }
-  .cover .halftone{
-    position: absolute; inset: 0; opacity: .16;
-    background-image: radial-gradient(circle, rgba(245,242,236,.55) 1.4px, transparent 2px);
-    background-size: 14px 14px;
+  .cover{ background: var(--paper); color: var(--navy); }
+  .cover .grid-bg{
+    position: absolute; inset: 0; opacity: .55;
+    background-image:
+      linear-gradient(rgba(11,40,68,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11,40,68,.04) 1px, transparent 1px);
+    background-size: 0.42in 0.42in;
   }
+  .cover-wm{
+    position: absolute; right: -0.6in; top: -0.4in;
+    font-family: var(--ff); font-weight: 700; font-size: 7.5in; line-height: 1;
+    letter-spacing: -0.04em; color: rgba(11,40,68,.045);
+    pointer-events: none; user-select: none;
+  }
+  .cover-stars{ position: absolute; inset: 0; pointer-events: none; }
+  .cover-stars span{ position: absolute; color: var(--red); }
+  .cover-stars .s1{ top: 1.55in; right: 1.05in; font-size: 24px; opacity:.85; }
+  .cover-stars .s2{ top: 1.15in; right: 0.55in; font-size: 12px; opacity:.6; }
+  .cover-stars .s3{ top: 4.1in; right: 0.75in; font-size: 10px; opacity:.5; }
+  .cover-stars .s4{ bottom: 2.6in; left: 1.05in; font-size: 12px; opacity:.45; }
+  .cover-stars .s5{ bottom: 2.2in; left: 1.6in; font-size: 8px; opacity:.4; }
+
   .cover-inner{
     position: relative; height: 100%;
     display: flex; flex-direction: column;
-    padding: .85in .85in .75in;
+    padding: .75in .75in .65in;
+  }
+  .cover-topmeta{
+    display: flex; align-items: center; justify-content: space-between;
   }
   .cover-tag{
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 14px;
     font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
-    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-78);
+    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
   }
-  .cover-tag::before{ content:''; width: 34px; height: 2px; background: var(--red-3); }
+  .cover-tag::before{ content:''; width: 36px; height: 2px; background: var(--red); }
+  .cover-topmeta-right{
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
+  }
   .cover-star{
-    margin-top: 1.05in;
-    color: var(--red-3); font-size: 44px; line-height: 1;
+    margin-top: .85in;
+    color: var(--red); font-size: 40px; line-height: 1;
   }
   .cover-title{
-    margin-top: .3in;
-    font-size: 76px; font-weight: 700; line-height: .96; letter-spacing: -0.025em;
-    max-width: 6.6in;
+    margin-top: .26in;
+    font-size: 88px; font-weight: 700; line-height: .94; letter-spacing: -0.028em;
+    color: var(--navy);
+    max-width: 7in;
   }
-  .cover-title em{ color: var(--red-3); }
+  .cover-title em{ color: var(--red); }
+  .cover-redrule{
+    margin-top: .38in;
+    width: 72px; height: 3px; background: var(--red);
+  }
   .cover-sub{
-    margin-top: .42in; max-width: 5.1in;
-    font-size: 17px; line-height: 1.6; color: var(--paper-78);
+    margin-top: .25in; max-width: 5in;
+    font-size: 17px; line-height: 1.55; color: var(--stone-d);
   }
-  .cover-bottom{ margin-top: auto; }
-  .cover-rule{ height: 1px; background: rgba(245,242,236,.25); margin-bottom: .28in; }
+  .cover-bottom{
+    margin-top: auto;
+    display: flex; gap: 28px; align-items: flex-end;
+  }
+  .cover-portrait{
+    width: 1.3in; height: 1.3in;
+    border-radius: 8px; overflow: hidden; flex-shrink: 0;
+    border: 1px solid var(--navy);
+    background: url('../public/images/mark-norman-portrait.png') no-repeat center 25% / cover;
+  }
+  .cover-meta{ flex: 1; }
+  .cover-rule{ height: 1px; background: var(--hair); margin-bottom: .18in; }
   .cover-name{
-    font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--paper);
+    font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: var(--navy);
   }
   .cover-office{
     margin-top: 8px;
     font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
-    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-65);
+    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
   }
   .cover-disclosure{
-    margin-top: .26in;
+    margin-top: .16in;
     font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
-    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+    letter-spacing: .2em; text-transform: uppercase; color: var(--stone);
   }
 
   /* ---- intro / contents -------------------------------------------------- */
@@ -280,20 +318,35 @@
 
 <!-- ======================= COVER ======================= -->
 <section class="page cover">
-  <div class="halftone"></div>
+  <div class="grid-bg"></div>
+  <div class="cover-wm">9</div>
+  <div class="cover-stars">
+    <span class="s1">★</span>
+    <span class="s2">★</span>
+    <span class="s3">★</span>
+    <span class="s4">★</span>
+    <span class="s5">★</span>
+  </div>
   <div class="cover-inner">
-    <div class="cover-tag">[ 2026 issues guide ]</div>
+    <div class="cover-topmeta">
+      <div class="cover-tag">[ 2026 issues guide ]</div>
+      <div class="cover-topmeta-right">Campaign Edition &middot; Vol. 01</div>
+    </div>
     <div class="cover-star">★</div>
     <h1 class="cover-title">Mark Norman&rsquo;s <em>9 Practical Priorities</em></h1>
+    <div class="cover-redrule"></div>
     <p class="cover-sub">
       A clear look at Mark&rsquo;s priorities and how he approaches the issues facing
       Oregon House District 27.
     </p>
     <div class="cover-bottom">
-      <div class="cover-rule"></div>
-      <div class="cover-name">Mark Norman</div>
-      <div class="cover-office">Oregon House District 27 &nbsp;·&nbsp; Republican &nbsp;·&nbsp; 2026</div>
-      <div class="cover-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+      <div class="cover-portrait"></div>
+      <div class="cover-meta">
+        <div class="cover-rule"></div>
+        <div class="cover-name">Mark Norman</div>
+        <div class="cover-office">Oregon House District 27 &nbsp;&middot;&nbsp; Republican &nbsp;&middot;&nbsp; 2026</div>
+        <div class="cover-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+      </div>
     </div>
   </div>
 </section>

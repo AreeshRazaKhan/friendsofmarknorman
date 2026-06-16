@@ -106,7 +106,10 @@
       "PowerShell(npx eslint src/app/voter-guide/page.jsx 2>&1 | Select-Object -First 20)",
       "Bash(npx eslint *)",
       "Bash(xargs echo \"form_tags=\")",
-      "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:\\\\Users\\\\Dev\\\\Downloads\\\\Screenshot 2026-06-15 232439.png'\\); im.thumbnail\\(\\(1400,1400\\)\\); im.save\\('/tmp/ss-resized.png'\\); print\\('size', im.size\\)\")"
+      "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:\\\\Users\\\\Dev\\\\Downloads\\\\Screenshot 2026-06-15 232439.png'\\); im.thumbnail\\(\\(1400,1400\\)\\); im.save\\('/tmp/ss-resized.png'\\); print\\('size', im.size\\)\")",
+      "PowerShell(& 'C:\\\\Users\\\\General\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\scripts\\\\render-lead-magnet.ps1')",
+      "Bash(cp 'C:/Users/General/Documents/GitHub/friendsofmarknorman/public/downloads/mark-norman-issues-guide.pdf' 'C:/Users/General/Downloads/mark-norman-issues-guide.pdf')",
+      "Bash(cp 'C:/Users/General/Documents/GitHub/friendsofmarknorman/public/images/voter-guide-cover.png' 'C:/Users/General/Downloads/voter-guide-cover.png')"
     ],
     "deny": []
   }
