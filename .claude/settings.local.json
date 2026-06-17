@@ -109,7 +109,13 @@
       "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:\\\\Users\\\\Dev\\\\Downloads\\\\Screenshot 2026-06-15 232439.png'\\); im.thumbnail\\(\\(1400,1400\\)\\); im.save\\('/tmp/ss-resized.png'\\); print\\('size', im.size\\)\")",
       "PowerShell(& 'C:\\\\Users\\\\General\\\\Documents\\\\GitHub\\\\friendsofmarknorman\\\\scripts\\\\render-lead-magnet.ps1')",
       "Bash(cp 'C:/Users/General/Documents/GitHub/friendsofmarknorman/public/downloads/mark-norman-issues-guide.pdf' 'C:/Users/General/Downloads/mark-norman-issues-guide.pdf')",
-      "Bash(cp 'C:/Users/General/Documents/GitHub/friendsofmarknorman/public/images/voter-guide-cover.png' 'C:/Users/General/Downloads/voter-guide-cover.png')"
+      "Bash(cp 'C:/Users/General/Documents/GitHub/friendsofmarknorman/public/images/voter-guide-cover.png' 'C:/Users/General/Downloads/voter-guide-cover.png')",
+      "Bash(echo \"root: $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/ \\)\")",
+      "Bash(echo \"header: $\\(curl -s -I http://localhost:3000/)",
+      "PowerShell(Start-Process \"http://localhost:3001/voter-guide\")",
+      "Bash(xargs echo \"updates-refs:\")",
+      "Bash(xargs echo \"form_tags:\")",
+      "Bash(echo \"server: $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:3001/voter-guide \\)\")"
     ],
     "deny": []
   }
