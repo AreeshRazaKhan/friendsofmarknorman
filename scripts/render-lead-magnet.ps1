@@ -1,5 +1,5 @@
 # Renders the issues lead magnet from lead-magnet/issues-guide.html into:
-#   public/downloads/mark-norman-issues-guide.pdf  (13-page letter PDF)
+#   public/downloads/mark-norman-issues-guide.pdf  (18-page letter PDF)
 #   public/images/voter-guide-cover.png            (cover image for /voter-guide)
 #
 # Re-run this after editing the HTML. Requires Google Chrome (or render with

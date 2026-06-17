@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mark Norman&rsquo;s 9 Practical Priorities — Oregon House District 27</title>
+<title>Socialism 101 — Why Mark Norman Opposes Democratic Socialism · Oregon HD-27</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -85,91 +85,66 @@
 
   em{ font-style: normal; color: var(--red); }
 
-  /* ---- cover (concept-3 — light editorial) ------------------------------ */
+  /* ---- cover (concept-4 — navy + diagonal red wedge) -------------------- */
 
-  .cover{ background: var(--paper); color: var(--navy); }
+  .cover{ background: var(--navy); color: var(--paper); }
   .cover .grid-bg{
-    position: absolute; inset: 0; opacity: .55;
-    background-image:
-      linear-gradient(rgba(11,40,68,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(11,40,68,.04) 1px, transparent 1px);
-    background-size: 0.42in 0.42in;
+    position: absolute; inset: 0; opacity: .6;
+    background-image: radial-gradient(rgba(245,242,236,.09) 1px, transparent 1.5px);
+    background-size: 0.34in 0.34in;
   }
-  .cover-wm{
-    position: absolute; right: -0.6in; top: -0.4in;
-    font-family: var(--ff); font-weight: 700; font-size: 7.5in; line-height: 1;
-    letter-spacing: -0.04em; color: rgba(11,40,68,.045);
+  .cover-wedge{
+    position: absolute; inset: 0; pointer-events: none;
+    background: var(--red);
+    clip-path: polygon(100% 33%, 100% 100%, 29% 100%);
+  }
+  .cover-num{
+    position: absolute; right: .45in; bottom: .62in;
+    font-family: var(--ff); font-weight: 700; font-size: 2.0in; line-height: .78;
+    letter-spacing: -0.05em; color: var(--paper);
     pointer-events: none; user-select: none;
+    text-shadow: -8px -8px 0 rgba(8,22,40,.38);
   }
-  .cover-stars{ position: absolute; inset: 0; pointer-events: none; }
-  .cover-stars span{ position: absolute; color: var(--red); }
-  .cover-stars .s1{ top: 1.55in; right: 1.05in; font-size: 24px; opacity:.85; }
-  .cover-stars .s2{ top: 1.15in; right: 0.55in; font-size: 12px; opacity:.6; }
-  .cover-stars .s3{ top: 4.1in; right: 0.75in; font-size: 10px; opacity:.5; }
-  .cover-stars .s4{ bottom: 2.6in; left: 1.05in; font-size: 12px; opacity:.45; }
-  .cover-stars .s5{ bottom: 2.2in; left: 1.6in; font-size: 8px; opacity:.4; }
-
   .cover-inner{
     position: relative; height: 100%;
     display: flex; flex-direction: column;
     padding: .75in .75in .65in;
   }
-  .cover-topmeta{
-    display: flex; align-items: center; justify-content: space-between;
-  }
   .cover-tag{
     display: flex; align-items: center; gap: 14px;
     font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
-    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
+    letter-spacing: .28em; text-transform: uppercase; color: var(--red-3);
   }
-  .cover-tag::before{ content:''; width: 36px; height: 2px; background: var(--red); }
-  .cover-topmeta-right{
-    font-family: var(--ff-mono); font-size: 9px; font-weight: 600;
-    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
-  }
+  .cover-tag::before{ content:''; width: 36px; height: 2px; background: var(--red-3); }
   .cover-star{
-    margin-top: .85in;
-    color: var(--red); font-size: 40px; line-height: 1;
+    margin-top: .75in;
+    color: var(--red-3); font-size: 34px; line-height: 1;
   }
   .cover-title{
-    margin-top: .26in;
-    font-size: 88px; font-weight: 700; line-height: .94; letter-spacing: -0.028em;
-    color: var(--navy);
-    max-width: 7in;
+    margin-top: .28in;
+    font-size: 82px; font-weight: 700; line-height: .96; letter-spacing: -0.028em;
+    color: var(--paper);
+    max-width: 6in;
   }
-  .cover-title em{ color: var(--red); }
-  .cover-redrule{
-    margin-top: .38in;
-    width: 72px; height: 3px; background: var(--red);
-  }
+  .cover-title em{ color: var(--red-3); }
   .cover-sub{
-    margin-top: .25in; max-width: 5in;
-    font-size: 17px; line-height: 1.55; color: var(--stone-d);
+    margin-top: .26in; max-width: 4.3in;
+    font-size: 15px; line-height: 1.55; color: var(--paper-78);
   }
-  .cover-bottom{
-    margin-top: auto;
-    display: flex; gap: 28px; align-items: flex-end;
-  }
-  .cover-portrait{
-    width: 1.3in; height: 1.3in;
-    border-radius: 8px; overflow: hidden; flex-shrink: 0;
-    border: 1px solid var(--navy);
-    background: url('../public/images/mark-norman-portrait.png') no-repeat center 25% / cover;
-  }
-  .cover-meta{ flex: 1; }
-  .cover-rule{ height: 1px; background: var(--hair); margin-bottom: .18in; }
+  .cover-bottom{ margin-top: auto; max-width: 5in; }
+  .cover-rule{ height: 1px; background: rgba(245,242,236,.25); margin-bottom: .2in; }
   .cover-name{
-    font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: var(--navy);
+    font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--paper);
   }
   .cover-office{
     margin-top: 8px;
     font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
-    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
+    letter-spacing: .24em; text-transform: uppercase; color: var(--paper-65);
   }
   .cover-disclosure{
     margin-top: .16in;
     font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
-    letter-spacing: .2em; text-transform: uppercase; color: var(--stone);
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
   }
 
   /* ---- intro / contents -------------------------------------------------- */
@@ -269,6 +244,54 @@
     max-width: 6.9in; margin-bottom: 0;
   }
 
+  /* ---- Mark's position block --------------------------------------------- */
+
+  .position{
+    margin-top: 16px; max-width: 6.9in;
+    background: var(--white); border: 1px solid var(--bone);
+    border-left: 3px solid var(--red);
+    padding: 16px 20px;
+  }
+  .position .position-label{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 7px;
+  }
+  .position p{
+    font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--navy);
+  }
+
+  /* ---- two-philosophy comparison ----------------------------------------- */
+
+  .compare{
+    margin-top: 18px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+  }
+  .compare .col{
+    background: var(--white); border: 1px solid var(--bone);
+    padding: 22px 22px 18px;
+  }
+  .compare .col.mark{ border: 1.5px solid var(--navy); }
+  .compare .col-h{
+    font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+    color: var(--navy); margin-bottom: 14px;
+  }
+  .compare .col.mark .col-h{ color: var(--red); }
+  .compare ul{ list-style: none; }
+  .compare li{
+    position: relative; padding-left: 22px; margin-bottom: 9px;
+    font-size: 14px; line-height: 1.38; color: var(--navy); font-weight: 500;
+  }
+  .compare li::before{
+    content:'★'; position: absolute; left: 0; top: 1px;
+    color: var(--red); font-size: 11px;
+  }
+  .compare-foot{
+    margin-top: 16px;
+    border-left: 3px solid var(--red); padding: 2px 0 2px 16px;
+    font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--navy);
+  }
+
   /* ---- back cover ---------------------------------------------------------- */
 
   .back{ background: var(--navy); color: var(--paper); }
@@ -319,75 +342,61 @@
 <!-- ======================= COVER ======================= -->
 <section class="page cover">
   <div class="grid-bg"></div>
-  <div class="cover-wm">9</div>
-  <div class="cover-stars">
-    <span class="s1">★</span>
-    <span class="s2">★</span>
-    <span class="s3">★</span>
-    <span class="s4">★</span>
-    <span class="s5">★</span>
-  </div>
+  <div class="cover-wedge"></div>
+  <div class="cover-num">101</div>
   <div class="cover-inner">
-    <div class="cover-topmeta">
-      <div class="cover-tag">[ 2026 issues guide ]</div>
-      <div class="cover-topmeta-right">Campaign Edition &middot; Vol. 01</div>
-    </div>
+    <div class="cover-tag">[ a voter&rsquo;s guide ]</div>
     <div class="cover-star">★</div>
-    <h1 class="cover-title">Mark Norman&rsquo;s <em>9 Practical Priorities</em></h1>
-    <div class="cover-redrule"></div>
+    <h1 class="cover-title">Socialism <em>101.</em></h1>
     <p class="cover-sub">
-      A clear look at Mark&rsquo;s priorities and how he approaches the issues facing
-      Oregon House District 27.
+      Why Mark Norman opposes democratic socialism &mdash; and the practical path he believes
+      Oregon House District 27 needs over larger government and centralized control.
     </p>
     <div class="cover-bottom">
-      <div class="cover-portrait"></div>
-      <div class="cover-meta">
-        <div class="cover-rule"></div>
-        <div class="cover-name">Mark Norman</div>
-        <div class="cover-office">Oregon House District 27 &nbsp;&middot;&nbsp; Republican &nbsp;&middot;&nbsp; 2026</div>
-        <div class="cover-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
-      </div>
+      <div class="cover-rule"></div>
+      <div class="cover-name">Mark Norman</div>
+      <div class="cover-office">Oregon HD-27 &nbsp;&middot;&nbsp; Republican &nbsp;&middot;&nbsp; 2026</div>
+      <div class="cover-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
     </div>
   </div>
 </section>
 
-<!-- ======================= INTRO + CONTENTS ======================= -->
+<!-- ======================= 02 · A DIFFERENT PATH ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">Grounded Leadership</div>
+    <div class="page-tag">Understanding the Choice</div>
     <div class="page-num">02</div>
   </div>
-  <div class="intro-inner">
-    <div class="eyebrow">[ grounded leadership for oregon ]</div>
-    <h2 class="intro-title">Grounded leadership for Oregon.</h2>
-    <div class="intro-lead">
+  <div class="issue-inner">
+    <div class="eyebrow">[ a different path ]</div>
+    <h2 class="issue-title">Mark believes Oregon needs <em>a different path.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
       <p>
-        Mark Norman is running for Oregon House District 27 to bring practical decisions,
-        responsible government, and everyday affordability to Salem.
+        Mark Norman does not support socialism, democratic socialism, or the idea that
+        Oregon&rsquo;s future should depend on larger government, higher taxes, expanded
+        bureaucracy, and more centralized control.
+      </p>
+      <p>Mark believes Oregon needs a different path.</p>
+      <p>
+        That path is built on opportunity, accountability, public safety, educational
+        excellence, economic growth, individual freedom, strong communities, small-business
+        growth, and responsible government.
       </p>
       <p>
-        Mark&rsquo;s background is rooted in service and real-world responsibility. He is a
-        Navy veteran, veterinarian, small-business owner, and longtime District 27 resident.
-        His campaign is focused on the concerns Oregon families and communities are talking
-        about every day: education, public safety, small businesses, healthcare, energy,
-        transportation, and accountability in government.
+        Many voters hear the word &ldquo;socialism&rdquo; and wonder what it actually means.
+        This guide explains what democratic socialism means in public policy, what the
+        Democratic Socialists of America supports, and why Mark believes Oregon House
+        District 27 should choose practical leadership over a larger-government agenda.
       </p>
       <p>
-        This guide gives voters a clear look at Mark&rsquo;s priorities and how he approaches
-        the issues facing Oregon.
+        Mark shares the desire for affordable healthcare, strong schools, safe neighborhoods,
+        and a fair chance for every Oregon family.
       </p>
-      <div class="intro-sign">Service. Solutions. Accountability.</div>
-    </div>
-    <div class="toc">
-      <div class="toc-item"><span class="n">01</span><span class="t">Education</span></div>
-      <div class="toc-item"><span class="n">02</span><span class="t">Public Safety</span></div>
-      <div class="toc-item"><span class="n">03</span><span class="t">Small Business</span></div>
-      <div class="toc-item"><span class="n">04</span><span class="t">Animal Welfare</span></div>
-      <div class="toc-item"><span class="n">05</span><span class="t">Data Centers &amp; Energy</span></div>
-      <div class="toc-item"><span class="n">06</span><span class="t">Transportation &amp; Energy</span></div>
-      <div class="toc-item"><span class="n">07</span><span class="t">Healthcare</span></div>
-      <div class="toc-item"><span class="n">08</span><span class="t">Veterans</span></div>
-      <div class="toc-item"><span class="n">09</span><span class="t">Local Issues</span></div>
+      <p>
+        But he strongly disagrees with the belief that more government control is the best way
+        to achieve those goals.
+      </p>
     </div>
   </div>
   <div class="chrome-foot">
@@ -396,46 +405,35 @@
   </div>
 </section>
 
-<!-- ======================= 01 · EDUCATION ======================= -->
+<!-- ======================= 03 · WHAT SOCIALISM MEANS ======================= -->
 <section class="page">
-  <div class="wm">01</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">Understanding the Choice</div>
     <div class="page-num">03</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 01 / education ]</div>
-    <h2 class="issue-title">Strong basics. Real skills. <em>Parents in the loop.</em></h2>
+    <div class="eyebrow">[ what socialism means ]</div>
+    <h2 class="issue-title">What socialism means <em>in public policy.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Oregon students deserve schools that prepare them for adult life.
-    </p>
     <div class="issue-body">
       <p>
-        Mark believes education should focus first on reading, writing, mathematics, science,
-        civics, discipline, critical thinking, and career readiness. Students should graduate
-        with the skills they need for college, trades, military service, or the workforce.
+        At its core, socialism is a political and economic philosophy that seeks a much larger
+        role for government in providing services, directing economic activity, redistributing
+        wealth, and controlling major parts of the economy through taxation, regulation, public
+        programs, and public ownership.
       </p>
       <p>
-        Mark&rsquo;s concern is not with dedicated teachers who care deeply about their
-        students. His concern is with a system that has too often lost focus on measurable
-        academic achievement and clear accountability.
+        In practical terms, that often means more decisions being shifted away from families,
+        entrepreneurs, local communities, private employers, and individual citizens, and
+        toward government agencies, public systems, and centralized planning.
+      </p>
+      <p>Mark believes that approach is wrong for Oregon.</p>
+      <p>
+        He believes government has important responsibilities, but it should not become the
+        center of economic life, family decision-making, healthcare decisions, small-business
+        survival, energy policy, transportation planning, or local community direction.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s education priorities include</div>
-      <ul>
-        <li>Evidence-based reading instruction</li>
-        <li>Strong math fundamentals</li>
-        <li>Clear academic standards</li>
-        <li>Safe and orderly classrooms</li>
-        <li>Parent transparency and involvement</li>
-        <li>More vocational and technical pathways</li>
-        <li>Greater flexibility for local school districts</li>
-        <li>Funding connected to student achievement</li>
-      </ul>
-    </div>
-    <div class="pull">“Teachers should be empowered to teach, parents should be respected as partners, and students should leave school prepared for real opportunity.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -443,46 +441,39 @@
   </div>
 </section>
 
-<!-- ======================= 02 · PUBLIC SAFETY ======================= -->
+<!-- ======================= 04 · WHAT THE DSA SUPPORTS ======================= -->
 <section class="page">
-  <div class="wm">02</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">Understanding the Choice</div>
     <div class="page-num">04</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 02 / public safety ]</div>
-    <h2 class="issue-title">Safe communities require accountability <em>and compassion.</em></h2>
+    <div class="eyebrow">[ the dsa agenda ]</div>
+    <h2 class="issue-title">What the Democratic Socialists of America <em>supports.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Public safety is one of the most basic responsibilities of government.
-    </p>
     <div class="issue-body">
       <p>
-        Families should feel safe at home. Children should feel safe walking to school.
-        Seniors should feel safe using public transportation. Local businesses should feel
-        confident investing in their communities.
+        The <strong>Democratic Socialists of America</strong>, or DSA, describes itself as the
+        largest socialist organization in the United States and says it believes working people
+        should run both the economy and society democratically.
       </p>
       <p>
-        Mark supports practical, balanced public safety policies that include strong law
-        enforcement, accountability, community partnership, mental health resources,
-        treatment access, and safe neighborhoods for everyone.
+        DSA&rsquo;s 2024 program includes support for higher taxes on wealthy earners and
+        corporations, Medicare for All, expanded labor power, and public ownership over major
+        transportation and energy infrastructure and natural resources.
+      </p>
+      <p>Mark believes voters should understand what that means.</p>
+      <p>
+        This is not simply a normal debate about spending more on schools, healthcare, or
+        housing. It is a much broader debate about who should control major parts of the
+        economy and public life.
+      </p>
+      <p>
+        Mark believes those decisions should remain rooted in individual freedom, private
+        enterprise, local communities, accountable government, and constitutional limits
+        &mdash; not a socialist model of expanded government control.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s public safety priorities include</div>
-      <ul>
-        <li>Fully funding public safety</li>
-        <li>Improving law enforcement recruitment and retention</li>
-        <li>Competitive compensation and strong training</li>
-        <li>Strengthening community policing</li>
-        <li>Behavioral health and crisis-response partnerships</li>
-        <li>Improving coordination between agencies</li>
-        <li>Addressing addiction, homelessness, and repeat offenders</li>
-        <li>Supporting both effective policing and public trust</li>
-      </ul>
-    </div>
-    <div class="pull">“Oregonians should not have to choose between compassion and safety. We need both.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -490,46 +481,38 @@
   </div>
 </section>
 
-<!-- ======================= 03 · SMALL BUSINESS ======================= -->
+<!-- ======================= 05 · GOVERNMENT SHOULD SERVE PEOPLE ======================= -->
 <section class="page">
-  <div class="wm">03</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">The Role of Government</div>
     <div class="page-num">05</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 03 / small business ]</div>
-    <h2 class="issue-title">Easier to start, grow, <em>and keep a business.</em></h2>
+    <div class="eyebrow">[ the role of government ]</div>
+    <h2 class="issue-title">Government should serve people, <em>not simply grow larger.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Small businesses are the backbone of Oregon&rsquo;s economy.
-    </p>
     <div class="issue-body">
+      <p>Mark believes Oregon needs reform, accountability, and compassion.</p>
       <p>
-        Family-owned businesses, independent contractors, restaurants, farms, retailers,
-        service providers, medical practices, and startups all face rising costs and
-        increasing complexity.
+        But he does not believe Oregon needs to replace capitalism, weaken private enterprise,
+        or move major sectors of the economy under public ownership.
       </p>
-      <p>
-        As a small-business owner, Mark understands that small employers cannot simply absorb
-        endless new costs. When the cost of doing business rises, it affects prices, hiring,
-        wages, investment, and whether local businesses can keep their doors open.
-      </p>
+      <p>Large government-centered systems can create serious unintended consequences:</p>
     </div>
     <div class="supports">
-      <div class="supports-label">Mark&rsquo;s small-business priorities include</div>
+      <div class="supports-label">Unintended consequences</div>
       <ul>
-        <li>Reducing unnecessary regulations</li>
-        <li>Streamlining licensing, permitting, and approvals</li>
-        <li>Reviewing and limiting excessive fee increases</li>
-        <li>Access to startup capital and workforce training</li>
-        <li>Protecting contractors from burdensome mandates</li>
-        <li>Economic impact review before major new regulations</li>
-        <li>Targeted tax relief for small businesses</li>
-        <li>Encouraging reinvestment, expansion, and job creation</li>
+        <li>Higher taxes and fees</li>
+        <li>Higher energy and utility costs</li>
+        <li>More regulation</li>
+        <li>More bureaucracy</li>
+        <li>Less local flexibility</li>
+        <li>Fewer choices</li>
+        <li>Slower services</li>
+        <li>Programs measured by spending, not results</li>
       </ul>
     </div>
-    <div class="pull">“Oregon&rsquo;s economy will be strengthened by supporting entrepreneurship, rewarding hard work, encouraging innovation, and helping small businesses succeed.”</div>
+    <div class="pull">“America&rsquo;s success has been built on individual liberty, private property rights, entrepreneurship, free enterprise, strong families, local communities, and the opportunity to improve your life through hard work.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -537,46 +520,42 @@
   </div>
 </section>
 
-<!-- ======================= 04 · ANIMAL WELFARE ======================= -->
+<!-- ======================= 06 · WHY THIS MATTERS IN HD27 ======================= -->
 <section class="page">
-  <div class="wm">04</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">Why This Matters</div>
     <div class="page-num">06</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 04 / animal welfare ]</div>
-    <h2 class="issue-title">Humane treatment. Responsible ownership. <em>Practical solutions.</em></h2>
+    <div class="eyebrow">[ why this matters in hd-27 ]</div>
+    <h2 class="issue-title">Two very different views <em>of government.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Animal welfare is deeply important to Mark.
-    </p>
     <div class="issue-body">
       <p>
-        As a veterinarian with more than 30 years of experience serving Oregon communities,
-        Mark has seen both the best and worst of how animals are treated. He believes Oregon
-        has a moral responsibility to treat animals humanely and ethically while also
-        respecting responsible animal ownership.
+        This issue is not theoretical. House District 27 voters deserve to understand the
+        different governing philosophies being presented to them. This election is about more
+        than personalities. One view depends on larger government, higher taxes, more
+        centralized control, and expanded public systems.
       </p>
       <p>
-        Mark supports practical, science-based efforts that improve animal welfare without
-        creating unnecessary harm for responsible families, veterinarians, farmers, ranchers,
-        hunters, and pet owners.
+        Mark&rsquo;s view depends on opportunity, accountability, public safety, educational
+        excellence, economic growth, individual freedom, and practical leadership. He respects
+        the right of others to hold different political beliefs &mdash; but he believes voters
+        deserve clarity. When a candidate publicly identifies with a national political
+        organization, voters have a right to ask which parts of that agenda they support and
+        which parts they reject.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s animal welfare priorities include</div>
+    <div class="supports single">
+      <div class="supports-label">Mark&rsquo;s position is clear</div>
       <ul>
-        <li>Reducing animal cruelty and neglect</li>
-        <li>Education around responsible ownership</li>
-        <li>Improving access to veterinary care</li>
-        <li>Supporting rescue organizations</li>
-        <li>Practical spay and neuter programs</li>
-        <li>Reducing pet overpopulation</li>
-        <li>Respecting farmers, ranchers, hunters, and pet owners</li>
+        <li>Fully fund public safety, hold criminals accountable, and give law enforcement the tools to keep neighborhoods safe.</li>
+        <li>Strong schools focused on academic excellence, reading, math, discipline, and opportunity.</li>
+        <li>Lower costs for working families, a better climate for small businesses, and government that respects taxpayers.</li>
+        <li>Help vulnerable Oregonians through programs that are accountable, effective, and measured by results.</li>
       </ul>
     </div>
-    <div class="pull">“Compassion for animals and respect for responsible animal ownership can, and should, exist together.”</div>
+    <div class="pull">“Mark trusts the voters of House District 27 to study the issues, compare the visions, and decide which path will best serve the community and the state.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -584,49 +563,47 @@
   </div>
 </section>
 
-<!-- ======================= 05 · DATA CENTERS & ENERGY ======================= -->
+<!-- ======================= 06 · TWO PHILOSOPHIES ======================= -->
 <section class="page">
-  <div class="wm">05</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">Two Visions</div>
     <div class="page-num">07</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 05 / data centers &amp; energy ]</div>
-    <h2 class="issue-title">Responsible innovation needs reliable energy <em>and accountability.</em></h2>
+    <div class="eyebrow">[ two philosophies of government ]</div>
+    <h2 class="issue-title">Two different philosophies <em>of government.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Data centers are becoming a major infrastructure and economic issue for Washington
-      County and Oregon.
-    </p>
-    <div class="issue-body">
-      <p>
-        Mark supports responsible data center development because technology, artificial
-        intelligence, cloud computing, and digital infrastructure are increasingly important
-        to the modern economy. These facilities can support high-value industries and
-        strengthen Oregon&rsquo;s long-term competitiveness.
-      </p>
-      <p>
-        At the same time, growth must be responsible. Residents are right to ask questions
-        about electricity demand, water consumption, land use, utility costs, local
-        infrastructure, environmental impact, and tax fairness. Mark supports an
-        all-of-the-above energy strategy &mdash; hydroelectric, natural gas, renewables, and
-        next-generation nuclear power, especially Small Modular Reactor technology.
-      </p>
+    <div class="compare">
+      <div class="col">
+        <div class="col-h">Bigger-Government Approach</div>
+        <ul>
+          <li>More centralized control</li>
+          <li>More mandates from Salem</li>
+          <li>Higher taxes and fees</li>
+          <li>Expanded bureaucracy</li>
+          <li>Government-run systems</li>
+          <li>Less flexibility for families, schools, and communities</li>
+          <li>Programs measured by spending and size</li>
+          <li>More pressure on taxpayers and employers</li>
+        </ul>
+      </div>
+      <div class="col mark">
+        <div class="col-h">Mark Norman&rsquo;s Practical Approach</div>
+        <ul>
+          <li>Responsible spending</li>
+          <li>Local flexibility</li>
+          <li>Small-business growth</li>
+          <li>Parent transparency</li>
+          <li>Public safety with accountability</li>
+          <li>Healthcare choice</li>
+          <li>Reliable energy</li>
+          <li>Animal welfare with respect for responsible ownership</li>
+          <li>Veteran support that delivers real help</li>
+          <li>Programs measured by results</li>
+        </ul>
+      </div>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s data center priorities include</div>
-      <ul>
-        <li>Clear standards for power generation</li>
-        <li>Water sustainability</li>
-        <li>Environmental stewardship</li>
-        <li>Infrastructure investment</li>
-        <li>Fair tax contribution</li>
-        <li>Protection for local communities</li>
-        <li>Reliable and affordable energy planning</li>
-      </ul>
-    </div>
-    <div class="pull">“Oregon can support innovation, protect communities, and build reliable energy systems at the same time.”</div>
+    <div class="compare-foot">“Mark believes Oregon needs service, solutions, and accountability.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -634,41 +611,36 @@
   </div>
 </section>
 
-<!-- ======================= 06 · TRANSPORTATION & ENERGY ======================= -->
+<!-- ======================= 07 · ANIMAL WELFARE ======================= -->
 <section class="page">
-  <div class="wm">06</div>
+  <div class="wm">01</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">9 Issue Priorities</div>
     <div class="page-num">08</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 06 / transportation &amp; energy ]</div>
-    <h2 class="issue-title">Transportation and energy, <em>grounded in reality.</em></h2>
+    <div class="eyebrow">[ priority 01 / animal welfare ]</div>
+    <h2 class="issue-title">Humane treatment and responsible ownership <em>can work together.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Mark supports public transportation, but major investments should be based on actual
-      rider behavior, financial sustainability, public safety, long-term maintenance, and
-      measurable public benefit.
-    </p>
     <div class="issue-body">
       <p>
-        He believes Oregon should be honest about changing commuter patterns, infrastructure
-        costs, energy demand, and the real impact of policies on household budgets.
+        Mark Norman is a veterinarian with more than 30 years of experience serving Oregon
+        communities. He supports practical, science-based animal welfare policies that reduce
+        cruelty, neglect, and pet overpopulation.
+      </p>
+      <p>
+        He supports education, access to veterinary care, rescue support, and responsible
+        spay and neuter programs.
+      </p>
+      <p>
+        Mark believes Oregon can protect animals while respecting families, veterinarians,
+        farmers, ranchers, hunters, and responsible pet owners.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s transportation and energy priorities include</div>
-      <ul>
-        <li>Evaluating transportation projects on actual use and cost</li>
-        <li>Investing in infrastructure people actually use</li>
-        <li>Flexible and practical transit options</li>
-        <li>Protecting affordability for families and businesses</li>
-        <li>Supporting reliable energy generation</li>
-        <li>Balancing stewardship with economic reality</li>
-        <li>Avoiding costs without clear, measurable benefits</li>
-      </ul>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Animal welfare should be humane, practical, science-based, and respectful of responsible ownership.</p>
     </div>
-    <div class="pull">“Oregon needs transportation and energy policies focused on affordability, mobility, reliability, public safety, and results.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -676,46 +648,32 @@
   </div>
 </section>
 
-<!-- ======================= 07 · HEALTHCARE ======================= -->
+<!-- ======================= 08 · DATA CENTERS ======================= -->
 <section class="page">
-  <div class="wm">07</div>
+  <div class="wm">02</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">9 Issue Priorities</div>
     <div class="page-num">09</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 07 / healthcare ]</div>
-    <h2 class="issue-title">Practical, patient-centered, <em>responsible reform.</em></h2>
+    <div class="eyebrow">[ priority 02 / data centers ]</div>
+    <h2 class="issue-title">Innovation should not come at the expense of <em>local communities.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Mark understands the frustration many families feel with healthcare.
-    </p>
     <div class="issue-body">
       <p>
-        Costs are too high. Insurance bureaucracy is overwhelming. Healthcare workers are
-        burned out. Too many families delay care because they are worried about affordability.
+        Data centers are increasingly important to technology, artificial intelligence, cloud
+        computing, and Oregon&rsquo;s long-term economic competitiveness.
       </p>
       <p>
-        Mark does not support a government-run single-payer healthcare system for Oregon. He
-        believes healthcare reform should focus on practical improvements that increase
-        affordability, access, transparency, and patient choice.
+        Mark supports responsible data center development, but he believes growth must be
+        balanced with clear standards for electricity demand, water use, land pressure,
+        utility costs, infrastructure impact, and fair tax contribution.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s healthcare priorities include</div>
-      <ul>
-        <li>Access to primary and preventive care</li>
-        <li>Less administrative burden on providers</li>
-        <li>Improving price transparency</li>
-        <li>Encouraging competition and innovation</li>
-        <li>Supporting independent medical practices</li>
-        <li>Stronger rural and community healthcare access</li>
-        <li>Expanding workforce training</li>
-        <li>Practical mental health and addiction treatment</li>
-        <li>Keeping decisions between patients and professionals</li>
-      </ul>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Oregon can support innovation while requiring accountability, reliable energy planning, and protection for local communities.</p>
     </div>
-    <div class="pull">“Compassion must be paired with competence, sustainability, accountability, and honesty about costs and consequences.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -723,43 +681,31 @@
   </div>
 </section>
 
-<!-- ======================= 08 · VETERANS ======================= -->
+<!-- ======================= 09 · EDUCATION ======================= -->
 <section class="page">
-  <div class="wm">08</div>
+  <div class="wm">03</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">9 Issue Priorities</div>
     <div class="page-num">10</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 08 / veterans ]</div>
-    <h2 class="issue-title">Veterans deserve dignity, respect, <em>and real support.</em></h2>
+    <div class="eyebrow">[ priority 03 / education ]</div>
+    <h2 class="issue-title">Strong basics. Real skills. <em>Parents in the loop.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      As a retired Navy veteran, Mark understands that military service leaves a lasting
-      impact long after the uniform is removed.
-    </p>
     <div class="issue-body">
       <p>
-        Veterans bring leadership, technical skill, discipline, resilience, and experience to
-        their communities. At the same time, too many veterans face challenges with
-        healthcare, mental health, housing, employment, addiction, isolation, and complex
-        government systems.
+        Mark believes Oregon schools should focus on reading, writing, math, science, civics,
+        discipline, critical thinking, and career readiness.
+      </p>
+      <p>
+        He supports evidence-based instruction, parent transparency, clear academic standards,
+        safe classrooms, local flexibility, and vocational pathways.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s veterans priorities include</div>
-      <ul>
-        <li>Improving access to quality healthcare</li>
-        <li>Strengthening mental health services</li>
-        <li>Expanding addiction treatment access</li>
-        <li>Supporting housing assistance</li>
-        <li>Improving workforce training</li>
-        <li>Helping with career transition</li>
-        <li>Employment for veterans and military families</li>
-        <li>Stronger partnerships across agencies and providers</li>
-      </ul>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Teachers should be empowered to teach, parents should be respected as partners, and students should graduate prepared for adult life.</p>
     </div>
-    <div class="pull">“Veterans fulfilled their commitment to this nation. The government and society should fulfill their commitment to them.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -767,48 +713,33 @@
   </div>
 </section>
 
-<!-- ======================= 09 · LOCAL ISSUES ======================= -->
+<!-- ======================= 10 · LOCAL ISSUES OVER IDEOLOGY ======================= -->
 <section class="page">
-  <div class="wm">09</div>
+  <div class="wm">04</div>
   <div class="chrome-top">
-    <div class="page-tag">Issues Guide</div>
+    <div class="page-tag">9 Issue Priorities</div>
     <div class="page-num">11</div>
   </div>
   <div class="issue-inner">
-    <div class="eyebrow">[ issue 09 / local issues ]</div>
-    <h2 class="issue-title">Local problems need <em>practical leadership.</em></h2>
+    <div class="eyebrow">[ priority 04 / local issues over ideology ]</div>
+    <h2 class="issue-title">Oregon problems need <em>Oregon solutions.</em></h2>
     <div class="issue-rule"></div>
-    <p class="issue-lead">
-      Many people feel politically homeless.
-    </p>
     <div class="issue-body">
       <p>
-        Some are tired of division and hostility. Others are hesitant to speak openly because
-        they fear being labeled, dismissed, or attacked.
+        Mark believes many Oregonians are tired of division, hostility, and ideological purity
+        tests. He believes people of different backgrounds, faiths, viewpoints, and political
+        beliefs should be able to live and work together respectfully.
       </p>
       <p>
-        Mark believes Oregon should remain a place where people of different backgrounds,
-        faiths, viewpoints, and political beliefs can live and work together respectfully. He
-        rejects hatred toward any group and believes the state legislature should focus on
-        practical Oregon issues rather than being consumed by national ideological battles.
+        The state legislature should stay focused on Oregon issues: affordability, schools,
+        public safety, small business, energy costs, transportation, housing, and government
+        accountability.
       </p>
     </div>
-    <div class="supports">
-      <div class="supports-label">Mark&rsquo;s focus includes</div>
-      <ul>
-        <li>Affordability</li>
-        <li>Education</li>
-        <li>Public safety</li>
-        <li>Small business growth</li>
-        <li>Energy costs</li>
-        <li>Transportation</li>
-        <li>Housing</li>
-        <li>Government accountability</li>
-        <li>Respectful dialogue</li>
-        <li>Common-sense leadership</li>
-      </ul>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>People do not need to agree on every national issue to work together on local problems.</p>
     </div>
-    <div class="pull">“People do not need to agree on everything to work together on the issues affecting Oregon families every day.”</div>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -816,11 +747,173 @@
   </div>
 </section>
 
-<!-- ======================= GET INVOLVED ======================= -->
+<!-- ======================= 11 · PUBLIC SAFETY ======================= -->
+<section class="page">
+  <div class="wm">05</div>
+  <div class="chrome-top">
+    <div class="page-tag">9 Issue Priorities</div>
+    <div class="page-num">12</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ priority 05 / public safety ]</div>
+    <h2 class="issue-title">Compassion and safety <em>belong together.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <p>Public safety is one of government&rsquo;s basic responsibilities.</p>
+      <p>
+        Mark supports fully funding public safety, improving recruitment and retention,
+        supporting strong training, strengthening community policing, expanding behavioral
+        health partnerships, and addressing addiction, mental illness, homelessness, and
+        repeat-offender challenges.
+      </p>
+    </div>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Oregonians should not have to choose between compassion and safety. We need both.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 12 · SMALL BUSINESS ======================= -->
+<section class="page">
+  <div class="wm">06</div>
+  <div class="chrome-top">
+    <div class="page-tag">9 Issue Priorities</div>
+    <div class="page-num">13</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ priority 06 / small business ]</div>
+    <h2 class="issue-title">Small businesses need <em>room to grow.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <p>Small businesses are the backbone of Oregon&rsquo;s economy.</p>
+      <p>
+        Mark believes Oregon should reduce unnecessary regulations, streamline permitting,
+        review excessive fees, improve access to capital and workforce training, protect
+        independent contractors and small employers, and support local job creation.
+      </p>
+    </div>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Small businesses should be treated as partners in economic growth, not endless sources of revenue.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 13 · TRANSPORTATION & ENERGY ======================= -->
+<section class="page">
+  <div class="wm">07</div>
+  <div class="chrome-top">
+    <div class="page-tag">9 Issue Priorities</div>
+    <div class="page-num">14</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ priority 07 / transportation &amp; energy ]</div>
+    <h2 class="issue-title">Infrastructure based on reality, <em>not ideology.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <p>
+        Mark supports transportation and energy policies grounded in affordability,
+        reliability, mobility, and measurable public benefit.
+      </p>
+      <p>
+        He supports public transportation, but believes major projects should be evaluated
+        based on actual rider behavior, costs, safety, and long-term sustainability. He also
+        supports an all-of-the-above energy strategy that includes hydroelectric, natural gas,
+        renewables, and next-generation nuclear power.
+      </p>
+    </div>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Oregon should invest in infrastructure people actually use and energy systems that reliably work.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 14 · HEALTHCARE ======================= -->
+<section class="page">
+  <div class="wm">08</div>
+  <div class="chrome-top">
+    <div class="page-tag">9 Issue Priorities</div>
+    <div class="page-num">15</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ priority 08 / healthcare ]</div>
+    <h2 class="issue-title">Patient-centered, <em>not bureaucracy-centered.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <p>
+        Mark believes healthcare costs are too high, insurance bureaucracy is frustrating, and
+        too many families delay care because they are worried about affordability.
+      </p>
+      <p>
+        He does not support a government-run single-payer healthcare system for Oregon.
+        Instead, he supports practical reforms focused on affordability, access, transparency,
+        patient choice, provider support, rural and community care, mental health, and
+        addiction treatment.
+      </p>
+    </div>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Healthcare decisions should stay primarily between patients and healthcare professionals, not centralized through expanding government control.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 15 · VETERAN SUPPORT ======================= -->
+<section class="page">
+  <div class="wm">09</div>
+  <div class="chrome-top">
+    <div class="page-tag">9 Issue Priorities</div>
+    <div class="page-num">16</div>
+  </div>
+  <div class="issue-inner">
+    <div class="eyebrow">[ priority 09 / veteran support ]</div>
+    <h2 class="issue-title">Veterans deserve dignity, respect, <em>and real support.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <p>
+        As a retired Navy veteran, Mark understands that service leaves a lasting impact long
+        after the uniform comes off.
+      </p>
+      <p>
+        He supports improving access to healthcare, mental health services, addiction
+        treatment, housing assistance, workforce training, career transition support, and
+        employment opportunities for veterans and military families.
+      </p>
+    </div>
+    <div class="position">
+      <div class="position-label">Mark&rsquo;s position</div>
+      <p>Veterans fulfilled their commitment to this country. Government and society should fulfill their commitment to them.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 16 · GET INVOLVED ======================= -->
 <section class="page">
   <div class="chrome-top">
     <div class="page-tag">How to Stay Involved</div>
-    <div class="page-num">12</div>
+    <div class="page-num">17</div>
   </div>
   <div class="issue-inner">
     <div class="eyebrow">[ how to stay involved ]</div>
@@ -833,7 +926,7 @@
     <div class="supports">
       <div class="supports-label">Ways to get involved</div>
       <ul>
-        <li>Download and share this guide</li>
+        <li>Share this guide</li>
         <li>Sign up for campaign updates</li>
         <li>Ask Mark a question</li>
         <li>Attend a local event</li>
@@ -856,14 +949,17 @@
 <!-- ======================= BACK COVER ======================= -->
 <section class="page back">
   <div class="back-inner">
-    <div class="cover-tag">[ in closing ]</div>
-    <h2 class="back-banner">Service. <em>Solutions.</em> Accountability.</h2>
+    <div class="cover-tag">[ a different path ]</div>
+    <h2 class="back-banner">A different path <em>for Oregon.</em></h2>
     <p class="back-lead">
-      Mark Norman is running for Oregon House District 27 with a focus on grounded leadership,
-      practical decisions, responsible government, and everyday affordability &mdash; focused
-      on the issues Oregon families talk about every day. To learn more, ask a question,
-      volunteer, attend an event, or sign up for updates, visit the campaign website.
+      This election is about two different philosophies of government. One vision depends on
+      larger government, higher taxes, expanded bureaucracy, and more centralized control.
+      Mark Norman&rsquo;s vision depends on opportunity, accountability, public safety,
+      educational excellence, economic growth, individual freedom, local problem-solving, and
+      practical leadership. He trusts the voters of House District 27 to study the issues,
+      compare the visions, and decide which path will best serve the community and the state.
     </p>
+    <div class="back-tagline">Service · Solutions · Accountability</div>
     <div class="back-contact">
       <div class="cell">
         <div class="k">Website</div>
