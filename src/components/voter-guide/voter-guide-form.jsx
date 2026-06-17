@@ -210,10 +210,10 @@ VoterGuideForm.defaultProps = {
     </>
   ),
   successBody:
-    'Thank you for downloading Mark Norman’s Practical Priorities for Oregon House District 27. ' +
-    'Inside, you’ll find a clear overview of Mark’s positions on affordability, education, ' +
-    'accountability, public safety, small business, animal welfare, energy, transportation, ' +
-    'healthcare, veterans support, and local issues.',
+    'Thank you for downloading Why Mark Norman Opposes Democratic Socialism. Inside, you’ll learn ' +
+    'why Mark believes Oregon House District 27 needs a different path than larger government, ' +
+    'higher taxes, expanded bureaucracy, and centralized control — plus his practical alternative ' +
+    'focused on opportunity, accountability, public safety, and individual freedom.',
   showDownload: true,
   redirectTo: '',
 }

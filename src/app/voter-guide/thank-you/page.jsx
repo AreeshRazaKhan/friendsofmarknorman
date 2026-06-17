@@ -9,7 +9,7 @@ import { CAMPAIGN } from '@/constants/site'
 export const metadata = {
   title: `Your guide is ready — ${CAMPAIGN.candidate} for Oregon`,
   description:
-    'Thank you for downloading Mark Norman’s Practical Priorities for Oregon House District 27.',
+    'Thank you for downloading Why Mark Norman Opposes Democratic Socialism.',
   robots: { index: false, follow: true },
 }
 
@@ -20,7 +20,7 @@ const NEXT_STEPS = [
     label: 'Ask Mark a question',
     href: '/ask-mark',
     external: false,
-    desc: 'Send a question directly to the campaign.',
+    desc: 'Send your question directly to the campaign.',
   },
   {
     label: 'View upcoming events',
@@ -75,12 +75,23 @@ const ThankYouPage = () => {
               <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
                 Your guide is <em>ready.</em>
               </h1>
-              <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
-                Thank you for downloading Mark Norman&rsquo;s Practical Priorities for Oregon House
-                District 27. Inside, you&rsquo;ll find a clear overview of Mark&rsquo;s positions on
-                affordability, education, accountability, public safety, small business, animal
-                welfare, energy, transportation, healthcare, veterans support, and local issues.
-              </p>
+              <div className="flex max-w-prose flex-col gap-3 text-base leading-relaxed text-paper-78 lg:text-lg">
+                <p>
+                  Thank you for downloading &ldquo;Why Mark Norman Opposes Democratic
+                  Socialism.&rdquo;
+                </p>
+                <p>
+                  Inside the guide, you&rsquo;ll learn why Mark Norman believes Oregon House
+                  District 27 needs a different path than larger government, higher taxes, expanded
+                  bureaucracy, and centralized control.
+                </p>
+                <p>
+                  The guide explains what Mark believes voters should know about democratic
+                  socialism, the DSA agenda, and the practical alternative Mark is offering for
+                  Oregon families, small businesses, students, seniors, veterans, and local
+                  communities.
+                </p>
+              </div>
               <Button asChild variant="red">
                 <a href={GUIDE_PDF} download>
                   Download the guide (PDF)
@@ -96,11 +107,16 @@ const ThankYouPage = () => {
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.6}>
-            <div className="flex flex-col items-start gap-3">
+            <div className="flex max-w-3xl flex-col items-start gap-3">
               <p className="eyebrow-bracket eyebrow">[ next steps ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
-                Where to <em>go from here.</em>
+                Stay informed and <em>get involved.</em>
               </h2>
+              <p className="max-w-prose text-stone-dark">
+                The first step is understanding where Mark stands. From here, you can ask a
+                question, attend an event, volunteer, review official contribution information, or
+                make a voting plan for 2026.
+              </p>
             </div>
           </Reveal>
 
