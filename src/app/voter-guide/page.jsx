@@ -263,28 +263,43 @@ const VoterGuidePage = () => {
       {/* Section 6 — This choice matters in HD27 */}
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <Reveal variant="up" duration={0.7}>
-            <div className="flex max-w-3xl flex-col items-start gap-5">
-              <h2 className="display text-4xl text-navy sm:text-5xl">
-                This choice matters in <em>House District 27.</em>
-              </h2>
-              <p className="max-w-prose text-stone-dark">
-                This is not just a national debate. The choices made in Salem affect schools, public
-                safety, healthcare, small businesses, transportation, energy, housing, and local
-                communities.
-              </p>
-              <p className="max-w-prose text-stone-dark">
-                Mark opposes democratic socialism because he believes Oregon needs practical
-                leadership, not bigger government.
-              </p>
-              <a
-                href="#compare"
-                className="inline-flex min-h-[44px] items-center font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
-              >
-                Compare the visions →
-              </a>
-            </div>
-          </Reveal>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal variant="up" duration={0.7}>
+              <div className="flex max-w-xl flex-col items-start gap-5">
+                <h2 className="display text-4xl text-navy sm:text-5xl">
+                  This choice matters in <em>House District 27.</em>
+                </h2>
+                <p className="max-w-prose text-stone-dark">
+                  This is not just a national debate. The choices made in Salem affect schools,
+                  public safety, healthcare, small businesses, transportation, energy, housing, and
+                  local communities.
+                </p>
+                <p className="max-w-prose text-stone-dark">
+                  Mark opposes democratic socialism because he believes Oregon needs practical
+                  leadership, not bigger government.
+                </p>
+                <a
+                  href="#compare"
+                  className="inline-flex min-h-[44px] items-center font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
+                >
+                  Compare the visions →
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal variant="scale" delay={0.15} duration={0.85}>
+              <div className="relative lg:justify-self-end">
+                <Image
+                  src="/images/voter-guide-spread.png"
+                  alt="Open spread of the Socialism 101 guide showing the Why this matters in House District 27 and Mark's position is clear pages."
+                  width={2054}
+                  height={1517}
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                  className="h-auto w-full"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
