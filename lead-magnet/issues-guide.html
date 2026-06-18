@@ -50,7 +50,7 @@
 
   .chrome-top{
     position: absolute; top: .55in; left: .7in; right: .7in;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; justify-content: flex-end;
   }
   .page-tag{
     display: flex; align-items: center; gap: 10px;
@@ -122,9 +122,9 @@
   }
   .cover-title{
     margin-top: .28in;
-    font-size: 82px; font-weight: 700; line-height: .96; letter-spacing: -0.028em;
+    font-size: 50px; font-weight: 700; line-height: 1.04; letter-spacing: -0.02em;
     color: var(--paper);
-    max-width: 6in;
+    max-width: 6.1in;
   }
   .cover-title em{ color: var(--red-3); }
   .cover-sub{
@@ -192,8 +192,17 @@
     display: flex; flex-direction: column;
     padding: 1.02in .7in .95in;
   }
+  .issue-eyebrow{
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--red);
+  }
+  .section-kicker{
+    font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.1;
+    color: var(--navy); margin-bottom: 20px;
+  }
+  .section-kicker em{ color: var(--red); font-style: normal; }
   .issue-title{
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 36px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.0;
   }
   .issue-rule{ width: 60px; height: 3px; background: var(--red); margin: 16px 0 14px; }
@@ -206,6 +215,7 @@
     font-size: 16px; line-height: 1.52; color: var(--stone-d); margin-bottom: 11px;
   }
   .issue-body strong{ color: var(--navy); }
+  .issue-body p.emph{ color: var(--red); font-weight: 600; }
 
   .supports{
     margin-top: 14px; margin-bottom: 18px;
@@ -233,8 +243,8 @@
     break-inside: avoid;
   }
   .supports li::before{
-    content:''; position: absolute; left: 0; top: 5px;
-    width: 10px; height: 10px; border: 2px solid var(--red);
+    content:'\2605'; position: absolute; left: 0; top: 0;
+    font-size: 13px; line-height: 1.38; color: var(--red);
   }
   .supports.single ul{ columns: 1; }
 
@@ -243,6 +253,10 @@
     font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--navy);
     max-width: 6.9in; margin-bottom: 0;
   }
+  .learn-more{
+    margin-top: 18px; font-size: 16px; line-height: 1.52; color: var(--stone-d);
+  }
+  .learn-more a{ color: var(--red); font-weight: 600; text-decoration: none; }
 
   /* ---- Mark's position block --------------------------------------------- */
 
@@ -310,6 +324,7 @@
     margin-top: .3in; max-width: 6.1in;
     font-size: 15px; line-height: 1.6; color: var(--paper-78);
   }
+  .back-lead p + p{ margin-top: 12px; }
   .back-tagline{
     margin-top: .26in;
     font-family: var(--ff-mono); font-size: 12px; font-weight: 600;
@@ -346,11 +361,11 @@
   <div class="cover-num">101</div>
   <div class="cover-inner">
     <div class="cover-star">★</div>
-    <h1 class="cover-title">Socialism <em>101.</em></h1>
+    <h1 class="cover-title">Socialism 101: Why Mark Norman Opposes <em>Democratic Socialism</em></h1>
     <p class="cover-sub">
-      Why Mark Norman opposes democratic socialism. A practical guide to why Mark believes Oregon
-      House District 27 needs opportunity, accountability, public safety, economic growth, and
-      individual freedom, not larger government and centralized control.
+      A practical guide to why Mark believes Oregon House District 27 needs opportunity,
+      accountability, public safety, economic growth, and individual freedom, not larger
+      government and centralized control.
     </p>
     <div class="cover-bottom">
       <div class="cover-rule"></div>
@@ -364,7 +379,6 @@
 <!-- ======================= 02 · A DIFFERENT PATH ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">Understanding the Choice</div>
     <div class="page-num">02</div>
   </div>
   <div class="issue-inner">
@@ -407,7 +421,6 @@
 <!-- ======================= 03 · WHAT SOCIALISM MEANS ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">Understanding the Choice</div>
     <div class="page-num">03</div>
   </div>
   <div class="issue-inner">
@@ -442,7 +455,6 @@
 <!-- ======================= 04 · WHAT THE DSA SUPPORTS ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">Understanding the Choice</div>
     <div class="page-num">04</div>
   </div>
   <div class="issue-inner">
@@ -450,9 +462,9 @@
     <div class="issue-rule"></div>
     <div class="issue-body">
       <p>
-        The <strong>Democratic Socialists of America</strong>, or DSA, describes itself as the
-        largest socialist organization in the United States and says it believes working people
-        should run both the economy and society democratically.
+        The <strong>Democratic Socialists of America</strong> describes itself as the largest
+        socialist organization in the United States and says it believes working people should
+        run both the economy and society democratically.
       </p>
       <p>
         DSA&rsquo;s 2024 program includes support for higher taxes on wealthy earners and
@@ -467,8 +479,8 @@
       </p>
       <p>
         Mark believes those decisions should remain rooted in individual freedom, private
-        enterprise, local communities, accountable government, and constitutional limits
-        &mdash; not a socialist model of expanded government control.
+        enterprise, local communities, accountable government, and constitutional limits, not a
+        socialist model of expanded government control.
       </p>
     </div>
   </div>
@@ -481,7 +493,6 @@
 <!-- ======================= 05 · GOVERNMENT SHOULD SERVE PEOPLE ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">The Role of Government</div>
     <div class="page-num">05</div>
   </div>
   <div class="issue-inner">
@@ -518,30 +529,60 @@
 <!-- ======================= 06 · WHY THIS MATTERS IN HD27 ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">Why This Matters</div>
     <div class="page-num">06</div>
   </div>
   <div class="issue-inner">
     <h2 class="issue-title">Why this matters in <em>House District 27.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
+      <p>This issue is not theoretical.</p>
       <p>
-        This issue is not theoretical. House District 27 voters deserve to understand the
-        different governing philosophies being presented to them. This election is about more
-        than personalities. One view depends on larger government, higher taxes, more
-        centralized control, and expanded public systems.
+        House District 27 voters deserve to understand the different governing philosophies being
+        presented to them.
+      </p>
+      <p>
+        This election is about more than personalities. It is about two very different views of
+        government.
+      </p>
+      <p>
+        One view depends on larger government, higher taxes, more centralized control, and
+        expanded public systems.
       </p>
       <p>
         Mark&rsquo;s view depends on opportunity, accountability, public safety, educational
-        excellence, economic growth, individual freedom, and practical leadership. He respects
-        the right of others to hold different political beliefs &mdash; but he believes voters
-        deserve clarity. When a candidate publicly identifies with a national political
-        organization, voters have a right to ask which parts of that agenda they support and
-        which parts they reject.
+        excellence, economic growth, individual freedom, and practical leadership.
+      </p>
+      <p>
+        Mark respects the right of others to hold different political beliefs. He respects public
+        service and civic participation. But he also believes voters deserve clarity.
+      </p>
+      <p class="emph">
+        When a candidate publicly identifies with a national political organization, voters have a
+        right to ask which parts of that organization&rsquo;s agenda they support and which parts
+        they reject.
+      </p>
+      <p>
+        That is especially important when the organization&rsquo;s stated platform includes a much
+        larger role for government in healthcare, housing, education, labor policy, taxation,
+        climate policy, transportation, energy, and public ownership of major economic sectors.
       </p>
     </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 07 · MARK'S POSITION ======================= -->
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">07</div>
+  </div>
+  <div class="issue-inner">
+    <h2 class="issue-title">Mark&rsquo;s position is <em>clear.</em></h2>
+    <div class="issue-rule"></div>
     <div class="supports single">
-      <div class="supports-label">Mark&rsquo;s position is clear</div>
       <ul>
         <li>He supports fully funding public safety, recruiting and retaining qualified police officers, holding criminals accountable, and giving law enforcement the tools needed to keep neighborhoods safe.</li>
         <li>He supports strong schools focused on academic excellence, reading, math, discipline, and opportunity.</li>
@@ -557,11 +598,10 @@
   </div>
 </section>
 
-<!-- ======================= 06 · TWO PHILOSOPHIES ======================= -->
+<!-- ======================= 08 · TWO PHILOSOPHIES ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">Two Visions</div>
-    <div class="page-num">07</div>
+    <div class="page-num">08</div>
   </div>
   <div class="issue-inner">
     <h2 class="issue-title">Two different philosophies <em>of government.</em></h2>
@@ -608,10 +648,11 @@
 <section class="page">
   <div class="wm">01</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">08</div>
+    <div class="page-num">09</div>
   </div>
   <div class="issue-inner">
+    <div class="section-kicker">Mark Norman&rsquo;s <em>9 issue priorities.</em></div>
+    <div class="issue-eyebrow">1. Animal Welfare</div>
     <h2 class="issue-title">Humane treatment and responsible ownership <em>can work together.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -644,10 +685,10 @@
 <section class="page">
   <div class="wm">02</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">09</div>
+    <div class="page-num">10</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">2. Data Centers</div>
     <h2 class="issue-title">Innovation should not come at the expense of <em>local communities.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -676,10 +717,10 @@
 <section class="page">
   <div class="wm">03</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">10</div>
+    <div class="page-num">11</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">3. Education</div>
     <h2 class="issue-title">Strong basics. Real skills. <em>Parents in the loop.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -707,17 +748,20 @@
 <section class="page">
   <div class="wm">04</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">11</div>
+    <div class="page-num">12</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">4. Local Issues Over Ideology</div>
     <h2 class="issue-title">Oregon problems need <em>Oregon solutions.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
       <p>
         Mark believes many Oregonians are tired of division, hostility, and ideological purity
-        tests. He believes people of different backgrounds, faiths, viewpoints, and political
-        beliefs should be able to live and work together respectfully.
+        tests.
+      </p>
+      <p>
+        He believes people of different backgrounds, faiths, viewpoints, and political beliefs
+        should be able to live and work together respectfully.
       </p>
       <p>
         The state legislature should stay focused on Oregon issues: affordability, schools,
@@ -740,10 +784,10 @@
 <section class="page">
   <div class="wm">05</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">12</div>
+    <div class="page-num">13</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">5. Public Safety</div>
     <h2 class="issue-title">Compassion and safety <em>belong together.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -770,10 +814,10 @@
 <section class="page">
   <div class="wm">06</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">13</div>
+    <div class="page-num">14</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">6. Small Business</div>
     <h2 class="issue-title">Small businesses need <em>room to grow.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -799,10 +843,10 @@
 <section class="page">
   <div class="wm">07</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">14</div>
+    <div class="page-num">15</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">7. Transportation &amp; Energy</div>
     <h2 class="issue-title">Infrastructure should be based on reality, <em>not ideology.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -812,9 +856,11 @@
       </p>
       <p>
         He supports public transportation, but believes major projects should be evaluated
-        based on actual rider behavior, costs, safety, and long-term sustainability. He also
-        supports an all-of-the-above energy strategy that includes hydroelectric, natural gas,
-        renewables, and next-generation nuclear power.
+        based on actual rider behavior, costs, safety, and long-term sustainability.
+      </p>
+      <p>
+        He also supports an all-of-the-above energy strategy that includes hydroelectric, natural
+        gas, renewables, and next-generation nuclear power.
       </p>
     </div>
     <div class="position">
@@ -832,10 +878,10 @@
 <section class="page">
   <div class="wm">08</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">15</div>
+    <div class="page-num">16</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">8. Healthcare</div>
     <h2 class="issue-title">Healthcare should be patient-centered, <em>not bureaucracy-centered.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -843,8 +889,8 @@
         Mark believes healthcare costs are too high, insurance bureaucracy is frustrating, and
         too many families delay care because they are worried about affordability.
       </p>
+      <p>He does not support a government-run single-payer healthcare system for Oregon.</p>
       <p>
-        He does not support a government-run single-payer healthcare system for Oregon.
         Instead, he supports practical reforms focused on affordability, access, transparency,
         patient choice, provider support, rural and community care, mental health, and
         addiction treatment.
@@ -865,10 +911,10 @@
 <section class="page">
   <div class="wm">09</div>
   <div class="chrome-top">
-    <div class="page-tag">9 Issue Priorities</div>
-    <div class="page-num">16</div>
+    <div class="page-num">17</div>
   </div>
   <div class="issue-inner">
+    <div class="issue-eyebrow">9. Veteran Support</div>
     <h2 class="issue-title">Veterans deserve dignity, respect, <em>and real support.</em></h2>
     <div class="issue-rule"></div>
     <div class="issue-body">
@@ -896,15 +942,14 @@
 <!-- ======================= 16 · GET INVOLVED ======================= -->
 <section class="page">
   <div class="chrome-top">
-    <div class="page-tag">How to Stay Involved</div>
-    <div class="page-num">17</div>
+    <div class="page-num">18</div>
   </div>
   <div class="issue-inner">
     <h2 class="issue-title">There&rsquo;s room <em>to help.</em></h2>
     <div class="issue-rule"></div>
+    <p class="issue-lead">Campaigns are built by people who stay involved.</p>
     <p class="issue-lead">
-      Campaigns are built by people who stay involved. There are many ways to participate
-      depending on your time, schedule, and comfort level.
+      There are many ways to participate depending on your time, schedule, and comfort level.
     </p>
     <div class="supports">
       <div class="supports-label">Ways to get involved</div>
@@ -922,6 +967,10 @@
       </ul>
     </div>
     <div class="pull">The first step is staying informed. The next step is choosing how you want to be involved.</div>
+    <p class="learn-more">
+      To learn more, visit the campaign website at
+      <a href="https://markfororegon.com">markfororegon.com</a>.
+    </p>
   </div>
   <div class="chrome-foot">
     <span>Mark Norman · Oregon HD-27</span>
@@ -933,14 +982,25 @@
 <section class="page back">
   <div class="back-inner">
     <h2 class="back-banner">A different path for <em>Oregon House District 27.</em></h2>
-    <p class="back-lead">
-      This election is about two different philosophies of government. One vision depends on
-      larger government, higher taxes, expanded bureaucracy, and more centralized control.
-      Mark Norman&rsquo;s vision depends on opportunity, accountability, public safety,
-      educational excellence, economic growth, individual freedom, local problem-solving, and
-      practical leadership. He trusts the voters of House District 27 to study the issues,
-      compare the visions, and decide which path will best serve the community and the state.
-    </p>
+    <div class="back-lead">
+      <p>
+        This election is about more than personalities. It is about two different philosophies of
+        government.
+      </p>
+      <p>
+        One vision depends on larger government, higher taxes, expanded bureaucracy, and more
+        centralized control.
+      </p>
+      <p>
+        Mark Norman&rsquo;s vision depends on opportunity, accountability, public safety,
+        educational excellence, economic growth, individual freedom, local problem-solving, and
+        practical leadership.
+      </p>
+      <p>
+        He trusts the voters of House District 27 to study the issues, compare the visions, and
+        decide which path will best serve the community and the state.
+      </p>
+    </div>
     <div class="back-tagline">Service · Solutions · Accountability</div>
     <div class="back-contact">
       <div class="cell">
