@@ -263,7 +263,7 @@ const VoterGuidePage = () => {
       {/* Section 6 — This choice matters in HD27 */}
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-8">
             <Reveal variant="up" duration={0.7}>
               <div className="flex max-w-xl flex-col items-start gap-5">
                 <h2 className="display text-4xl text-navy sm:text-5xl">
@@ -288,7 +288,7 @@ const VoterGuidePage = () => {
             </Reveal>
 
             <Reveal variant="scale" delay={0.15} duration={0.85}>
-              <div className="relative lg:justify-self-end">
+              <div className="relative">
                 <Image
                   src="/images/voter-guide-spread.png"
                   alt="Open spread of the Socialism 101 guide showing the Why this matters in House District 27 and Mark's position is clear pages."
