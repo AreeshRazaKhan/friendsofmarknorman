@@ -223,40 +223,53 @@ const VoterGuidePage = () => {
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <Reveal variant="up" duration={0.7}>
-            <div className="flex max-w-3xl flex-col items-start gap-5">
-              <h2 className="display text-4xl text-paper sm:text-5xl">
-                Voters should <em>know about DSA.</em>
-              </h2>
-              <p className="max-w-prose text-paper-78">
-                The Democratic Socialists of America is not just a label. It is a national political
-                organization with a broader ideological agenda centered on expanding government
-                power over healthcare, housing, labor policy, taxation, transportation, energy, and
-                major parts of the economy.
-              </p>
-              <p className="max-w-prose text-paper-78">
-                Mark believes voters should understand what that means before choosing which
-                philosophy should represent House District 27. This is not simply a debate about
-                compassion or helping people. Mark supports helping vulnerable Oregonians,
-                improving schools, lowering healthcare costs, and strengthening public safety.
-              </p>
-              <p className="max-w-prose text-paper-78">
-                The real question is whether Oregon should solve those problems through more
-                government control, higher taxes, expanded bureaucracy, and public ownership or
-                through accountability, opportunity, local solutions, economic growth, and
-                individual freedom.
-              </p>
-              <p className="border-l-[3px] border-red-3 pl-4 text-xl font-semibold text-paper">
-                Mark rejects the democratic socialist approach.
-              </p>
-              <Button asChild variant="invert">
-                <a href="#get-the-guide">
-                  Read why Mark opposes democratic socialism
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </Button>
-            </div>
-          </Reveal>
+          <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-12">
+            <Reveal variant="up" duration={0.7}>
+              <div className="flex max-w-xl flex-col items-start gap-5">
+                <h2 className="display text-4xl text-paper sm:text-5xl">
+                  Voters should <em>know about DSA.</em>
+                </h2>
+                <p className="max-w-prose text-paper-78">
+                  The Democratic Socialists of America is not just a label. It is a national
+                  political organization with a broader ideological agenda centered on expanding
+                  government power over healthcare, housing, labor policy, taxation, transportation,
+                  energy, and major parts of the economy.
+                </p>
+                <p className="max-w-prose text-paper-78">
+                  Mark believes voters should understand what that means before choosing which
+                  philosophy should represent House District 27. This is not simply a debate about
+                  compassion or helping people. Mark supports helping vulnerable Oregonians,
+                  improving schools, lowering healthcare costs, and strengthening public safety.
+                </p>
+                <p className="max-w-prose text-paper-78">
+                  The real question is whether Oregon should solve those problems through more
+                  government control, higher taxes, expanded bureaucracy, and public ownership or
+                  through accountability, opportunity, local solutions, economic growth, and
+                  individual freedom.
+                </p>
+                <p className="border-l-[3px] border-red-3 pl-4 text-xl font-semibold text-paper">
+                  Mark rejects the democratic socialist approach.
+                </p>
+                <Button asChild variant="invert">
+                  <a href="#get-the-guide">
+                    Read why Mark opposes democratic socialism
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </Button>
+              </div>
+            </Reveal>
+
+            <Reveal variant="scale" delay={0.15} duration={0.85}>
+              <Image
+                src="/images/voter-guide-rally.png"
+                alt="Oregonians gathered at the State Capitol in Salem holding signs reading Stop Socialism, Keep Oregon Free, and Protect Oregon Opportunity."
+                width={1672}
+                height={941}
+                sizes="(min-width: 768px) 560px, 100vw"
+                className="h-auto w-full rounded-2xl border-[1.5px] border-paper-78/30"
+              />
+            </Reveal>
+          </div>
         </div>
       </section>
 
