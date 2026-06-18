@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
@@ -69,36 +70,51 @@ const ThankYouPage = () => {
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <Reveal variant="up" duration={0.75}>
-            <div className="flex max-w-3xl flex-col items-start gap-6">
-              <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
-                Your guide is <em>ready.</em>
-              </h1>
-              <div className="flex max-w-prose flex-col gap-3 text-base leading-relaxed text-paper-78 lg:text-lg">
-                <p>
-                  Thank you for downloading &ldquo;Why Mark Norman Opposes Democratic
-                  Socialism.&rdquo;
-                </p>
-                <p>
-                  Inside the guide, you&rsquo;ll learn why Mark Norman believes Oregon House
-                  District 27 needs a different path than larger government, higher taxes, expanded
-                  bureaucracy, and centralized control.
-                </p>
-                <p>
-                  The guide explains what Mark believes voters should know about democratic
-                  socialism, the DSA agenda, and the practical alternative Mark is offering for
-                  Oregon families, small businesses, students, seniors, veterans, and local
-                  communities.
-                </p>
+          <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-12">
+            <Reveal variant="up" duration={0.75}>
+              <div className="flex max-w-xl flex-col items-start gap-6">
+                <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
+                  Your guide is <em>ready.</em>
+                </h1>
+                <div className="flex max-w-prose flex-col gap-3 text-base leading-relaxed text-paper-78 lg:text-lg">
+                  <p>
+                    Thank you for downloading &ldquo;Why Mark Norman Opposes Democratic
+                    Socialism.&rdquo;
+                  </p>
+                  <p>
+                    Inside the guide, you&rsquo;ll learn why Mark Norman believes Oregon House
+                    District 27 needs a different path than larger government, higher taxes,
+                    expanded bureaucracy, and centralized control.
+                  </p>
+                  <p>
+                    The guide explains what Mark believes voters should know about democratic
+                    socialism, the DSA agenda, and the practical alternative Mark is offering for
+                    Oregon families, small businesses, students, seniors, veterans, and local
+                    communities.
+                  </p>
+                </div>
+                <Button asChild variant="red">
+                  <a href={GUIDE_PDF} download>
+                    Download the guide (PDF)
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </Button>
               </div>
-              <Button asChild variant="red">
-                <a href={GUIDE_PDF} download>
-                  Download the guide (PDF)
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </Button>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            <Reveal variant="scale" delay={0.15} duration={0.85}>
+              <div className="relative mx-auto aspect-square w-full max-w-[480px]">
+                <Image
+                  src="/images/voter-guide-mockup.png"
+                  alt="Printed guide: Socialism 101 — Why Mark Norman Opposes Democratic Socialism."
+                  fill
+                  sizes="(min-width: 768px) 480px, 100vw"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
