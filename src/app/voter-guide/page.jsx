@@ -123,13 +123,13 @@ const VoterGuidePage = () => {
           </Reveal>
 
           <Reveal variant="scale" delay={0.15} duration={0.85}>
-            <div className="relative mx-auto aspect-[17/22] w-full max-w-[420px] overflow-hidden rounded-[2rem] border-[1.5px] border-paper-78/30 lg:justify-self-end">
+            <div className="relative mx-auto aspect-square w-full max-w-[480px] lg:justify-self-end">
               <Image
-                src="/images/voter-guide-cover.png"
-                alt="Cover of Socialism 101: Why Mark Norman Opposes Democratic Socialism."
+                src="/images/voter-guide-mockup.png"
+                alt="Printed guide: Socialism 101 — Why Mark Norman Opposes Democratic Socialism."
                 fill
-                sizes="(min-width: 1024px) 420px, 100vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 480px, 100vw"
+                className="object-contain"
                 priority
               />
             </div>
