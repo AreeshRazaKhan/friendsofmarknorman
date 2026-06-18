@@ -104,7 +104,6 @@ const VoterGuidePage = () => {
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-16 lg:px-10 lg:py-32">
           <Reveal variant="up" duration={0.75}>
             <div className="flex flex-col items-start gap-6">
-              <p className="eyebrow-bracket eyebrow text-red-3">[ a voter&rsquo;s guide ]</p>
               <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
                 Why Mark Norman opposes <em>democratic socialism.</em>
               </h1>
@@ -143,7 +142,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow">[ the problem ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 Oregon families are paying more and <em>getting less from government.</em>
               </h2>
@@ -176,7 +174,6 @@ const VoterGuidePage = () => {
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow text-red-3">[ what socialism means ]</p>
               <h2 className="display text-4xl text-paper sm:text-5xl">
                 Socialism means <em>more government control.</em>
               </h2>
@@ -199,7 +196,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow">[ outcomes, not size ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 More government control does not always mean <em>better outcomes.</em>
               </h2>
@@ -229,7 +225,6 @@ const VoterGuidePage = () => {
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow text-red-3">[ the dsa agenda ]</p>
               <h2 className="display text-4xl text-paper sm:text-5xl">
                 Voters should <em>know about DSA.</em>
               </h2>
@@ -270,7 +265,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow">[ why this matters ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 This choice matters in <em>House District 27.</em>
               </h2>
@@ -299,7 +293,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.6}>
             <div className="flex max-w-3xl flex-col items-start gap-3">
-              <p className="eyebrow-bracket eyebrow">[ two visions ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 Bigger government vs. <em>Mark Norman&rsquo;s practical leadership.</em>
               </h2>
@@ -355,7 +348,6 @@ const VoterGuidePage = () => {
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.75}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow text-red-3">[ about mark ]</p>
               <h2 className="display text-4xl text-paper sm:text-5xl">
                 A Navy veteran, veterinarian, and <em>small-business owner.</em>
               </h2>
@@ -380,7 +372,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex flex-col items-start gap-4">
-              <p className="eyebrow-bracket eyebrow">[ the practical alternative ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 Mark&rsquo;s <em>practical alternative.</em>
               </h2>
@@ -425,14 +416,15 @@ const VoterGuidePage = () => {
       <section className="bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.6}>
-            <p className="eyebrow-bracket eyebrow">[ where mark stands ]</p>
+            <h2 className="display text-4xl text-navy sm:text-5xl">
+              Where Mark <em>stands.</em>
+            </h2>
           </Reveal>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:gap-8">
             {ISSUE_DETAILS.map((issue, idx) => (
               <Reveal key={issue.key} variant="up" delay={0.05 * idx} duration={0.6}>
                 <article className="flex h-full flex-col items-start gap-3 rounded-2xl border border-bone bg-white p-8 lg:p-10">
-                  <p className="eyebrow-bracket eyebrow">[ {issue.eyebrow} ]</p>
                   <h3 className="display text-2xl text-navy sm:text-3xl">{issue.heading}</h3>
                   <p className="text-stone-dark">{issue.body}</p>
                   <a
@@ -453,7 +445,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
           <Reveal variant="up" duration={0.6}>
             <article className="flex flex-col items-start gap-4 rounded-2xl border border-bone bg-white p-8 lg:p-10">
-              <p className="eyebrow-bracket eyebrow">[ questions ]</p>
               <h2 className="display text-3xl text-navy sm:text-4xl">
                 Have a question <em>for Mark?</em>
               </h2>
@@ -476,7 +467,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-2xl flex-col items-start gap-4">
-              <p className="eyebrow-bracket eyebrow">[ get involved ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 Help share Mark&rsquo;s <em>different path for Oregon.</em>
               </h2>
@@ -512,7 +502,6 @@ const VoterGuidePage = () => {
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Reveal variant="up" duration={0.75}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
-              <p className="eyebrow-bracket eyebrow text-red-3">[ first step ]</p>
               <h2 className="display text-4xl sm:text-5xl lg:text-6xl">
                 Know the issues. Stay informed. <em>Get involved.</em>
               </h2>
@@ -541,7 +530,6 @@ const VoterGuidePage = () => {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex flex-col items-start gap-4">
-              <p className="eyebrow-bracket eyebrow">[ get the guide ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 Download Mark Norman&rsquo;s guide against <em>democratic socialism.</em>
               </h2>

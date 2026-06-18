@@ -71,7 +71,6 @@ const ThankYouPage = () => {
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Reveal variant="up" duration={0.75}>
             <div className="flex max-w-3xl flex-col items-start gap-6">
-              <p className="eyebrow-bracket eyebrow text-red-3">[ your guide is ready ]</p>
               <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
                 Your guide is <em>ready.</em>
               </h1>
@@ -108,7 +107,6 @@ const ThankYouPage = () => {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.6}>
             <div className="flex max-w-3xl flex-col items-start gap-3">
-              <p className="eyebrow-bracket eyebrow">[ next steps ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
                 Stay informed and <em>get involved.</em>
               </h2>
