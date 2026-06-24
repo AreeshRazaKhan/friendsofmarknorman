@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><title>16 · banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0B2844;--navy-2:#102F4F;--navy-3:#0F3C66;--red:#B62025;--red-2:#921A1F;--red-3:#D63D42;--paper:#F5F2EC;--paper-2:#EDE8DD;--bone:#D4CCB7;--stone:#5F594D;--stone-d:#3E3A33;--paper-78:rgba(245,242,236,.82);--ff:'Cabin',sans-serif;--ff-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:var(--ff)}
+.logo{position:absolute;left:96px;top:150px;z-index:6}.logo-slot{display:inline-flex}
+.eyebrow{display:flex;align-items:center;gap:18px;font-family:var(--ff-mono);font-size:24px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.eyebrow::before{content:"";width:52px;height:5px;flex-shrink:0}
+.headline{font-weight:700;letter-spacing:-.03em;line-height:.98}
+.headline em{font-style:normal;font-weight:400;position:relative;display:inline-block}
+.headline em::after{content:"";position:absolute;left:-7px;right:-7px;bottom:9px;height:18px;z-index:-1}
+.stamp{position:absolute;z-index:4;background:var(--paper);border:6px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:14px 14px 0 var(--red)}
+.stamp svg{width:54%;height:54%}
+.story{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--paper);color:var(--navy)}
+.eyebrow{color:var(--red)}.eyebrow::before{background:var(--red)}
+.headline{color:var(--navy)}.headline em{color:var(--red)}.headline em::after{background:rgba(182,32,37,.20)}
+.body{font-size:36px;line-height:1.5;color:var(--stone-d)}
+.story{display:flex;flex-direction:column;justify-content:center;padding:250px 96px}
+.content{position:relative;z-index:3;max-width:900px}
+.rt{display:flex;align-items:center;gap:22px;margin-bottom:18px}.rt::after{content:"";flex:1;height:6px;background:var(--red)}
+.eyebrow{display:inline-flex}.eyebrow::before{display:none}
+.headline{font-size:146px;line-height:.92;text-transform:uppercase;margin-top:14px;word-break:break-word}
+.rb{width:170px;height:9px;background:var(--red);margin-top:42px}
+</style></head>
+<body>
+  <div class="story" data-fonts="Cabin,JetBrains Mono">
+    <span aria-hidden="true" style="position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(11,40,68,.05) 1.4px,transparent 1.7px);background-size:15px 15px"></span><span aria-hidden="true" style="position:absolute;inset:0;z-index:0;clip-path:polygon(60% 0,100% 0,100% 22%);background-image:repeating-linear-gradient(45deg,rgba(182,32,37,.8) 0 2px,transparent 2px 22px)"></span><span aria-hidden="true" style="position:absolute;z-index:0;font-weight:700;line-height:.7;letter-spacing:-.05em;color:var(--navy);opacity:.05;right:-30px;bottom:120px;font-size:600px">16</span>
+    <div class="logo"><div class="logo-slot"><img src="assets/mark-norman-logo-cabin-transparent.png" alt="Mark Norman for Oregon — House District 27" style="height:140px;width:auto;display:block" /></div></div>
+    <div class="content"><div class="rt"><span class="eyebrow t">[ local issues ]</span></div><h1 class="headline t">Oregon needs <em>Oregon solutions.</em></h1><span class="rb" aria-hidden="true"></span></div>
+  </div>
+<style>html,body{height:100%;overflow:hidden}.story{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--s,1))}</style>
+<script>(function(){var c=document.querySelector('.story');if(!c)return;var f=function(){c.style.setProperty('--s',Math.min(innerWidth/c.offsetWidth,innerHeight/c.offsetHeight,1))};addEventListener('resize',f);f()})()</script>
+</body></html>
