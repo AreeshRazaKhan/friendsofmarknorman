@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><title>C05 · Public Safety — 02/05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0B2844;--navy-2:#102F4F;--navy-3:#0F3C66;--red:#B62025;--red-2:#921A1F;--red-3:#D63D42;--paper:#F5F2EC;--paper-2:#EDE8DD;--bone:#D4CCB7;--stone:#5F594D;--stone-d:#3E3A33;--paper-78:rgba(245,242,236,.82);--ff:'Cabin',sans-serif;--ff-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:var(--ff)}
+.logo{position:absolute;left:84px;top:84px;z-index:6}.logo-slot{display:inline-flex}
+.eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--ff-mono);font-size:21px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.eyebrow::before{content:"";width:46px;height:4px;flex-shrink:0}
+.headline{font-weight:700;letter-spacing:-.03em;line-height:1}
+.headline em,.title em{font-style:normal;font-weight:400;position:relative;display:inline-block}
+.headline em::after,.title em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
+.slide{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--paper);color:var(--navy)}
+.eyebrow{color:var(--red)}.eyebrow::before{background:var(--red)}
+.headline,.title{color:var(--navy)}.headline em,.title em{color:var(--red)}
+.headline em::after,.title em::after{background:rgba(182,32,37,.20)}
+.body{font-size:28px;line-height:1.5;color:var(--stone-d)}
+.slide{display:flex;flex-direction:column;justify-content:center;padding:96px}
+.row{position:relative;z-index:3;display:flex;align-items:flex-start;gap:44px}
+.num{font-weight:700;font-size:168px;line-height:.78;letter-spacing:-.05em;color:var(--red);flex-shrink:0}
+.col{max-width:660px}
+.kick{font-family:var(--ff-mono);font-size:18px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.title{font-weight:700;font-size:58px;line-height:1.02;margin-top:14px}
+.body{margin-top:24px;max-width:640px}
+</style></head>
+<body>
+  <div class="slide" data-fonts="Cabin,JetBrains Mono">
+    <span aria-hidden="true" style="position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(11,40,68,.05) 1.4px,transparent 1.7px);background-size:15px 15px"></span><span aria-hidden="true" style="position:absolute;z-index:0;font-weight:700;line-height:.7;letter-spacing:-.05em;color:var(--navy);opacity:.05;right:-10px;bottom:-90px;font-size:460px">01</span>
+    <div class="logo"><div class="logo-slot"><img src="assets/mark-norman-logo-cabin-transparent.png" alt="Mark Norman for Oregon — House District 27" style="height:88px;width:auto;display:block" /></div></div>
+    <div class="row"><div class="num t">01</div><div class="col"><div class="kick t">Public Safety</div><h2 class="title headline t">Fully fund <em>public safety</em></h2><p class="body t">Give first responders the resources and staffing they need to keep neighborhoods safe.</p></div></div>
+    <div class="prog" aria-hidden="true" style="position:absolute;left:96px;right:96px;bottom:118px;z-index:6;display:flex;gap:10px"><span style="height:5px;flex:1;border-radius:3px;background:rgba(11,40,68,.18)"></span><span style="height:5px;flex:1;border-radius:3px;background:var(--red)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(11,40,68,.18)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(11,40,68,.18)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(11,40,68,.18)"></span></div>
+  <div class="counter t" style="position:absolute;left:96px;bottom:78px;z-index:6;font-family:var(--ff-mono);font-size:18px;font-weight:600;letter-spacing:.16em;color:var(--stone)">02 <span style="color:var(--red)">/</span> 05</div>
+  <div class="decktag t" style="position:absolute;right:96px;bottom:78px;z-index:6;font-family:var(--ff-mono);font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)">Public Safety</div>
+  </div>
+<style>html,body{height:100%;overflow:hidden}.slide{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--s,1))}</style>
+<script>(function(){var c=document.querySelector('.slide');if(!c)return;var f=function(){c.style.setProperty('--s',Math.min(innerWidth/c.offsetWidth,innerHeight/c.offsetHeight,1))};addEventListener('resize',f);f()})()</script>
+</body></html>
