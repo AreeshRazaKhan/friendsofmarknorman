@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><title>49 · twoCol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0B2844;--navy-2:#102F4F;--navy-3:#0F3C66;--red:#B62025;--red-2:#921A1F;--red-3:#D63D42;--paper:#F5F2EC;--paper-2:#EDE8DD;--bone:#D4CCB7;--stone:#5F594D;--stone-d:#3E3A33;--paper-78:rgba(245,242,236,.82);--ff:'Cabin',sans-serif;--ff-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:var(--ff)}
+.logo{position:absolute;left:84px;top:84px;z-index:6}.logo-slot{display:inline-flex}
+.eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--ff-mono);font-size:21px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.eyebrow::before{content:"";width:46px;height:4px;flex-shrink:0}
+.headline{font-weight:700;letter-spacing:-.03em;line-height:.98}
+.headline em{font-style:normal;font-weight:400;position:relative;display:inline-block}
+.headline em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
+.stamp{position:absolute;z-index:4;background:var(--paper);border:5px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:12px 12px 0 var(--red)}
+.stamp svg{width:54%;height:54%}
+.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--navy);color:var(--paper)}
+.eyebrow{color:var(--red-3)}.eyebrow::before{background:var(--red-3)}
+.headline{color:var(--paper)}.headline em{color:var(--red-3)}.headline em::after{background:rgba(214,61,66,.24)}
+.body{font-size:28px;line-height:1.5;color:var(--paper-78)}
+.post{display:flex;flex-direction:column;justify-content:center;padding:90px}
+.content{position:relative;z-index:3}
+.headline{font-size:82px;margin-top:22px;max-width:560px}
+.cols{display:flex;gap:50px;margin-top:36px;align-items:flex-start}
+.body{font-size:27px;line-height:1.5;color:var(--paper-78);max-width:430px}
+.rule{width:6px;align-self:stretch;background:var(--red)}
+</style></head>
+<body>
+  <div class="post" data-fonts="Cabin,JetBrains Mono">
+    <span aria-hidden="true" style="position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(245,242,236,.05) 1.4px,transparent 1.7px);background-size:15px 15px"></span><span aria-hidden="true" style="position:absolute;z-index:0;color:var(--red-3);font-weight:700;top:130px;right:150px;font-size:36px;opacity:.8">★</span>
+    <div class="logo"><div class="logo-slot"><img src="assets/mark-norman-logo-cabin-invert.png" alt="Mark Norman for Oregon — House District 27" style="height:100px;width:auto;display:block" /></div></div>
+    <div aria-hidden="true" style="position:absolute;z-index:4;color:var(--paper);right:80px;bottom:110px;width:250px;height:250px"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><rect x="22" y="74" width="56" height="8" fill="currentColor"/><path d="M50 18 L78 40 H22 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><g stroke="currentColor" stroke-width="6"><line x1="31" y1="44" x2="31" y2="72"/><line x1="44" y1="44" x2="44" y2="72"/><line x1="56" y1="44" x2="56" y2="72"/><line x1="69" y1="44" x2="69" y2="72"/></g><circle cx="50" cy="29" r="5" fill="#B62025"/></svg></div>
+    <div class="content"><span class="eyebrow t">[ socialism 101 ]</span><h1 class="headline t">Why Mark opposes <em>democratic socialism</em></h1><div class="cols"><span class="rule" aria-hidden="true"></span><p class="body t">Mark does not believe Oregon’s future should depend on larger government, higher taxes, and more centralized control.</p></div></div>
+  </div>
+<style>html,body{height:100%;overflow:hidden}.post{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--s,1))}</style>
+<script>(function(){var c=document.querySelector('.post');if(!c)return;var f=function(){c.style.setProperty('--s',Math.min(innerWidth/c.offsetWidth,innerHeight/c.offsetHeight,1))};addEventListener('resize',f);f()})()</script>
+</body></html>
