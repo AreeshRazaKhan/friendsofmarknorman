@@ -42,3 +42,8 @@ next-env.d.ts
 .claude/skills/**/node_modules/
 .claude/skills/**/.temp-execution-*.js
 .claude/rules/skills/
+
+# social asset QA render artifacts (regenerable; not source)
+social-squares/screenshots/
+social-stories/screenshots/
+social-carousels/screenshots/
