@@ -212,9 +212,9 @@ const anySuccess = results.some((r) => r.ok)
 | Last Name | text input | Yes | |
 | Email | email input | Yes | |
 | Phone | tel input | No | |
-| ZIP Code | text input | No | |
+| ZIP Code | text input | Yes | 5-digit ZIP |
 | County | select dropdown | No | 36 Oregon counties |
-| Region | select dropdown | Yes | Portland Metro, Willamette Valley, Oregon Coast, Central Oregon, Eastern Oregon, Southern Oregon |
+| Residential Address | text input | Yes | Free-text street address |
 | Registered to Vote in Oregon? | select | Yes | Yes, No |
 | Prior Campaign Experience? | select | Yes | None, Some Volunteering, Regular Volunteer, Campaign Staff, Campaign Management, Elected/Appointed Office |
 | How Would You Like to Help? | checkboxes (multi-select) | Yes (at least 1) | Host a Fundraiser, Phone Banking, Volunteer Coordination, Digital/Social Media, Door Knocking, Host a Meet & Greet, Event Planning, Media |
@@ -235,7 +235,7 @@ const anySuccess = results.some((r) => r.ok)
   phone: string,
   zipCode: string,
   county: string,
-  region: string,
+  address: string,                 // residential street address
   registeredVoter: string,         // 'Yes' or 'No'
   campaignExperience: string,      // e.g. 'Regular Volunteer'
   helpOptions: string,             // comma-separated: 'Phone Banking, Door Knocking, Media'

@@ -13,7 +13,6 @@ import {
   AVAILABILITY_OPTIONS,
   CAMPAIGN_EXPERIENCE_LEVELS,
   OREGON_COUNTIES,
-  OREGON_REGIONS,
   VOLUNTEER_HELP_OPTIONS,
 } from '@/constants/site'
 
@@ -61,7 +60,7 @@ const VolunteerSignup = () => {
     else if (!EMAIL_RE.test(data.email)) next.email = 'Invalid email'
     if (!data.zipCode.trim()) next.zipCode = 'Required'
     else if (!/^[0-9]{5}$/.test(data.zipCode.trim())) next.zipCode = 'Enter a 5-digit ZIP'
-    if (!data.region) next.region = 'Required'
+    if (!data.address.trim()) next.address = 'Required'
     if (!data.registeredVoter) next.registeredVoter = 'Required'
     if (!data.campaignExperience) next.campaignExperience = 'Required'
     if (!data.availability) next.availability = 'Required'
@@ -81,7 +80,7 @@ const VolunteerSignup = () => {
       phone,
       zipCode: formData.get('zipCode') || '',
       county: formData.get('county') || '',
-      region: formData.get('region') || '',
+      address: formData.get('address') || '',
       registeredVoter: formData.get('registeredVoter') || '',
       campaignExperience: formData.get('campaignExperience') || '',
       helpOptions,
@@ -192,35 +191,32 @@ const VolunteerSignup = () => {
         </FormField>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <FormField name="region" label="Region" required error={errors.region}>
-          <select id="region" name="region" className={SELECT_CLASS} required>
-            <option value="">Select…</option>
-            {OREGON_REGIONS.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
-        </FormField>
-        <FormField
+      <FormField
+        name="address"
+        label="Residential address"
+        required
+        autoComplete="street-address"
+        placeholder="123 Main St, Beaverton, OR 97005"
+        error={errors.address}
+      />
+
+      <FormField
+        name="registeredVoter"
+        label="Registered to vote in Oregon?"
+        required
+        error={errors.registeredVoter}
+      >
+        <select
+          id="registeredVoter"
           name="registeredVoter"
-          label="Registered to vote in Oregon?"
+          className={SELECT_CLASS}
           required
-          error={errors.registeredVoter}
         >
-          <select
-            id="registeredVoter"
-            name="registeredVoter"
-            className={SELECT_CLASS}
-            required
-          >
-            <option value="">Select…</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </FormField>
-      </div>
+          <option value="">Select…</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </FormField>
 
       <FormField
         name="campaignExperience"

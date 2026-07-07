@@ -39,7 +39,7 @@ export const POST = async (request) => {
       zipCode,
       in_district: districtFlag(zipCode),
       county: (body?.county || '').trim(),
-      region: (body?.region || '').trim(),
+      address: (body?.address || '').trim(),
       registeredVoter: (body?.registeredVoter || '').trim(),
       campaignExperience: (body?.campaignExperience || '').trim(),
       helpOptions,
