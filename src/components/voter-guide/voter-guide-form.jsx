@@ -10,6 +10,7 @@ import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput } from '@/lib/phone'
+import { LEGAL } from '@/constants/site'
 
 const STATUS = {
   idle: 'idle',
@@ -36,6 +37,7 @@ const VoterGuideForm = ({
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
+  const [emailConsent, setEmailConsent] = useState(false)
   const [smsUpdates, setSmsUpdates] = useState(false)
   const [smsPromo, setSmsPromo] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
@@ -55,7 +57,8 @@ const VoterGuideForm = ({
     if (!form.lastName.trim()) next.lastName = 'Required'
     if (!form.email.trim()) next.email = 'Required'
     else if (!EMAIL_RE.test(form.email)) next.email = 'Invalid email'
-    if (form.zipCode.trim() && !ZIP_RE.test(form.zipCode.trim())) next.zipCode = 'Invalid ZIP'
+    if (!form.zipCode.trim()) next.zipCode = 'Required'
+    else if (!ZIP_RE.test(form.zipCode.trim())) next.zipCode = 'Invalid ZIP'
     return next
   }
 
@@ -69,6 +72,7 @@ const VoterGuideForm = ({
       email: formData.get('email') || '',
       phone,
       zipCode: formData.get('zipCode') || '',
+      email_consent: emailConsent,
       sms_updates: smsUpdates,
       sms_promo: smsPromo,
     }
@@ -165,7 +169,8 @@ const VoterGuideForm = ({
           />
           <FormField
             name="zipCode"
-            label="ZIP code (optional)"
+            label="ZIP code"
+            required
             inputMode="numeric"
             autoComplete="postal-code"
             placeholder="97005"
@@ -173,6 +178,20 @@ const VoterGuideForm = ({
             error={errors.zipCode}
           />
         </div>
+
+        <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-stone-dark">
+          <input
+            type="checkbox"
+            name="email_consent"
+            checked={emailConsent}
+            onChange={(e) => setEmailConsent(e.target.checked)}
+            className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red"
+          />
+          <span>
+            Yes, I would like to receive campaign updates, event notices, issue highlights,
+            volunteer opportunities, and other communications from <strong>{LEGAL.entity}</strong>.
+          </span>
+        </label>
 
         <SmsConsent
           hasPhone={hasPhone}
@@ -210,10 +229,10 @@ VoterGuideForm.defaultProps = {
     </>
   ),
   successBody:
-    'Thank you for downloading Why Mark Norman Opposes Democratic Socialism. Inside, you’ll learn ' +
-    'why Mark believes Oregon House District 27 needs a different path than larger government, ' +
-    'higher taxes, expanded bureaucracy, and centralized control — plus his practical alternative ' +
-    'focused on opportunity, accountability, public safety, and individual freedom.',
+    'Thank you for downloading A Warning About Democratic Socialism in House District 27. Inside, ' +
+    'you’ll learn why Mark believes House District 27 must reject the socialist agenda of larger ' +
+    'government, higher taxes, expanded bureaucracy, public ownership, and centralized control — ' +
+    'plus his practical alternative for Oregon.',
   showDownload: true,
   redirectTo: '',
 }

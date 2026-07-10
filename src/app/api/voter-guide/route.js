@@ -25,11 +25,11 @@ export const POST = async (request) => {
     const email = (body?.email || '').trim()
     const zipCode = (body?.zipCode || '').trim()
 
-    if (!required(firstName) || !required(lastName) || !required(email)) {
+    if (!required(firstName) || !required(lastName) || !required(email) || !required(zipCode)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    if (zipCode && !isValidZip(zipCode)) {
+    if (!isValidZip(zipCode)) {
       return NextResponse.json({ error: 'Invalid ZIP code' }, { status: 400 })
     }
 
@@ -42,6 +42,7 @@ export const POST = async (request) => {
       zipCode,
       in_district: districtFlag(zipCode),
       guide_url: GUIDE_URL,
+      email_consent: yesNo(body?.email_consent),
       sms_updates: yesNo(body?.sms_updates),
       sms_promo: yesNo(body?.sms_promo),
     }
