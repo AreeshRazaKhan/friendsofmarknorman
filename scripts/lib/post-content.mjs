@@ -40,35 +40,35 @@ export const ICONS = {
 }
 
 export const TOPICS = [
-  { eb: '[ socialism 101 ]', head: 'Why Mark opposes <em>democratic socialism</em>', body: 'Mark does not believe Oregon’s future should depend on larger government, higher taxes, and more centralized control.', icon: 'capitol' },
-  { eb: '[ a different path ]', head: 'Oregon needs <em>a different path</em>', body: 'Built on opportunity, accountability, public safety, educational excellence, economic growth, and individual freedom.', icon: 'flag' },
-  { eb: '[ public policy ]', head: 'Government should serve people, <em>not grow larger</em>', body: 'Government has important responsibilities, but it should not become the center of economic and family life.', icon: 'capitol' },
-  { eb: '[ public safety ]', head: 'Compassion and safety <em>belong together</em>', body: 'Fully fund public safety, support strong training and community policing, and expand behavioral health partnerships.', icon: 'shield' },
-  { eb: '[ small business ]', head: 'Small businesses need <em>room to grow</em>', body: 'Small businesses should be treated as partners in economic growth, not endless sources of revenue.', icon: 'store' },
-  { eb: '[ education ]', head: 'Strong basics. <em>Parents in the loop.</em>', body: 'Teachers empowered to teach, parents respected as partners, and students prepared for adult life.', icon: 'book' },
-  { eb: '[ animal welfare ]', head: 'Humane, practical, <em>science-based</em>', body: 'Reduce cruelty and neglect while respecting families, farmers, ranchers, and responsible pet owners.', icon: 'paw' },
-  { eb: '[ data centers ]', head: 'Innovation, not at the cost of <em>local communities</em>', body: 'Support innovation while requiring accountability, reliable energy planning, and protection for local communities.', icon: 'server' },
-  { eb: '[ local issues ]', head: 'Oregon problems need <em>Oregon solutions</em>', body: 'People do not need to agree on every national issue to work together on local problems.', icon: 'pin' },
-  { eb: '[ transportation & energy ]', head: 'Built on reality, <em>not ideology</em>', body: 'Invest in infrastructure people actually use and energy systems that reliably work.', icon: 'bolt' },
+  { eb: '[ socialism 101 ]', head: 'The socialist agenda is <em>not harmless</em>', body: 'More government. Higher taxes. Less freedom. Voters deserve to know what is at stake.', icon: 'capitol' },
+  { eb: '[ a different path ]', head: 'Reject more <em>government control</em>', body: 'Oregon needs accountability, public safety, strong schools, economic growth, and individual freedom.', icon: 'flag' },
+  { eb: '[ save oregon ]', head: 'SAVE <em>OREGON</em>', body: 'From more taxes and bureaucracy.', icon: 'capitol' },
+  { eb: '[ real life ]', head: 'Leadership shaped by <em>real life</em>', body: 'Veteran. Veterinarian. Small-business owner. Mark understands the pressures Oregon families face.', icon: 'star' },
+  { eb: '[ small business ]', head: 'Stop squeezing <em>local employers</em>', body: 'Small businesses need fewer burdens, faster permits, lower pressure, and room to grow.', icon: 'store' },
+  { eb: '[ centralization ]', head: 'Oregon cannot centralize its way into <em>prosperity.</em>', body: '', icon: 'capitol' },
+  { eb: '[ stronger communities ]', head: 'Stronger communities. <em>Accountable government.</em>', body: 'Strong schools. Lower costs. Government that respects taxpayers.', icon: 'check' },
+  { eb: '[ small business ]', head: 'Small businesses are not <em>government revenue machines</em>', body: 'Oregon should make it easier to build, hire, serve, and grow, not punish the people creating jobs.', icon: 'store' },
+  { eb: '[ less bureaucracy ]', head: 'More bureaucracy will not fix <em>bureaucracy.</em>', body: '', icon: 'capitol' },
+  { eb: '[ public safety ]', head: 'Safe communities are <em>not optional.</em>', body: 'Mark Norman, demanding Oregon’s rights.', icon: 'shield' },
   { eb: '[ healthcare ]', head: 'Healthcare that’s <em>patient-centered</em>', body: 'Decisions should stay between patients and professionals, not centralized through government control.', icon: 'heartplus' },
-  { eb: '[ veteran support ]', head: 'Veterans deserve <em>real support</em>', body: 'They fulfilled their commitment to this country. Government and society should fulfill their commitment to them.', icon: 'star' },
-  { eb: '[ mark’s position ]', head: 'Mark’s position is <em>clear</em>', body: 'Mark trusts House District 27 voters to study the issues, compare the visions, and decide.', icon: 'scales' },
-  { eb: '[ two philosophies ]', head: 'Two philosophies <em>of government</em>', body: 'One depends on larger government and centralized control. Mark’s depends on opportunity and accountability.', icon: 'scales' },
-  { eb: '[ house district 27 ]', head: 'A different path for <em>House District 27</em>', body: 'This election is about two different views of government, and which path will best serve Oregon.', icon: 'pin' },
-  { eb: '[ practical leadership ]', head: 'Practical leadership <em>for Oregon</em>', body: 'Mark believes Oregon needs service, solutions, and accountability, not a larger-government agenda.', icon: 'check' },
+  { eb: '[ veteran support ]', head: 'Veterans deserve <em>real help.</em> Not empty promises.', body: 'Service does not end when the uniform comes off. Veterans deserve more than empty promises, dignity, and accountability.', icon: 'star' },
+  { eb: '[ the choice ]', head: 'VOTE FOR <em>MARK</em>', body: '', icon: 'check' },
+  { eb: '[ free download ]', head: 'Download: a warning about <em>democratic socialism in HD-27</em>', body: '', icon: 'book' },
+  { eb: '[ the choice ]', head: 'This election is about <em>direction</em>', body: 'Know what is at stake.', icon: 'scales' },
+  { eb: '[ local control ]', head: 'More government power means <em>less local choice.</em>', body: '', icon: 'pin' },
   { eb: '[ opportunity ]', head: 'Opportunity over <em>centralized control</em>', body: 'America’s success was built on individual liberty, free enterprise, strong families, and local communities.', icon: 'flag' },
   { eb: '[ energy ]', head: 'Reliable energy <em>that works</em>', body: 'An all-of-the-above strategy: hydroelectric, natural gas, renewables, and next-generation nuclear power.', icon: 'bolt' },
-  { eb: '[ schools ]', head: 'Strong schools, <em>safe classrooms</em>', body: 'A focus on reading, writing, math, science, civics, discipline, critical thinking, and career readiness.', icon: 'book' },
-  { eb: '[ working families ]', head: 'Lower costs for <em>working families</em>', body: 'Lower costs, a better climate for small business, and a government that respects taxpayers.', icon: 'store' },
-  { eb: '[ meet mark ]', head: 'A Navy veteran & <em>veterinarian</em>', body: 'Thirty years of service to Oregon communities, as a retired Navy veteran and longtime veterinarian.', icon: 'star' },
-  { eb: '[ accountability ]', head: 'Reform with <em>accountability</em>', body: 'Public programs should be accountable, effective, and measured by results, not by spending and size.', icon: 'check' },
+  { eb: '[ schools ]', head: 'Teach the basics. <em>Restore trust.</em>', body: 'Reading, math, science, discipline, parent transparency, and career readiness should come first.', icon: 'book' },
+  { eb: '[ no empty promises ]', head: 'No <em>empty promises.</em>', body: 'Mark for Oregon.', icon: 'check' },
+  { eb: '[ real service ]', head: 'Real service. <em>Real perspective.</em>', body: 'Mark brings decades of service, veterinary experience, and small-business leadership to Oregon’s real problems.', icon: 'star' },
+  { eb: '[ accountability ]', head: 'Spending more is not the same as <em>solving more</em>', body: 'Public programs should be judged by results, not by how much money they consume.', icon: 'check' },
   { eb: '[ service · solutions ]', head: 'Service. Solutions. <em>Accountability.</em>', body: 'Government should serve people and be measured by results, not by how large it grows.', icon: 'star' },
   { eb: '[ for oregon ]', head: 'A fair chance for <em>every Oregon family</em>', body: 'Mark shares the goal of affordable healthcare, strong schools, and safe neighborhoods for every family.', icon: 'pin' },
 ]
 export const QUOTES = [
   { q: 'Oregonians should not have to choose between compassion and safety. <em>We need both.</em>', icon: 'shield' },
-  { q: 'Small businesses should be partners in economic growth, <em>not endless sources of revenue.</em>', icon: 'store' },
-  { q: 'People do not need to agree on every national issue to <em>work together on local problems.</em>', icon: 'pin' },
+  { q: 'Small businesses should not pay the price for <em>bigger government.</em>', icon: 'store' },
+  { q: 'Trust in government is falling. <em>More control is not the answer.</em>', icon: 'capitol' },
   { q: 'Government should serve people, <em>not simply grow larger.</em>', icon: 'capitol' },
   { q: 'Healthcare decisions should stay between patients and <em>healthcare professionals.</em>', icon: 'heartplus' },
 ]
@@ -87,8 +87,8 @@ export const STAT_SETS = [
 ]
 export const LIST_SETS = [
   { eb: '[ mark’s practical approach ]', head: 'A practical <em>approach</em>', items: ['Responsible spending and local flexibility.', 'Small-business growth and parent transparency.', 'Public safety with real accountability.'], icon: 'check' },
-  { eb: '[ where mark stands ]', head: 'What Mark <em>supports</em>', items: ['Healthcare choice and reliable energy.', 'Veteran support that delivers real help.', 'Programs measured by results, not size.'], icon: 'scales' },
-  { eb: '[ for oregon ]', head: 'Strong, <em>and accountable</em>', items: ['Strong schools focused on the basics.', 'Lower costs for working families.', 'Government that respects taxpayers.'], icon: 'book' },
+  { eb: '[ where mark stands ]', head: 'Results over <em>empty promises</em>', items: ['Healthcare choice.', 'Veteran support.', 'Public programs measured by results.'], icon: 'check' },
+  { eb: '[ for oregon ]', head: 'Stronger communities. <em>Accountable government.</em>', items: ['Strong schools.', 'Lower costs.', 'Government that respects taxpayers.'], icon: 'check' },
 ]
 export const STAMPS = [['Navy Veteran', 'Veterinarian · 30 yrs'], ['Service · Solutions', 'Oregon HD-27'], ['Practical', 'Accountable']]
 
@@ -112,3 +112,159 @@ export const ICONFX = {
   // giant faint ghost icon as a background element
   ghost: (icon, css, on) => `<div aria-hidden="true" style="position:absolute;z-index:0;color:${onDark(on)};opacity:.07;${css}">${svg(icon)}</div>`,
 }
+
+// ---- per-post square content (1080x1080). One entry per generated post, in the
+// SAME order as COMPS × [navy, paper] in generate-social-squares.mjs. Each post is
+// authored independently (no rotation), so editing one entry never affects another.
+// Fields used depend on the composition: most read {eb, head, body, icon};
+// quote posts read {q}; statRow/statStack read {nums, descs}; list/listChecks read
+// {items}; banner/bannerStripe read {head} as the giant line.
+export const SQUARES = [
+  // 01 · edLeft · navy
+  { eb: '[ socialism 101 ]', head: 'The socialist agenda is <em>not harmless</em>', body: 'More government. Higher taxes. Less freedom. Voters deserve to know what is at stake.', icon: 'capitol' },
+  // 02 · edLeft · paper
+  { eb: '[ small business ]', head: 'Small businesses are not <em>government revenue machines</em>', body: 'Oregon should make it easier to build, hire, serve, and grow, not punish the people creating jobs.', icon: 'store' },
+  // 03 · edCenter · navy
+  { eb: '[ the choice ]', head: 'This election is about <em>direction</em>', body: 'Know what is at stake.', icon: 'scales' },
+  // 04 · edCenter · paper
+  { eb: '[ accountability ]', head: 'Spending more is not the same as <em>solving more</em>', body: 'Public programs should be judged by results, not by how much money they consume.', icon: 'check' },
+  // 05 · bigNum · navy
+  { eb: '[ small business ]', head: 'Stop squeezing <em>local employers</em>', body: 'Small businesses need fewer burdens, faster permits, lower pressure, and room to grow.', icon: 'store' },
+  // 06 · bigNum · paper
+  { eb: '[ veteran support ]', head: 'Veterans deserve <em>real help.</em> Not empty promises.', body: 'Service does not end when the uniform comes off. Veterans deserve more than empty promises, dignity, and accountability.', icon: 'star' },
+  // 07 · splitH · navy
+  { eb: '[ schools ]', head: 'Teach the basics. <em>Restore trust.</em>', body: 'Reading, math, science, discipline, parent transparency, and career readiness should come first.', icon: 'book' },
+  // 08 · splitH · paper
+  { eb: '[ a different path ]', head: 'Reject more <em>government control</em>', body: 'Oregon needs accountability, public safety, strong schools, economic growth, and individual freedom.', icon: 'flag' },
+  // 09 · splitV · navy
+  { eb: '[ less bureaucracy ]', head: 'More bureaucracy will not fix <em>bureaucracy.</em>', body: '', icon: 'capitol' },
+  // 10 · splitV · paper
+  { eb: '[ local control ]', head: 'More government power means <em>less local choice.</em>', body: '', icon: 'pin' },
+  // 11 · iconHero · navy
+  { eb: '[ service · solutions ]', head: 'Service. Solutions. <em>Accountability.</em>', body: '', icon: 'star' },
+  // 12 · iconHero · paper
+  { eb: '[ centralization ]', head: 'Oregon cannot centralize its way into <em>prosperity.</em>', body: '', icon: 'capitol' },
+  // 13 · portraitR · navy
+  { eb: '[ the choice ]', head: 'VOTE FOR <em>MARK</em>', body: '', icon: 'check' },
+  // 14 · portraitR · paper
+  { eb: '[ no empty promises ]', head: 'No <em>empty promises.</em>', body: 'Mark for Oregon.', icon: 'check' },
+  // 15 · portraitBand · navy
+  { eb: '[ save oregon ]', head: 'SAVE <em>OREGON</em>', body: 'From more taxes and bureaucracy.', icon: 'capitol' },
+  // 16 · portraitBand · paper
+  { eb: '[ public safety ]', head: 'Safe communities are <em>not optional.</em>', body: 'Mark Norman, demanding Oregon’s rights.', icon: 'shield' },
+  // 17 · quote · navy
+  { q: 'Small businesses should not pay the price for <em>bigger government.</em>', icon: 'store' },
+  // 18 · quote · paper
+  { q: 'Trust in government is falling. <em>More control is not the answer.</em>', icon: 'capitol' },
+  // 19 · statRow · navy
+  { eb: '[ animal welfare ]', head: 'Protect animals <em>without overreach</em>', body: '', icon: 'paw', nums: [['+', '30'], ['', '9'], ['', '27']], descs: ['years in service', 'issue priorities', 'house district'] },
+  // 20 · statRow · paper
+  { eb: '[ free download ]', head: 'A warning about <em>democratic socialism in HD-27</em>', body: '', icon: 'book', nums: [['', '9'], ['+', '30'], ['', '27']], descs: ['issue priorities', 'years serving', 'district 27'] },
+  // 21 · statHero · navy
+  { eb: '[ real service ]', head: 'Real service. <em>Real perspective.</em>', body: 'Mark brings decades of service, veterinary experience, and small-business leadership to Oregon’s real problems.', icon: 'star' },
+  // 22 · statHero · paper
+  { eb: '[ real life ]', head: 'Leadership shaped by <em>real life</em>', body: 'Veteran. Veterinarian. Small-business owner. Mark understands the pressures Oregon families face.', icon: 'star' },
+  // 23 · list · navy
+  { eb: '[ where mark stands ]', head: 'Results over <em>empty promises</em>', items: ['Healthcare choice.', 'Veteran support.', 'Public programs measured by results.'], icon: 'check' },
+  // 24 · list · paper
+  { eb: '[ for oregon ]', head: 'Stronger communities. <em>Accountable government.</em>', items: ['Strong schools.', 'Lower costs.', 'Government that respects taxpayers.'], icon: 'check' },
+  // 25 · banner · navy
+  { eb: '[ taxpayers ]', head: 'Respect <em>taxpayers.</em>', icon: 'check' },
+  // 26 · banner · paper
+  { eb: '[ the message ]', head: 'Mark’s message is <em>clear.</em>', icon: 'flag' },
+  // 27 · card · navy
+  { eb: '[ the dsa agenda ]', head: 'The DSA agenda is <em>not harmless.</em>', body: 'DSA calls itself the largest socialist organization in the country. Voters deserve to know what that means for HD-27.', icon: 'capitol' },
+  // 28 · card · paper
+  { eb: '[ the choice ]', head: 'Reject the socialist agenda. <em>Choose practical leadership.</em>', body: 'Opportunity, accountability, public safety, strong schools, economic growth, individual freedom, and results.', icon: 'check' },
+  // 29 · diagonal · navy
+  { eb: '[ small business ]', head: 'Stop punishing <em>local employers</em>', body: 'Small businesses need fewer burdens, faster permits, and room to grow.', icon: 'store' },
+  // 30 · diagonal · paper
+  { eb: '[ schools ]', head: 'Teach the basics. <em>Keep classrooms safe.</em>', body: 'Reading, math, science, discipline, parent transparency, and career readiness must come first.', icon: 'book' },
+  // 31 · edRight · navy
+  { eb: '[ results ]', head: 'Oregon needs results, <em>not control</em>', body: 'Accountability, public safety, strong schools, lower costs, and individual freedom.', icon: 'check' },
+  // 32 · edRight · paper
+  { eb: '[ veterans ]', head: 'Real support for <em>those who served</em>', body: 'Veterans deserve care, dignity, opportunity, and systems that actually work.', icon: 'star' },
+  // 33 · edBottom · navy
+  { eb: '[ town hall ]', head: 'Let’s talk about what matters <em>in HD-27</em>', body: '[ DATE ] · [ TIME ] · [ LOCATION ] — Join Mark for a conversation on rising costs, schools, public safety, and government accountability.', icon: 'capitol' },
+  // 34 · edBottom · paper
+  { eb: '[ meet mark ]', head: 'Coffee and <em>conversation with Mark</em>', body: '[ DATE ] · [ TIME ] · [ LOCATION ] — Come meet Mark, hear his vision for Oregon, and talk about the future of House District 27.', icon: 'star' },
+  // 35 · stripeField · navy
+  { eb: '[ schools ]', head: 'Parents, teachers, and <em>community voices</em>', body: '[ DATE ] · [ TIME ] · [ LOCATION ] — Join Mark for a conversation about strong schools, safe classrooms, parent involvement, and student success.', icon: 'book' },
+  // 36 · stripeField · paper
+  { eb: '[ practical leadership ]', head: 'Less ideology. <em>More results.</em>', body: 'Mark supports service, solutions, accountability, and leadership connected to real life.', icon: 'check' },
+  // 37 · ruled · navy
+  { eb: '[ reject socialism ]', head: 'Reject the <em>socialist agenda</em>', body: 'House District 27 does not need higher taxes, expanded bureaucracy, public ownership, and centralized control.', icon: 'flag' },
+  // 38 · ruled · paper
+  { eb: '[ affordability ]', head: 'Stop making life <em>more expensive</em>', body: 'Oregon families need lower pressure, fewer unnecessary costs, and a government that respects household budgets.', icon: 'store' },
+  // 39 · halfBlock · navy
+  { eb: '[ working families ]', head: 'Socialism makes <em>families pay more</em>', body: 'Higher taxes, more fees, and bigger government do not make life easier for working families.', icon: 'store' },
+  // 40 · halfBlock · paper
+  { eb: '[ public ownership ]', head: 'Public ownership means <em>public risk</em>', body: 'Government control over major infrastructure can mean higher costs, fewer choices, and less accountability.', icon: 'bolt' },
+  // 41 · starField · navy
+  { eb: '[ freedom ]', head: 'Freedom builds. <em>Socialism controls.</em>', body: 'House District 27 deserves opportunity, not a larger-government agenda that limits choice.', icon: 'flag' },
+  // 42 · starField · paper
+  { eb: '[ affordability ]', head: 'Make Oregon <em>livable again</em>', body: 'Families need lower pressure, responsible spending, and fewer policies that drive up daily costs.', icon: 'store' },
+  // 43 · listChecks · navy
+  { eb: '[ what mark stands for ]', head: 'What Mark <em>stands for</em>', items: ['Affordability for working families', 'Public safety and accountability', 'Strong schools and local opportunity'], icon: 'check' },
+  // 44 · listChecks · paper
+  { eb: '[ what mark supports ]', head: 'Mark supports what <em>socialism threatens</em>', items: ['Individual freedom and local choice', 'Small-business growth and private enterprise', 'Programs measured by results, not control'], icon: 'check' },
+  // 45 · statStack · navy
+  { eb: '[ meet mark ]', head: 'Not a politician. <em>A fighter for common sense.</em>', body: '', icon: 'star', nums: [['', '22'], ['', '30'], ['', '27']], descs: ['years of service', 'years in practice', 'house district'] },
+  // 46 · statStack · paper
+  { eb: '[ meet mark ]', head: 'A veteran. A veterinarian. <em>A voice for Oregon.</em>', body: '', icon: 'star', nums: [['', '22'], ['', '25'], ['', '30']], descs: ['years u.s. navy veteran', 'years in district', 'years in practice'] },
+  // 47 · bannerStripe · navy
+  { eb: '[ oregon families ]', head: 'Oregon families are <em>paying the price</em>', icon: 'store' },
+  // 48 · bannerStripe · paper
+  { eb: '[ oregon families ]', head: 'Put Oregon <em>families first</em>', icon: 'store' },
+  // 49 · twoCol · navy
+  { eb: '[ individual freedom ]', head: 'More government means <em>less control for you</em>', body: 'When government grows, families, taxpayers, and small businesses lose more say over their own future.', icon: 'flag' },
+  // 50 · twoCol · paper
+  { eb: '[ data centers ]', head: 'Growth needs <em>ground rules</em>', body: 'Power demand, water use, utility costs, land pressure, and tax fairness must be answered before communities pay the price.', icon: 'server' },
+]
+
+// ---- per-post story content (1080x1920). One entry per generated story, in the
+// SAME order as story COMPS × [navy, paper]. Authored independently (no rotation).
+// quote → {q}; banner → {head}; list → {items}; statStack → {nums,descs} OR {body}
+// (falls back to a body paragraph when no stats are supplied); others → {head, body}.
+export const STORIES = [
+  // 01 · edLeft · navy
+  { eb: '[ bureaucracy ]', head: 'Oregon’s problems won’t be solved by <em>more bureaucracy.</em>', body: 'Agree? Tap to read Mark’s warning about socialism in Oregon.', icon: 'capitol' },
+  // 02 · edLeft · paper
+  { eb: '[ the choice ]', head: 'Which direction should <em>Oregon take?</em>', body: 'More government — or more accountability?', icon: 'scales' },
+  // 03 · splitH · navy
+  { eb: '[ ask mark ]', head: 'Ask Mark <em>Norman.</em>', body: 'Have a question about Mark’s position on socialism, taxes, public safety, schools, small business, or healthcare? Ask Mark here.', icon: 'star' },
+  // 04 · splitH · paper
+  { eb: '[ the choice ]', head: 'What Mark rejects. <em>What Mark supports.</em>', body: 'Rejects: larger government, higher taxes, expanded bureaucracy, centralized control. Supports: service, solutions, accountability.', icon: 'scales' },
+  // 05 · bigNum · navy
+  { eb: '[ centralization ]', head: 'Bigger government is not compassion. <em>It is control.</em>', body: 'Download Mark’s guide.', icon: 'capitol' },
+  // 06 · bigNum · paper
+  { eb: '[ public safety ]', head: 'Should public safety be <em>fully funded?</em>', body: 'Mark supports fully funded public safety with accountability.', icon: 'shield' },
+  // 07 · iconHero · navy
+  { eb: '[ affordability ]', head: 'How much are rising costs affecting <em>Oregon families?</em>', body: '', icon: 'store' },
+  // 08 · iconHero · paper
+  { eb: '[ the choice ]', head: 'HD-27 cannot afford a <em>socialist direction.</em>', body: '', icon: 'flag' },
+  // 09 · portrait · navy
+  { eb: '[ meet mark ]', head: 'Running for <em>House District 27.</em>', body: 'Grounded leadership and practical solutions. Follow for campaign updates.', icon: 'star' },
+  // 10 · portrait · paper
+  { eb: '[ ask mark ]', head: 'Mark Norman is <em>listening.</em>', body: 'Ask Mark your question.', icon: 'star' },
+  // 11 · quote · navy
+  { q: 'Oregon cannot tax, regulate, bureaucratize, and centralize its way into <em>prosperity.</em>' },
+  // 12 · quote · paper
+  { q: 'I believe Oregon needs accountability, <em>not more excuses.</em>' },
+  // 13 · statStack · navy (list-style copy → body fallback)
+  { eb: '[ join the campaign ]', head: 'There’s room <em>to help.</em>', body: 'Walk a neighborhood. Make calls. Host a coffee. Attend an event. Share campaign updates. Campaigns are built by people who show up.', icon: 'star' },
+  // 14 · statStack · paper (list-style copy → body fallback)
+  { eb: '[ a different path ]', head: 'House District 27 <em>deserves better.</em>', body: 'Less bureaucracy. More accountability. Safer communities. Stronger schools. Lower pressure on families. Practical leadership.', icon: 'flag' },
+  // 15 · banner · navy
+  { eb: '[ affordability ]', head: 'Higher taxes are <em>not a plan</em>', icon: 'store' },
+  // 16 · banner · paper
+  { eb: '[ public safety ]', head: 'Compassion without accountability is <em>not public safety</em>', icon: 'shield' },
+  // 17 · list · navy
+  { eb: '[ where mark stands ]', head: 'Mark’s <em>direction.</em>', items: ['Opportunity', 'Accountability', 'Public safety', 'Strong schools', 'Economic growth', 'Individual freedom'], icon: 'flag' },
+  // 18 · list · paper
+  { eb: '[ two philosophies ]', head: 'Socialism means <em>more government control.</em>', items: ['More taxes.', 'More bureaucracy.', 'More centralized power.', 'Less freedom for families and small businesses.'], icon: 'capitol' },
+  // 19 · stripeField · navy
+  { eb: '[ schools ]', head: 'Schools should prepare students for <em>real life.</em>', body: 'Reading. Math. Science. Civics. Discipline. Career readiness. Parent transparency. That is where the focus should be.', icon: 'book' },
+  // 20 · stripeField · paper
+  { eb: '[ ask mark ]', head: 'Mark is <em>listening.</em>', body: 'Costs, schools, safety, and small-business pressure. What issue matters most to you?', icon: 'heartplus' },
+]

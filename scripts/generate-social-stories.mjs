@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { FONTS, TOKENS, PAL, PORTRAITS, TOPICS, QUOTES, BANNER_HEADS, STAT_SETS, LIST_SETS, STAMPS, pad, pick, scaler, logoTag, stamp, ICONFX } from './lib/post-content.mjs'
+import { FONTS, TOKENS, PAL, PORTRAITS, STORIES, STAMPS, pad, pick, scaler, logoTag, stamp, ICONFX } from './lib/post-content.mjs'
 
 /**
  * 20 story (1080x1920) posts, each a DISTINCT composition (10 layouts x navy/paper).
@@ -115,7 +115,7 @@ C.portrait = (c) => {
 }
 
 C.quote = (c) => {
-  const p = PAL[c.bg], q = pick(QUOTES, c.variant)
+  const p = PAL[c.bg], q = c.t
   return HEAD(c, `${theme(c.bg)}
 .story{display:flex;flex-direction:column;justify-content:center;padding:250px 96px}
 .content{position:relative;z-index:3;max-width:840px}
@@ -129,22 +129,24 @@ C.quote = (c) => {
 }
 
 C.statStack = (c) => {
-  const p = PAL[c.bg], t = c.t, s = pick(STAT_SETS, c.variant)
-  const rows = s.nums.map((n, k) => `<div class="st"><div class="num t"><span class="plus">${n[0]}</span>${n[1]}</div><div class="desc t">${s.descs[k]}</div></div>`).join('')
+  const p = PAL[c.bg], t = c.t, s = c.t
+  const rows = (s.nums || []).map((n, k) => `<div class="st"><div class="num t"><span class="plus">${n[0]}</span>${n[1]}</div><div class="desc t">${s.descs[k]}</div></div>`).join('')
+  const detail = s.nums ? `<div class="stats">${rows}</div>` : `<p class="body t">${t.body}</p>`
   return HEAD(c, `${theme(c.bg)}
 .story{display:flex;flex-direction:column;justify-content:center;padding:250px 96px}
 .content{position:relative;z-index:3;max-width:820px}
 .headline{font-size:84px;margin-top:22px}
 .stats{display:flex;flex-direction:column;gap:30px;margin-top:54px}
+.body{margin-top:46px;max-width:740px}
 .st{display:flex;align-items:baseline;gap:26px}.num{font-weight:700;font-size:128px;line-height:.82;letter-spacing:-.03em;color:${p.text}}.num .plus{color:${p.red};font-size:68px;vertical-align:super}.desc{font-family:var(--ff-mono);font-size:20px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:${p.body}}`,
   `${dots(c.bg)}${stars(c.bg, ['top:320px;right:170px;font-size:44px'])}
     ${logoTag(p.logo, 140)}
     ${ICONFX.tile(t.icon, 'right:120px;top:300px;width:230px;height:230px', c.bg)}
-    <div class="content"><span class="eyebrow t">${t.eb}</span><h1 class="headline t">${t.head}</h1><div class="stats">${rows}</div></div>`)
+    <div class="content"><span class="eyebrow t">${t.eb}</span><h1 class="headline t">${t.head}</h1>${detail}</div>`)
 }
 
 C.banner = (c) => {
-  const p = PAL[c.bg], b = pick(BANNER_HEADS, c.variant)
+  const p = PAL[c.bg], b = { eb: c.t.eb, h: c.t.head }
   return HEAD(c, `${theme(c.bg)}
 .story{display:flex;flex-direction:column;justify-content:center;padding:250px 96px}
 .content{position:relative;z-index:3;max-width:900px}
@@ -158,7 +160,7 @@ C.banner = (c) => {
 }
 
 C.list = (c) => {
-  const p = PAL[c.bg], s = pick(LIST_SETS, c.variant)
+  const p = PAL[c.bg], s = c.t
   const numBg = c.bg === 'navy' ? 'var(--paper)' : 'var(--navy)'
   const numFg = c.bg === 'navy' ? 'var(--navy)' : 'var(--paper)'
   const li = s.items.map((x, k) => `<div class="item"><span class="n t">${pad(k + 1)}</span><span class="tx t">${x}</span></div>`).join('')
@@ -194,14 +196,15 @@ C.stripeField = (c) => {
 }
 
 const COMPS = ['edLeft', 'splitH', 'bigNum', 'iconHero', 'portrait', 'quote', 'statStack', 'banner', 'list', 'stripeField']
-const cfgs = []
-let ti = 0, variant = 0, n = 1
-for (const comp of COMPS) {
-  for (const bg of ['navy', 'paper']) {
-    cfgs.push({ n: n++, comp, bg, t: TOPICS[ti % TOPICS.length], variant })
-    ti += 5; variant++
-  }
-}
+// Each story is authored independently in STORIES (no rotation), in the same
+// order as COMPS × [navy, paper]: story i uses COMPS[floor(i/2)], alternating bg.
+const cfgs = STORIES.map((t, i) => ({
+  n: i + 1,
+  comp: COMPS[Math.floor(i / 2)],
+  bg: i % 2 === 0 ? 'navy' : 'paper',
+  t,
+  variant: i,
+}))
 let written = 0
 for (const cfg of cfgs) {
   writeFileSync(path.join(OUT, `${pad(cfg.n)}-${cfg.comp}-${cfg.bg}.html`), C[cfg.comp](cfg))
