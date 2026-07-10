@@ -9,15 +9,25 @@ import Reveal from '@/components/motion/reveal'
 import { CAMPAIGN } from '@/constants/site'
 
 export const metadata = {
-  title: `Why Mark Norman Opposes Democratic Socialism — ${CAMPAIGN.candidate} for Oregon`,
+  title: `Mark Norman Opposes and Warns About Democratic Socialism — ${CAMPAIGN.candidate} for Oregon`,
   description:
-    'Download Mark Norman’s free guide explaining democratic socialism, the DSA agenda, and ' +
-    'why Mark believes Oregon House District 27 needs a different path rooted in opportunity, ' +
-    'accountability, public safety, economic growth, and individual freedom.',
+    'Democratic socialism points toward larger government, higher taxes, expanded bureaucracy, ' +
+    'public ownership, and centralized control over more parts of everyday life. Download ' +
+    'Mark Norman’s free guide to learn why he rejects that direction.',
   openGraph: {
     images: ['/images/voter-guide-cover.png'],
   },
 }
+
+const DSA_AREAS = [
+  'Healthcare',
+  'Housing',
+  'Labor policy',
+  'Taxation',
+  'Transportation',
+  'Energy',
+  'Public safety',
+]
 
 const ALTERNATIVE_TOPICS = [
   'Animal Welfare',
@@ -33,6 +43,31 @@ const ALTERNATIVE_TOPICS = [
 
 const ISSUE_DETAILS = [
   {
+    key: 'public-safety',
+    eyebrow: 'public safety',
+    heading: (
+      <>
+        Safe communities, <em>not weakened law enforcement.</em>
+      </>
+    ),
+    body: (
+      <>
+        <p className="text-stone-dark">Public safety is not optional.</p>
+        <p className="text-stone-dark">
+          Mark supports fully funding public safety, recruiting and retaining qualified officers,
+          holding criminals accountable, strengthening community policing, improving behavioral
+          health partnerships, and giving law enforcement the tools needed to keep neighborhoods
+          safe.
+        </p>
+        <p className="text-stone-dark">
+          Mark rejects policies that weaken law enforcement, normalize disorder, or leave families
+          and businesses feeling abandoned.
+        </p>
+      </>
+    ),
+    cta: 'Read the public safety position',
+  },
+  {
     key: 'education',
     eyebrow: 'education',
     heading: (
@@ -40,9 +75,12 @@ const ISSUE_DETAILS = [
         Schools should focus on strong basics and <em>real skills.</em>
       </>
     ),
-    body:
-      'Mark believes Oregon schools should focus on reading, writing, math, science, civics, ' +
-      'discipline, critical thinking, career readiness, safe classrooms, and parent transparency.',
+    body: (
+      <p className="text-stone-dark">
+        Mark believes Oregon schools should focus on reading, writing, math, science, civics,
+        discipline, critical thinking, career readiness, safe classrooms, and parent transparency.
+      </p>
+    ),
     cta: 'Read the education position',
   },
   {
@@ -53,10 +91,13 @@ const ISSUE_DETAILS = [
         Small businesses need <em>room to grow.</em>
       </>
     ),
-    body:
-      'Mark believes Oregon should reduce unnecessary burdens, streamline permitting, review ' +
-      'excessive fees, protect independent contractors and small employers, and make it easier ' +
-      'to start, grow, and keep a business.',
+    body: (
+      <p className="text-stone-dark">
+        Mark believes Oregon should reduce unnecessary burdens, streamline permitting, review
+        excessive fees, protect independent contractors and small employers, and make it easier to
+        start, grow, and keep a business.
+      </p>
+    ),
     cta: 'Read the small business position',
   },
   {
@@ -67,24 +108,18 @@ const ISSUE_DETAILS = [
         Healthcare should be patient-centered, <em>not bureaucracy-centered.</em>
       </>
     ),
-    body:
-      'Mark supports practical healthcare reforms focused on affordability, access, ' +
-      'transparency, patient choice, provider support, mental health, and addiction treatment. ' +
-      'He does not support a government-run single-payer healthcare system for Oregon.',
-    cta: 'Read the healthcare position',
-  },
-  {
-    key: 'public-safety',
-    eyebrow: 'public safety',
-    heading: (
+    body: (
       <>
-        Public safety should be fully funded <em>and accountable.</em>
+        <p className="text-stone-dark">
+          Mark supports practical healthcare reforms focused on affordability, access,
+          transparency, patient choice, provider support, mental health, and addiction treatment.
+        </p>
+        <p className="text-stone-dark">
+          He does not support a government-run single-payer healthcare system for Oregon.
+        </p>
       </>
     ),
-    body:
-      'Mark supports effective law enforcement, accountability, community policing, behavioral ' +
-      'health partnerships, addiction treatment access, and safe neighborhoods.',
-    cta: 'Read the public safety position',
+    cta: 'Read the healthcare position',
   },
 ]
 
@@ -101,17 +136,17 @@ const VoterGuidePage = () => {
           className="bg-halftone-paper pointer-events-none absolute inset-0 opacity-20"
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-16 lg:px-10 lg:py-32">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16 lg:px-10 lg:py-32">
           <Reveal variant="up" duration={0.75}>
             <div className="flex flex-col items-start gap-6">
               <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
-                Why Mark Norman opposes <em>democratic socialism.</em>
+                Mark Norman opposes and warns about <em>democratic socialism.</em>
               </h1>
               <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
-                Download Mark Norman&rsquo;s free guide explaining democratic socialism, DSA
-                priorities, and why Mark believes Oregon House District 27 needs a different path
-                rooted in opportunity, accountability, public safety, economic growth, and
-                individual freedom.
+                Democratic socialism points toward larger government, higher taxes, expanded
+                bureaucracy, public ownership, and centralized control over more parts of everyday
+                life. Download Mark&rsquo;s free guide to learn why Mark Norman rejects that
+                direction.
               </p>
               <Button asChild variant="red">
                 <a href="#get-the-guide">
@@ -123,13 +158,14 @@ const VoterGuidePage = () => {
           </Reveal>
 
           <Reveal variant="scale" delay={0.15} duration={0.85}>
-            <div className="relative mx-auto aspect-square w-full max-w-[480px] lg:justify-self-end">
+            <div className="relative mx-auto w-full max-w-[400px] lg:justify-self-end">
               <Image
-                src="/images/voter-guide-mockup.png"
-                alt="Printed guide: Socialism 101 — Why Mark Norman Opposes Democratic Socialism."
-                fill
-                sizes="(min-width: 1024px) 480px, 100vw"
-                className="object-contain"
+                src="/images/voter-guide-cover.png"
+                alt="Guide cover: A Warning About Democratic Socialism in House District 27."
+                width={816}
+                height={1056}
+                sizes="(min-width: 1024px) 400px, 80vw"
+                className="h-auto w-full rounded-md border-[1.5px] border-paper-78/30"
                 priority
               />
             </div>
@@ -137,28 +173,28 @@ const VoterGuidePage = () => {
         </div>
       </section>
 
-      {/* Section 2 — Paying more, getting less */}
+      {/* Section 2 — Paying the price */}
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
               <h2 className="display text-4xl text-navy sm:text-5xl">
-                Oregon families are paying more and <em>getting less from government.</em>
+                Oregon is already paying the price for <em>failed government.</em>
               </h2>
               <p className="max-w-prose text-stone-dark">
-                Oregonians are dealing with rising costs, school concerns, public safety challenges,
-                business burdens, healthcare frustration, energy bills, and growing distrust in
-                government.
+                Oregonians are dealing with school concerns, public safety challenges, pressure on
+                small businesses, expensive healthcare, rising costs, and high energy bills. All of
+                this is leading to growing distrust in government.
               </p>
               <p className="max-w-prose text-stone-dark">
-                Mark believes the answer is not more bureaucracy, higher taxes, and centralized
-                control.
+                Mark believes the answer is to reject more bureaucracy, higher taxes, and
+                centralized control.
               </p>
               <a
-                href="#compare"
+                href="#get-the-guide"
                 className="inline-flex min-h-[44px] items-center font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
               >
-                See Mark&rsquo;s different path →
+                Read Mark&rsquo;s warning →
               </a>
             </div>
           </Reveal>
@@ -178,81 +214,52 @@ const VoterGuidePage = () => {
                 Socialism means <em>more government control.</em>
               </h2>
               <p className="max-w-prose text-paper-78">
-                Socialism generally means a much larger role for government in providing services,
-                directing economic activity, redistributing wealth, regulating private enterprise,
-                and controlling major parts of the economy through taxation, public programs, and
-                public ownership.
+                Socialism is not just a slogan. It is not just compassion. It is not just helping
+                people. It means to control the economy, punish success, weaken private enterprise,
+                replace local decision-making, or make families and small businesses dependent on
+                bureaucracy — and that&rsquo;s what a socialist candidate supports.
               </p>
               <p className="border-l-[3px] border-red-3 pl-4 text-xl font-semibold text-paper">
-                Mark believes that path is wrong for Oregon.
+                Mark Norman believes that direction is dangerous for Oregon&rsquo;s future.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Section 4 — More control ≠ better outcomes */}
+      {/* Section 4 — The DSA agenda is not harmless */}
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <Reveal variant="up" duration={0.7}>
-            <div className="flex max-w-3xl flex-col items-start gap-5">
-              <h2 className="display text-4xl text-navy sm:text-5xl">
-                More government control does not always mean <em>better outcomes.</em>
-              </h2>
-              <p className="max-w-prose text-stone-dark">
-                When government expands without accountability, families and small businesses can
-                face higher taxes, more fees, more regulation, fewer choices, and programs that
-                grow without delivering better results.
-              </p>
-              <p className="max-w-prose text-stone-dark">
-                Mark&rsquo;s approach focuses on accountability, affordability, and practical
-                solutions.
-              </p>
-              <Button asChild variant="ghost" size="sm">
-                <a href="#get-the-guide">Get the issue guide</a>
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Section 5 — Voters should know about DSA */}
-      <section className="relative overflow-hidden bg-navy text-paper">
-        <div
-          className="bg-halftone-paper pointer-events-none absolute inset-0 opacity-15"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-12">
             <Reveal variant="up" duration={0.7}>
               <div className="flex max-w-xl flex-col items-start gap-5">
-                <h2 className="display text-4xl text-paper sm:text-5xl">
-                  Voters should <em>know about DSA.</em>
+                <h2 className="display text-4xl text-navy sm:text-5xl">
+                  The DSA agenda is <em>not harmless.</em>
                 </h2>
-                <p className="max-w-prose text-paper-78">
-                  The Democratic Socialists of America is not just a label. It is a national
-                  political organization with a broader ideological agenda centered on expanding
-                  government power over healthcare, housing, labor policy, taxation, transportation,
-                  energy, and major parts of the economy.
+                <p className="max-w-prose text-stone-dark">
+                  The Democratic Socialists of America is a national socialist organization built
+                  around an agenda that would expand government authority over:
                 </p>
-                <p className="max-w-prose text-paper-78">
-                  Mark believes voters should understand what that means before choosing which
-                  philosophy should represent House District 27. This is not simply a debate about
-                  compassion or helping people. Mark supports helping vulnerable Oregonians,
-                  improving schools, lowering healthcare costs, and strengthening public safety.
+                <ul className="grid w-full gap-2 sm:grid-cols-2">
+                  {DSA_AREAS.map((area) => (
+                    <li key={area} className="flex items-baseline gap-3">
+                      <span className="text-sm text-red" aria-hidden="true">
+                        ★
+                      </span>
+                      <span className="font-sans text-base font-semibold text-navy">{area}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="max-w-prose text-stone-dark">
+                  That is government overreach, and Mark Norman rejects the DSA approach.
                 </p>
-                <p className="max-w-prose text-paper-78">
-                  The real question is whether Oregon should solve those problems through more
-                  government control, higher taxes, expanded bureaucracy, and public ownership or
-                  through accountability, opportunity, local solutions, economic growth, and
-                  individual freedom.
+                <p className="border-l-[3px] border-red pl-4 text-xl font-semibold text-navy">
+                  Oregon cannot tax, regulate, bureaucratize, and centralize its way into
+                  prosperity.
                 </p>
-                <p className="border-l-[3px] border-red-3 pl-4 text-xl font-semibold text-paper">
-                  Mark rejects the democratic socialist approach.
-                </p>
-                <Button asChild variant="invert">
+                <Button asChild variant="primary">
                   <a href="#get-the-guide">
-                    Read why Mark opposes democratic socialism
+                    Learn more
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </a>
                 </Button>
@@ -266,63 +273,52 @@ const VoterGuidePage = () => {
                 width={1672}
                 height={941}
                 sizes="(min-width: 768px) 560px, 100vw"
-                className="h-auto w-full rounded-2xl border-[1.5px] border-paper-78/30"
+                className="h-auto w-full rounded-2xl border-[1.5px] border-bone"
               />
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Section 6 — This choice matters in HD27 */}
-      <section className="bg-paper">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-8">
-            <Reveal variant="up" duration={0.7}>
-              <div className="flex max-w-xl flex-col items-start gap-5">
-                <h2 className="display text-4xl text-navy sm:text-5xl">
-                  This choice matters in <em>House District 27.</em>
-                </h2>
-                <p className="max-w-prose text-stone-dark">
-                  This is not just a national debate. The choices made in Salem affect schools,
-                  public safety, healthcare, small businesses, transportation, energy, housing, and
-                  local communities.
-                </p>
-                <p className="max-w-prose text-stone-dark">
-                  Mark opposes democratic socialism because he believes Oregon needs practical
-                  leadership, not bigger government.
-                </p>
-                <a
-                  href="#compare"
-                  className="inline-flex min-h-[44px] items-center font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
-                >
-                  Compare the visions →
+      {/* Section 5 — HD27 cannot afford a socialist direction */}
+      <section className="relative overflow-hidden bg-navy text-paper">
+        <div
+          className="bg-halftone-paper pointer-events-none absolute inset-0 opacity-15"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+          <Reveal variant="up" duration={0.7}>
+            <div className="flex max-w-3xl flex-col items-start gap-5">
+              <h2 className="display text-4xl text-paper sm:text-5xl">
+                House District 27 cannot afford <em>a socialist direction.</em>
+              </h2>
+              <p className="max-w-prose text-paper-78">
+                This is not just a national debate. The choices made in Salem affect your schools,
+                your public safety, your healthcare, small businesses, your transportation, energy,
+                your housing, and local communities.
+              </p>
+              <p className="max-w-prose text-paper-78">
+                Mark opposes democratic socialism because he believes Oregon needs practical
+                leadership, not bigger government.
+              </p>
+              <Button asChild variant="invert">
+                <a href="#compare">
+                  Compare the two directions
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
-              </div>
-            </Reveal>
-
-            <Reveal variant="scale" delay={0.15} duration={0.85}>
-              <div className="relative">
-                <Image
-                  src="/images/voter-guide-spread.png"
-                  alt="Open spread of the Socialism 101 guide showing the Why this matters in House District 27 and Mark's position is clear pages."
-                  width={2054}
-                  height={1517}
-                  sizes="(min-width: 1024px) 560px, 100vw"
-                  className="h-auto w-full"
-                />
-              </div>
-            </Reveal>
-          </div>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Section 7 — Two visions compared */}
+      {/* Section 6 — Government control vs. practical leadership */}
       <section id="compare" className="scroll-mt-24 bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.6}>
             <div className="flex max-w-3xl flex-col items-start gap-3">
               <h2 className="display text-4xl text-navy sm:text-5xl">
-                Bigger government vs. <em>Mark Norman&rsquo;s practical leadership.</em>
+                Government control vs. <em>Mark Norman&rsquo;s practical leadership.</em>
               </h2>
             </div>
           </Reveal>
@@ -331,11 +327,11 @@ const VoterGuidePage = () => {
             <Reveal variant="up" delay={0.05} duration={0.6}>
               <article className="flex h-full flex-col gap-3 rounded-2xl border border-bone bg-white p-8 lg:p-10">
                 <p className="font-sans text-xl font-bold tracking-tight text-navy">
-                  Bigger government
+                  Government control
                 </p>
                 <p className="text-stone-dark">
-                  One vision depends on a larger government, higher taxes, expanded bureaucracy, and
-                  more centralized control.
+                  One vision depends on a larger government, higher taxes, expanded bureaucracy,
+                  and more centralized control.
                 </p>
               </article>
             </Reveal>
@@ -357,11 +353,60 @@ const VoterGuidePage = () => {
           <Reveal variant="up" delay={0.15} duration={0.6}>
             <div className="mt-8">
               <Button asChild variant="primary">
-                <a href="#priorities">
-                  Read Mark&rsquo;s priorities
+                <a href="#get-the-guide">
+                  Download the full guide
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
               </Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Section 7 — Mark is the alternative */}
+      <section id="priorities" className="scroll-mt-24 bg-paper">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:px-10 lg:py-28">
+          <Reveal variant="up" duration={0.7}>
+            <div className="flex flex-col items-start gap-4">
+              <h2 className="display text-4xl text-navy sm:text-5xl">
+                Mark Norman is the alternative to <em>the socialist agenda.</em>
+              </h2>
+              <p className="max-w-prose text-stone-dark">
+                Mark is not just warning voters about democratic socialism. He is offering a clear
+                alternative. His guide explains where he stands on the issues that affect Oregon
+                families every day:
+              </p>
+              <p className="border-l-[3px] border-red pl-4 font-semibold text-navy">
+                This is not abstract theory. This is about the future of House District 27.
+              </p>
+              <div className="mt-2">
+                <Button asChild variant="red">
+                  <a href="#positions">Read Mark&rsquo;s issue priorities</a>
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal variant="right" delay={0.15} duration={0.7}>
+            <div className="overflow-hidden rounded-2xl border border-bone">
+              <ul className="grid gap-px bg-bone sm:grid-cols-2">
+                {gridTopics.map((topic) => (
+                  <li key={topic} className="flex items-baseline gap-3 bg-white px-5 py-4">
+                    <span className="text-sm text-red" aria-hidden="true">
+                      ★
+                    </span>
+                    <span className="font-sans text-base font-semibold text-navy">{topic}</span>
+                  </li>
+                ))}
+              </ul>
+              {lastTopic && (
+                <div className="flex items-baseline gap-3 border-t border-bone bg-white px-5 py-4">
+                  <span className="text-sm text-red" aria-hidden="true">
+                    ★
+                  </span>
+                  <span className="font-sans text-base font-semibold text-navy">{lastTopic}</span>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>
@@ -395,53 +440,8 @@ const VoterGuidePage = () => {
         </div>
       </section>
 
-      {/* Section 9 — Mark's practical alternative */}
-      <section id="priorities" className="scroll-mt-24 bg-paper">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:px-10 lg:py-28">
-          <Reveal variant="up" duration={0.7}>
-            <div className="flex flex-col items-start gap-4">
-              <h2 className="display text-4xl text-navy sm:text-5xl">
-                Mark&rsquo;s <em>practical alternative.</em>
-              </h2>
-              <p className="max-w-prose text-stone-dark">
-                Mark&rsquo;s guide also explains where he stands on the issues affecting Oregon
-                families:
-              </p>
-              <div className="mt-2">
-                <Button asChild variant="red">
-                  <a href="#get-the-guide">Download the free guide</a>
-                </Button>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal variant="right" delay={0.15} duration={0.7}>
-            <div className="overflow-hidden rounded-2xl border border-bone">
-              <ul className="grid gap-px bg-bone sm:grid-cols-2">
-                {gridTopics.map((topic) => (
-                  <li key={topic} className="flex items-baseline gap-3 bg-white px-5 py-4">
-                    <span className="text-sm text-red" aria-hidden="true">
-                      ★
-                    </span>
-                    <span className="font-sans text-base font-semibold text-navy">{topic}</span>
-                  </li>
-                ))}
-              </ul>
-              {lastTopic && (
-                <div className="flex items-baseline gap-3 border-t border-bone bg-white px-5 py-4">
-                  <span className="text-sm text-red" aria-hidden="true">
-                    ★
-                  </span>
-                  <span className="font-sans text-base font-semibold text-navy">{lastTopic}</span>
-                </div>
-              )}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Sections 10–13 — Where Mark stands */}
-      <section className="bg-paper-2">
+      {/* Sections 9–12 — Where Mark stands */}
+      <section id="positions" className="scroll-mt-24 bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.6}>
             <h2 className="display text-4xl text-navy sm:text-5xl">
@@ -454,7 +454,7 @@ const VoterGuidePage = () => {
               <Reveal key={issue.key} variant="up" delay={0.05 * idx} duration={0.6}>
                 <article className="flex h-full flex-col items-start gap-3 rounded-2xl border border-bone bg-white p-8 lg:p-10">
                   <h3 className="display text-2xl text-navy sm:text-3xl">{issue.heading}</h3>
-                  <p className="text-stone-dark">{issue.body}</p>
+                  {issue.body}
                   <a
                     href="#get-the-guide"
                     className="mt-auto inline-flex min-h-[44px] items-center pt-2 font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
@@ -468,7 +468,7 @@ const VoterGuidePage = () => {
         </div>
       </section>
 
-      {/* Section 14 — Ask Mark */}
+      {/* Section 13 — Ask Mark */}
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
           <Reveal variant="up" duration={0.6}>
@@ -490,18 +490,24 @@ const VoterGuidePage = () => {
         </div>
       </section>
 
-      {/* Section 15 — Help share */}
+      {/* Section 14 — Get involved */}
       <section className="bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <Reveal variant="up" duration={0.7}>
             <div className="flex max-w-2xl flex-col items-start gap-4">
+              <p className="eyebrow-bracket eyebrow">[ get involved ]</p>
               <h2 className="display text-4xl text-navy sm:text-5xl">
-                Help share Mark&rsquo;s <em>different path for Oregon.</em>
+                Help push back against <em>democratic socialism in Oregon.</em>
               </h2>
               <p className="text-stone-dark">
-                Campaigns are built by people who stay involved. You can attend an event, volunteer,
-                walk a neighborhood, make calls, host a coffee, share campaign updates, review
-                official contribution information, or make a plan to vote in 2026.
+                If you believe House District 27 needs opportunity, accountability, public safety,
+                strong schools, economic growth, individual freedom, and practical leadership
+                instead of democratic socialism, there is room for you to help.
+              </p>
+              <p className="text-stone-dark">
+                You can attend an event, volunteer, walk a neighborhood, make calls, host a coffee,
+                share campaign updates, review official contribution information, or make a plan to
+                vote in 2026.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Button asChild variant="primary">
@@ -511,9 +517,7 @@ const VoterGuidePage = () => {
                   <Link href="/events">View events</Link>
                 </Button>
                 <Button asChild variant="ghost">
-                  <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
-                    Review contribution information
-                  </a>
+                  <a href="#get-the-guide">Sign up for updates</a>
                 </Button>
               </div>
             </div>
@@ -531,12 +535,8 @@ const VoterGuidePage = () => {
           <Reveal variant="up" duration={0.75}>
             <div className="flex max-w-3xl flex-col items-start gap-5">
               <h2 className="display text-4xl sm:text-5xl lg:text-6xl">
-                Know the issues. Stay informed. <em>Get involved.</em>
+                Reject the socialist agenda. <em>Vote for Mark.</em>
               </h2>
-              <p className="max-w-prose text-paper-78">
-                Learn where Mark stands, compare the visions, stay informed, and make a voting plan
-                for 2026.
-              </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Button asChild variant="red">
                   <a href="#get-the-guide">
@@ -545,7 +545,9 @@ const VoterGuidePage = () => {
                   </a>
                 </Button>
                 <Button asChild variant="invert">
-                  <a href="#get-the-guide">Sign up for updates</a>
+                  <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+                    Review contribution information
+                  </a>
                 </Button>
               </div>
             </div>
@@ -559,18 +561,19 @@ const VoterGuidePage = () => {
           <Reveal variant="up" duration={0.7}>
             <div className="flex flex-col items-start gap-4">
               <h2 className="display text-4xl text-navy sm:text-5xl">
-                Download Mark Norman&rsquo;s guide against <em>democratic socialism.</em>
+                Download Mark Norman&rsquo;s warning about <em>democratic socialism.</em>
               </h2>
               <p className="max-w-prose text-stone-dark">
-                Get the free guide explaining why Mark believes Oregon House District 27 needs a
-                different path than larger government, higher taxes, expanded bureaucracy, and
-                centralized control.
+                Get the free guide exposing why Mark believes House District 27 must reject the
+                socialist agenda of larger government, higher taxes, expanded bureaucracy, public
+                ownership, and centralized control.
               </p>
               <p className="max-w-prose text-stone-dark">
-                Inside, you&rsquo;ll learn what Mark believes voters should know about democratic
-                socialism, the DSA agenda, and his practical alternative focused on opportunity,
-                accountability, public safety, strong schools, small-business growth, individual
-                freedom, and responsible government.
+                Inside, you&rsquo;ll learn what voters should know about democratic socialism, the
+                DSA agenda, and Mark Norman&rsquo;s practical alternative for Oregon.
+              </p>
+              <p className="max-w-prose font-semibold text-navy">
+                Reject the socialist agenda. Choose Mark Norman&rsquo;s practical leadership.
               </p>
             </div>
           </Reveal>

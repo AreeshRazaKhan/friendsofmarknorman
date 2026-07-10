@@ -10,7 +10,7 @@ import { CAMPAIGN } from '@/constants/site'
 export const metadata = {
   title: `Your guide is ready — ${CAMPAIGN.candidate} for Oregon`,
   description:
-    'Thank you for downloading Why Mark Norman Opposes Democratic Socialism.',
+    'Thank you for downloading A Warning About Democratic Socialism in House District 27.',
   robots: { index: false, follow: true },
 }
 
@@ -78,19 +78,19 @@ const ThankYouPage = () => {
                 </h1>
                 <div className="flex max-w-prose flex-col gap-3 text-base leading-relaxed text-paper-78 lg:text-lg">
                   <p>
-                    Thank you for downloading &ldquo;Why Mark Norman Opposes Democratic
-                    Socialism.&rdquo;
+                    Thank you for downloading &ldquo;A Warning About Democratic Socialism in House
+                    District 27.&rdquo;
                   </p>
                   <p>
-                    Inside the guide, you&rsquo;ll learn why Mark Norman believes Oregon House
-                    District 27 needs a different path than larger government, higher taxes,
-                    expanded bureaucracy, and centralized control.
+                    Inside, you&rsquo;ll learn why Mark Norman believes House District 27 must
+                    reject the socialist agenda of larger government, higher taxes, expanded
+                    bureaucracy, public ownership, centralized control, and less freedom for
+                    families, workers, taxpayers, and small businesses.
                   </p>
                   <p>
-                    The guide explains what Mark believes voters should know about democratic
-                    socialism, the DSA agenda, and the practical alternative Mark is offering for
-                    Oregon families, small businesses, students, seniors, veterans, and local
-                    communities.
+                    You&rsquo;ll also see Mark&rsquo;s practical alternative on animal welfare,
+                    data centers, education, local issues over ideology, public safety, small
+                    business, transportation and energy, healthcare, and veteran support.
                   </p>
                 </div>
                 <Button asChild variant="red">
@@ -103,13 +103,14 @@ const ThankYouPage = () => {
             </Reveal>
 
             <Reveal variant="scale" delay={0.15} duration={0.85}>
-              <div className="relative mx-auto aspect-square w-full max-w-[480px]">
+              <div className="relative mx-auto w-full max-w-[400px]">
                 <Image
-                  src="/images/voter-guide-mockup.png"
-                  alt="Printed guide: Socialism 101 — Why Mark Norman Opposes Democratic Socialism."
-                  fill
-                  sizes="(min-width: 768px) 480px, 100vw"
-                  className="object-contain"
+                  src="/images/voter-guide-cover.png"
+                  alt="Guide cover: A Warning About Democratic Socialism in House District 27."
+                  width={816}
+                  height={1056}
+                  sizes="(min-width: 768px) 400px, 80vw"
+                  className="h-auto w-full rounded-md border-[1.5px] border-paper-78/30"
                   priority
                 />
               </div>
@@ -124,12 +125,11 @@ const ThankYouPage = () => {
           <Reveal variant="up" duration={0.6}>
             <div className="flex max-w-3xl flex-col items-start gap-3">
               <h2 className="display text-4xl text-navy sm:text-5xl">
-                Stay informed and <em>get involved.</em>
+                Stay informed. Compare the visions. <em>Help push back.</em>
               </h2>
               <p className="max-w-prose text-stone-dark">
-                The first step is understanding where Mark stands. From here, you can ask a
-                question, attend an event, volunteer, review official contribution information, or
-                make a voting plan for 2026.
+                This guide is the first step. Now you can help more voters understand what is at
+                stake in House District 27.
               </p>
             </div>
           </Reveal>
