@@ -173,10 +173,16 @@ export const ABOUT_STATS = [
 ]
 
 export const ABOUT_STORY = [
-  'This campaign didn\'t start with a political plan. It all started with conversations. For years, Mark observed and listened to people talking about managing budgets and everyday challenges. Housing costs. Utility bills. Insurance. Small businesses trying to stay ahead while families stretched every paycheck further than before.',
-  'Many decisions coming out of Salem didn\'t seem grounded in how people actually live. That mattered to him because most of his life has been spent in positions where responsibility is real. The Navy teaches discipline and accountability. Veterinary medicine teaches calm decision-making and trust. Running a business teaches that problems don\'t fix themselves.',
-  'That\'s when he realized the leadership system wasn\'t working for everyday people, and decided to step forward and lead.',
+  'This campaign did not start with a political plan. It started with conversations. For years, Mark observed and listened to people talking about managing budgets and everyday challenges. Housing costs. Utility bills. Insurance.',
+  'As a veterinarian, Mark has worked with families during stressful and emotional moments. As a small-business owner, he has dealt with payroll, regulations, unexpected expenses, and the reality that problems do not solve themselves. During his Navy service, he learned that preparation, sound judgment, and accountability matter, especially when decisions have real consequences.',
+  'Those experiences taught Mark a simple approach to leadership:',
 ]
+
+export const ABOUT_CREED =
+  'Listen carefully. Study the challenge. Ask hard questions. Understand the objective. Develop a plan.'
+
+export const ABOUT_STORY_CLOSE =
+  'Mark decided to run because too many decisions coming out of Salem seemed disconnected from the way working families and local businesses actually live and operate. He believes Oregon needs representatives who understand everyday pressures and are prepared to do the work required to address them.'
 
 export const FAQS = [
   {
@@ -222,28 +228,58 @@ export const ABOUT_BLOCKS = [
   {
     number: '01',
     eyebrow: 'Roots',
-    title: 'Iowa-born, Oregon-built.',
-    body: 'Born in Iowa City and raised in Keokuk, Mark came to Washington County almost 30 years ago — drawn by the small-business opportunity, natural beauty, and independent spirit. He built his career here, raised his dogs here, and made Oregon home.',
+    title: 'Small-town roots. Oregon home.',
+    body: 'Mark was born in Iowa City and raised in Keokuk, Iowa. As a boy he explored the neighborhood with his older sister — she on her bicycle, Mark trailing on his tricycle — learning early to stay curious, understand the boundaries, and never fear what he did not yet know. He eventually made his way to Washington County, drawn by Oregon\'s natural beauty, independent spirit, and opportunity for small-business owners. He built his career here, established his veterinary practice here, and made Oregon home.',
   },
   {
     number: '02',
     eyebrow: 'Service',
-    title: 'Twenty-two years in the Navy.',
-    body: 'A U.S. Naval Academy graduate and commendated Naval Officer with twenty-two combined years of active and reserve service. Mark learned what it means to be steadfast, to be clear, and to make decisions with accountability. Great leadership starts with listening attentively and staying calm under pressure.',
+    title: 'Twenty-two years of Navy service.',
+    body: 'Mark entered the United States Naval Academy in 1976 and was commissioned as an officer, serving with the Pacific Fleet during the Cold War. As his responsibilities grew, he qualified as a Tactical Action Officer — understanding complex situations and acting on behalf of the commanding officer when immediate decisions were necessary. There was no time for political theater or passing responsibility to someone else. You studied. You prepared. You understood the challenge. And when the moment came, you made a decision. Across twenty-two combined years of active and reserve service, Mark learned that leadership must be calm, informed, and accountable.',
   },
   {
     number: '03',
     eyebrow: 'Practice',
     title: 'Twenty-eight years in veterinary medicine.',
-    body: 'Iowa State University DVM. Twenty-eight years owner-operating a small veterinary practice in Washington County, with continued part-time relief work today. Veterinary medicine is about more than animals — it\'s about trust. Families approach you with concerns, stress, and a need for truthful answers. Those conversations shaped Mark\'s outlook on responsibility and service.',
+    body: 'After leaving active Navy service, Mark pursued another form of service. He earned his Doctor of Veterinary Medicine from Iowa State University and spent twenty-eight years owning and operating a veterinary practice in Washington County, and continues to work part-time as a relief veterinarian. Veterinary medicine is not only about treating animals — it is about helping people. Families arrive worried and uncertain, needing someone who will listen carefully, explain the situation truthfully, and help them make the best decision. Those conversations taught Mark that trust cannot be demanded; it must be earned through honesty, competence, and compassion — and gave him firsthand experience with the challenges facing Oregon\'s small businesses.',
   },
   {
     number: '04',
     eyebrow: 'Why',
-    title: 'Stepping forward with a plan.',
-    body: 'Mark didn\'t spend years planning to run for office. It was inspired by the realization that more people were becoming frustrated, unheard, and concerned about where Oregon was going — and that it was time to help rather than just talk about it.',
+    title: 'Stepping forward with a practical plan.',
+    body: 'Mark did not spend years planning to run for office. He stepped forward because too many Oregonians feel their concerns are being ignored — families working harder to keep up with everyday expenses, small-business owners carrying growing costs and uncertainty, parents worried about schools, safety, and the opportunities their children will inherit. Mark believes Oregon can do better, but only when its leaders pay attention to how their decisions affect real people. He is running to bring practical judgment, responsible government, and real-world experience to Salem. Not more political performance. Better preparation. Better decisions. Greater accountability.',
   },
 ]
+
+export const ABOUT_PERSON = [
+  'Mark\'s dogs remain convinced that he has everything figured out. Mark is less certain.',
+  'He remembers the mistakes he has made, the moments when he spoke instead of listening, and the occasions when the answer was directly in front of him. That awareness has made him a better listener and a more thoughtful leader.',
+  'Mark does not believe elected officials should pretend to have every answer. He believes they should listen carefully, read the fine print, ask difficult questions, and be honest when something is not working.',
+  'His dogs may continue to overestimate him. Oregonians can expect him to remain accountable.',
+]
+
+export const ABOUT_PILLARS = [
+  {
+    number: '01',
+    name: 'Prepared Leadership',
+    body: 'Mark approaches public policy the same way he approached responsibility in the Navy: understand the situation, examine the available information, and prepare before acting.',
+  },
+  {
+    number: '02',
+    name: 'Real-World Experience',
+    body: 'His perspective comes from military service, veterinary medicine, small-business ownership, and decades of conversations with Washington County families.',
+  },
+  {
+    number: '03',
+    name: 'Accountability Without Excuses',
+    body: 'Mark believes elected officials should explain their decisions clearly, accept responsibility for the results, and change course when something is not working.',
+  },
+]
+
+export const ABOUT_QUOTE = {
+  text: 'Pay attention. Study the horizon. Ask questions. Understand the objective. Then develop a plan.',
+  attribution: 'Mark Norman',
+}
 
 export const CONTACT_METHODS = [
   {

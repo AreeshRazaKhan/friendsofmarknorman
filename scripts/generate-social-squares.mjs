@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { FONTS, TOKENS, PAL, PORTRAITS, TOPICS, QUOTES, BANNER_HEADS, STAT_SETS, LIST_SETS, STAMPS, pad, pick, scaler, logoTag, stamp, ICONS, ICONFX } from './lib/post-content.mjs'
+import { FONTS, TOKENS, PAL, PORTRAITS, SQUARES, STAMPS, pad, pick, scaler, logoTag, stamp, ICONS, ICONFX } from './lib/post-content.mjs'
 
 /**
  * 50 square (1080x1080) posts, each a DISTINCT composition (no duplicate layouts).
@@ -177,7 +177,7 @@ C.portraitBand = (c) => {
 
 // 9. quote
 C.quote = (c) => {
-  const p = PAL[c.bg], q = pick(QUOTES, c.variant)
+  const p = PAL[c.bg], q = c.t
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
 .content{position:relative;z-index:3;max-width:720px}
@@ -192,7 +192,7 @@ C.quote = (c) => {
 
 // 10. stat row (3 across), headline top
 C.statRow = (c) => {
-  const p = PAL[c.bg], t = c.t, s = pick(STAT_SETS, c.variant)
+  const p = PAL[c.bg], t = c.t, s = c.t
   const cells = s.nums.map((n, k) => `<div class="cell"><div class="num t"><span class="plus">${n[0]}</span>${n[1]}</div><div class="desc t">${s.descs[k]}</div></div>`).join('')
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
@@ -207,24 +207,23 @@ C.statRow = (c) => {
     <div class="content"><span class="eyebrow t">${t.eb}</span><h1 class="headline t">${t.head}</h1><div class="row">${cells}</div></div>`)
 }
 
-// 11. stat hero — one giant number
+// 11. stat hero — editorial headline + body (large)
 C.statHero = (c) => {
-  const p = PAL[c.bg]
+  const p = PAL[c.bg], t = c.t
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
-.big{position:relative;z-index:3;font-weight:700;font-size:440px;line-height:.8;letter-spacing:-.05em;color:${p.red}}
-.content{position:relative;z-index:3;max-width:700px;margin-top:10px}
-.headline{font-size:72px}`,
+.content{position:relative;z-index:3;max-width:780px}
+.headline{font-size:88px;margin-top:26px}
+.body{font-size:29px;line-height:1.5;margin-top:34px;max-width:640px}`,
   `${dots(c.bg)}${stripeCorner(c.bg, 'polygon(0 70%,30% 100%,0 100%)')}
     ${logoTag(p.logo, 100)}
-    <span class="eyebrow t" style="position:relative;z-index:3">[ thirty years of service ]</span>
-    <div class="big" aria-hidden="true">30<span style="font-size:.5em;color:var(--red)">+</span></div>
-    <div class="content"><h1 class="headline t">Years serving <em>Oregon communities</em></h1></div>`)
+    ${ICONFX.badge(t.icon, 'right:100px;top:120px;width:190px;height:190px', c.bg)}
+    <div class="content"><span class="eyebrow t">${t.eb}</span><h1 class="headline t">${t.head}</h1><p class="body t">${t.body}</p></div>`)
 }
 
 // 12. numbered list
 C.list = (c) => {
-  const p = PAL[c.bg], s = pick(LIST_SETS, c.variant)
+  const p = PAL[c.bg], s = c.t
   const li = s.items.map((x, k) => `<div class="item"><span class="n t">${pad(k + 1)}</span><span class="tx t">${x}</span></div>`).join('')
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
@@ -240,7 +239,7 @@ C.list = (c) => {
 
 // 13. banner — giant uppercase, top/bottom rules, stripe field bg
 C.banner = (c) => {
-  const p = PAL[c.bg], b = pick(BANNER_HEADS, c.variant)
+  const p = PAL[c.bg], b = { eb: c.t.eb, h: c.t.head }
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
 .content{position:relative;z-index:3;max-width:900px}
@@ -379,7 +378,7 @@ C.starField = (c) => {
 
 // 22. checklist — centered, 2-column tiles with check icons
 C.listChecks = (c) => {
-  const p = PAL[c.bg], s = pick(LIST_SETS, c.variant)
+  const p = PAL[c.bg], s = c.t
   const tile = c.bg === 'navy' ? 'var(--navy-2)' : '#FFFFFF'
   const li = s.items.map((x) => `<div class="tile"><svg class="ck" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="none" stroke="${p.red}" stroke-width="8"/><path d="M32 51 l13 14 l25 -30" fill="none" stroke="${p.red}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx t">${x}</span></div>`).join('')
   return HEAD(c, `${theme(c.bg)}
@@ -398,7 +397,7 @@ C.listChecks = (c) => {
 
 // 23. stats stacked + icon right
 C.statStack = (c) => {
-  const p = PAL[c.bg], t = c.t, s = pick(STAT_SETS, c.variant)
+  const p = PAL[c.bg], t = c.t, s = c.t
   const rows = s.nums.map((n, k) => `<div class="st"><div class="num t"><span class="plus">${n[0]}</span>${n[1]}</div><div class="desc t">${s.descs[k]}</div></div>`).join('')
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
@@ -414,7 +413,7 @@ C.statStack = (c) => {
 
 // 24. banner over full stripe field
 C.bannerStripe = (c) => {
-  const p = PAL[c.bg], b = pick(BANNER_HEADS, c.variant)
+  const p = PAL[c.bg], b = { eb: c.t.eb, h: c.t.head }
   const panel = c.bg === 'navy' ? 'var(--navy)' : 'var(--paper)'
   return HEAD(c, `${theme(c.bg)}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
@@ -448,14 +447,16 @@ const COMPS = ['edLeft', 'edCenter', 'bigNum', 'splitH', 'splitV', 'iconHero', '
 // 25 distinct compositions x 2 palettes (navy/paper) = 50 UNIQUE (comp,palette)
 // pairs, so no two posts share both a layout and a light/dark scheme. Topics and
 // variants rotate independently to keep content fresh.
-const cfgs = []
-let ti = 0, variant = 0, n = 1
-for (const comp of COMPS) {
-  for (const bg of ['navy', 'paper']) {
-    cfgs.push({ n: n++, comp, bg, t: TOPICS[ti % TOPICS.length], variant })
-    ti += 7; variant++
-  }
-}
+// Each square is authored independently in SQUARES (no topic rotation), in the
+// same order as COMPS × [navy, paper]: post i uses composition COMPS[floor(i/2)]
+// and alternates navy/paper. Editing one post never affects another.
+const cfgs = SQUARES.map((t, i) => ({
+  n: i + 1,
+  comp: COMPS[Math.floor(i / 2)],
+  bg: i % 2 === 0 ? 'navy' : 'paper',
+  t,
+  variant: i,
+}))
 
 let written = 0
 for (const cfg of cfgs) {
