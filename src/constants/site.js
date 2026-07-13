@@ -439,6 +439,27 @@ export const OREGON_COUNTIES = [
   'Yamhill',
 ]
 
+// QR-funnel print materials. Each material gets its own QR code pointing at
+// /meet-mark?src={material} so the CRM can attribute leads to the physical
+// piece that drove the scan. Keep in sync with scripts/generate-qr.mjs and
+// the sanitizer in src/app/api/qr-funnel/route.js.
+export const QR_SOURCES = [
+  'qr', // generic / unattributed scan
+  'banner',
+  'flyer',
+  'mailer',
+  'door-hanger',
+  'sign',
+  'newspaper',
+  'magazine',
+]
+
+// Candidate introduction video for the /meet-mark QR funnel.
+export const INTRO_VIDEO = {
+  youtubeId: '5Peo-ivmupE',
+  title: 'Meet Mark Norman — candidate introduction',
+}
+
 // Events are fetched from GHL custom objects at runtime via fetchGHLEvents()
 // in src/lib/ghl.js. Do not add a static EVENTS array here — see
 // .claude/rules/ghl-events-integration.md for the integration contract.

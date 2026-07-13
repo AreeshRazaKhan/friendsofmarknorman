@@ -22,6 +22,12 @@ export const GHL_WEBHOOKS = {
   voterGuide: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/7f867349-ace2-4b71-ad16-76339731965b',
   ],
+  // QR print-media funnel (/meet-mark). Dedicated workflow webhook — leads
+  // arrive with type QR_Funnel and qr_source (flyer/banner/mailer/...) for
+  // per-material attribution. Fans out alongside the A2P compliance webhook.
+  qrFunnel: [
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/3c4691ee-3a59-476a-8ceb-3c7bb74b2b45',
+  ],
 }
 
 export const GHL_REST = {

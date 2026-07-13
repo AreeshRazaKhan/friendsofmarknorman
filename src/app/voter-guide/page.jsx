@@ -238,7 +238,7 @@ const VoterGuidePage = () => {
                 </h2>
                 <p className="max-w-prose text-stone-dark">
                   The Democratic Socialists of America is a national socialist organization built
-                  around an agenda that would expand government authority over:
+                  around an agenda that would expand Government Authority over:
                 </p>
                 <ul className="grid w-full gap-2 sm:grid-cols-2">
                   {DSA_AREAS.map((area) => (
@@ -427,7 +427,10 @@ const VoterGuidePage = () => {
               <p className="max-w-prose text-paper-78">
                 Mark Norman brings real-world experience to this campaign. His background in
                 service, veterinary medicine, and small business shapes the way he approaches
-                leadership. Practical problems need practical solutions.
+                leadership.
+              </p>
+              <p className="border-l-[3px] border-red-3 pl-4 font-semibold text-paper">
+                Practical problems need practical solutions.
               </p>
               <Button asChild variant="invert">
                 <Link href="/about">
@@ -449,12 +452,20 @@ const VoterGuidePage = () => {
             </h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:gap-8">
+          {/* Subgrid keeps the heading / body / CTA rows aligned across cards
+              in the same row, no matter how many lines each heading wraps to. */}
+          <div className="mt-10 grid gap-6 md:grid-cols-2 md:[grid-template-rows:repeat(2,auto)] lg:gap-8">
             {ISSUE_DETAILS.map((issue, idx) => (
-              <Reveal key={issue.key} variant="up" delay={0.05 * idx} duration={0.6}>
-                <article className="flex h-full flex-col items-start gap-3 rounded-2xl border border-bone bg-white p-8 lg:p-10">
+              <Reveal
+                key={issue.key}
+                variant="up"
+                delay={0.05 * idx}
+                duration={0.6}
+                className="md:row-span-3 md:grid md:[grid-template-rows:subgrid]"
+              >
+                <article className="flex h-full flex-col items-start gap-3 rounded-2xl border border-bone bg-white p-8 md:row-span-3 md:grid md:[grid-template-rows:subgrid] lg:p-10">
                   <h3 className="display text-2xl text-navy sm:text-3xl">{issue.heading}</h3>
-                  {issue.body}
+                  <div className="flex flex-col gap-3">{issue.body}</div>
                   <a
                     href="#get-the-guide"
                     className="mt-auto inline-flex min-h-[44px] items-center pt-2 font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"

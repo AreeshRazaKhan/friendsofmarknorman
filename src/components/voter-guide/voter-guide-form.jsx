@@ -31,6 +31,8 @@ const VoterGuideForm = ({
   successBody,
   showDownload,
   redirectTo,
+  endpoint,
+  meta,
 }) => {
   const router = useRouter()
   const [status, setStatus] = useState(STATUS.idle)
@@ -67,6 +69,7 @@ const VoterGuideForm = ({
     const form = event.currentTarget
     const formData = new FormData(form)
     const data = {
+      ...meta,
       firstName: formData.get('firstName') || '',
       lastName: formData.get('lastName') || '',
       email: formData.get('email') || '',
@@ -83,7 +86,7 @@ const VoterGuideForm = ({
 
     setStatus(STATUS.submitting)
     try {
-      const res = await fetch('/api/voter-guide', {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -218,6 +221,8 @@ VoterGuideForm.propTypes = {
   successBody: PropTypes.node,
   showDownload: PropTypes.bool,
   redirectTo: PropTypes.string,
+  endpoint: PropTypes.string,
+  meta: PropTypes.object,
 }
 
 VoterGuideForm.defaultProps = {
@@ -235,6 +240,8 @@ VoterGuideForm.defaultProps = {
     'plus his practical alternative for Oregon.',
   showDownload: true,
   redirectTo: '',
+  endpoint: '/api/voter-guide',
+  meta: null,
 }
 
 export default VoterGuideForm
