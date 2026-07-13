@@ -20,6 +20,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .eyebrow{color:var(--red-3)}.eyebrow::before{background:var(--red-3)}
 .headline{color:var(--paper);font-size:104px;margin-top:24px}.headline em{color:var(--red-3)}.headline em::after{background:rgba(182,32,37,.18)}
 .body{color:var(--paper-78);font-size:36px;line-height:1.5;margin-top:32px;max-width:680px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="story" data-fonts="Cabin,JetBrains Mono">

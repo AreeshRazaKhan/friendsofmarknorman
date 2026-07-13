@@ -23,6 +23,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .wedge{position:absolute;inset:0;z-index:0;background:var(--navy);clip-path:polygon(0 100%,100% 56%,100% 100%)}
 .content{position:relative;z-index:3;max-width:620px}
 .headline{font-size:82px;margin-top:24px}.body{margin-top:28px;max-width:560px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="post" data-fonts="Cabin,JetBrains Mono">

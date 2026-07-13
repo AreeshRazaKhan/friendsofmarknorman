@@ -22,6 +22,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .story{display:flex;flex-direction:column;justify-content:center;padding:250px 96px}
 .content{position:relative;z-index:3;max-width:760px}
 .headline{font-size:104px;margin-top:26px}.body{margin-top:34px;max-width:700px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="story" data-fonts="Cabin,JetBrains Mono">

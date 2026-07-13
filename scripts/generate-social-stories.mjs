@@ -30,6 +30,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .stamp{position:absolute;z-index:4;background:var(--paper);border:6px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:14px 14px 0 var(--red)}
 .stamp svg{width:54%;height:54%}
 ${css}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="story" data-fonts="Cabin,JetBrains Mono">

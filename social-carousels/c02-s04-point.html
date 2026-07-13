@@ -24,6 +24,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .kick .n{font-size:22px}
 .title{font-weight:700;font-size:60px;line-height:1.02;margin-top:26px}
 .body{margin-top:26px;max-width:680px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="slide" data-fonts="Cabin,JetBrains Mono">

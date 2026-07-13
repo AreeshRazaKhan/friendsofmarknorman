@@ -27,6 +27,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .stamps{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
 .cs{font-family:var(--ff-mono);font-size:18px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:15px 24px;background:var(--navy);color:var(--paper)}
 .cs:nth-child(1){transform:rotate(-2deg)}.cs:nth-child(2){transform:rotate(1.5deg);background:var(--red);color:var(--paper)}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="story" data-fonts="Cabin,JetBrains Mono">

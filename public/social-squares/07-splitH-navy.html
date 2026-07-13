@@ -22,6 +22,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .headline{color:var(--paper);font-size:78px;margin-top:18px;max-width:780px}.headline em{color:var(--red-3)}.headline em::after{background:rgba(214,61,66,.24)}
 .body{font-size:30px;line-height:1.5;color:var(--stone-d);max-width:620px;margin-top:34px}
 .bar{position:absolute;left:80px;top:556px;width:120px;height:8px;background:var(--red);z-index:5}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="post" data-fonts="Cabin,JetBrains Mono">

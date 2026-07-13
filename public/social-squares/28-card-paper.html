@@ -21,6 +21,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .eyebrow{color:var(--red-3)}.eyebrow::before{background:var(--red-3)}
 .headline{color:var(--paper);font-size:70px;margin-top:14px}.headline em{color:var(--red-3)}.headline em::after{background:rgba(182,32,37,.18)}
 .body{font-size:28px;line-height:1.5;color:var(--paper-78);margin-top:26px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="post" data-fonts="Cabin,JetBrains Mono">
