@@ -49,6 +49,11 @@
   .canvas.r916 .wave{height:380px}
   .canvas.r916 .rule-b{bottom:300px}
   .canvas.r916 .pac{bottom:130px}
+
+  /* consistency: emphasis is color-only — no red highlight bar, and inline
+     emphasis inherits its container weight so each text block is one weight */
+  em::before,em::after{display:none!important}
+  em,b,strong{font-weight:inherit!important}
 </style>
 </head>
 <body>

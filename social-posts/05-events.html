@@ -63,6 +63,11 @@
   .canvas.r916 .wedge{clip-path:polygon(0 55%, 100% 32%, 100% 100%, 0 100%)}
   .canvas.r916 .ticket{bottom:220px}
   .canvas.r916 .pac{bottom:60px}
+
+  /* consistency: emphasis is color-only — no red highlight bar, and inline
+     emphasis inherits its container weight so each text block is one weight */
+  em::before,em::after{display:none!important}
+  em,b,strong{font-weight:inherit!important}
 </style>
 </head>
 <body>

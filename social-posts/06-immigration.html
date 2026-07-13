@@ -54,6 +54,11 @@
   .canvas.r916 .list{top:920px}
   .canvas.r916 .row{padding:44px 0}
   .canvas.r916 .pac{bottom:60px}
+
+  /* consistency: emphasis is color-only — no red highlight bar, and inline
+     emphasis inherits its container weight so each text block is one weight */
+  em::before,em::after{display:none!important}
+  em,b,strong{font-weight:inherit!important}
 </style>
 </head>
 <body>
