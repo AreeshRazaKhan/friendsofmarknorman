@@ -57,7 +57,7 @@ const SocialPostsPage = () => {
       <PageHero
         eyebrow="[ internal · creative assets ]"
         title="Social post <em>previews.</em>"
-        lead="Live previews of every campaign social design, rendered from the actual HTML files. Click any card to open it full-size in a new tab. This page is unlisted and not indexed."
+        lead="Browse live previews of campaign related social media creatives. Select any card to view the full-size version in a new tab. This page is private and excluded from search engine indexing."
       />
 
       <section className="bg-paper">

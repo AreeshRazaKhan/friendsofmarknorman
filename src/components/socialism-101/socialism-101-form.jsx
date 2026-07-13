@@ -24,12 +24,30 @@ const ZIP_RE = /^[0-9]{5}$/
 
 const GUIDE_PDF = '/downloads/mark-norman-issues-guide.pdf'
 
+const ISSUE_OPTIONS = [
+  'Affordability',
+  'Education',
+  'Public Safety',
+  'Small Business',
+  'Healthcare',
+  'Energy',
+  'Veterans',
+  'Animal Welfare',
+  'Government Accountability',
+  'Data Centers / Local Development',
+  'Other',
+]
+
+const SELECT_CLASS =
+  'h-11 rounded border border-bone bg-paper-2 px-3 font-sans text-sm text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red'
+
 const Socialism101Form = ({
   submitLabel,
   successEyebrow,
   successHeading,
   successBody,
   showDownload,
+  showIssue,
   redirectTo,
   endpoint,
   meta,
@@ -39,6 +57,7 @@ const Socialism101Form = ({
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
+  const [issue, setIssue] = useState('')
   const [emailConsent, setEmailConsent] = useState(false)
   const [smsUpdates, setSmsUpdates] = useState(false)
   const [smsPromo, setSmsPromo] = useState(false)
@@ -75,6 +94,7 @@ const Socialism101Form = ({
       email: formData.get('email') || '',
       phone,
       zipCode: formData.get('zipCode') || '',
+      issue: showIssue ? issue : '',
       email_consent: emailConsent,
       sms_updates: smsUpdates,
       sms_promo: smsPromo,
@@ -182,6 +202,31 @@ const Socialism101Form = ({
           />
         </div>
 
+        {showIssue && (
+          <div className="grid gap-2">
+            <label
+              htmlFor="issue"
+              className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-red"
+            >
+              What issue matters most to you?
+            </label>
+            <select
+              id="issue"
+              name="issue"
+              value={issue}
+              onChange={(e) => setIssue(e.target.value)}
+              className={SELECT_CLASS}
+            >
+              <option value="">Select an issue (optional)</option>
+              {ISSUE_OPTIONS.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
         <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-stone-dark">
           <input
             type="checkbox"
@@ -220,6 +265,7 @@ Socialism101Form.propTypes = {
   successHeading: PropTypes.node,
   successBody: PropTypes.node,
   showDownload: PropTypes.bool,
+  showIssue: PropTypes.bool,
   redirectTo: PropTypes.string,
   endpoint: PropTypes.string,
   meta: PropTypes.object,
@@ -239,6 +285,7 @@ Socialism101Form.defaultProps = {
     'government, higher taxes, expanded bureaucracy, public ownership, and centralized control — ' +
     'plus his practical alternative for Oregon.',
   showDownload: true,
+  showIssue: false,
   redirectTo: '',
   endpoint: '/api/socialism-101',
   meta: null,

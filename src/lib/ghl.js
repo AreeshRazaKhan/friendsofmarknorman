@@ -22,6 +22,14 @@ export const GHL_WEBHOOKS = {
   socialism101: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/7f867349-ace2-4b71-ad16-76339731965b',
   ],
+  // The 5-Minute Voter Guide opt-in funnel (/5-minute-voter-guide). Reuses the
+  // socialism-101 lead-magnet workflow webhook for now; swap in a dedicated
+  // workflow-trigger UUID when GHL provides one. Fans out alongside the shared
+  // A2P compliance webhook (same pattern as the other lead forms).
+  // TODO: replace with a dedicated workflow-trigger UUID for this funnel.
+  voterGuide5Min: [
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/7f867349-ace2-4b71-ad16-76339731965b',
+  ],
   // QR print-media funnel (/meet-mark). Dedicated workflow webhook — leads
   // arrive with type QR_Funnel and qr_source (flyer/banner/mailer/...) for
   // per-material attribution. Fans out alongside the A2P compliance webhook.
