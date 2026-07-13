@@ -76,7 +76,7 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--ff-mono);font-size:21px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
 .eyebrow::before{content:"";width:46px;height:4px;flex-shrink:0}
 .headline{font-weight:700;letter-spacing:-.03em;line-height:1}
-.headline em,.title em{font-style:normal;font-weight:400;position:relative;display:inline-block}
+.headline em,.title em{font-style:normal;font-weight:inherit;position:relative;display:inline-block}
 .headline em::after,.title em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
 ${css}
 /* emphasis is red color only — no highlight bar under/after the word */
