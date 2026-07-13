@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import Reveal from '@/components/motion/reveal'
 
 import { CAMPAIGN } from '@/constants/site'
+import { appendQueryParams, qrDonateUtm } from '@/lib/url'
 
 export const metadata = {
   title: `Your guide is ready — ${CAMPAIGN.candidate} for Oregon`,
@@ -19,7 +20,7 @@ const GUIDE_PDF = '/downloads/mark-norman-issues-guide.pdf'
 const NEXT_STEPS = [
   {
     label: 'Support the campaign',
-    href: CAMPAIGN.donateUrl,
+    href: appendQueryParams(CAMPAIGN.donateUrl, qrDonateUtm('thank_you')),
     external: true,
     desc: 'Every contribution powers direct conversations with voters across House District 27.',
   },

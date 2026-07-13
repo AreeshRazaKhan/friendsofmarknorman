@@ -17,6 +17,7 @@ import {
   QR_SOURCES,
   buildDonateUrl,
 } from '@/constants/site'
+import { appendQueryParams, qrDonateUtm } from '@/lib/url'
 
 export const metadata = {
   title: `Meet Mark Norman — ${CAMPAIGN.office}`,
@@ -32,6 +33,8 @@ const MeetMarkPage = async ({ searchParams }) => {
   const params = await searchParams
   const rawSrc = typeof params?.src === 'string' ? params.src : ''
   const qrSource = QR_SOURCES.includes(rawSrc) ? rawSrc : 'qr'
+  const utm = qrDonateUtm(qrSource)
+  const donateUrl = appendQueryParams(CAMPAIGN.donateUrl, utm)
 
   return (
     <>
@@ -190,7 +193,7 @@ const MeetMarkPage = async ({ searchParams }) => {
               </p>
               <div className="mt-2 flex flex-wrap gap-3">
                 <Button asChild variant="red">
-                  <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={donateUrl} target="_blank" rel="noopener noreferrer">
                     Donate
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </a>
@@ -198,7 +201,7 @@ const MeetMarkPage = async ({ searchParams }) => {
                 {DONATION_TIERS.map((tier) => (
                   <Button key={tier.amount} asChild variant="invert">
                     <a
-                      href={buildDonateUrl(tier.amount)}
+                      href={appendQueryParams(buildDonateUrl(tier.amount), utm)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

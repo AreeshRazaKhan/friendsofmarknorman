@@ -419,13 +419,9 @@ export const QR_SOURCES = [
 ]
 
 // Candidate introduction video for the /meet-mark QR funnel.
-// TODO: replace with Mark's real video (file or approved hosted link) when
-// the campaign provides it. Until then this is a public dummy placeholder
-// (Blender Foundation's Big Buck Bunny) so the layout and embed can be
-// reviewed end to end.
 export const INTRO_VIDEO = {
-  youtubeId: 'aqz-KE-bpKQ',
-  title: 'Meet Mark Norman — candidate introduction (placeholder video)',
+  youtubeId: '5Peo-ivmupE',
+  title: 'Meet Mark Norman — candidate introduction',
 }
 
 // Events are fetched from GHL custom objects at runtime via fetchGHLEvents()

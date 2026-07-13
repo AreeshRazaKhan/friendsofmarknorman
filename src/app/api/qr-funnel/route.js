@@ -13,10 +13,7 @@ import { QR_SOURCES } from '@/constants/site'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
 
-// TODO: swap in a dedicated QR-funnel workflow webhook once the client
-// creates it in GHL. Until then leads ride the voter-guide workflow and
-// are segmented by `type: 'QR_Funnel'` / `source: 'src_qr'` / `qr_source`.
-const WEBHOOK_URLS = [...GHL_WEBHOOKS.voterGuide, A2P_COMPLIANCE_WEBHOOK]
+const WEBHOOK_URLS = [...GHL_WEBHOOKS.qrFunnel, A2P_COMPLIANCE_WEBHOOK]
 
 const GUIDE_URL = 'https://markfororegon.com/downloads/mark-norman-issues-guide.pdf'
 
