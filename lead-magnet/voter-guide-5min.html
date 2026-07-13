@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The 5-Minute Voter Guide to Mark Norman · Mark Norman · Oregon HD-27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:    #0B2844;
+    --navy-2:  #102F4F;
+    --navy-3:  #0F3C66;
+    --red:     #B62025;
+    --red-2:   #921A1F;
+    --red-3:   #D63D42;
+    --white:   #FFFFFF;
+    --black:   #000000;
+    --paper:   #F5F2EC;
+    --paper-2: #EDE8DD;
+    --bone:    #D4CCB7;
+    --stone:   #5F594D;
+    --stone-d: #3E3A33;
+    --ink-soft:#1B3454;
+    --hair:    rgba(11,40,68,0.18);
+    --paper-78:rgba(245,242,236,.82);
+    --paper-65:rgba(245,242,236,.72);
+    --ff:      'Cabin', sans-serif;
+    --ff-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  @page{ size: letter; margin: 0; }
+
+  html, body{ font-family: var(--ff); background: var(--paper); color: var(--navy); }
+
+  .page{
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    background: var(--paper);
+  }
+  .page:last-child{ page-break-after: auto; break-after: auto; }
+
+  /* ---- shared chrome ---------------------------------------------------- */
+
+  .chrome-top{
+    position: absolute; top: .55in; left: .7in; right: .7in;
+    display: flex; align-items: center; justify-content: flex-end;
+  }
+  .page-tag{
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--stone);
+  }
+  .page-tag::before{ content:''; width: 34px; height: 2px; background: var(--red); }
+  .page-num{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .28em; color: var(--stone);
+  }
+
+  .chrome-foot{
+    position: absolute; bottom: .5in; left: .7in; right: .7in;
+    border-top: 1px solid var(--hair); padding-top: 10px;
+    display: flex; justify-content: space-between;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--stone);
+  }
+
+  .wm{
+    position: absolute; right: -0.35in; bottom: 0.4in;
+    font-family: var(--ff); font-weight: 700; font-size: 340px; line-height: 1;
+    letter-spacing: -0.025em; color: rgba(11,40,68,.045);
+    pointer-events: none; user-select: none;
+  }
+
+  .eyebrow{
+    font-family: var(--ff-mono); font-size: 15px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+  }
+
+  em{ font-style: normal; color: var(--red); }
+
+  /* ---- cover (concept-4 — navy + diagonal red wedge) -------------------- */
+
+  .cover{ background: var(--navy); color: var(--paper); }
+  .cover .grid-bg{
+    position: absolute; inset: 0; opacity: .6;
+    background-image: radial-gradient(rgba(245,242,236,.09) 1px, transparent 1.5px);
+    background-size: 0.34in 0.34in;
+  }
+  .cover-wedge{
+    position: absolute; inset: 0; pointer-events: none;
+    background: var(--red);
+    clip-path: polygon(100% 33%, 100% 100%, 29% 100%);
+  }
+  .cover-num{
+    position: absolute; right: .45in; bottom: .62in;
+    font-family: var(--ff); font-weight: 700; font-size: 2.0in; line-height: .78;
+    letter-spacing: -0.05em; color: var(--paper);
+    pointer-events: none; user-select: none;
+    text-shadow: -8px -8px 0 rgba(8,22,40,.38);
+  }
+  .cover-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: .75in .75in .65in;
+  }
+  .cover-tag{
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--red-3);
+  }
+  .cover-tag::before{ content:''; width: 36px; height: 2px; background: var(--red-3); }
+  .cover-star{
+    margin-top: .75in;
+    color: var(--red-3); font-size: 34px; line-height: 1;
+  }
+  .cover-title{
+    margin-top: .28in;
+    font-size: 50px; font-weight: 700; line-height: 1.04; letter-spacing: -0.02em;
+    color: var(--paper);
+    max-width: 6.1in;
+  }
+  .cover-title em{ color: var(--red-3); }
+  .cover-sub{
+    margin-top: .26in; max-width: 4.3in;
+    font-size: 15px; line-height: 1.55; color: var(--paper-78);
+  }
+  .cover-bottom{ margin-top: auto; max-width: 5in; }
+  .cover-rule{ height: 1px; background: rgba(245,242,236,.25); margin-bottom: .2in; }
+  .cover-name{
+    font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--paper);
+  }
+  .cover-office{
+    margin-top: 8px;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .24em; text-transform: uppercase; color: var(--paper-65);
+  }
+  .cover-disclosure{
+    margin-top: .16in;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+  }
+
+  /* ---- issue pages -------------------------------------------------------- */
+
+  .issue-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: .95in .7in .95in;
+  }
+  .issue-eyebrow{
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--red);
+  }
+  .section-kicker{
+    font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.1;
+    color: var(--navy); margin-bottom: 18px;
+  }
+  .section-kicker em{ color: var(--red); font-style: normal; }
+  .issue-title{
+    margin-top: 10px;
+    font-size: 31px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;
+    max-width: 7in;
+  }
+  .issue-rule{ width: 60px; height: 3px; background: var(--red); margin: 14px 0 13px; }
+  .issue-lead{
+    font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--ink-soft);
+    max-width: 6.9in; margin-bottom: 12px;
+  }
+  .issue-body{ max-width: 7.1in; }
+  .issue-body p{
+    font-size: 16px; line-height: 1.5; color: var(--stone-d); margin-bottom: 10px;
+  }
+  .issue-body strong{ color: var(--navy); }
+  .issue-body p.emph{ color: var(--red); font-weight: 600; }
+
+  /* dense pages — long first-person essays; body stays at 16px (12pt floor) */
+  .dense .issue-body p{ line-height: 1.4; margin-bottom: 8px; }
+  .dense .issue-rule{ margin: 12px 0 11px; }
+  .dense .position{ margin-top: 12px; padding: 13px 18px; }
+
+  .supports{
+    margin-top: 14px; margin-bottom: 18px;
+    position: relative;
+    background: var(--white); border: 1px solid var(--bone);
+    padding: 20px 24px 16px;
+  }
+  /* ballot-mark corners */
+  .supports::before, .supports::after{
+    content:''; position: absolute; width: 20px; height: 20px;
+  }
+  .supports::before{ top: -2px; left: -2px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); }
+  .supports::after{ bottom: -2px; right: -2px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
+  .supports-label{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 10px;
+  }
+  .supports ul{
+    list-style: none; columns: 2; column-gap: 30px;
+  }
+  .supports li{
+    position: relative; padding-left: 24px; margin-bottom: 8px;
+    font-size: 15px; line-height: 1.38; color: var(--navy); font-weight: 500;
+    break-inside: avoid;
+  }
+  .supports li::before{
+    content:'\2605'; position: absolute; left: 0; top: 0;
+    font-size: 13px; line-height: 1.38; color: var(--red);
+  }
+  .supports.single ul{ columns: 1; }
+
+  .pull{
+    border-left: 3px solid var(--red); padding: 2px 0 2px 16px;
+    font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--navy);
+    max-width: 6.9in; margin-bottom: 0;
+  }
+  .learn-more{
+    margin-top: 18px; font-size: 16px; line-height: 1.52; color: var(--stone-d);
+  }
+  .learn-more a{ color: var(--red); font-weight: 600; text-decoration: none; }
+
+  /* ---- Mark's position block --------------------------------------------- */
+
+  .position{
+    margin-top: 14px; max-width: 7.1in;
+    background: var(--white); border: 1px solid var(--bone);
+    border-left: 3px solid var(--red);
+    padding: 15px 20px;
+  }
+  .position .position-label{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 7px;
+  }
+  .position p{
+    font-size: 16px; font-weight: 600; line-height: 1.42; color: var(--navy);
+  }
+
+  /* ---- two-philosophy comparison ----------------------------------------- */
+
+  .compare{
+    margin-top: 18px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+  }
+  .compare .col{
+    background: var(--white); border: 1px solid var(--bone);
+    padding: 22px 22px 18px;
+  }
+  .compare .col.mark{ border: 1.5px solid var(--navy); }
+  .compare .col-h{
+    font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+    color: var(--navy); margin-bottom: 14px;
+  }
+  .compare .col.mark .col-h{ color: var(--red); }
+  .compare ul{ list-style: none; }
+  .compare li{
+    position: relative; padding-left: 22px; margin-bottom: 9px;
+    font-size: 14px; line-height: 1.38; color: var(--navy); font-weight: 500;
+  }
+  .compare li::before{
+    content:'★'; position: absolute; left: 0; top: 1px;
+    color: var(--red); font-size: 11px;
+  }
+  .compare-foot{
+    margin-top: 16px;
+    border-left: 3px solid var(--red); padding: 2px 0 2px 16px;
+    font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--navy);
+  }
+
+  /* ---- back cover ---------------------------------------------------------- */
+
+  .back{ background: var(--navy); color: var(--paper); }
+  .back-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 1in .85in .75in;
+  }
+  .back-banner{
+    margin-top: 1.1in;
+    font-size: 56px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.0;
+    max-width: 6.4in; color: var(--paper);
+  }
+  .back-banner em{ color: var(--red-3); }
+  .back-lead{
+    margin-top: .3in; max-width: 6.1in;
+    font-size: 15px; line-height: 1.6; color: var(--paper-78);
+  }
+  .back-lead p + p{ margin-top: 12px; }
+  .back-tagline{
+    margin-top: .26in;
+    font-family: var(--ff-mono); font-size: 12px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-78);
+  }
+  .back-contact{
+    margin-top: auto; border-top: 1px solid rgba(245,242,236,.25); padding-top: .3in;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px;
+  }
+  .back-contact .cell .k{
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--paper-65);
+    margin-bottom: 4px;
+  }
+  .back-contact .cell .v{ font-size: 14px; font-weight: 600; color: var(--paper); }
+  .back-social{
+    margin-top: .3in;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--paper-78);
+  }
+  .back-social a{ color: var(--paper-78); text-decoration: none; }
+  .back-disclosure{
+    margin-top: .22in;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+  }
+</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div class="grid-bg"></div>
+  <div class="cover-wedge"></div>
+  <div class="cover-num">27</div>
+  <div class="cover-inner">
+    <div class="cover-star">★</div>
+    <h1 class="cover-title">The 5-Minute Voter Guide to <em>Mark Norman</em></h1>
+    <p class="cover-sub">
+      A quick guide to Mark&rsquo;s background, priorities, and practical vision for Oregon House
+      District 27.
+    </p>
+    <div class="cover-bottom">
+      <div class="cover-rule"></div>
+      <div class="cover-name">Mark Norman</div>
+      <div class="cover-office">Oregon House District 27 &nbsp;&middot;&nbsp; Republican &nbsp;&middot;&nbsp; 2026</div>
+      <div class="cover-disclosure">Service &middot; Solutions &middot; Accountability &nbsp;&middot;&nbsp; Paid for by Friends of Mark Norman PAC #24927</div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">01</div>
+  </div>
+  <div class="issue-inner dense">
+    <h2 class="issue-title">Meet <em>Mark Norman.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I am a Navy veteran, veterinarian, and small-business owner running for Oregon House District 27.</p>
+    <div class="issue-body">
+      <p>My campaign is focused on grounded leadership, practical decisions, and everyday accountability. I am not approaching this campaign as a career politician. I bring experience from Navy service, veterinary medicine, small business, and years of listening to Oregon families, workers, employers, parents, and community members.</p>
+      <p>As a Navy veteran, I understand service, responsibility, discipline, and accountability as a part of my duty.</p>
+      <p>I spent decades serving families and caring for animals with compassion, science, and practical judgment as a veterinarian.</p>
+      <p>As a small-business owner, I understand how taxes, regulations, staffing, costs, and government decisions affect real people every day.</p>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>I believe Oregon needs leadership that listens, solves problems, respects taxpayers, and focuses on results.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">02</div>
+  </div>
+  <div class="issue-inner dense">
+    <h2 class="issue-title">Why I&rsquo;m <em>running.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I&rsquo;m running because Oregon families deserve better than excuses.</p>
+    <div class="issue-body">
+      <p>Too many families are carrying more pressure than they should. Everyday costs are rising. Housing is harder to afford. Utility bills are going up. Healthcare is expensive. Parents are concerned about schools. Small businesses are being squeezed. Public safety matters. Trust in government has been weakened by waste, excuses, and lack of accountability.</p>
+      <p>I believe House District 27 deserves leadership focused on real problems, not political noise.</p>
+      <p>Government should be practical, transparent, and accountable. Public programs should be measured by results. Families should not have to keep paying more while getting less. Parents should be informed. Communities should be safe. Small businesses should have room to grow.</p>
+      <p>My campaign is built around a simple idea.</p>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>Oregon needs service, solutions, and accountability.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">03</div>
+  </div>
+  <div class="issue-inner dense">
+    <div class="issue-eyebrow">Affordability</div>
+    <h2 class="issue-title">Families need <em>breathing room.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I believe costs should be manageable.</p>
+    <div class="issue-body">
+      <p>Too many Oregon households are adjusting their lives around rising expenses. Families are paying more for housing, groceries, utilities, healthcare, gas, insurance, and everyday needs.</p>
+      <p>State government should not make life harder through unnecessary taxes, fees, mandates, delays, or policies that raise costs.</p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">I Support</div>
+      <ul>
+        <li>Responsible state spending</li>
+        <li>Transparent budgets</li>
+        <li>Opposition to unnecessary tax and fee increases</li>
+        <li>Policies that help reduce everyday pressure</li>
+        <li>Housing solutions that remove unnecessary barriers</li>
+        <li>Support for small businesses that provide jobs and services</li>
+      </ul>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>Government should make it easier to live, work, raise a family, and build a future in Oregon — not harder.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">04</div>
+  </div>
+  <div class="issue-inner dense">
+    <div class="issue-eyebrow">Education</div>
+    <h2 class="issue-title">Strong schools, <em>real opportunity.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I believe students need strong fundamentals and real preparation for life.</p>
+    <div class="issue-body">
+      <p>Schools should focus on reading, writing, math, science, discipline, career readiness, technical education, and skills that prepare students for college, trades, military service, or the workforce.</p>
+      <p>Parents should be informed and involved. Teachers should be supported. Classrooms should be safe, focused, and serious about student success.</p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">I Support</div>
+      <ul>
+        <li>High academic standards</li>
+        <li>Reading, math, science, and career readiness</li>
+        <li>Parent transparency and involvement</li>
+        <li>Safe and focused classrooms</li>
+        <li>Technical and career pathways</li>
+        <li>Funding directed toward student achievement</li>
+      </ul>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>Students deserve schools that prepare them for real opportunity, and parents deserve to know what is happening in the classroom.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">05</div>
+  </div>
+  <div class="issue-inner dense">
+    <div class="issue-eyebrow">Accountability</div>
+    <h2 class="issue-title">Taxpayers deserve <em>results.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I believe the public deserves transparency.</p>
+    <div class="issue-body">
+      <p>Oregonians work hard for their money. When government spends public dollars, voters deserve to know where the money goes, who is responsible, and what results are being produced.</p>
+      <p>Government programs should be evaluated by outcomes, not by size. More spending is not the same as better results.</p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">I Support</div>
+      <ul>
+        <li>Independent review of public spending</li>
+        <li>Transparency across agencies</li>
+        <li>Clear reporting on program outcomes</li>
+        <li>Responsible use of taxpayer dollars</li>
+        <li>Programs measured by results, not promises</li>
+        <li>Accountability before asking taxpayers for more money</li>
+      </ul>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>Government should not be rewarded for failure. Taxpayers deserve answers, oversight, and results.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">06</div>
+  </div>
+  <div class="issue-inner dense">
+    <div class="issue-eyebrow">Public Safety</div>
+    <h2 class="issue-title">Safe communities <em>matter.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I believe families, students, seniors, and small businesses should all feel safe.</p>
+    <div class="issue-body">
+      <p>Families should feel safe at home, students should feel safe at school, seniors should feel safe in their neighborhoods, and small businesses should feel safe opening their doors. Public safety is one of the basic responsibilities of government.</p>
+      <p>I support safe, stable communities, law enforcement recruitment, accountability, and practical policies that protect people while addressing serious problems like addiction, mental health, homelessness, and public disorder.</p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">I Support</div>
+      <ul>
+        <li>Safe and stable neighborhoods</li>
+        <li>Law enforcement recruitment and retention</li>
+        <li>Accountability in public safety systems</li>
+        <li>Real help for addiction and mental health challenges</li>
+        <li>Protection for families, seniors, students, and businesses</li>
+        <li>Policies that restore trust and stability</li>
+      </ul>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>Compassion and safety should work together. Oregon should help people in crisis without ignoring public disorder or leaving communities unprotected.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">07</div>
+  </div>
+  <div class="issue-inner dense">
+    <div class="issue-eyebrow">Small Business</div>
+    <h2 class="issue-title">Local employers need <em>room to grow.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">I believe small businesses are the backbone of local communities.</p>
+    <div class="issue-body">
+      <p>They create jobs, serve families, sponsor local events, support neighborhoods, and take real risks every day. They should not be treated like endless revenue sources for bigger government.</p>
+      <p>I understand the pressure small businesses face because I have lived it. Taxes, fees, permits, insurance, staffing, regulations, energy costs, and delays all affect whether local employers can survive and grow.</p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">I Support</div>
+      <ul>
+        <li>Reducing unnecessary burdens</li>
+        <li>Faster and more predictable permitting</li>
+        <li>Lower pressure from taxes and fees</li>
+        <li>A stronger business climate</li>
+        <li>Support for job creation</li>
+        <li>Policies that help local employers stay viable</li>
+      </ul>
+    </div>
+    <div class="position">
+      <div class="position-label">My position</div>
+      <p>Oregon should support the people who build, hire, serve, and invest in local communities.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">08</div>
+  </div>
+  <div class="issue-inner dense">
+    <h2 class="issue-title">More priorities <em>I care about.</em></h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">My campaign is focused on practical issues that affect daily life across House District 27.</p>
+    <div class="issue-body">
+      <div class="section-kicker">Healthcare</div>
+      <p>I believe healthcare should be easier to access, easier to understand, and more affordable. I support patient choice, transparency, provider support, mental health care, addiction treatment, and practical reform.</p>
+      <div class="section-kicker">Energy</div>
+      <p>I believe Oregon needs reliable and affordable energy. Families and businesses should not be punished by policies that raise utility bills or weaken reliability.</p>
+      <div class="section-kicker">Veterans</div>
+      <p>As a Navy veteran, I believe veterans deserve real support, not empty promises. I support systems that deliver practical help with healthcare, housing, mental health, employment, and transition services.</p>
+      <div class="section-kicker">Animal Welfare</div>
+      <p>As a veterinarian, I care deeply about animal welfare. I support strong, practical, science-based protections against cruelty and neglect while respecting responsible ownership, agriculture, veterinary care, and lawful animal-related activities.</p>
+      <div class="section-kicker">Local Communities</div>
+      <p>I believe major decisions should include local voices. Families, neighborhoods, small businesses, workers, and community leaders deserve to be heard before policies affect their lives.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">09</div>
+  </div>
+  <div class="issue-inner dense">
+    <h2 class="issue-title">Campaigns are built by <em>people who show up.</em></h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <p>You do not have to be a political expert to make a difference. You can help by staying informed, asking questions, sharing updates, volunteering, attending events, or supporting campaign outreach.</p>
+    </div>
+    <div class="supports">
+      <div class="supports-label">Ways to get involved</div>
+      <ul>
+        <li>Sign up for campaign updates</li>
+        <li>Ask Mark a question</li>
+        <li>Attend a campaign event</li>
+        <li>Volunteer with the campaign</li>
+        <li>Walk a neighborhood</li>
+        <li>Make calls from home</li>
+        <li>Host a coffee or meet-and-greet</li>
+        <li>Share campaign posts and updates</li>
+        <li>Donate to help reach more voters</li>
+        <li>Encourage others to learn about Mark</li>
+      </ul>
+    </div>
+    <div class="position">
+      <div class="position-label">Take the next step</div>
+      <p>House District 27 deserves grounded leadership, practical decisions, responsible government, and everyday accountability. Mark Norman is running to serve with experience, common sense, and a commitment to results.</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<section class="page back">
+  <div class="back-inner">
+    <div class="back-banner">Service. Solutions. <em>Accountability.</em></div>
+    <div class="back-lead">
+      <p>Ask Mark a question. Volunteer with the campaign. Donate to the campaign. Visit MarkForOregon.com.</p>
+      <p>Voters deserve to know who Mark Norman is, where he stands, and how he would represent Oregon House District 27.</p>
+    </div>
+    <div class="back-tagline">Mark Norman for Oregon House District 27</div>
+    <div class="back-contact">
+      <div class="cell"><div class="k">Web</div><div class="v">markfororegon.com</div></div>
+      <div class="cell"><div class="k">Email</div><div class="v">mark@markfororegon.com</div></div>
+      <div class="cell"><div class="k">Phone</div><div class="v">+1 971-278-6520</div></div>
+      <div class="cell"><div class="k">Mail</div><div class="v">PO Box 122 · Beaverton, OR 97075</div></div>
+    </div>
+    <div class="back-social">FB &middot; IG &middot; X &middot; YT</div>
+    <div class="back-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</section>
+
+</body>
+</html>
