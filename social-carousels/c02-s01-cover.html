@@ -24,6 +24,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .eyebrow{justify-content:center}.eyebrow::before{display:none}
 .headline{font-size:84px;margin-top:24px}
 .lead{font-size:30px;line-height:1.45;color:var(--paper-78);margin:28px auto 0;max-width:600px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="slide" data-fonts="Cabin,JetBrains Mono">

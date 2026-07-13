@@ -79,6 +79,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .headline em,.title em{font-style:normal;font-weight:400;position:relative;display:inline-block}
 .headline em::after,.title em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
 ${css}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="slide" data-fonts="Cabin,JetBrains Mono">

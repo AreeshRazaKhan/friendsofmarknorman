@@ -25,6 +25,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .cols{display:flex;gap:50px;margin-top:36px;align-items:flex-start}
 .body{font-size:27px;line-height:1.5;color:var(--paper-78);max-width:430px}
 .rule{width:6px;align-self:stretch;background:var(--red)}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="post" data-fonts="Cabin,JetBrains Mono">

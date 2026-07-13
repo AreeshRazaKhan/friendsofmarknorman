@@ -25,6 +25,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .stats{display:flex;flex-direction:column;gap:30px;margin-top:54px}
 .body{margin-top:46px;max-width:740px}
 .st{display:flex;align-items:baseline;gap:26px}.num{font-weight:700;font-size:128px;line-height:.82;letter-spacing:-.03em;color:var(--navy)}.num .plus{color:var(--red);font-size:68px;vertical-align:super}.desc{font-family:var(--ff-mono);font-size:20px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--stone-d)}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="story" data-fonts="Cabin,JetBrains Mono">

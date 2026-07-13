@@ -24,6 +24,8 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .headline{font-size:66px;margin-top:20px}
 .list{display:flex;flex-direction:column;gap:22px;margin-top:36px}
 .item{display:flex;gap:18px;align-items:flex-start}.item .n{font-family:var(--ff-mono);font-size:18px;font-weight:600;color:var(--red);min-width:40px;padding-top:6px}.item .tx{font-size:26px;line-height:1.4;color:var(--stone-d);max-width:500px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
 </style></head>
 <body>
   <div class="post" data-fonts="Cabin,JetBrains Mono">
