@@ -55,6 +55,11 @@
   .canvas.r916 .ask{bottom:560px;padding:34px 70px}
   .canvas.r916 .ask .t{font-size:130px}
   .canvas.r916 .pac{bottom:52px}
+
+  /* consistency: emphasis is color-only — no red highlight bar, and inline
+     emphasis inherits its container weight so each text block is one weight */
+  em::before,em::after{display:none!important}
+  em,b,strong{font-weight:inherit!important}
 </style>
 </head>
 <body>

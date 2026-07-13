@@ -59,6 +59,11 @@
   .canvas.r916 .watermark{width:660px;height:660px;bottom:300px;right:-120px}
   .canvas.r916 .learn{bottom:220px;padding:40px 80px}
   .canvas.r916 .pac{bottom:64px}
+
+  /* consistency: emphasis is color-only — no red highlight bar, and inline
+     emphasis inherits its container weight so each text block is one weight */
+  em::before,em::after{display:none!important}
+  em,b,strong{font-weight:inherit!important}
 </style>
 </head>
 <body>
