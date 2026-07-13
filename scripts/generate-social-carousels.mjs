@@ -230,7 +230,7 @@ const decks = [
     closer: { eb: '[ democratic socialism ]', h: 'Public ownership. <em>Less freedom.</em>' },
   },
   {
-    label: 'Voter Guide', kicker: '[ voter guide ]', coverFx: 'bigType', pointFx: 'num', motif: 'stripe',
+    label: 'Socialism 101', kicker: '[ socialism 101 ]', coverFx: 'bigType', pointFx: 'num', motif: 'stripe',
     cover: { h: 'What HD-27 voters <em>should know.</em>', lead: 'Understand what is at stake before you vote.' },
     points: [
       { t: 'Socialism means <em>more government power</em>', b: 'More control over taxes, healthcare, housing, and energy.', icon: 'capitol' },

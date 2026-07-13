@@ -12,7 +12,7 @@ import { districtFlag, isValidZip } from '@/lib/zip'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
 
-const WEBHOOK_URLS = [...GHL_WEBHOOKS.voterGuide, A2P_COMPLIANCE_WEBHOOK]
+const WEBHOOK_URLS = [...GHL_WEBHOOKS.socialism101, A2P_COMPLIANCE_WEBHOOK]
 
 const GUIDE_URL = 'https://markfororegon.com/downloads/mark-norman-issues-guide.pdf'
 
@@ -34,7 +34,7 @@ export const POST = async (request) => {
     }
 
     const payload = {
-      ...buildBasePayload('Voter_Guide', 'src_voter_guide'),
+      ...buildBasePayload('Socialism_101', 'src_socialism_101'),
       firstName,
       lastName,
       email,
@@ -50,7 +50,7 @@ export const POST = async (request) => {
     const results = await Promise.all(
       WEBHOOK_URLS.map((url) =>
         forwardWebhook(url, payload).catch((err) => {
-          console.error('[api/voter-guide fanout]:', err)
+          console.error('[api/socialism-101 fanout]:', err)
           return { ok: false }
         })
       )
@@ -62,7 +62,7 @@ export const POST = async (request) => {
 
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
-    console.error('[api/voter-guide]:', error)
+    console.error('[api/socialism-101]:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
