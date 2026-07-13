@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import VoterGuideForm from '@/components/voter-guide/voter-guide-form'
+import Socialism101Form from '@/components/socialism-101/socialism-101-form'
 import CampaignVideo from '@/components/meet-mark/campaign-video'
 import Reveal from '@/components/motion/reveal'
 
@@ -25,7 +25,7 @@ export const metadata = {
     'Watch Mark Norman’s introduction, download his free guide, and support the campaign for ' +
     'Oregon House District 27. Practical leadership: service, solutions, accountability.',
   openGraph: {
-    images: ['/images/voter-guide-cover.png'],
+    images: ['/images/socialism-101-cover.png'],
   },
 }
 
@@ -123,7 +123,7 @@ const MeetMarkPage = async ({ searchParams }) => {
               </p>
               <div className="relative mx-auto w-full max-w-[280px] sm:mx-0">
                 <Image
-                  src="/images/voter-guide-cover.png"
+                  src="/images/socialism-101-cover.png"
                   alt="Guide cover: A Warning About Democratic Socialism in House District 27."
                   width={816}
                   height={1056}
@@ -136,7 +136,7 @@ const MeetMarkPage = async ({ searchParams }) => {
 
           <Reveal variant="right" delay={0.15} duration={0.7}>
             <div className="h-fit rounded-2xl border border-bone bg-white p-6 sm:p-8 lg:p-10">
-              <VoterGuideForm
+              <Socialism101Form
                 submitLabel="Download the free guide"
                 endpoint="/api/qr-funnel"
                 meta={{ qr_source: qrSource }}

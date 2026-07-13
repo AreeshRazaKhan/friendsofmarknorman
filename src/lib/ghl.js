@@ -16,10 +16,10 @@ export const GHL_WEBHOOKS = {
   askMark: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt',
   ],
-  // Voter Guide opt-in funnel (/voter-guide). Primary workflow webhook for
+  // Socialism 101 opt-in funnel (/socialism-101). Primary workflow webhook for
   // the lead-magnet funnel; the route fans this out alongside the shared
   // A2P compliance webhook (same pattern as the other forms).
-  voterGuide: [
+  socialism101: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/7f867349-ace2-4b71-ad16-76339731965b',
   ],
   // QR print-media funnel (/meet-mark). Dedicated workflow webhook — leads

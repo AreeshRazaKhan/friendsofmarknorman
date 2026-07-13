@@ -105,7 +105,7 @@ const ThankYouPage = () => {
             <Reveal variant="scale" delay={0.15} duration={0.85}>
               <div className="relative mx-auto w-full max-w-[400px]">
                 <Image
-                  src="/images/voter-guide-cover.png"
+                  src="/images/socialism-101-cover.png"
                   alt="Guide cover: A Warning About Democratic Socialism in House District 27."
                   width={816}
                   height={1056}
@@ -180,7 +180,7 @@ const ThankYouPage = () => {
           <Reveal variant="up" delay={0.1} duration={0.6}>
             <div className="mt-10">
               <Button asChild variant="ghost">
-                <Link href="/voter-guide">
+                <Link href="/socialism-101">
                   Back to the guide
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>

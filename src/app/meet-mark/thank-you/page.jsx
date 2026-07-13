@@ -76,7 +76,7 @@ const MeetMarkThankYouPage = () => {
             <Reveal variant="scale" delay={0.15} duration={0.85}>
               <div className="relative mx-auto w-full max-w-[360px]">
                 <Image
-                  src="/images/voter-guide-cover.png"
+                  src="/images/socialism-101-cover.png"
                   alt="Guide cover: A Warning About Democratic Socialism in House District 27."
                   width={816}
                   height={1056}

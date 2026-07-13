@@ -3,19 +3,19 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import VoterGuideForm from '@/components/voter-guide/voter-guide-form'
+import Socialism101Form from '@/components/socialism-101/socialism-101-form'
 import Reveal from '@/components/motion/reveal'
 
 import { CAMPAIGN } from '@/constants/site'
 
 export const metadata = {
-  title: `Mark Norman Opposes and Warns About Democratic Socialism — ${CAMPAIGN.candidate} for Oregon`,
+  title: `Socialism 101 — ${CAMPAIGN.candidate} for Oregon`,
   description:
     'Democratic socialism points toward larger government, higher taxes, expanded bureaucracy, ' +
     'public ownership, and centralized control over more parts of everyday life. Download ' +
     'Mark Norman’s free guide to learn why he rejects that direction.',
   openGraph: {
-    images: ['/images/voter-guide-cover.png'],
+    images: ['/images/socialism-101-cover.png'],
   },
 }
 
@@ -123,7 +123,7 @@ const ISSUE_DETAILS = [
   },
 ]
 
-const VoterGuidePage = () => {
+const Socialism101Page = () => {
   const oddTopics = ALTERNATIVE_TOPICS.length % 2 === 1
   const gridTopics = oddTopics ? ALTERNATIVE_TOPICS.slice(0, -1) : ALTERNATIVE_TOPICS
   const lastTopic = oddTopics ? ALTERNATIVE_TOPICS[ALTERNATIVE_TOPICS.length - 1] : null
@@ -160,7 +160,7 @@ const VoterGuidePage = () => {
           <Reveal variant="scale" delay={0.15} duration={0.85}>
             <div className="relative mx-auto w-full max-w-[400px] lg:justify-self-end">
               <Image
-                src="/images/voter-guide-cover.png"
+                src="/images/socialism-101-cover.png"
                 alt="Guide cover: A Warning About Democratic Socialism in House District 27."
                 width={816}
                 height={1056}
@@ -268,7 +268,7 @@ const VoterGuidePage = () => {
 
             <Reveal variant="scale" delay={0.15} duration={0.85}>
               <Image
-                src="/images/voter-guide-rally.png"
+                src="/images/socialism-101-rally.png"
                 alt="Oregonians gathered at the State Capitol in Salem holding signs reading Stop Socialism, Keep Oregon Free, and Protect Oregon Opportunity."
                 width={1672}
                 height={941}
@@ -591,9 +591,9 @@ const VoterGuidePage = () => {
 
           <Reveal variant="right" delay={0.15} duration={0.7}>
             <div className="h-fit rounded-2xl border border-bone bg-white p-8 lg:p-10">
-              <VoterGuideForm
+              <Socialism101Form
                 submitLabel="Download the free guide"
-                redirectTo="/voter-guide/thank-you"
+                redirectTo="/socialism-101/thank-you"
               />
               <p className="mt-4 text-xs leading-relaxed text-stone">
                 We respect your privacy. Your information will be used to send campaign updates and
@@ -607,4 +607,4 @@ const VoterGuidePage = () => {
   )
 }
 
-export default VoterGuidePage
+export default Socialism101Page

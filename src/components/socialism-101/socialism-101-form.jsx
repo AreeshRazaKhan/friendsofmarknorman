@@ -24,7 +24,7 @@ const ZIP_RE = /^[0-9]{5}$/
 
 const GUIDE_PDF = '/downloads/mark-norman-issues-guide.pdf'
 
-const VoterGuideForm = ({
+const Socialism101Form = ({
   submitLabel,
   successEyebrow,
   successHeading,
@@ -98,7 +98,7 @@ const VoterGuideForm = ({
       }
       setStatus(STATUS.success)
     } catch (error) {
-      console.error('[VoterGuideForm]:', error)
+      console.error('[Socialism101Form]:', error)
       setStatus(STATUS.error)
       setMessage('Something went wrong. Please try again.')
       setToastOpen(true)
@@ -214,7 +214,7 @@ const VoterGuideForm = ({
   )
 }
 
-VoterGuideForm.propTypes = {
+Socialism101Form.propTypes = {
   submitLabel: PropTypes.string,
   successEyebrow: PropTypes.string,
   successHeading: PropTypes.node,
@@ -225,7 +225,7 @@ VoterGuideForm.propTypes = {
   meta: PropTypes.object,
 }
 
-VoterGuideForm.defaultProps = {
+Socialism101Form.defaultProps = {
   submitLabel: 'Get my free guide',
   successEyebrow: '[ your guide is ready ]',
   successHeading: (
@@ -240,8 +240,8 @@ VoterGuideForm.defaultProps = {
     'plus his practical alternative for Oregon.',
   showDownload: true,
   redirectTo: '',
-  endpoint: '/api/voter-guide',
+  endpoint: '/api/socialism-101',
   meta: null,
 }
 
-export default VoterGuideForm
+export default Socialism101Form
