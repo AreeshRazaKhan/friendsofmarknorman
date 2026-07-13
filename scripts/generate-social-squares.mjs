@@ -29,7 +29,7 @@ body{background:#1a1a1a;font-family:var(--ff)}
 .eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--ff-mono);font-size:21px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
 .eyebrow::before{content:"";width:46px;height:4px;flex-shrink:0}
 .headline{font-weight:700;letter-spacing:-.03em;line-height:.98}
-.headline em{font-style:normal;font-weight:400;position:relative;display:inline-block}
+.headline em{font-style:normal;font-weight:inherit;position:relative;display:inline-block}
 .headline em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
 .stamp{position:absolute;z-index:4;background:var(--paper);border:5px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:12px 12px 0 var(--red)}
 .stamp svg{width:54%;height:54%}
@@ -185,7 +185,7 @@ C.quote = (c) => {
 .content{position:relative;z-index:3;max-width:720px}
 .mark{font-weight:700;font-size:200px;line-height:.55;height:110px;color:${p.red}}
 .quote{font-weight:700;font-size:60px;line-height:1.12;letter-spacing:-.02em;color:${p.text};margin-top:30px}
-.quote em{font-style:normal;font-weight:400;color:${p.red};position:relative;display:inline-block}.quote em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;background:${p.hl};z-index:-1}
+.quote em{font-style:normal;font-weight:inherit;color:${p.red};position:relative;display:inline-block}.quote em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;background:${p.hl};z-index:-1}
 .attr{display:flex;align-items:center;gap:18px;margin-top:38px}.attr .line{width:56px;height:3px;background:${p.red}}.attr .name{font-family:var(--ff-mono);font-size:19px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:${p.body}}`,
   `${dots(c.bg)}${stripeCorner(c.bg, 'polygon(70% 0,100% 0,100% 34%)')}
     ${logoTag(p.logo, 100)}
