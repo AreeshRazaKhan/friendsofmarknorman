@@ -10,7 +10,6 @@ import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput } from '@/lib/phone'
-import { LEGAL } from '@/constants/site'
 
 const STATUS = {
   idle: 'idle',
@@ -58,7 +57,6 @@ const Socialism101Form = ({
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
   const [issue, setIssue] = useState('')
-  const [emailConsent, setEmailConsent] = useState(false)
   const [smsUpdates, setSmsUpdates] = useState(false)
   const [smsPromo, setSmsPromo] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
@@ -95,7 +93,6 @@ const Socialism101Form = ({
       phone,
       zipCode: formData.get('zipCode') || '',
       issue: showIssue ? issue : '',
-      email_consent: emailConsent,
       sms_updates: smsUpdates,
       sms_promo: smsPromo,
     }
@@ -226,20 +223,6 @@ const Socialism101Form = ({
             </select>
           </div>
         )}
-
-        <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-stone-dark">
-          <input
-            type="checkbox"
-            name="email_consent"
-            checked={emailConsent}
-            onChange={(e) => setEmailConsent(e.target.checked)}
-            className="mt-1 h-4 w-4 shrink-0 rounded border-bone text-red focus:ring-red"
-          />
-          <span>
-            Yes, I would like to receive campaign updates, event notices, issue highlights,
-            volunteer opportunities, and other communications from <strong>{LEGAL.entity}</strong>.
-          </span>
-        </label>
 
         <SmsConsent
           hasPhone={hasPhone}

@@ -10,7 +10,7 @@ import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
 
-import { ABOUT_STATS, CAMPAIGN, INTRO_VIDEO, LEGAL } from '@/constants/site'
+import { ABOUT_STATS, CAMPAIGN, INTRO_VIDEO } from '@/constants/site'
 
 export const metadata = {
   title: `The 5-Minute Voter Guide — ${CAMPAIGN.candidate} for Oregon`,
@@ -225,9 +225,6 @@ const FiveMinuteVoterGuidePage = () => {
                     showIssue
                   />
                 </div>
-                <p className="mt-4 text-xs leading-relaxed text-stone">
-                  Paid for by {LEGAL.entity} PAC #{LEGAL.pacId}.
-                </p>
               </div>
             </Reveal>
           </div>
