@@ -10,7 +10,7 @@ import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
 
-import { ABOUT_STATS, CAMPAIGN, INTRO_VIDEO } from '@/constants/site'
+import { ABOUT_STATS, CAMPAIGN, VOTER_GUIDE_VIDEO } from '@/constants/site'
 
 export const metadata = {
   title: `The 5-Minute Voter Guide — ${CAMPAIGN.candidate} for Oregon`,
@@ -108,7 +108,7 @@ const FiveMinuteVoterGuidePage = () => {
               'repeating-linear-gradient(45deg, var(--red) 0 2px, transparent 2px 24px)',
           }}
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:px-10 lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-[1.4fr_1fr] lg:gap-16 lg:px-10 lg:py-24">
           <Reveal variant="up" duration={0.75}>
             <div className="flex flex-col items-start gap-6">
               <p className="eyebrow-bracket eyebrow text-red-3">
@@ -144,9 +144,10 @@ const FiveMinuteVoterGuidePage = () => {
 
           <Reveal variant="scale" delay={0.1} duration={0.85} className="w-full">
             <CampaignVideo
-              youtubeId={INTRO_VIDEO.youtubeId}
-              title={INTRO_VIDEO.title}
-              className="w-full rounded-[1.5rem] border-[1.5px] border-paper-78/25 shadow-2xl"
+              src={VOTER_GUIDE_VIDEO.src}
+              poster={VOTER_GUIDE_VIDEO.poster}
+              title={VOTER_GUIDE_VIDEO.title}
+              className="mx-auto aspect-[9/16] w-full max-w-[340px] rounded-[1.5rem] border-[1.5px] border-paper-78/25 shadow-2xl lg:max-w-[380px]"
             />
           </Reveal>
         </div>

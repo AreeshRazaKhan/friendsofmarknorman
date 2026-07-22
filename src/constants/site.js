@@ -460,6 +460,13 @@ export const INTRO_VIDEO = {
   title: 'Meet Mark Norman — candidate introduction',
 }
 
+// Vertical (9:16) self-hosted video for the 5-Minute Voter Guide funnel hero.
+export const VOTER_GUIDE_VIDEO = {
+  src: '/videos/voter-guide-intro.mp4',
+  poster: '/videos/voter-guide-intro-poster.jpg',
+  title: 'Mark Norman — a message for Oregon House District 27 voters',
+}
+
 // Events are fetched from GHL custom objects at runtime via fetchGHLEvents()
 // in src/lib/ghl.js. Do not add a static EVENTS array here — see
 // .claude/rules/ghl-events-integration.md for the integration contract.
