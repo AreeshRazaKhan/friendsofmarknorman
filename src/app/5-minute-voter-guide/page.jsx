@@ -13,10 +13,10 @@ import RevealItem from '@/components/motion/reveal-item'
 import { ABOUT_STATS, CAMPAIGN, VOTER_GUIDE_VIDEO } from '@/constants/site'
 
 export const metadata = {
-  title: `The 5-Minute Voter Guide — ${CAMPAIGN.candidate} for Oregon`,
+  title: `The 5-Minute Voter Guide | ${CAMPAIGN.candidate} for Oregon`,
   description:
     'Before Election 2026, get a quick overview of who is running to represent Oregon House ' +
-    'District 27. Download The 5-Minute Voter Guide to Mark Norman — his background, priorities, ' +
+    'District 27. Download The 5-Minute Voter Guide to Mark Norman: his background, priorities, ' +
     'and practical vision.',
   openGraph: {
     images: ['/images/5-min-voter-guide-cover.png'],
@@ -24,11 +24,11 @@ export const metadata = {
 }
 
 const INSIDE = [
-  'Who Mark is — Navy veteran, veterinarian, small-business owner',
+  'Who Mark is: Navy veteran, veterinarian, small-business owner',
   'Why he is running for House District 27',
-  'Affordability — reducing pressure on working families',
-  'Education — strong schools and real opportunity',
-  'Accountability — results, not more spending',
+  'Affordability: reducing pressure on working families',
+  'Education: strong schools and real opportunity',
+  'Accountability: results, not more spending',
   'Public safety, small business, healthcare, energy & more',
 ]
 
@@ -120,7 +120,7 @@ const FiveMinuteVoterGuidePage = () => {
               </h1>
               <p className="max-w-prose text-base leading-relaxed text-paper-78 lg:text-lg">
                 A Navy veteran, veterinarian, and small-business owner running for Oregon House
-                District 27 — on grounded leadership, practical decisions, and everyday
+                District 27. Grounded leadership, practical decisions, and everyday
                 accountability.
               </p>
               <div className="flex flex-wrap gap-3">
