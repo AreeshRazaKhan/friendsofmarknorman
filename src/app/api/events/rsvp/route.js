@@ -9,7 +9,7 @@ import {
   restHeaders,
   yesNo,
 } from '@/lib/ghl'
-import { normalizePhoneForSubmit } from '@/lib/phone'
+import { isPhoneComplete, normalizePhoneForSubmit } from '@/lib/phone'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
 
@@ -87,9 +87,16 @@ export const POST = async (request) => {
 
     const firstName = (body?.firstName || '').trim()
     const email = (body?.email || '').trim()
+    const phone = (body?.phone || '').trim()
 
     if (!required(firstName) || !required(email)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    // Phone stays optional, but a partial number is rejected rather than
+    // silently dropped — the submitter gets a chance to correct it.
+    if (phone && !isPhoneComplete(phone)) {
+      return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
     }
 
     const payload = {
@@ -97,7 +104,7 @@ export const POST = async (request) => {
       firstName,
       lastName: (body?.lastName || '').trim(),
       email,
-      phone: normalizePhoneForSubmit(body?.phone),
+      phone: normalizePhoneForSubmit(phone),
       eventName: (body?.eventName || '').trim(),
       eventDate: (body?.eventDate || '').trim(),
       eventTime: (body?.eventTime || '').trim(),

@@ -7,7 +7,7 @@ import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 import {
   AVAILABILITY_OPTIONS,
@@ -66,6 +66,9 @@ const VolunteerSignup = () => {
     if (!data.availability) next.availability = 'Required'
     if (data.helpOptions.length === 0) next.helpOptions = 'Pick at least one'
     if (!data.issues.trim()) next.issues = 'Required'
+    if (data.phone.trim() && !isPhoneComplete(data.phone)) {
+      next.phone = 'Enter a complete 10-digit number'
+    }
     return next
   }
 
@@ -165,6 +168,7 @@ const VolunteerSignup = () => {
           placeholder="+1 (503) 555-0123"
           value={phone}
           onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+          error={errors.phone}
         />
       </div>
 

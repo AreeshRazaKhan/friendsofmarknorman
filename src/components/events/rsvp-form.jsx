@@ -8,7 +8,7 @@ import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import SmsConsent from '@/components/layout/sms-consent'
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -43,6 +43,9 @@ const RsvpForm = ({ event }) => {
     if (!data.lastName.trim()) next.lastName = 'Required'
     if (!data.email.trim()) next.email = 'Required'
     else if (!EMAIL_RE.test(data.email)) next.email = 'Invalid email'
+    if (data.phone.trim() && !isPhoneComplete(data.phone)) {
+      next.phone = 'Enter a complete 10-digit number'
+    }
     return next
   }
 
@@ -136,6 +139,7 @@ const RsvpForm = ({ event }) => {
         placeholder="+1 (503) 555-0123"
         value={phone}
         onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+        error={errors.phone}
       />
 
       <SmsConsent

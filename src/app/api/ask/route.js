@@ -7,7 +7,7 @@ import {
   forwardWebhook,
   yesNo,
 } from '@/lib/ghl'
-import { normalizePhoneForSubmit } from '@/lib/phone'
+import { isPhoneComplete, normalizePhoneForSubmit } from '@/lib/phone'
 import { districtFlag, isValidZip } from '@/lib/zip'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
@@ -37,9 +37,16 @@ export const POST = async (request) => {
     const email = (body?.email || '').trim()
     const question = (body?.question || '').trim()
     const zip = (body?.zip || '').trim()
+    const phone = (body?.phone || '').trim()
 
     if (!required(email) || !required(question) || !isValidZip(zip)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    // Phone stays optional, but a partial number is rejected rather than
+    // silently dropped — the submitter gets a chance to correct it.
+    if (phone && !isPhoneComplete(phone)) {
+      return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
     }
 
     const { firstName, lastName } = splitFullName(body?.name)
@@ -49,7 +56,7 @@ export const POST = async (request) => {
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(body?.phone),
+      phone: normalizePhoneForSubmit(phone),
       issue_category: (body?.topic || '').trim(),
       issue_location: zip,
       in_district: districtFlag(zip),

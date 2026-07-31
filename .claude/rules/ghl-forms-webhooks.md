@@ -93,7 +93,7 @@ Every webhook payload MUST include:
 | Code | When |
 |------|------|
 | 200  | Webhook accepted (GHL returned 2xx) |
-| 400  | Required fields missing (client validation missed) |
+| 400  | Required fields missing, or a supplied phone is incomplete (client validation missed) |
 | 502  | GHL webhook returned non-2xx (upstream failure) |
 | 500  | Internal server error (catch block) |
 

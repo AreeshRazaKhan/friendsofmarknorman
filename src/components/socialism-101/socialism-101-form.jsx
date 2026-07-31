@@ -9,7 +9,7 @@ import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -78,6 +78,9 @@ const Socialism101Form = ({
     else if (!EMAIL_RE.test(form.email)) next.email = 'Invalid email'
     if (!form.zipCode.trim()) next.zipCode = 'Required'
     else if (!ZIP_RE.test(form.zipCode.trim())) next.zipCode = 'Invalid ZIP'
+    if (form.phone.trim() && !isPhoneComplete(form.phone)) {
+      next.phone = 'Enter a complete 10-digit number'
+    }
     return next
   }
 
@@ -186,6 +189,7 @@ const Socialism101Form = ({
             placeholder="+1 (503) 555-0123"
             value={phone}
             onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+            error={errors.phone}
           />
           <FormField
             name="zipCode"

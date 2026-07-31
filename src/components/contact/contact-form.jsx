@@ -7,7 +7,7 @@ import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -43,6 +43,9 @@ const ContactForm = () => {
     if (!form.email.trim()) next.email = 'Required'
     else if (!EMAIL_RE.test(form.email)) next.email = 'Invalid email'
     if (!form.message.trim()) next.message = 'Required'
+    if (form.phone.trim() && !isPhoneComplete(form.phone)) {
+      next.phone = 'Enter a complete 10-digit number'
+    }
     return next
   }
 
@@ -133,6 +136,7 @@ const ContactForm = () => {
           placeholder="+1 (503) 555-0123"
           value={phone}
           onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+          error={errors.phone}
         />
       </div>
 

@@ -7,7 +7,7 @@ import {
   forwardWebhook,
   yesNo,
 } from '@/lib/ghl'
-import { normalizePhoneForSubmit } from '@/lib/phone'
+import { isPhoneComplete, normalizePhoneForSubmit } from '@/lib/phone'
 import { districtFlag, isValidZip } from '@/lib/zip'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
@@ -33,12 +33,19 @@ export const POST = async (request) => {
       return NextResponse.json({ error: 'Invalid ZIP code' }, { status: 400 })
     }
 
+    // Phone stays optional, but a partial number is rejected rather than
+    // silently dropped — the submitter gets a chance to correct it.
+    const phone = (body?.phone || '').trim()
+    if (phone && !isPhoneComplete(phone)) {
+      return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
+    }
+
     const payload = {
       ...buildBasePayload('Socialism_101', 'src_socialism_101'),
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(body?.phone),
+      phone: normalizePhoneForSubmit(phone),
       zipCode,
       in_district: districtFlag(zipCode),
       guide_url: GUIDE_URL,
