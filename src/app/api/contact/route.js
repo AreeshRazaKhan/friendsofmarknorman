@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 import {
   A2P_COMPLIANCE_WEBHOOK,
   GHL_WEBHOOKS,
+  a2pFlag,
   buildBasePayload,
   forwardWebhook,
   yesNo,
@@ -33,15 +34,18 @@ export const POST = async (request) => {
       return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
     }
 
+    const normalizedPhone = normalizePhoneForSubmit(phone)
+
     const payload = {
       ...buildBasePayload('Contact_Form', 'src_contact'),
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(phone),
+      phone: normalizedPhone,
       message,
       sms_updates: yesNo(body?.sms_updates),
       sms_promo: yesNo(body?.sms_promo),
+      a2p: a2pFlag(normalizedPhone, body?.sms_updates, body?.sms_promo),
     }
 
     const results = await Promise.all(

@@ -283,17 +283,27 @@ The consent flags travel as `'Yes'` / `'No'` strings (per
 `ghl-forms-webhooks.md` CRITICAL rule 2):
 
 ```js
+const normalizedPhone = normalizePhoneForSubmit(phone)
+
 const payload = {
   // ...
-  phone: normalizePhoneForSubmit(phone),
+  phone: normalizedPhone,
   sms_updates: smsConsent ? 'Yes' : 'No',
   sms_promo: promoConsent ? 'Yes' : 'No',
+  a2p: a2pFlag(normalizedPhone, smsConsent, promoConsent),
   // ...
 }
 ```
 
 When `phone` normalizes to empty, both consent flags are `'No'` (the
 client auto-clears them on phone delete, so this is guaranteed).
+
+Every payload also carries a rollup **`a2p`** flag built with `a2pFlag()`
+from `src/lib/ghl.js`. It is `'Yes'` only when the normalized phone is
+non-empty **and** at least one consent flag is set — so a stray consent
+boolean with no number behind it can never register as an opt-in. Pass
+the *normalized* phone, not the raw body value, and never re-implement
+the expression inline.
 
 ---
 

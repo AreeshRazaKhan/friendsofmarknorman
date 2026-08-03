@@ -76,6 +76,17 @@ data rates may apply. Text STOP to opt out or HELP for help."
 
 Send consent as `'Yes'` or `'No'` strings in the payload — never booleans.
 
+Every payload from a form that collects a phone number also carries a
+rollup **`a2p`** flag alongside `sms_updates` / `sms_promo`. It is `'Yes'`
+only when the payload holds a deliverable (normalized, non-empty) phone
+**and** at least one SMS consent box was ticked — a consent flag with no
+number behind it is not a valid opt-in. Build it with `a2pFlag()` from
+`src/lib/ghl.js`; never hand-roll the expression in a route:
+
+```js
+a2p: a2pFlag(normalizedPhone, body?.sms_updates, body?.sms_promo)
+```
+
 ### 3. All Payloads Must Include These Base Fields
 
 Every webhook payload MUST include:
@@ -155,6 +166,7 @@ form collects a phone number — two webhooks total.
   message: string,
   sms_updates: 'Yes' | 'No',
   sms_promo: 'Yes' | 'No',
+  a2p: 'Yes' | 'No',              // rollup consent flag — see CRITICAL rule 2
   source: 'src_contact',
   submitted_at: '2026-04-12T10:30:00.000Z'  // ISO 8601 UTC
 }
@@ -244,6 +256,7 @@ const anySuccess = results.some((r) => r.ok)
   anythingElse: string,            // free text, may be empty
   sms_updates: 'Yes' | 'No',
   sms_promo: 'Yes' | 'No',
+  a2p: 'Yes' | 'No',              // rollup consent flag — see CRITICAL rule 2
   source: 'src_volunteer',
   submitted_at: '2026-04-12T10:30:00.000Z'
 }
@@ -351,6 +364,7 @@ const deriveSubject = (question) => {
   issue_image: '',                // empty string placeholder (no upload yet)
   sms_updates: 'Yes' | 'No',
   sms_promo: 'Yes' | 'No',
+  a2p: 'Yes' | 'No',              // rollup consent flag — see CRITICAL rule 2
   source: 'src_ask',
   submitted_at: '2026-04-12T10:30:00.000Z'
 }
@@ -411,6 +425,9 @@ collects the contact info needed to register for a specific event.
   eventDate: string,           // from event data, not user input
   eventTime: string,           // from event data, not user input
   eventCategory: string,       // from event data, not user input
+  sms_updates: 'Yes' | 'No',
+  sms_promo: 'Yes' | 'No',
+  a2p: 'Yes' | 'No',           // rollup consent flag — see CRITICAL rule 2
   source: 'src_event',
   submitted_at: '2026-04-12T10:30:00.000Z'
 }

@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 import {
   A2P_COMPLIANCE_WEBHOOK,
   GHL_WEBHOOKS,
+  a2pFlag,
   buildBasePayload,
   forwardWebhook,
   yesNo,
@@ -36,13 +37,14 @@ export const POST = async (request) => {
 
     const helpOptionsArray = Array.isArray(body?.helpOptions) ? body.helpOptions : []
     const helpOptions = helpOptionsArray.filter((s) => typeof s === 'string' && s.trim()).join(', ')
+    const normalizedPhone = normalizePhoneForSubmit(phone)
 
     const payload = {
       ...buildBasePayload('Volunteer_Form', 'src_volunteer'),
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(phone),
+      phone: normalizedPhone,
       zipCode,
       in_district: districtFlag(zipCode),
       county: (body?.county || '').trim(),
@@ -55,6 +57,7 @@ export const POST = async (request) => {
       anythingElse: (body?.anythingElse || '').trim(),
       sms_updates: yesNo(body?.sms_updates),
       sms_promo: yesNo(body?.sms_promo),
+      a2p: a2pFlag(normalizedPhone, body?.sms_updates, body?.sms_promo),
     }
 
     const results = await Promise.all(
