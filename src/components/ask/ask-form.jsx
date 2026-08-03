@@ -35,17 +35,13 @@ const AskForm = () => {
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
-  const [smsUpdates, setSmsUpdates] = useState(false)
-  const [smsPromo, setSmsPromo] = useState(false)
+  const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
 
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
-    if (!hasPhone) {
-      setSmsUpdates(false)
-      setSmsPromo(false)
-    }
+    if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
 
   const validate = (data) => {
@@ -72,8 +68,7 @@ const AskForm = () => {
       zip: formData.get('zip') || '',
       topic: formData.get('topic') || '',
       question: formData.get('question') || '',
-      sms_updates: smsUpdates,
-      sms_promo: smsPromo,
+      sms_consent: smsConsent,
     }
 
     const validation = validate(data)
@@ -93,8 +88,7 @@ const AskForm = () => {
       setToastOpen(true)
       form.reset()
       setPhone('')
-      setSmsUpdates(false)
-      setSmsPromo(false)
+      setSmsConsent(false)
     } catch (error) {
       console.error('[AskForm]:', error)
       setStatus(STATUS.error)
@@ -178,10 +172,8 @@ const AskForm = () => {
 
       <SmsConsent
         hasPhone={hasPhone}
-        smsUpdates={smsUpdates}
-        smsPromo={smsPromo}
-        onSmsUpdatesChange={setSmsUpdates}
-        onSmsPromoChange={setSmsPromo}
+        smsConsent={smsConsent}
+        onSmsConsentChange={setSmsConsent}
       />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>

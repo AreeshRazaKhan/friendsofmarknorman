@@ -40,8 +40,11 @@ export const POST = async (request) => {
       email,
       phone: normalizePhoneForSubmit(phone),
       message,
-      sms_updates: yesNo(body?.sms_updates),
-      sms_promo: yesNo(body?.sms_promo),
+      // One consent checkbox now covers both informational and fundraising
+      // messaging (see .claude/rules/peerly-10dlc-compliance.md). Both GHL
+      // flags derive from it so existing CRM workflows keep working.
+      sms_updates: yesNo(body?.sms_consent),
+      sms_promo: yesNo(body?.sms_consent),
     }
 
     const results = await Promise.all(

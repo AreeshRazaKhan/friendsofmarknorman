@@ -57,17 +57,13 @@ const Socialism101Form = ({
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
   const [issue, setIssue] = useState('')
-  const [smsUpdates, setSmsUpdates] = useState(false)
-  const [smsPromo, setSmsPromo] = useState(false)
+  const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
 
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
-    if (!hasPhone) {
-      setSmsUpdates(false)
-      setSmsPromo(false)
-    }
+    if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
 
   const validate = (form) => {
@@ -96,8 +92,7 @@ const Socialism101Form = ({
       phone,
       zipCode: formData.get('zipCode') || '',
       issue: showIssue ? issue : '',
-      sms_updates: smsUpdates,
-      sms_promo: smsPromo,
+      sms_consent: smsConsent,
     }
 
     const validation = validate(data)
@@ -230,10 +225,8 @@ const Socialism101Form = ({
 
         <SmsConsent
           hasPhone={hasPhone}
-          smsUpdates={smsUpdates}
-          smsPromo={smsPromo}
-          onSmsUpdatesChange={setSmsUpdates}
-          onSmsPromoChange={setSmsPromo}
+          smsConsent={smsConsent}
+          onSmsConsentChange={setSmsConsent}
         />
 
         <Button type="submit" variant="red" disabled={status === STATUS.submitting}>
