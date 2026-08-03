@@ -4,6 +4,7 @@ import {
   A2P_COMPLIANCE_WEBHOOK,
   GHL_REST,
   GHL_WEBHOOKS,
+  a2pFlag,
   buildBasePayload,
   forwardWebhook,
   restHeaders,
@@ -99,12 +100,14 @@ export const POST = async (request) => {
       return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
     }
 
+    const normalizedPhone = normalizePhoneForSubmit(phone)
+
     const payload = {
       ...buildBasePayload('Event_RSVP', 'src_event'),
       firstName,
       lastName: (body?.lastName || '').trim(),
       email,
-      phone: normalizePhoneForSubmit(phone),
+      phone: normalizedPhone,
       eventName: (body?.eventName || '').trim(),
       eventDate: (body?.eventDate || '').trim(),
       eventTime: (body?.eventTime || '').trim(),
@@ -114,6 +117,7 @@ export const POST = async (request) => {
       // flags derive from it so existing CRM workflows keep working.
       sms_updates: yesNo(body?.sms_consent),
       sms_promo: yesNo(body?.sms_consent),
+      a2p: a2pFlag(normalizedPhone, body?.sms_consent),
     }
 
     const results = await Promise.all(

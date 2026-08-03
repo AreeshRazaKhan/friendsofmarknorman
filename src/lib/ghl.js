@@ -53,6 +53,13 @@ export const restHeaders = () => ({
 
 export const yesNo = (value) => (value ? 'Yes' : 'No')
 
+// Rollup A2P 10DLC consent flag for the compliance workflow. 'Yes' only when
+// we hold a deliverable number AND the consent box was ticked — a consent
+// flag with no number behind it is not a valid opt-in. Takes the consent as
+// a rest arg so a future multi-checkbox regime needs no signature change.
+export const a2pFlag = (phone, ...consents) =>
+  yesNo(Boolean((phone || '').trim()) && consents.some(Boolean))
+
 export const buildBasePayload = (type, source) => ({
   type,
   source,

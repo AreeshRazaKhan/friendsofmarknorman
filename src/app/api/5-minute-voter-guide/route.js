@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 import {
   A2P_COMPLIANCE_WEBHOOK,
   GHL_WEBHOOKS,
+  a2pFlag,
   buildBasePayload,
   forwardWebhook,
   yesNo,
@@ -40,12 +41,14 @@ export const POST = async (request) => {
       return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
     }
 
+    const normalizedPhone = normalizePhoneForSubmit(phone)
+
     const payload = {
       ...buildBasePayload('Voter_Guide_5Min', 'src_voter_guide_5min'),
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(phone),
+      phone: normalizedPhone,
       zipCode,
       in_district: districtFlag(zipCode),
       issue: (body?.issue || '').trim(),
@@ -56,6 +59,7 @@ export const POST = async (request) => {
       // flags derive from it so existing CRM workflows keep working.
       sms_updates: yesNo(body?.sms_consent),
       sms_promo: yesNo(body?.sms_consent),
+      a2p: a2pFlag(normalizedPhone, body?.sms_consent),
     }
 
     const results = await Promise.all(
