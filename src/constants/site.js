@@ -37,6 +37,28 @@ export const CAMPAIGN = {
   disclosure: `Paid for by ${LEGAL.entity} PAC #${LEGAL.pacId}`,
 }
 
+// Peerly 10DLC carrier disclaimer — political registration variant (527s,
+// PACs, candidates). This is the proven-approved wording from the Operation
+// 1776 Peerly 10DLC Compliance SOP and carrier reviewers diff it against the
+// live page, so do NOT paraphrase, reorder, or expand the abbreviations. The
+// donation sentence is mandatory for political registrations and must never
+// be dropped. See .claude/rules/peerly-10dlc-compliance.md.
+// Split around the entity name and the Privacy Policy link only so the
+// component can bold the former and hyperlink the latter — concatenated, the
+// pieces are the approved sentence, unaltered.
+export const SMS_DISCLAIMER = {
+  beforeEntity:
+    'By providing your telephone number and checking this box, you consent to receive calls ' +
+    'and text messages from ',
+  afterEntity:
+    '. Message & data rates may apply. Message frequency may vary. Messaging may include ' +
+    'campaign updates, event invitations, volunteer opportunities, and requests for donations. ' +
+    'Reply STOP to opt out & HELP for help. View our',
+  privacyLabel: 'Privacy Policy',
+  privacySuffix: 'for more information.',
+  privacyPath: '/privacy-policy',
+}
+
 // Build a tier-specific donate URL. Falls back to the base donateUrl
 // when no amount is provided. Handles either `?`- or `&`-prefixed
 // appends so the helper is robust if the base URL ever changes.

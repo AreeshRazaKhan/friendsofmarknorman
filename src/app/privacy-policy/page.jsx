@@ -124,13 +124,15 @@ const PrivacyPolicyPage = () => {
               </li>
               <li>
                 <strong>Promotional messages</strong> (separate opt-in) —
-                fundraising appeals, donation drives, occasional special
-                promotions tied to the campaign.
+                fundraising appeals, donation drives, and event invitations
+                tied to the campaign.
               </li>
             </ul>
             <p>
-              Message frequency varies. Message &amp; data rates may apply. You
-              can reply STOP to any message to unsubscribe, or HELP for help.
+              Consent covers both calls and text messages at the number you
+              provide. Messaging may include requests for donation. Msg
+              frequency may vary. Msg &amp; data rates may apply. You can reply
+              STOP to opt-out, or HELP for help.
             </p>
 
             <h3>Data retention</h3>

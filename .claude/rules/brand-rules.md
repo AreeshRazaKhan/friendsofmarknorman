@@ -406,10 +406,10 @@ Both pages must respond 200 (no 404s) and link to each other. Footer links to bo
 
 ### 14.2 SMS consent on every form that collects a phone number
 
-- **Two separate optional checkboxes** (informational + promotional). A single combined checkbox is not compliant.
+- **One optional consent checkbox** carrying the approved combined consent statement. (This supersedes an earlier two-checkbox informational + promotional split — see `peerly-10dlc-compliance.md` §3. Do not restore the two-box pattern.)
 - Placed at the **bottom of the form, above the submit button** — never adjacent to the phone field.
 - **Not pre-checked.**
-- Each label must include: legal entity name, use case, message frequency disclosure, message-and-data-rates disclosure, STOP, HELP.
+- The label must include: legal entity name, use case, message frequency disclosure, message-and-data-rates disclosure, donation-request disclosure, STOP, HELP, and a Privacy Policy link.
 - Use the shared `<SmsConsent />` component — never re-implement.
 
 ### 14.3 Footer requirements (every page)
@@ -426,7 +426,7 @@ The legal entity name `Friends of Mark Norman` (single source: `LEGAL.entity` in
 
 1. Privacy Policy
 2. Terms of Service
-3. SMS consent checkbox language (both checkboxes)
+3. SMS consent checkbox language
 4. Footer copyright
 5. Contact page
 
@@ -434,7 +434,11 @@ DBA/casual names (e.g. "Mark Norman", "the campaign") are fine for marketing cop
 
 ### 14.5 Active opt-in language only
 
-Use **"I agree to receive…"** — never passive forms ("By providing your number, you consent to…"). Per TCPA enforcement, passive language is not valid express consent.
+**Superseded — see `peerly-10dlc-compliance.md` §2–§3.** This section previously required **"I agree to receive…"** and forbade passive forms. The consent copy now in use is the client-approved Peerly statement ("By providing your telephone number and checking this box, you consent to…"), which is explicit express consent tied to an affirmative, un-prechecked checkbox action. Do not rewrite it into the active voice to satisfy this section.
+
+### 14.6 Peerly layer
+
+This site also registers for peer-to-peer texting through Peerly, which adds requirements on top of everything above: a verbatim carrier disclaimer next to every phone-collecting form, mandatory donation language, a selectable full Privacy Policy URL, and a ban on marketing/sweepstakes wording sitewide. See **`peerly-10dlc-compliance.md`** before touching any form, footer, or legal page.
 
 ---
 
