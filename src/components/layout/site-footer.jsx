@@ -35,6 +35,9 @@ const SOCIAL_ICONS = {
   TikTok: TikTokIcon,
 }
 
+// Footer-only entries. Kept out of NAV_LINKS so the top nav stays at five links.
+const FOOTER_ONLY_LINKS = [{ href: '/socialism-101', label: 'Socialism 101' }]
+
 const LEGAL_LINKS = [
   { href: '/privacy-policy', label: 'Privacy Policy' },
   { href: '/terms-of-service', label: 'Terms of Service' },
@@ -125,7 +128,7 @@ const SiteFooter = () => {
 
         <nav aria-label="Footer site nav" className="lg:col-span-2">
           <FooterColumn eyebrow="site">
-            {NAV_LINKS.map((link) => (
+            {[...NAV_LINKS, ...FOOTER_ONLY_LINKS].map((link) => (
               <FooterLink key={link.href} href={link.href}>
                 {link.label}
               </FooterLink>
