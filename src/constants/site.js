@@ -16,7 +16,7 @@ export const LEGAL = {
   privacyEmail: 'mark@markfororegon.com',
   phone: '+1 971-278-6520',
   phoneTel: '+19712786520',
-  address: 'PO Box 122, Beaverton, OR 97075',
+  address: '8165 SW Ridgeway Dr, Portland, OR 97225',
   effectiveDate: 'May 5, 2026',
   programName: 'Friends of Mark Norman SMS Program',
 }
@@ -31,7 +31,7 @@ export const CAMPAIGN = {
   domain: 'markfororegon.com',
   email: 'mark@markfororegon.com',
   phone: '+1 971-278-6520',
-  mailing: 'PO Box 122 · Beaverton, OR 97075',
+  mailing: '8165 SW Ridgeway Dr · Portland, OR 97225',
   donateUrl:
     'https://secure.winred.com/friends-of-mark-norman/donate-today?sc=winred-directory&money_bomb=false&recurring=false',
   disclosure: `Paid for by ${LEGAL.entity} PAC #${LEGAL.pacId}`,
@@ -318,8 +318,8 @@ export const CONTACT_METHODS = [
   },
   {
     label: 'Mail',
-    value: 'PO Box 122 · Beaverton, OR 97075',
-    href: 'https://maps.app.goo.gl/dJCbf1zmxuAYEwP89',
+    value: '8165 SW Ridgeway Dr · Portland, OR 97225',
+    href: 'https://www.google.com/maps/search/?api=1&query=8165+SW+Ridgeway+Dr+Portland+OR+97225',
     detail: 'For checks and physical mail.',
   },
 ]
