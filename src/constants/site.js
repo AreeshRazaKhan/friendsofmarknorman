@@ -5,7 +5,7 @@
 // client confirms the real filing data, and every consumer follows.
 export const LEGAL = {
   entity: "Friends of Mark Norman",
-  // TODO: replace with the real PAC number from the client's filing..
+  // TODO: replace with the real PAC number from the client's filing.
   pacId: "24927",
   // TODO: replace with the real Oregon committee ID from the client's filing.
   committeeId: "XXX",
