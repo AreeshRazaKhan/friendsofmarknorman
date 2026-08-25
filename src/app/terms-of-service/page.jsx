@@ -36,8 +36,8 @@ const TermsOfServicePage = () => {
             </p>
             <p>
               <strong>Description:</strong> When you opt in by checking the appropriate consent
-              box on a sign-up, contact, volunteer, or RSVP form, you can expect to receive text
-              messages from {LEGAL.entity} of two types:
+              box on a sign-up, contact, volunteer, or RSVP form, you can expect to receive calls
+              and text messages from {LEGAL.entity} of two types:
             </p>
             <ul>
               <li>
@@ -46,12 +46,13 @@ const TermsOfServicePage = () => {
               </li>
               <li>
                 <strong>Promotional</strong> (separate opt-in) — fundraising appeals, donation
-                drives, and occasional special promotions tied to the campaign.
+                drives, and event invitations tied to the campaign.
               </li>
             </ul>
             <p>
-              Each consent type is collected with a separate, optional checkbox. Checking one does
-              not opt you into the other.
+              Messaging may include requests for donation. Each consent type is collected with a
+              separate, optional checkbox. Checking one does not opt you into the other, and
+              neither is required to use this site or to make a donation.
             </p>
 
             <h2>2. Opt-out (STOP)</h2>
@@ -83,10 +84,9 @@ const TermsOfServicePage = () => {
 
             <h2>5. Message and data rates · message frequency</h2>
             <p>
-              As always, message and data rates may apply for messages sent to you from us and to
-              us from you. Message frequency varies based on the cycle of the campaign and the
-              type of consent you have given. You can reply STOP at any time to stop receiving
-              further messages.
+              As always, Msg &amp; data rates may apply for messages sent to you from us and to us
+              from you. Msg frequency may vary based on the cycle of the campaign and the type of
+              consent you have given. You can reply STOP to opt-out at any time, or HELP for help.
             </p>
 
             <h2>6. Eligibility</h2>

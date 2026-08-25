@@ -16,12 +16,24 @@ export const GHL_WEBHOOKS = {
   askMark: [
     'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/Z22L9yu7Z3CdQGxe0UFt',
   ],
-  // Voter Guide opt-in funnel (/voter-guide). TODO: add the primary
-  // workflow webhook trigger URL once the GHL workflow is created in the
-  // campaign's location — until then the route fans out to the shared
-  // A2P compliance webhook only, so submissions still land in the CRM
-  // consent workflow.
-  voterGuide: [],
+  // Socialism 101 opt-in funnel (/socialism-101). Primary workflow webhook for
+  // the lead-magnet funnel; the route fans this out alongside the shared
+  // A2P compliance webhook (same pattern as the other forms).
+  socialism101: [
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/7f867349-ace2-4b71-ad16-76339731965b',
+  ],
+  // The 5-Minute Voter Guide opt-in funnel (/5-minute-voter-guide). Dedicated
+  // workflow-trigger webhook for this funnel. Fans out alongside the shared
+  // A2P compliance webhook (same pattern as the other lead forms).
+  voterGuide5Min: [
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/daedfc11-9124-4ebf-9bcb-1d607e763aba',
+  ],
+  // QR print-media funnel (/meet-mark). Dedicated workflow webhook — leads
+  // arrive with type QR_Funnel and qr_source (flyer/banner/mailer/...) for
+  // per-material attribution. Fans out alongside the A2P compliance webhook.
+  qrFunnel: [
+    'https://services.leadconnectorhq.com/hooks/xpk2cvMlHO4xSLm4NgAz/webhook-trigger/3c4691ee-3a59-476a-8ceb-3c7bb74b2b45',
+  ],
 }
 
 export const GHL_REST = {
@@ -40,6 +52,13 @@ export const restHeaders = () => ({
 })
 
 export const yesNo = (value) => (value ? 'Yes' : 'No')
+
+// Rollup A2P 10DLC consent flag for the compliance workflow. 'Yes' only when
+// we hold a deliverable number AND the consent box was ticked — a consent
+// flag with no number behind it is not a valid opt-in. Takes the consent as
+// a rest arg so a future multi-checkbox regime needs no signature change.
+export const a2pFlag = (phone, ...consents) =>
+  yesNo(Boolean((phone || '').trim()) && consents.some(Boolean))
 
 export const buildBasePayload = (type, source) => ({
   type,

@@ -3,11 +3,12 @@ import { NextResponse } from 'next/server'
 import {
   A2P_COMPLIANCE_WEBHOOK,
   GHL_WEBHOOKS,
+  a2pFlag,
   buildBasePayload,
   forwardWebhook,
   yesNo,
 } from '@/lib/ghl'
-import { normalizePhoneForSubmit } from '@/lib/phone'
+import { isPhoneComplete, normalizePhoneForSubmit } from '@/lib/phone'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
 
@@ -21,20 +22,33 @@ export const POST = async (request) => {
     const lastName = (body?.lastName || '').trim()
     const email = (body?.email || '').trim()
     const message = (body?.message || '').trim()
+    const phone = (body?.phone || '').trim()
 
     if (!required(firstName) || !required(lastName) || !required(email) || !required(message)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
+
+    // Phone stays optional, but a partial number is rejected rather than
+    // silently dropped — the submitter gets a chance to correct it.
+    if (phone && !isPhoneComplete(phone)) {
+      return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
+    }
+
+    const normalizedPhone = normalizePhoneForSubmit(phone)
 
     const payload = {
       ...buildBasePayload('Contact_Form', 'src_contact'),
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(body?.phone),
+      phone: normalizedPhone,
       message,
-      sms_updates: yesNo(body?.sms_updates),
-      sms_promo: yesNo(body?.sms_promo),
+      // One consent checkbox now covers both informational and fundraising
+      // messaging (see .claude/rules/peerly-10dlc-compliance.md). Both GHL
+      // flags derive from it so existing CRM workflows keep working.
+      sms_updates: yesNo(body?.sms_consent),
+      sms_promo: yesNo(body?.sms_consent),
+      a2p: a2pFlag(normalizedPhone, body?.sms_consent),
     }
 
     const results = await Promise.all(

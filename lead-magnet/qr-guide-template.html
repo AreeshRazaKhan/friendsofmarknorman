@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QR Funnel Lead Magnet — TEMPLATE (awaiting content) · Mark Norman · Oregon HD-27</title>
+<!--
+  TEMPLATE for the /meet-mark QR-funnel lead magnet.
+
+  This is a skeleton with PLACEHOLDER copy — the final content is being
+  written (Vyakhya). The final guide has FEWER sections than the
+  issues-guide. When content lands:
+
+    1. Replace every [PLACEHOLDER] block below with the approved copy.
+       Add/remove content pages as the content dictates (keep one topic
+       per page; use the dense class if a page runs long).
+    2. Update the cover title/subtitle and the <title> above.
+    3. Render: scripts/render-qr-lead-magnet.ps1
+       → public/downloads/mark-norman-qr-guide.pdf
+       → public/images/qr-guide-cover.png
+    4. Point the funnel at the new PDF: GUIDE_URL in
+       src/app/api/qr-funnel/route.js and GUIDE_PDF in
+       src/app/meet-mark/thank-you/page.jsx, plus the cover <Image>
+       on /meet-mark.
+
+  Design tokens/chrome are identical to lead-magnet/issues-guide.html —
+  do not restyle, only pour content.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:    #0B2844;
+    --navy-2:  #102F4F;
+    --navy-3:  #0F3C66;
+    --red:     #B62025;
+    --red-2:   #921A1F;
+    --red-3:   #D63D42;
+    --white:   #FFFFFF;
+    --black:   #000000;
+    --paper:   #F5F2EC;
+    --paper-2: #EDE8DD;
+    --bone:    #D4CCB7;
+    --stone:   #5F594D;
+    --stone-d: #3E3A33;
+    --ink-soft:#1B3454;
+    --hair:    rgba(11,40,68,0.18);
+    --paper-78:rgba(245,242,236,.82);
+    --paper-65:rgba(245,242,236,.72);
+    --ff:      'Cabin', sans-serif;
+    --ff-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  @page{ size: letter; margin: 0; }
+
+  html, body{ font-family: var(--ff); background: var(--paper); color: var(--navy); }
+
+  .page{
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    background: var(--paper);
+  }
+  .page:last-child{ page-break-after: auto; break-after: auto; }
+
+  .chrome-top{
+    position: absolute; top: .55in; left: .7in; right: .7in;
+    display: flex; align-items: center; justify-content: flex-end;
+  }
+  .page-num{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .28em; color: var(--stone);
+  }
+  .chrome-foot{
+    position: absolute; bottom: .5in; left: .7in; right: .7in;
+    border-top: 1px solid var(--hair); padding-top: 10px;
+    display: flex; justify-content: space-between;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--stone);
+  }
+
+  em{ font-style: normal; color: var(--red); }
+
+  .cover{ background: var(--navy); color: var(--paper); }
+  .cover .grid-bg{
+    position: absolute; inset: 0; opacity: .6;
+    background-image: radial-gradient(rgba(245,242,236,.09) 1px, transparent 1.5px);
+    background-size: 0.34in 0.34in;
+  }
+  .cover-wedge{
+    position: absolute; inset: 0; pointer-events: none;
+    background: var(--red);
+    clip-path: polygon(100% 33%, 100% 100%, 29% 100%);
+  }
+  .cover-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: .75in .75in .65in;
+  }
+  .cover-star{ margin-top: .75in; color: var(--red-3); font-size: 34px; line-height: 1; }
+  .cover-title{
+    margin-top: .28in;
+    font-size: 50px; font-weight: 700; line-height: 1.04; letter-spacing: -0.02em;
+    color: var(--paper); max-width: 6.1in;
+  }
+  .cover-title em{ color: var(--red-3); }
+  .cover-sub{
+    margin-top: .26in; max-width: 4.3in;
+    font-size: 15px; line-height: 1.55; color: var(--paper-78);
+  }
+  .cover-bottom{ margin-top: auto; max-width: 5in; }
+  .cover-rule{ height: 1px; background: rgba(245,242,236,.25); margin-bottom: .2in; }
+  .cover-name{ font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--paper); }
+  .cover-office{
+    margin-top: 8px;
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .24em; text-transform: uppercase; color: var(--paper-65);
+  }
+  .cover-disclosure{
+    margin-top: .16in;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+  }
+
+  .issue-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: .95in .7in .95in;
+  }
+  .issue-eyebrow{
+    font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--red);
+  }
+  .issue-title{
+    margin-top: 10px;
+    font-size: 31px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;
+    max-width: 7in;
+  }
+  .issue-rule{ width: 60px; height: 3px; background: var(--red); margin: 14px 0 13px; }
+  .issue-lead{
+    font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--ink-soft);
+    max-width: 6.9in; margin-bottom: 12px;
+  }
+  .issue-body{ max-width: 7.1in; }
+  .issue-body p{ font-size: 16px; line-height: 1.5; color: var(--stone-d); margin-bottom: 10px; }
+  .issue-body strong{ color: var(--navy); }
+  .dense .issue-body p{ line-height: 1.4; margin-bottom: 8px; }
+
+  .placeholder{
+    background: rgba(182,32,37,.06);
+    border: 2px dashed var(--red);
+    padding: 18px 20px; margin: 8px 0;
+    font-family: var(--ff-mono); font-size: 13px; line-height: 1.6; color: var(--red);
+  }
+
+  .supports{
+    margin-top: 14px; margin-bottom: 18px;
+    position: relative;
+    background: var(--white); border: 1px solid var(--bone);
+    padding: 20px 24px 16px;
+  }
+  .supports::before, .supports::after{ content:''; position: absolute; width: 20px; height: 20px; }
+  .supports::before{ top: -2px; left: -2px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); }
+  .supports::after{ bottom: -2px; right: -2px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
+  .supports-label{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 10px;
+  }
+  .supports ul{ list-style: none; columns: 2; column-gap: 30px; }
+  .supports li{
+    position: relative; padding-left: 24px; margin-bottom: 8px;
+    font-size: 15px; line-height: 1.38; color: var(--navy); font-weight: 500;
+    break-inside: avoid;
+  }
+  .supports li::before{
+    content:'\2605'; position: absolute; left: 0; top: 0;
+    font-size: 13px; line-height: 1.38; color: var(--red);
+  }
+
+  .pull{
+    border-left: 3px solid var(--red); padding: 2px 0 2px 16px;
+    font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--navy);
+    max-width: 6.9in; margin-bottom: 0;
+  }
+  .learn-more{ margin-top: 18px; font-size: 16px; line-height: 1.52; color: var(--stone-d); }
+  .learn-more a{ color: var(--red); font-weight: 600; text-decoration: none; }
+
+  .position{
+    margin-top: 14px; max-width: 7.1in;
+    background: var(--white); border: 1px solid var(--bone);
+    border-left: 3px solid var(--red);
+    padding: 15px 20px;
+  }
+  .position .position-label{
+    font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 7px;
+  }
+  .position p{ font-size: 16px; font-weight: 600; line-height: 1.42; color: var(--navy); }
+
+  .back{ background: var(--navy); color: var(--paper); }
+  .back-inner{
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 1in .85in .75in;
+  }
+  .back-banner{
+    margin-top: 1.1in;
+    font-size: 56px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.0;
+    max-width: 6.4in; color: var(--paper);
+  }
+  .back-banner em{ color: var(--red-3); }
+  .back-lead{ margin-top: .3in; max-width: 6.1in; font-size: 15px; line-height: 1.6; color: var(--paper-78); }
+  .back-lead p + p{ margin-top: 12px; }
+  .back-tagline{
+    margin-top: .26in;
+    font-family: var(--ff-mono); font-size: 12px; font-weight: 600;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--paper-78);
+  }
+  .back-contact{
+    margin-top: auto; border-top: 1px solid rgba(245,242,236,.25); padding-top: .3in;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px;
+  }
+  .back-contact .cell .k{
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--paper-65);
+    margin-bottom: 4px;
+  }
+  .back-contact .cell .v{ font-size: 14px; font-weight: 600; color: var(--paper); }
+  .back-disclosure{
+    margin-top: .22in;
+    font-family: var(--ff-mono); font-size: 9px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--paper-65);
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= COVER ======================= -->
+<section class="page cover">
+  <div class="grid-bg"></div>
+  <div class="cover-wedge"></div>
+  <div class="cover-inner">
+    <div class="cover-star">★</div>
+    <h1 class="cover-title">[PLACEHOLDER — Guide title from Vyakhya, red <em>emphasis phrase</em> at the end]</h1>
+    <p class="cover-sub">
+      [PLACEHOLDER — One-sentence cover subtitle describing what the reader gets.]
+    </p>
+    <div class="cover-bottom">
+      <div class="cover-rule"></div>
+      <div class="cover-name">Mark Norman</div>
+      <div class="cover-office">Oregon House District 27 &nbsp;&middot;&nbsp; Republican &nbsp;&middot;&nbsp; 2026</div>
+      <div class="cover-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 02 · CONTENT PAGE (duplicate per topic) ======================= -->
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">02</div>
+  </div>
+  <div class="issue-inner">
+    <div class="issue-eyebrow">[PLACEHOLDER — section label]</div>
+    <h2 class="issue-title">[PLACEHOLDER — Section headline with <em>red emphasis.</em>]</h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <div class="placeholder">
+        VYAKHYA CONTENT GOES HERE — body paragraphs as &lt;p&gt; tags.
+        One topic per page. If the copy runs long, add class="dense" to
+        .issue-inner or split onto a "· Continued" page (see
+        issues-guide.html pages 09–10 for the pattern).
+      </div>
+    </div>
+    <div class="position">
+      <div class="position-label">My position is simple</div>
+      <p>[PLACEHOLDER — one-line position statement.]</p>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 03 · CONTENT PAGE ======================= -->
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">03</div>
+  </div>
+  <div class="issue-inner">
+    <div class="issue-eyebrow">[PLACEHOLDER — section label]</div>
+    <h2 class="issue-title">[PLACEHOLDER — Section headline with <em>red emphasis.</em>]</h2>
+    <div class="issue-rule"></div>
+    <div class="issue-body">
+      <div class="placeholder">
+        VYAKHYA CONTENT GOES HERE. Delete this page or duplicate it —
+        final guide has FEWER sections than issues-guide.html.
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= 04 · GET INVOLVED / DONATE ======================= -->
+<section class="page">
+  <div class="chrome-top">
+    <div class="page-num">04</div>
+  </div>
+  <div class="issue-inner">
+    <h2 class="issue-title">[PLACEHOLDER — Get-involved headline with <em>red emphasis.</em>]</h2>
+    <div class="issue-rule"></div>
+    <p class="issue-lead">
+      [PLACEHOLDER — short lead-in about helping the campaign.]
+    </p>
+    <div class="supports">
+      <div class="supports-label">Ways to get involved</div>
+      <ul>
+        <li>Share this guide</li>
+        <li>Sign up for campaign updates</li>
+        <li>Ask Mark a question</li>
+        <li>Attend a local event</li>
+        <li>Volunteer with the campaign</li>
+        <li>Review official contribution information</li>
+        <li>Make a plan to vote in 2026</li>
+      </ul>
+    </div>
+    <div class="pull">[PLACEHOLDER — closing pull-quote line.]</div>
+    <p class="learn-more">
+      To learn more or contribute, visit
+      <a href="https://markfororegon.com/meet-mark">markfororegon.com/meet-mark</a>.
+    </p>
+  </div>
+  <div class="chrome-foot">
+    <span>Mark Norman · Oregon HD-27</span>
+    <span>markfororegon.com</span>
+  </div>
+</section>
+
+<!-- ======================= BACK COVER ======================= -->
+<section class="page back">
+  <div class="back-inner">
+    <h2 class="back-banner">[PLACEHOLDER — closing banner. <em>Red phrase.</em>]</h2>
+    <div class="back-lead">
+      <p>[PLACEHOLDER — 2–3 short closing paragraphs.]</p>
+    </div>
+    <div class="back-tagline">Service · Solutions · Accountability</div>
+    <div class="back-contact">
+      <div class="cell">
+        <div class="k">Website</div>
+        <div class="v">markfororegon.com</div>
+      </div>
+      <div class="cell">
+        <div class="k">Email</div>
+        <div class="v">mark@markfororegon.com</div>
+      </div>
+      <div class="cell">
+        <div class="k">Phone</div>
+        <div class="v">+1 971-278-6520</div>
+      </div>
+      <div class="cell">
+        <div class="k">Mail</div>
+        <div class="v">8165 SW Ridgeway Dr · Portland, OR 97225</div>
+      </div>
+    </div>
+    <div class="back-social">
+      <a href="https://www.facebook.com/profile.php?id=61589031000348">FB</a> ·
+      <a href="https://www.instagram.com/markfororhd27/">IG</a> ·
+      <a href="https://x.com/MarkForHD27">X</a> ·
+      <a href="https://www.tiktok.com/@gmnorman99">TT</a></div>
+    <div class="back-disclosure">Paid for by Friends of Mark Norman PAC #24927</div>
+  </div>
+</section>
+
+</body>
+</html>

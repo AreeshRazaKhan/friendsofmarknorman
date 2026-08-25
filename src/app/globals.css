@@ -38,6 +38,10 @@
 
   html {
     scroll-behavior: smooth;
+    /* Reveal slide-in variants (x offsets) sit past the right edge until
+       they animate in — clip so they never cause horizontal scroll on
+       mobile. `clip` (not `hidden`) keeps position:sticky working. */
+    overflow-x: clip;
   }
 
   body {
@@ -92,7 +96,6 @@
   .display em {
     @apply font-bold text-red;
     font-style: normal;
-    white-space: nowrap;
   }
 
   .stat-numeral {

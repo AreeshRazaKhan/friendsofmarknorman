@@ -1,6 +1,6 @@
 # Renders the issues lead magnet from lead-magnet/issues-guide.html into:
-#   public/downloads/mark-norman-issues-guide.pdf  (13-page letter PDF)
-#   public/images/voter-guide-cover.png            (cover image for /voter-guide)
+#   public/downloads/mark-norman-issues-guide.pdf  (18-page letter PDF)
+#   public/images/socialism-101-cover.png          (cover image for /socialism-101)
 #
 # Re-run this after editing the HTML. Requires Google Chrome (or render with
 # Playwright's Chromium via page.pdf() if Chrome is not installed).
@@ -28,10 +28,10 @@ Start-Process -FilePath $chrome -Wait -ArgumentList @(
   '--headless=new', '--disable-gpu', '--no-sandbox',
   "--user-data-dir=$env:TEMP\chrome-leadmagnet-png",
   '--hide-scrollbars', '--window-size=816,1056', '--virtual-time-budget=20000',
-  "--screenshot=$repo\public\images\voter-guide-cover.png",
+  "--screenshot=$repo\public\images\socialism-101-cover.png",
   $src
 )
 
 Get-Item "$repo\public\downloads\mark-norman-issues-guide.pdf",
-         "$repo\public\images\voter-guide-cover.png" |
+         "$repo\public\images\socialism-101-cover.png" |
   Select-Object Name, Length, LastWriteTime

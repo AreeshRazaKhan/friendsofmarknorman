@@ -7,13 +7,12 @@ import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 import {
   AVAILABILITY_OPTIONS,
   CAMPAIGN_EXPERIENCE_LEVELS,
   OREGON_COUNTIES,
-  OREGON_REGIONS,
   VOLUNTEER_HELP_OPTIONS,
 } from '@/constants/site'
 
@@ -35,17 +34,13 @@ const VolunteerSignup = () => {
   const [errors, setErrors] = useState({})
   const [helpOptions, setHelpOptions] = useState([])
   const [phone, setPhone] = useState('')
-  const [smsUpdates, setSmsUpdates] = useState(false)
-  const [smsPromo, setSmsPromo] = useState(false)
+  const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
 
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
-    if (!hasPhone) {
-      setSmsUpdates(false)
-      setSmsPromo(false)
-    }
+    if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
 
   const toggleHelp = (option) =>
@@ -61,12 +56,15 @@ const VolunteerSignup = () => {
     else if (!EMAIL_RE.test(data.email)) next.email = 'Invalid email'
     if (!data.zipCode.trim()) next.zipCode = 'Required'
     else if (!/^[0-9]{5}$/.test(data.zipCode.trim())) next.zipCode = 'Enter a 5-digit ZIP'
-    if (!data.region) next.region = 'Required'
+    if (!data.address.trim()) next.address = 'Required'
     if (!data.registeredVoter) next.registeredVoter = 'Required'
     if (!data.campaignExperience) next.campaignExperience = 'Required'
     if (!data.availability) next.availability = 'Required'
     if (data.helpOptions.length === 0) next.helpOptions = 'Pick at least one'
     if (!data.issues.trim()) next.issues = 'Required'
+    if (data.phone.trim() && !isPhoneComplete(data.phone)) {
+      next.phone = 'Enter a complete 10-digit number'
+    }
     return next
   }
 
@@ -81,15 +79,14 @@ const VolunteerSignup = () => {
       phone,
       zipCode: formData.get('zipCode') || '',
       county: formData.get('county') || '',
-      region: formData.get('region') || '',
+      address: formData.get('address') || '',
       registeredVoter: formData.get('registeredVoter') || '',
       campaignExperience: formData.get('campaignExperience') || '',
       helpOptions,
       availability: formData.get('availability') || '',
       issues: formData.get('issues') || '',
       anythingElse: formData.get('anythingElse') || '',
-      sms_updates: smsUpdates,
-      sms_promo: smsPromo,
+      sms_consent: smsConsent,
     }
 
     const validation = validate(data)
@@ -110,8 +107,7 @@ const VolunteerSignup = () => {
       form.reset()
       setHelpOptions([])
       setPhone('')
-      setSmsUpdates(false)
-      setSmsPromo(false)
+      setSmsConsent(false)
     } catch (error) {
       console.error('[VolunteerSignup]:', error)
       setStatus(STATUS.error)
@@ -166,6 +162,7 @@ const VolunteerSignup = () => {
           placeholder="+1 (503) 555-0123"
           value={phone}
           onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+          error={errors.phone}
         />
       </div>
 
@@ -192,35 +189,32 @@ const VolunteerSignup = () => {
         </FormField>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <FormField name="region" label="Region" required error={errors.region}>
-          <select id="region" name="region" className={SELECT_CLASS} required>
-            <option value="">Select…</option>
-            {OREGON_REGIONS.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
-        </FormField>
-        <FormField
+      <FormField
+        name="address"
+        label="Residential address"
+        required
+        autoComplete="street-address"
+        placeholder="123 Main St, Beaverton, OR 97005"
+        error={errors.address}
+      />
+
+      <FormField
+        name="registeredVoter"
+        label="Registered to vote in Oregon?"
+        required
+        error={errors.registeredVoter}
+      >
+        <select
+          id="registeredVoter"
           name="registeredVoter"
-          label="Registered to vote in Oregon?"
+          className={SELECT_CLASS}
           required
-          error={errors.registeredVoter}
         >
-          <select
-            id="registeredVoter"
-            name="registeredVoter"
-            className={SELECT_CLASS}
-            required
-          >
-            <option value="">Select…</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </FormField>
-      </div>
+          <option value="">Select…</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </FormField>
 
       <FormField
         name="campaignExperience"
@@ -317,10 +311,8 @@ const VolunteerSignup = () => {
 
       <SmsConsent
         hasPhone={hasPhone}
-        smsUpdates={smsUpdates}
-        smsPromo={smsPromo}
-        onSmsUpdatesChange={setSmsUpdates}
-        onSmsPromoChange={setSmsPromo}
+        smsConsent={smsConsent}
+        onSmsConsentChange={setSmsConsent}
       />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>

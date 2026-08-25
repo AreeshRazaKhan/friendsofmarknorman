@@ -8,7 +8,7 @@ import FormField from '@/components/ui/form-field'
 import Toast from '@/components/ui/toast'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import SmsConsent from '@/components/layout/sms-consent'
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 const STATUS = {
   idle: 'idle',
@@ -24,17 +24,13 @@ const RsvpForm = ({ event }) => {
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [phone, setPhone] = useState('')
-  const [smsUpdates, setSmsUpdates] = useState(false)
-  const [smsPromo, setSmsPromo] = useState(false)
+  const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
 
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
-    if (!hasPhone) {
-      setSmsUpdates(false)
-      setSmsPromo(false)
-    }
+    if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
 
   const validate = (data) => {
@@ -43,6 +39,9 @@ const RsvpForm = ({ event }) => {
     if (!data.lastName.trim()) next.lastName = 'Required'
     if (!data.email.trim()) next.email = 'Required'
     else if (!EMAIL_RE.test(data.email)) next.email = 'Invalid email'
+    if (data.phone.trim() && !isPhoneComplete(data.phone)) {
+      next.phone = 'Enter a complete 10-digit number'
+    }
     return next
   }
 
@@ -59,8 +58,7 @@ const RsvpForm = ({ event }) => {
       eventDate: event.date?.raw || '',
       eventTime: event.time,
       eventCategory: event.type,
-      sms_updates: smsUpdates,
-      sms_promo: smsPromo,
+      sms_consent: smsConsent,
     }
 
     const validation = validate(data)
@@ -80,8 +78,7 @@ const RsvpForm = ({ event }) => {
       setToastOpen(true)
       form.reset()
       setPhone('')
-      setSmsUpdates(false)
-      setSmsPromo(false)
+      setSmsConsent(false)
     } catch (error) {
       console.error('[RsvpForm]:', error)
       setStatus(STATUS.error)
@@ -136,14 +133,13 @@ const RsvpForm = ({ event }) => {
         placeholder="+1 (503) 555-0123"
         value={phone}
         onChange={(e) => setPhone(formatPhoneInput(e.target.value))}
+        error={errors.phone}
       />
 
       <SmsConsent
         hasPhone={hasPhone}
-        smsUpdates={smsUpdates}
-        smsPromo={smsPromo}
-        onSmsUpdatesChange={setSmsUpdates}
-        onSmsPromoChange={setSmsPromo}
+        smsConsent={smsConsent}
+        onSmsConsentChange={setSmsConsent}
       />
 
       <Button type="submit" variant="red" disabled={status === STATUS.submitting}>

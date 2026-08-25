@@ -3,11 +3,12 @@ import { NextResponse } from 'next/server'
 import {
   A2P_COMPLIANCE_WEBHOOK,
   GHL_WEBHOOKS,
+  a2pFlag,
   buildBasePayload,
   forwardWebhook,
   yesNo,
 } from '@/lib/ghl'
-import { normalizePhoneForSubmit } from '@/lib/phone'
+import { isPhoneComplete, normalizePhoneForSubmit } from '@/lib/phone'
 import { districtFlag, isValidZip } from '@/lib/zip'
 
 const required = (v) => typeof v === 'string' && v.trim().length > 0
@@ -37,27 +38,39 @@ export const POST = async (request) => {
     const email = (body?.email || '').trim()
     const question = (body?.question || '').trim()
     const zip = (body?.zip || '').trim()
+    const phone = (body?.phone || '').trim()
 
     if (!required(email) || !required(question) || !isValidZip(zip)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
+    // Phone stays optional, but a partial number is rejected rather than
+    // silently dropped — the submitter gets a chance to correct it.
+    if (phone && !isPhoneComplete(phone)) {
+      return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
+    }
+
     const { firstName, lastName } = splitFullName(body?.name)
+    const normalizedPhone = normalizePhoneForSubmit(phone)
 
     const payload = {
       ...buildBasePayload('Ask_Mark', 'src_ask'),
       firstName,
       lastName,
       email,
-      phone: normalizePhoneForSubmit(body?.phone),
+      phone: normalizedPhone,
       issue_category: (body?.topic || '').trim(),
       issue_location: zip,
       in_district: districtFlag(zip),
       issue_subject: deriveSubject(question),
       issue_description: question,
       issue_image: '',
-      sms_updates: yesNo(body?.sms_updates),
-      sms_promo: yesNo(body?.sms_promo),
+      // One consent checkbox now covers both informational and fundraising
+      // messaging (see .claude/rules/peerly-10dlc-compliance.md). Both GHL
+      // flags derive from it so existing CRM workflows keep working.
+      sms_updates: yesNo(body?.sms_consent),
+      sms_promo: yesNo(body?.sms_consent),
+      a2p: a2pFlag(normalizedPhone, body?.sms_consent),
     }
 
     const results = await Promise.all(

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><title>20 · statRow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0B2844;--navy-2:#102F4F;--navy-3:#0F3C66;--red:#B62025;--red-2:#921A1F;--red-3:#D63D42;--paper:#F5F2EC;--paper-2:#EDE8DD;--bone:#D4CCB7;--stone:#5F594D;--stone-d:#3E3A33;--paper-78:rgba(245,242,236,.82);--ff:'Cabin',sans-serif;--ff-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:var(--ff)}
+.logo{position:absolute;left:84px;top:84px;z-index:6}.logo-slot{display:inline-flex}
+.eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--ff-mono);font-size:21px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.eyebrow::before{content:"";width:46px;height:4px;flex-shrink:0}
+.headline{font-weight:700;letter-spacing:-.03em;line-height:.98}
+.headline em{font-style:normal;font-weight:inherit;position:relative;display:inline-block}
+.headline em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
+.stamp{position:absolute;z-index:4;background:var(--paper);border:5px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:12px 12px 0 var(--red)}
+.stamp svg{width:54%;height:54%}
+.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--paper);color:var(--navy)}
+.eyebrow{color:var(--red)}.eyebrow::before{background:var(--red)}
+.headline{color:var(--navy)}.headline em{color:var(--red)}.headline em::after{background:rgba(182,32,37,.20)}
+.body{font-size:28px;line-height:1.5;color:var(--stone-d)}
+.post{display:flex;flex-direction:column;justify-content:center;padding:90px}
+.content{position:relative;z-index:3;max-width:840px}
+.headline{font-size:64px;margin-top:22px}
+.row{display:flex;gap:30px;margin-top:54px}
+.cell{flex:1}.num{font-weight:700;font-size:104px;line-height:.85;letter-spacing:-.03em;color:var(--navy)}.num .plus{color:var(--red);font-size:56px;vertical-align:super}
+.desc{font-family:var(--ff-mono);font-size:15px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-d);margin-top:14px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
+</style></head>
+<body>
+  <div class="post" data-fonts="Cabin,JetBrains Mono">
+    <span aria-hidden="true" style="position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(11,40,68,.05) 1.4px,transparent 1.7px);background-size:15px 15px"></span>
+    <div class="logo"><div class="logo-slot"><img src="assets/mark-norman-logo-cabin-transparent.png" alt="Mark Norman for Oregon — House District 27" style="height:100px;width:auto;display:block" /></div></div>
+    <div aria-hidden="true" style="position:absolute;z-index:4;background:var(--paper);color:var(--navy);border:5px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:12px 12px 0 var(--red);right:100px;top:120px;width:190px;height:190px"><div style="width:54%;height:54%"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><path d="M50 26 C40 20 24 20 18 24 V76 C24 72 40 72 50 78 C60 72 76 72 82 76 V24 C76 20 60 20 50 26 Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><line x1="50" y1="26" x2="50" y2="78" stroke="#B62025" stroke-width="6"/></svg></div></div>
+    <div class="content"><span class="eyebrow t">[ free download ]</span><h1 class="headline t">A warning about <em>democratic socialism in HD-27</em></h1><div class="row"><div class="cell"><div class="num t"><span class="plus"></span>9</div><div class="desc t">issue priorities</div></div><div class="cell"><div class="num t"><span class="plus">+</span>30</div><div class="desc t">years serving</div></div><div class="cell"><div class="num t"><span class="plus"></span>27</div><div class="desc t">district 27</div></div></div></div>
+  </div>
+<style>html,body{height:100%;overflow:hidden}.post{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--s,1))}</style>
+<script>(function(){var c=document.querySelector('.post');if(!c)return;var f=function(){c.style.setProperty('--s',Math.min(innerWidth/c.offsetWidth,innerHeight/c.offsetHeight,1))};addEventListener('resize',f);f()})()</script>
+</body></html>

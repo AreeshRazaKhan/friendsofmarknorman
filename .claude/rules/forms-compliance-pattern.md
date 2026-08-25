@@ -101,9 +101,17 @@ Every form in scope exposes an **optional** phone field.
    phone input, and API routes must not reject submissions that omit
    it.
 
+5. **A partially typed number blocks submission.** Optional means
+   "blank or complete" — never "half a number". If the field is
+   non-empty and holds fewer than 10 digits, the client shows an
+   inline field error and does not submit, and the API route returns
+   `400 { error: 'Invalid phone number' }`. Never let a partial entry
+   through to be silently blanked by `normalizePhoneForSubmit` — SMS
+   consent may have been captured against a number we then discard.
+
 ### Implementation
 
-Two helpers live in `src/lib/phone.js`:
+Three helpers live in `src/lib/phone.js`:
 
 ```js
 // Live client-side formatter — bind to the phone input's onChange
@@ -115,6 +123,12 @@ formatPhoneInput('555')               → '+1 (555'          // partial
 formatPhoneInput('+1')                → ''                 // strips
 formatPhoneInput('')                  → ''
 
+// Completeness guard — use in client validate() and API route guards
+isPhoneComplete('+1 (555) 555-0100') → true
+isPhoneComplete('5555550100')        → true
+isPhoneComplete('555555')            → false   // partial
+isPhoneComplete('')                  → false   // empty is not "complete"
+
 // Server-side canonical producer — use in API route payloads
 normalizePhoneForSubmit('5555550100')        → '+1 (555) 555-0100'
 normalizePhoneForSubmit('+1 (555) 555-0100') → '+1 (555) 555-0100'
@@ -122,10 +136,14 @@ normalizePhoneForSubmit('555555')            → ''   // partial → empty
 normalizePhoneForSubmit('')                  → ''
 ```
 
+`isPhoneComplete('')` is `false`, so always guard on a non-empty value
+first — `if (phone && !isPhoneComplete(phone))` — or an omitted phone
+will be rejected and the field stops being optional.
+
 **Wiring in the form:**
 
 ```jsx
-import { formatPhoneInput } from '@/lib/phone'
+import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
 
 <input
   type="tel"
@@ -138,10 +156,27 @@ import { formatPhoneInput } from '@/lib/phone'
 />
 ```
 
+...and in the form's `validate()`:
+
+```js
+if (data.phone.trim() && !isPhoneComplete(data.phone)) {
+  next.phone = 'Enter a complete 10-digit number'
+}
+```
+
+Surface it on the field itself (`error={errors.phone}` on `FormField`)
+so the message sits next to the input, not in a toast.
+
 **Wiring in the API route:**
 
 ```js
-import { normalizePhoneForSubmit } from '@/lib/phone'
+import { isPhoneComplete, normalizePhoneForSubmit } from '@/lib/phone'
+
+const phone = (body?.phone || '').trim()
+
+if (phone && !isPhoneComplete(phone)) {
+  return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 })
+}
 
 const payload = {
   // ...
@@ -159,8 +194,11 @@ const payload = {
   (`phone: phone?.trim() || ''`). Always route through
   `normalizePhoneForSubmit`.
 - The placeholder must show the full format: `+1 (xxx) xxx-xxxx`.
-- Partial entries (fewer than 10 digits after the country code)
-  normalize to empty string on the server side.
+- Partial entries (fewer than 10 digits after the country code) are
+  rejected, not accepted-and-blanked: inline error on the client, `400`
+  from the API route. `normalizePhoneForSubmit` still returns `''` for a
+  partial, but that path should now be unreachable — it is the last
+  line of defence, not the policy.
 
 ---
 
@@ -245,17 +283,28 @@ The consent flags travel as `'Yes'` / `'No'` strings (per
 `ghl-forms-webhooks.md` CRITICAL rule 2):
 
 ```js
+const normalizedPhone = normalizePhoneForSubmit(phone)
+
 const payload = {
   // ...
-  phone: normalizePhoneForSubmit(phone),
+  phone: normalizedPhone,
   sms_updates: smsConsent ? 'Yes' : 'No',
   sms_promo: promoConsent ? 'Yes' : 'No',
+  a2p: a2pFlag(normalizedPhone, smsConsent, promoConsent),
   // ...
 }
 ```
 
 When `phone` normalizes to empty, both consent flags are `'No'` (the
 client auto-clears them on phone delete, so this is guaranteed).
+
+Every payload also carries a rollup **`a2p`** flag built with `a2pFlag()`
+from `src/lib/ghl.js`. It is `'Yes'` only when the normalized phone is
+non-empty **and** at least one consent flag is set — so a stray consent
+boolean with no number behind it can never register as an opt-in. Pass
+the *normalized* phone, not the raw body value, and never re-implement
+the expression inline. The helper takes consents as a rest arg, so it
+works unchanged whether the site runs one checkbox or several.
 
 ---
 
@@ -268,6 +317,8 @@ to an existing form — verify all of the following:
        the `+1 (xxx) xxx-xxxx` placeholder.
 2. [ ] Form state includes a `phone` string and one boolean per consent
        checkbox.
+2b.[ ] Client `validate()` blocks submit on a non-empty, incomplete
+       phone, and the message renders on the phone field itself.
 3. [ ] `hasPhone` derived from `formData.phone.trim().length > 0`.
 4. [ ] `useEffect` resets every consent flag to `false` whenever
        `hasPhone` is false.
@@ -280,6 +331,8 @@ to an existing form — verify all of the following:
        returns `502` only if `!results.some((r) => r.ok)`.
 8. [ ] API route payload runs `phone` through
        `normalizePhoneForSubmit`.
+9. [ ] API route returns `400 { error: 'Invalid phone number' }` when a
+       phone is supplied but incomplete (`phone && !isPhoneComplete(phone)`).
 
 ---
 

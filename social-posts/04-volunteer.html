@@ -57,6 +57,11 @@
   .canvas.r916 .cell.d svg path{stroke:#F5F2EC}
   .canvas.r916 .rule-foot{bottom:170px}
   .canvas.r916 .pac{bottom:52px}
+
+  /* consistency: emphasis is color-only — no red highlight bar, and inline
+     emphasis inherits its container weight so each text block is one weight */
+  em::before,em::after{display:none!important}
+  em,b,strong{font-weight:inherit!important}
 </style>
 </head>
 <body>

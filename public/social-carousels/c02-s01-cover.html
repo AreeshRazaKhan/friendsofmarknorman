@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><title>C02 · What Mark Rejects — 01/07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0B2844;--navy-2:#102F4F;--navy-3:#0F3C66;--red:#B62025;--red-2:#921A1F;--red-3:#D63D42;--paper:#F5F2EC;--paper-2:#EDE8DD;--bone:#D4CCB7;--stone:#5F594D;--stone-d:#3E3A33;--paper-78:rgba(245,242,236,.82);--ff:'Cabin',sans-serif;--ff-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:var(--ff)}
+.logo{position:absolute;left:84px;top:84px;z-index:6}.logo-slot{display:inline-flex}
+.eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--ff-mono);font-size:21px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.eyebrow::before{content:"";width:46px;height:4px;flex-shrink:0}
+.headline{font-weight:700;letter-spacing:-.03em;line-height:1}
+.headline em,.title em{font-style:normal;font-weight:inherit;position:relative;display:inline-block}
+.headline em::after,.title em::after{content:"";position:absolute;left:-6px;right:-6px;bottom:8px;height:15px;z-index:-1}
+.slide{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--navy);color:var(--paper)}
+.eyebrow{color:var(--red-3)}.eyebrow::before{background:var(--red-3)}
+.headline,.title{color:var(--paper)}.headline em,.title em{color:var(--red-3)}
+.headline em::after,.title em::after{background:rgba(214,61,66,.24)}
+.body{font-size:28px;line-height:1.5;color:var(--paper-78)}
+.slide{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px}
+.frame{position:absolute;inset:54px;z-index:0;border:2px solid rgba(245,242,236,.3)}
+.content{position:relative;z-index:3;max-width:780px}
+.eyebrow{justify-content:center}.eyebrow::before{display:none}
+.headline{font-size:84px;margin-top:24px}
+.lead{font-size:30px;line-height:1.45;color:var(--paper-78);margin:28px auto 0;max-width:600px}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
+</style></head>
+<body>
+  <div class="slide" data-fonts="Cabin,JetBrains Mono">
+    <span aria-hidden="true" style="position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(245,242,236,.05) 1.4px,transparent 1.7px);background-size:15px 15px"></span><span class="frame" aria-hidden="true"></span>
+    <div class="logo"><div class="logo-slot"><img src="assets/mark-norman-logo-cabin-invert.png" alt="Mark Norman for Oregon — House District 27" style="height:96px;width:auto;display:block" /></div></div>
+    <div class="content"><span class="eyebrow t">[ protect oregon’s rights ]</span><h1 class="headline t">See what Mark <em>rejects</em> for Oregon</h1><p class="lead body t">Oregon does not need socialism. It needs service, solutions, and accountability.</p></div>
+    <div class="prog" aria-hidden="true" style="position:absolute;left:96px;right:96px;bottom:118px;z-index:6;display:flex;gap:10px"><span style="height:5px;flex:1;border-radius:3px;background:var(--red-3)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(245,242,236,.22)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(245,242,236,.22)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(245,242,236,.22)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(245,242,236,.22)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(245,242,236,.22)"></span><span style="height:5px;flex:1;border-radius:3px;background:rgba(245,242,236,.22)"></span></div>
+  <div class="counter t" style="position:absolute;left:96px;bottom:78px;z-index:6;font-family:var(--ff-mono);font-size:18px;font-weight:600;letter-spacing:.16em;color:var(--paper-78)">01 <span style="color:var(--red-3)">/</span> 07</div>
+  <div class="decktag t" style="position:absolute;right:96px;bottom:78px;z-index:6;font-family:var(--ff-mono);font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-78)">What Mark Rejects</div>
+  </div>
+<style>html,body{height:100%;overflow:hidden}.slide{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--s,1))}</style>
+<script>(function(){var c=document.querySelector('.slide');if(!c)return;var f=function(){c.style.setProperty('--s',Math.min(innerWidth/c.offsetWidth,innerHeight/c.offsetHeight,1))};addEventListener('resize',f);f()})()</script>
+</body></html>

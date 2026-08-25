@@ -35,6 +35,19 @@ const SOCIAL_ICONS = {
   TikTok: TikTokIcon,
 }
 
+// Socialism 101 is footer-only — kept out of NAV_LINKS so the top nav stays at five links.
+const GET_INVOLVED_LINKS = [
+  { href: '/volunteer', label: 'Volunteer' },
+  { href: '/ask-mark', label: 'Ask Mark' },
+  { href: '/events', label: 'Events' },
+  { href: '/socialism-101', label: 'Socialism 101' },
+]
+
+// Whatever "get involved" already lists is dropped here so no link appears twice.
+const SITE_LINKS = NAV_LINKS.filter(
+  (link) => !GET_INVOLVED_LINKS.some((involved) => involved.href === link.href)
+)
+
 const LEGAL_LINKS = [
   { href: '/privacy-policy', label: 'Privacy Policy' },
   { href: '/terms-of-service', label: 'Terms of Service' },
@@ -61,8 +74,8 @@ const FooterLink = ({ href, children }) => (
 const SiteFooter = () => {
   return (
     <footer className="border-t border-bone bg-paper-2">
-      <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-12 px-6 py-16 lg:grid-cols-12 lg:px-10">
-        <div className="flex flex-col gap-6 lg:col-span-5">
+      <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:px-10">
+        <div className="flex flex-col gap-6 sm:col-span-2 lg:col-span-4">
           <Link
             href="/"
             aria-label={`${LEGAL.entity} — home`}
@@ -125,7 +138,17 @@ const SiteFooter = () => {
 
         <nav aria-label="Footer site nav" className="lg:col-span-2">
           <FooterColumn eyebrow="site">
-            {NAV_LINKS.map((link) => (
+            {SITE_LINKS.map((link) => (
+              <FooterLink key={link.href} href={link.href}>
+                {link.label}
+              </FooterLink>
+            ))}
+          </FooterColumn>
+        </nav>
+
+        <nav aria-label="Footer get involved nav" className="lg:col-span-2">
+          <FooterColumn eyebrow="get involved">
+            {GET_INVOLVED_LINKS.map((link) => (
               <FooterLink key={link.href} href={link.href}>
                 {link.label}
               </FooterLink>
@@ -143,7 +166,7 @@ const SiteFooter = () => {
           </FooterColumn>
         </nav>
 
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-2">
           <FooterColumn eyebrow="contact">
             <a
               href={`mailto:${LEGAL.email}`}
@@ -158,7 +181,7 @@ const SiteFooter = () => {
               {LEGAL.phone}
             </a>
             <a
-              href="https://maps.app.goo.gl/dJCbf1zmxuAYEwP89"
+              href="https://www.google.com/maps/search/?api=1&query=8165+SW+Ridgeway+Dr+Portland+OR+97225"
               target="_blank"
               rel="noopener noreferrer"
               className="-ml-1 inline-flex min-h-[44px] w-fit max-w-[24ch] items-center px-1 py-2 font-sans text-sm text-navy transition-colors hover:text-red"

@@ -16,6 +16,11 @@ export const formatPhoneInput = (raw) => {
   return `+1 (${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
 }
 
+// True only for a complete 10-digit US number. Empty input is NOT complete —
+// callers decide separately whether an empty phone is acceptable (it is, on
+// every form: the field is optional).
+export const isPhoneComplete = (raw) => stripDigits(raw).length === 10
+
 // Server-side canonical producer. A complete US number normalizes to
 // "+1 (xxx) xxx-xxxx"; anything shorter than 10 digits returns "".
 export const normalizePhoneForSubmit = (raw) => {

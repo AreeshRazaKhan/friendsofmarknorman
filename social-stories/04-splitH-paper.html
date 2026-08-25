@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><title>04 · splitH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0B2844;--navy-2:#102F4F;--navy-3:#0F3C66;--red:#B62025;--red-2:#921A1F;--red-3:#D63D42;--paper:#F5F2EC;--paper-2:#EDE8DD;--bone:#D4CCB7;--stone:#5F594D;--stone-d:#3E3A33;--paper-78:rgba(245,242,236,.82);--ff:'Cabin',sans-serif;--ff-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:var(--ff)}
+.logo{position:absolute;left:96px;top:150px;z-index:6}.logo-slot{display:inline-flex}
+.eyebrow{display:flex;align-items:center;gap:18px;font-family:var(--ff-mono);font-size:24px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.eyebrow::before{content:"";width:52px;height:5px;flex-shrink:0}
+.headline{font-weight:700;letter-spacing:-.03em;line-height:.98}
+.headline em{font-style:normal;font-weight:inherit;position:relative;display:inline-block}
+.headline em::after{content:"";position:absolute;left:-7px;right:-7px;bottom:9px;height:18px;z-index:-1}
+.stamp{position:absolute;z-index:4;background:var(--paper);border:6px solid var(--navy);border-radius:50%;display:grid;place-items:center;box-shadow:14px 14px 0 var(--red)}
+.stamp svg{width:54%;height:54%}
+.story{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--navy)}
+.top{position:absolute;top:0;left:0;right:0;height:1080px;background:var(--paper);color:var(--navy);padding:250px 96px 0}
+.bot{position:absolute;top:1080px;left:0;right:0;bottom:0;color:var(--paper);padding:90px 96px}
+.eyebrow{color:var(--red);margin-top:40px}.eyebrow::before{background:var(--red)}
+.headline{color:var(--navy);font-size:112px;margin-top:24px;max-width:840px}.headline em{color:var(--red)}.headline em::after{background:rgba(182,32,37,.20)}
+.body{font-size:38px;line-height:1.5;color:var(--paper-78);max-width:760px;margin-top:40px}
+.bar{position:absolute;left:96px;top:1072px;width:140px;height:10px;background:var(--red);z-index:5}
+/* emphasis is red color only — no highlight bar under/after the word */
+.headline em::after,.title em::after,.quote em::after{display:none}
+</style></head>
+<body>
+  <div class="story" data-fonts="Cabin,JetBrains Mono">
+    <div class="logo"><div class="logo-slot"><img src="assets/mark-norman-logo-cabin-transparent.png" alt="Mark Norman for Oregon — House District 27" style="height:140px;width:auto;display:block" /></div></div>
+    <div class="top"><span class="eyebrow t">[ the choice ]</span><h1 class="headline t">What Mark rejects. <em>What Mark supports.</em></h1></div>
+    <span class="bar" aria-hidden="true"></span>
+    <div aria-hidden="true" style="position:absolute;z-index:4;color:var(--paper);right:120px;bottom:160px;width:260px;height:260px"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><line x1="50" y1="18" x2="50" y2="80" stroke="currentColor" stroke-width="6"/><line x1="26" y1="30" x2="74" y2="30" stroke="currentColor" stroke-width="6"/><path d="M26 30 L16 52 H36 Z" fill="none" stroke="#B62025" stroke-width="5" stroke-linejoin="round"/><path d="M74 30 L64 52 H84 Z" fill="none" stroke="#B62025" stroke-width="5" stroke-linejoin="round"/><rect x="36" y="80" width="28" height="6" fill="currentColor"/></svg></div>
+    <div class="bot"><p class="body t">Rejects: larger government, higher taxes, expanded bureaucracy, centralized control. Supports: service, solutions, accountability.</p></div>
+  </div>
+<style>html,body{height:100%;overflow:hidden}.story{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--s,1))}</style>
+<script>(function(){var c=document.querySelector('.story');if(!c)return;var f=function(){c.style.setProperty('--s',Math.min(innerWidth/c.offsetWidth,innerHeight/c.offsetHeight,1))};addEventListener('resize',f);f()})()</script>
+</body></html>
