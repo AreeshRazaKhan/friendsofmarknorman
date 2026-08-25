@@ -97,9 +97,22 @@ const AboutPage = () => {
                   <h3 className="display text-2xl text-navy lg:text-3xl">
                     {block.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-stone-dark">
-                    {block.body}
-                  </p>
+                  {Array.isArray(block.body) ? (
+                    <div className="space-y-3 text-sm leading-relaxed text-stone-dark">
+                      {block.body.map((p) => (
+                        <p key={p.slice(0, 24)}>{p}</p>
+                      ))}
+                      {block.closing && (
+                        <p className="font-semibold text-navy">
+                          {block.closing}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-sm leading-relaxed text-stone-dark">
+                      {block.body}
+                    </p>
+                  )}
                 </article>
               </RevealItem>
             ))}
