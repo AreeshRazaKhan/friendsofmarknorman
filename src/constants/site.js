@@ -199,7 +199,7 @@ export const ABOUT_META = [
   { label: "Based", value: "Washington County", detail: "25 years in Oregon" },
 ];
 
-export const _STATS = [
+export const ABOUT_STATS = [
   { number: "22", descriptor: "Year U.S. Navy Veteran" },
   { number: "30", descriptor: "Years in Practice" },
   { number: "25", descriptor: "Years in District" },
