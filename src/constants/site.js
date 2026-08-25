@@ -13,25 +13,25 @@ export const LEGAL = {
   email: "mark@markfororegon.com",
   // No separate privacy@ inbox is provisioned yet — privacy/access/deletion
   // requests route to the candidate's mailbox until that's set up.
-  privacyEmail: 'mark@markfororegon.com',
-  phone: '+1 503-905-9275',
-  phoneTel: '+15039059275',
-  address: '8165 SW Ridgeway Dr · Portland, OR 97225',
-  effectiveDate: 'May 5, 2026',
-  programName: 'Friends of Mark Norman SMS Program',
-}
+  privacyEmail: "mark@markfororegon.com",
+  phone: "+1 503-905-9275",
+  phoneTel: "+15039059275",
+  address: "8165 SW Ridgeway Dr · Portland, OR 97225",
+  effectiveDate: "May 5, 2026",
+  programName: "Friends of Mark Norman SMS Program",
+};
 
 export const CAMPAIGN = {
-  candidate: 'Mark Norman',
-  office: 'Oregon House District 27',
-  district: 'HD-27',
-  party: 'Republican',
-  cycle: '2026',
-  tagline: 'Service · Solutions · Accountability',
-  domain: 'markfororegon.com',
-  email: 'mark@markfororegon.com',
-  phone: '+1 503-905-9275',
-  mailing: '8165 SW Ridgeway Dr · Portland, OR 97225',
+  candidate: "Mark Norman",
+  office: "Oregon House District 27",
+  district: "HD-27",
+  party: "Republican",
+  cycle: "2026",
+  tagline: "Service · Solutions · Accountability",
+  domain: "markfororegon.com",
+  email: "mark@markfororegon.com",
+  phone: "+1 503-905-9275",
+  mailing: "8165 SW Ridgeway Dr · Portland, OR 97225",
   donateUrl:
     "https://secure.winred.com/friends-of-mark-norman/donate-today?sc=winred-directory&money_bomb=false&recurring=false",
   disclosure: `Paid for by ${LEGAL.entity} PAC #${LEGAL.pacId}`,
@@ -48,16 +48,16 @@ export const CAMPAIGN = {
 // pieces are the approved sentence, unaltered.
 export const SMS_DISCLAIMER = {
   beforeEntity:
-    'By providing your telephone number and checking this box, you consent to receive calls ' +
-    'and text messages from ',
+    "By providing your telephone number and checking this box, you consent to receive calls " +
+    "and text messages from ",
   afterEntity:
-    '. Message & data rates may apply. Message frequency may vary. Messaging may include ' +
-    'campaign updates, event invitations, volunteer opportunities, and requests for donations. ' +
-    'Reply STOP to opt out & HELP for help. View our',
-  privacyLabel: 'Privacy Policy',
-  privacySuffix: 'for more information.',
-  privacyPath: '/privacy-policy',
-}
+    ". Message & data rates may apply. Message frequency may vary. Messaging may include " +
+    "campaign updates, event invitations, volunteer opportunities, and requests for donations. " +
+    "Reply STOP to opt out & HELP for help. View our",
+  privacyLabel: "Privacy Policy",
+  privacySuffix: "for more information.",
+  privacyPath: "/privacy-policy",
+};
 
 // Build a tier-specific donate URL. Falls back to the base donateUrl
 // when no amount is provided. Handles either `?`- or `&`-prefixed
@@ -199,9 +199,7 @@ export const ABOUT_META = [
   { label: "Based", value: "Washington County", detail: "25 years in Oregon" },
 ];
 
-export const 
-
-_STATS = [
+export const _STATS = [
   { number: "22", descriptor: "Year U.S. Navy Veteran" },
   { number: "30", descriptor: "Years in Practice" },
   { number: "25", descriptor: "Years in District" },
@@ -209,16 +207,16 @@ _STATS = [
 ];
 
 export const ABOUT_STORY = [
-  'This campaign did not start with a political plan. It started with conversations. For years, Mark observed and listened to people talking about managing budgets and everyday challenges. Housing costs. Utility bills. Insurance.',
-  'As a veterinarian, Mark has worked with families during stressful and emotional moments. As a small-business owner, he has dealt with payroll, regulations, unexpected expenses, and the reality that problems do not solve themselves. During his Navy service, he learned that preparation, sound judgment, and accountability matter, especially when decisions have real consequences.',
-  'Those experiences taught Mark a simple approach to leadership:',
-]
+  "This campaign did not start with a political plan. It started with conversations. For years, Mark observed and listened to people talking about managing budgets and everyday challenges. Housing costs. Utility bills. Insurance.",
+  "As a veterinarian, Mark has worked with families during stressful and emotional moments. As a small-business owner, he has dealt with payroll, regulations, unexpected expenses, and the reality that problems do not solve themselves. During his Navy service, he learned that preparation, sound judgment, and accountability matter, especially when decisions have real consequences.",
+  "Those experiences taught Mark a simple approach to leadership:",
+];
 
 export const ABOUT_CREED =
-  'Listen carefully. Study the challenge. Ask hard questions. Understand the objective. Develop a plan.'
+  "Listen carefully. Study the challenge. Ask hard questions. Understand the objective. Develop a plan.";
 
 export const ABOUT_STORY_CLOSE =
-  'Mark decided to run because too many decisions coming out of Salem seemed disconnected from the way working families and local businesses actually live and operate. He believes Oregon needs representatives who understand everyday pressures and are prepared to do the work required to address them.'
+  "Mark decided to run because too many decisions coming out of Salem seemed disconnected from the way working families and local businesses actually live and operate. He believes Oregon needs representatives who understand everyday pressures and are prepared to do the work required to address them.";
 
 export const FAQS = [
   {
@@ -262,60 +260,65 @@ export const DONATION_TIERS = [
 
 export const ABOUT_BLOCKS = [
   {
-    number: '01',
-    eyebrow: 'Roots',
-    title: 'Small-town roots. Oregon home.',
-    body: 'Mark was born in Iowa City and raised in Keokuk, Iowa. As a boy he explored the neighborhood with his older sister — she on her bicycle, Mark trailing on his tricycle — learning early to stay curious, understand the boundaries, and never fear what he did not yet know. He eventually made his way to Washington County, drawn by Oregon\'s natural beauty, independent spirit, and opportunity for small-business owners. He built his career here, established his veterinary practice here, and made Oregon home.',
+    number: "01",
+    eyebrow: "Roots",
+    title: "Small-town roots. Oregon home.",
+    body: [
+      "Mark was born in Iowa City and raised in Keokuk, a small Mississippi River town where hard work, personal responsibility, and looking out for your neighbors were simply part of life. Those values stayed with him through the Naval Academy, service as a Navy officer, veterinary school, and ultimately to Oregon.",
+      "More than thirty years ago, Mark chose Oregon to build his future. Oregon offered opportunity, natural beauty, strong communities, and the freedom to build something of your own. He established his veterinary practice here, raised his family here, created jobs here, and spent nearly three decades caring for the pets and families of his community.",
+    ],
+    closing:
+      "Oregon wasn't where Mark started. It is the place he chose to call home.",
   },
   {
-    number: '02',
-    eyebrow: 'Service',
-    title: 'Twenty-two years of Navy service.',
-    body: 'Mark entered the United States Naval Academy in 1976 and was commissioned as an officer, serving with the Pacific Fleet during the Cold War. As his responsibilities grew, he qualified as a Tactical Action Officer — understanding complex situations and acting on behalf of the commanding officer when immediate decisions were necessary. There was no time for political theater or passing responsibility to someone else. You studied. You prepared. You understood the challenge. And when the moment came, you made a decision. Across twenty-two combined years of active and reserve service, Mark learned that leadership must be calm, informed, and accountable.',
+    number: "02",
+    eyebrow: "Service",
+    title: "Twenty-two years of Navy service.",
+    body: "Mark entered the United States Naval Academy in 1976 and was commissioned as an officer, serving with the Pacific Fleet during the Cold War. As his responsibilities grew, he qualified as a Tactical Action Officer — understanding complex situations and acting on behalf of the commanding officer when immediate decisions were necessary. There was no time for political theater or passing responsibility to someone else. You studied. You prepared. You understood the challenge. And when the moment came, you made a decision. Across twenty-two combined years of active and reserve service, Mark learned that leadership must be calm, informed, and accountable.",
   },
   {
-    number: '03',
-    eyebrow: 'Practice',
-    title: 'Twenty-eight years in veterinary medicine.',
-    body: 'After leaving active Navy service, Mark pursued another form of service. He earned his Doctor of Veterinary Medicine from Iowa State University and spent twenty-eight years owning and operating a veterinary practice in Washington County, and continues to work part-time as a relief veterinarian. Veterinary medicine is not only about treating animals — it is about helping people. Families arrive worried and uncertain, needing someone who will listen carefully, explain the situation truthfully, and help them make the best decision. Those conversations taught Mark that trust cannot be demanded; it must be earned through honesty, competence, and compassion — and gave him firsthand experience with the challenges facing Oregon\'s small businesses.',
+    number: "03",
+    eyebrow: "Practice",
+    title: "Thirty years in veterinary medicine.",
+    body: "After leaving active Navy service, Mark pursued another form of service. He earned his Doctor of Veterinary Medicine from Iowa State University and spent thirty years owning and operating a veterinary practice in Washington County, and continues to work part-time as a relief veterinarian. Veterinary medicine is not only about treating animals — it is about helping people. Families arrive worried and uncertain, needing someone who will listen carefully, explain the situation truthfully, and help them make the best decision. Those conversations taught Mark that trust cannot be demanded; it must be earned through honesty, competence, and compassion — and gave him firsthand experience with the challenges facing Oregon's small businesses.",
   },
   {
-    number: '04',
-    eyebrow: 'Why',
-    title: 'Stepping forward with a practical plan.',
-    body: 'Mark did not spend years planning to run for office. He stepped forward because too many Oregonians feel their concerns are being ignored — families working harder to keep up with everyday expenses, small-business owners carrying growing costs and uncertainty, parents worried about schools, safety, and the opportunities their children will inherit. Mark believes Oregon can do better, but only when its leaders pay attention to how their decisions affect real people. He is running to bring practical judgment, responsible government, and real-world experience to Salem. Not more political performance. Better preparation. Better decisions. Greater accountability.',
+    number: "04",
+    eyebrow: "Why",
+    title: "Stepping forward with a practical plan.",
+    body: "Mark did not spend years planning to run for office. He stepped forward because too many Oregonians feel their concerns are being ignored — families working harder to keep up with everyday expenses, small-business owners carrying growing costs and uncertainty, parents worried about schools, safety, and the opportunities their children will inherit. Mark believes Oregon can do better, but only when its leaders pay attention to how their decisions affect real people. He is running to bring practical judgment, responsible government, and real-world experience to Salem. Not more political performance. Better preparation. Better decisions. Greater accountability.",
   },
 ];
 
 export const ABOUT_PERSON = [
-  'Mark\'s dogs remain convinced that he has everything figured out. Mark is less certain.',
-  'He remembers the mistakes he has made, the moments when he spoke instead of listening, and the occasions when the answer was directly in front of him. That awareness has made him a better listener and a more thoughtful leader.',
-  'Mark does not believe elected officials should pretend to have every answer. He believes they should listen carefully, read the fine print, ask difficult questions, and be honest when something is not working.',
-  'His dogs may continue to overestimate him. Oregonians can expect him to remain accountable.',
-]
+  "Mark's dogs remain convinced that he has everything figured out. Mark is less certain.",
+  "He remembers the mistakes he has made, the moments when he spoke instead of listening, and the occasions when the answer was directly in front of him. That awareness has made him a better listener and a more thoughtful leader.",
+  "Mark does not believe elected officials should pretend to have every answer. He believes they should listen carefully, read the fine print, ask difficult questions, and be honest when something is not working.",
+  "His dogs may continue to overestimate him. Oregonians can expect him to remain accountable.",
+];
 
 export const ABOUT_PILLARS = [
   {
-    number: '01',
-    name: 'Prepared Leadership',
-    body: 'Mark approaches public policy the same way he approached responsibility in the Navy: understand the situation, examine the available information, and prepare before acting.',
+    number: "01",
+    name: "Prepared Leadership",
+    body: "Mark approaches public policy the same way he approached responsibility in the Navy: understand the situation, examine the available information, and prepare before acting.",
   },
   {
-    number: '02',
-    name: 'Real-World Experience',
-    body: 'His perspective comes from military service, veterinary medicine, small-business ownership, and decades of conversations with Washington County families.',
+    number: "02",
+    name: "Real-World Experience",
+    body: "His perspective comes from military service, veterinary medicine, small-business ownership, and decades of conversations with Washington County families.",
   },
   {
-    number: '03',
-    name: 'Accountability Without Excuses',
-    body: 'Mark believes elected officials should explain their decisions clearly, accept responsibility for the results, and change course when something is not working.',
+    number: "03",
+    name: "Accountability Without Excuses",
+    body: "Mark believes elected officials should explain their decisions clearly, accept responsibility for the results, and change course when something is not working.",
   },
-]
+];
 
 export const ABOUT_QUOTE = {
-  text: 'Pay attention. Study the horizon. Ask questions. Understand the objective. Then develop a plan.',
-  attribution: 'Mark Norman',
-}
+  text: "Pay attention. Study the horizon. Ask questions. Understand the objective. Then develop a plan.",
+  attribution: "Mark Norman",
+};
 
 export const CONTACT_METHODS = [
   {
@@ -331,10 +334,10 @@ export const CONTACT_METHODS = [
     detail: "Mon – Fri · 9 AM – 5 PM PT.",
   },
   {
-    label: 'Mail',
-    value: '8165 SW Ridgeway Dr · Portland, OR 97225',
-    href: 'https://www.google.com/maps/search/?api=1&query=8165+SW+Ridgeway+Dr+Portland+OR+97225',
-    detail: 'For checks and physical mail.',
+    label: "Mail",
+    value: "8165 SW Ridgeway Dr · Portland, OR 97225",
+    href: "https://www.google.com/maps/search/?api=1&query=8165+SW+Ridgeway+Dr+Portland+OR+97225",
+    detail: "For checks and physical mail.",
   },
 ];
 
@@ -480,28 +483,28 @@ export const OREGON_COUNTIES = [
 // piece that drove the scan. Keep in sync with scripts/generate-qr.mjs and
 // the sanitizer in src/app/api/qr-funnel/route.js.
 export const QR_SOURCES = [
-  'qr', // generic / unattributed scan
-  'banner',
-  'flyer',
-  'mailer',
-  'door-hanger',
-  'sign',
-  'newspaper',
-  'magazine',
-]
+  "qr", // generic / unattributed scan
+  "banner",
+  "flyer",
+  "mailer",
+  "door-hanger",
+  "sign",
+  "newspaper",
+  "magazine",
+];
 
 // Candidate introduction video for the /meet-mark QR funnel.
 export const INTRO_VIDEO = {
-  youtubeId: '5Peo-ivmupE',
-  title: 'Meet Mark Norman — candidate introduction',
-}
+  youtubeId: "5Peo-ivmupE",
+  title: "Meet Mark Norman — candidate introduction",
+};
 
 // Vertical (9:16) self-hosted video for the 5-Minute Voter Guide funnel hero.
 export const VOTER_GUIDE_VIDEO = {
-  src: '/videos/voter-guide-intro.mp4',
-  poster: '/videos/voter-guide-intro-poster.jpg',
-  title: 'Mark Norman — a message for Oregon House District 27 voters',
-}
+  src: "/videos/voter-guide-intro.mp4",
+  poster: "/videos/voter-guide-intro-poster.jpg",
+  title: "Mark Norman — a message for Oregon House District 27 voters",
+};
 
 // Events are fetched from GHL custom objects at runtime via fetchGHLEvents()
 // in src/lib/ghl.js. Do not add a static EVENTS array here — see
