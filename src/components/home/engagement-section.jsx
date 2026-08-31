@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import TrackedCTALink from '@/components/analytics/tracked-cta-link'
+import TrackedInternalLink from '@/components/analytics/tracked-internal-link'
 import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
@@ -41,23 +42,29 @@ const EngagementSection = () => {
               <div className="flex flex-wrap items-center gap-3 lg:justify-end">
                 {DONATION_TIERS.map((tier) => (
                   <Button key={tier.amount} asChild variant="primary" size="sm">
-                    <a
+                    <TrackedCTALink
+                      ctaName={`Donate ${tier.label}`}
+                      ctaLocation="engagement_tier"
+                      ctaKind="donate"
                       href={buildDonateUrl(tier.amount)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {tier.label}
-                    </a>
+                    </TrackedCTALink>
                   </Button>
                 ))}
-                <a
+                <TrackedCTALink
+                  ctaName="Donate Other amount"
+                  ctaLocation="engagement_tier"
+                  ctaKind="donate"
                   href={CAMPAIGN.donateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-[44px] items-center font-mono text-xs font-semibold uppercase tracking-eyebrow text-red hover:text-red-2"
                 >
                   Other amount →
-                </a>
+                </TrackedCTALink>
               </div>
             </div>
           </Reveal>
@@ -97,10 +104,14 @@ const EngagementSection = () => {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild variant="red">
-                    <Link href="/volunteer">
+                    <TrackedInternalLink
+                      ctaName="Volunteer"
+                      ctaLocation="engagement_join"
+                      href="/volunteer"
+                    >
                       Volunteer
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
+                    </TrackedInternalLink>
                   </Button>
                 </div>
               </div>

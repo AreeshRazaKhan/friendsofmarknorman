@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import PropTypes from 'prop-types'
 
@@ -10,6 +10,11 @@ import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
+import {
+  trackFormStart,
+  trackLead,
+  trackNewsletterSignup,
+} from '@/lib/analytics/meta'
 
 const STATUS = {
   idle: 'idle',
@@ -50,6 +55,7 @@ const Socialism101Form = ({
   redirectTo,
   endpoint,
   meta,
+  formName,
 }) => {
   const router = useRouter()
   const [status, setStatus] = useState(STATUS.idle)
@@ -59,12 +65,19 @@ const Socialism101Form = ({
   const [issue, setIssue] = useState('')
   const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
+  const formStarted = useRef(false)
 
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
     if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
+
+  const handleFirstInteraction = () => {
+    if (formStarted.current) return
+    formStarted.current = true
+    trackFormStart({ form_name: formName })
+  }
 
   const validate = (form) => {
     const next = {}
@@ -107,6 +120,11 @@ const Socialism101Form = ({
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
+      const eventId =
+        typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined
+      trackLead({ form_name: formName }, eventId)
+      trackNewsletterSignup({ form_name: formName }, eventId)
+      formStarted.current = false
       if (redirectTo) {
         router.push(redirectTo)
         return
@@ -145,7 +163,13 @@ const Socialism101Form = ({
         variant="error"
         onClose={() => setToastOpen(false)}
       />
-      <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
+      <form
+        onSubmit={handleSubmit}
+        onFocus={handleFirstInteraction}
+        onChange={handleFirstInteraction}
+        className="grid gap-5"
+        noValidate
+      >
         <div className="grid gap-5 sm:grid-cols-2">
           <FormField
             name="firstName"
@@ -249,6 +273,7 @@ Socialism101Form.propTypes = {
   redirectTo: PropTypes.string,
   endpoint: PropTypes.string,
   meta: PropTypes.object,
+  formName: PropTypes.string,
 }
 
 Socialism101Form.defaultProps = {
@@ -269,6 +294,7 @@ Socialism101Form.defaultProps = {
   redirectTo: '',
   endpoint: '/api/socialism-101',
   meta: null,
+  formName: 'lead_magnet',
 }
 
 export default Socialism101Form

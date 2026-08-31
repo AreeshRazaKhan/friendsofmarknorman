@@ -594,6 +594,7 @@ const Socialism101Page = () => {
               <Socialism101Form
                 submitLabel="Download the free guide"
                 redirectTo="/socialism-101/thank-you"
+                formName="socialism_101"
               />
               <p className="mt-4 text-xs leading-relaxed text-stone">
                 We respect your privacy. Your information will be used to send campaign updates and

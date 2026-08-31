@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Menu } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import TrackedCTALink from '@/components/analytics/tracked-cta-link'
+import TrackedInternalLink from '@/components/analytics/tracked-internal-link'
 
 import { CAMPAIGN, NAV_LINKS } from '@/constants/site'
 
@@ -38,21 +40,41 @@ const NavBar = () => {
           ))}
           <div className="flex items-center gap-3">
             <Button asChild variant="invert" size="sm">
-              <Link href="/volunteer">Join</Link>
+              <TrackedInternalLink
+                ctaName="Join"
+                ctaLocation="header"
+                href="/volunteer"
+              >
+                Join
+              </TrackedInternalLink>
             </Button>
             <Button asChild variant="red" size="sm">
-              <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+              <TrackedCTALink
+                ctaName="Donate"
+                ctaLocation="header"
+                ctaKind="donate"
+                href={CAMPAIGN.donateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Donate
-              </a>
+              </TrackedCTALink>
             </Button>
           </div>
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
           <Button asChild variant="red" size="sm">
-            <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+            <TrackedCTALink
+              ctaName="Donate"
+              ctaLocation="mobile_header"
+              ctaKind="donate"
+              href={CAMPAIGN.donateUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Donate
-            </a>
+            </TrackedCTALink>
           </Button>
           <details className="group relative">
             <summary
@@ -74,12 +96,14 @@ const NavBar = () => {
                   {link.label}
                 </Link>
               ))}
-              <Link
+              <TrackedInternalLink
+                ctaName="Join the campaign"
+                ctaLocation="mobile_menu"
                 href="/volunteer"
                 className="mt-2 rounded-sm border-t border-paper-78/20 px-4 py-3 font-sans text-sm font-medium tracking-[0.08em] text-paper hover:bg-navy-3 hover:text-red-3"
               >
                 Join the campaign
-              </Link>
+              </TrackedInternalLink>
             </nav>
           </details>
         </div>

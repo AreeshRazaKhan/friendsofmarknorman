@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { Button } from '@/components/ui/button'
@@ -9,6 +9,11 @@ import Toast from '@/components/ui/toast'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import SmsConsent from '@/components/layout/sms-consent'
 import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
+import {
+  trackEventRSVPComplete,
+  trackFormStart,
+  trackLead,
+} from '@/lib/analytics/meta'
 
 const STATUS = {
   idle: 'idle',
@@ -27,11 +32,19 @@ const RsvpForm = ({ event }) => {
   const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
 
+  const formStarted = useRef(false)
+
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
     if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
+
+  const handleFirstInteraction = () => {
+    if (formStarted.current) return
+    formStarted.current = true
+    trackFormStart({ form_name: 'event_rsvp', event_name: event.title })
+  }
 
   const validate = (data) => {
     const next = {}
@@ -73,12 +86,22 @@ const RsvpForm = ({ event }) => {
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
+      const eventId =
+        typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined
+      const leadParams = {
+        form_name: 'event_rsvp',
+        event_name: event.title,
+        event_category: event.type,
+      }
+      trackLead(leadParams, eventId)
+      trackEventRSVPComplete(leadParams, eventId)
       setStatus(STATUS.success)
       setMessage('You\'re on the list. Confirmation in your inbox shortly.')
       setToastOpen(true)
       form.reset()
       setPhone('')
       setSmsConsent(false)
+      formStarted.current = false
     } catch (error) {
       console.error('[RsvpForm]:', error)
       setStatus(STATUS.error)
@@ -95,7 +118,13 @@ const RsvpForm = ({ event }) => {
       variant={status === STATUS.error ? 'error' : 'success'}
       onClose={() => setToastOpen(false)}
     />
-    <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      onFocus={handleFirstInteraction}
+      onChange={handleFirstInteraction}
+      className="grid gap-5"
+      noValidate
+    >
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
           name="firstName"

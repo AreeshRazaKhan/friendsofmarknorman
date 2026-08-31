@@ -1,4 +1,5 @@
 import IssueCard from '@/components/home/issue-card'
+import TrackOnMount from '@/components/analytics/track-on-mount'
 import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
@@ -8,6 +9,10 @@ import { ISSUES } from '@/constants/site'
 const IssueGrid = () => {
   return (
     <section id="platform" className="bg-paper-2">
+      <TrackOnMount
+        event="IssuesView"
+        params={{ content_category: 'issues', content_name: 'home_issue_grid' }}
+      />
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <Reveal variant="up" duration={0.7}>
