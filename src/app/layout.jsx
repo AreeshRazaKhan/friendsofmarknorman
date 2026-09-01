@@ -1,5 +1,7 @@
 import { Cabin, JetBrains_Mono } from 'next/font/google'
 
+import MetaPixel from '@/components/analytics/meta-pixel'
+import SiteAnalytics from '@/components/analytics/site-analytics'
 import NavBar from '@/components/layout/nav-bar'
 import SiteFooter from '@/components/layout/site-footer'
 
@@ -38,6 +40,8 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" className={`${cabin.variable} ${jetbrains.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <MetaPixel />
+        <SiteAnalytics />
         <NavBar />
         <main className="flex-1">{children}</main>
         <SiteFooter />

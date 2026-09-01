@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
@@ -8,6 +8,7 @@ import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
+import { trackFormStart, trackLead } from '@/lib/analytics/meta'
 
 const STATUS = {
   idle: 'idle',
@@ -25,12 +26,19 @@ const ContactForm = () => {
   const [phone, setPhone] = useState('')
   const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
+  const formStarted = useRef(false)
 
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
     if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
+
+  const handleFirstInteraction = () => {
+    if (formStarted.current) return
+    formStarted.current = true
+    trackFormStart({ form_name: 'contact' })
+  }
 
   const validate = (form) => {
     const next = {}
@@ -70,12 +78,16 @@ const ContactForm = () => {
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
+      const eventId =
+        typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined
+      trackLead({ form_name: 'contact' }, eventId)
       setStatus(STATUS.success)
       setMessage('Thanks — we got it. The team will follow up shortly.')
       setToastOpen(true)
       form.reset()
       setPhone('')
       setSmsConsent(false)
+      formStarted.current = false
     } catch (error) {
       console.error('[ContactForm]:', error)
       setStatus(STATUS.error)
@@ -92,7 +104,13 @@ const ContactForm = () => {
       variant={status === STATUS.error ? 'error' : 'success'}
       onClose={() => setToastOpen(false)}
     />
-    <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      onFocus={handleFirstInteraction}
+      onChange={handleFirstInteraction}
+      className="grid gap-5"
+      noValidate
+    >
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
           name="firstName"

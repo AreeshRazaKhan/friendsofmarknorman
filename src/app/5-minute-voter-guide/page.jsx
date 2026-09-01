@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import Socialism101Form from '@/components/socialism-101/socialism-101-form'
 import AskForm from '@/components/ask/ask-form'
 import CampaignVideo from '@/components/meet-mark/campaign-video'
+import TrackOnMount from '@/components/analytics/track-on-mount'
 import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
@@ -92,6 +93,10 @@ const VOLUNTEER_WAYS = [
 const FiveMinuteVoterGuidePage = () => {
   return (
     <>
+      <TrackOnMount
+        event="VoterInfoView"
+        params={{ content_category: 'voter_info', content_name: 'five_minute_voter_guide' }}
+      />
       {/* Section 1 — Editorial video hero (asymmetric) */}
       <section className="relative overflow-hidden bg-navy text-paper">
         <div
@@ -224,6 +229,7 @@ const FiveMinuteVoterGuidePage = () => {
                     submitLabel="Download the guide"
                     redirectTo="/5-minute-voter-guide/thank-you"
                     showIssue
+                    formName="five_minute_voter_guide"
                   />
                 </div>
               </div>

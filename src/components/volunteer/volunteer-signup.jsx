@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import FormField from '@/components/ui/form-field'
@@ -8,6 +8,11 @@ import Toast from '@/components/ui/toast'
 import SmsConsent from '@/components/layout/sms-consent'
 import FormDisclaimer from '@/components/layout/form-disclaimer'
 import { formatPhoneInput, isPhoneComplete } from '@/lib/phone'
+import {
+  trackFormStart,
+  trackLead,
+  trackVolunteerComplete,
+} from '@/lib/analytics/meta'
 
 import {
   AVAILABILITY_OPTIONS,
@@ -37,16 +42,26 @@ const VolunteerSignup = () => {
   const [smsConsent, setSmsConsent] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
 
+  const formStarted = useRef(false)
+
   const hasPhone = phone.trim().length > 0
 
   useEffect(() => {
     if (!hasPhone) setSmsConsent(false)
   }, [hasPhone])
 
-  const toggleHelp = (option) =>
+  const handleFirstInteraction = () => {
+    if (formStarted.current) return
+    formStarted.current = true
+    trackFormStart({ form_name: 'volunteer' })
+  }
+
+  const toggleHelp = (option) => {
+    handleFirstInteraction()
     setHelpOptions((prev) =>
       prev.includes(option) ? prev.filter((p) => p !== option) : [...prev, option]
     )
+  }
 
   const validate = (data) => {
     const next = {}
@@ -101,6 +116,10 @@ const VolunteerSignup = () => {
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error(`Request failed (${res.status})`)
+      const eventId =
+        typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined
+      trackLead({ form_name: 'volunteer' }, eventId)
+      trackVolunteerComplete({ form_name: 'volunteer' }, eventId)
       setStatus(STATUS.success)
       setMessage('Thanks — we\'ll be in touch with next steps.')
       setToastOpen(true)
@@ -108,6 +127,7 @@ const VolunteerSignup = () => {
       setHelpOptions([])
       setPhone('')
       setSmsConsent(false)
+      formStarted.current = false
     } catch (error) {
       console.error('[VolunteerSignup]:', error)
       setStatus(STATUS.error)
@@ -124,7 +144,13 @@ const VolunteerSignup = () => {
       variant={status === STATUS.error ? 'error' : 'success'}
       onClose={() => setToastOpen(false)}
     />
-    <form onSubmit={handleSubmit} className="grid gap-6" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      onFocus={handleFirstInteraction}
+      onChange={handleFirstInteraction}
+      className="grid gap-6"
+      noValidate
+    >
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
           name="firstName"

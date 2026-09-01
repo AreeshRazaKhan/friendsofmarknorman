@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import TrackedCTALink from '@/components/analytics/tracked-cta-link'
+import TrackedInternalLink from '@/components/analytics/tracked-internal-link'
 import Reveal from '@/components/motion/reveal'
 import RevealGroup from '@/components/motion/reveal-group'
 import RevealItem from '@/components/motion/reveal-item'
@@ -64,13 +65,26 @@ const HeroSection = () => {
           <Reveal variant="rise" delay={1.15} duration={0.6}>
             <div className="flex flex-wrap gap-3">
               <Button asChild variant="red">
-                <a href={CAMPAIGN.donateUrl} target="_blank" rel="noopener noreferrer">
+                <TrackedCTALink
+                  ctaName="Donate Now"
+                  ctaLocation="hero"
+                  ctaKind="donate"
+                  href={CAMPAIGN.donateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Donate Now
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
+                </TrackedCTALink>
               </Button>
               <Button asChild variant="invert">
-                <Link href="/volunteer">Join Us</Link>
+                <TrackedInternalLink
+                  ctaName="Join Us"
+                  ctaLocation="hero"
+                  href="/volunteer"
+                >
+                  Join Us
+                </TrackedInternalLink>
               </Button>
             </div>
           </Reveal>

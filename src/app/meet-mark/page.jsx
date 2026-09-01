@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import TrackedCTALink from '@/components/analytics/tracked-cta-link'
+import TrackedInternalLink from '@/components/analytics/tracked-internal-link'
 import Socialism101Form from '@/components/socialism-101/socialism-101-form'
 import CampaignVideo from '@/components/meet-mark/campaign-video'
 import Reveal from '@/components/motion/reveal'
@@ -141,6 +142,7 @@ const MeetMarkPage = async ({ searchParams }) => {
                 endpoint="/api/qr-funnel"
                 meta={{ qr_source: qrSource }}
                 redirectTo="/meet-mark/thank-you"
+                formName="meet_mark"
               />
               <p className="mt-4 text-xs leading-relaxed text-stone">
                 We respect your privacy. Your information will be used to send campaign updates and
@@ -193,20 +195,30 @@ const MeetMarkPage = async ({ searchParams }) => {
               </p>
               <div className="mt-2 flex flex-wrap gap-3">
                 <Button asChild variant="red">
-                  <a href={donateUrl} target="_blank" rel="noopener noreferrer">
+                  <TrackedCTALink
+                    ctaName="Donate"
+                    ctaLocation="meet_mark_donate"
+                    ctaKind="donate"
+                    href={donateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Donate
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </a>
+                  </TrackedCTALink>
                 </Button>
                 {DONATION_TIERS.map((tier) => (
                   <Button key={tier.amount} asChild variant="invert">
-                    <a
+                    <TrackedCTALink
+                      ctaName={`Give ${tier.label}`}
+                      ctaLocation="meet_mark_tier"
+                      ctaKind="donate"
                       href={appendQueryParams(buildDonateUrl(tier.amount), utm)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Give {tier.label}
-                    </a>
+                    </TrackedCTALink>
                   </Button>
                 ))}
               </div>
@@ -228,13 +240,31 @@ const MeetMarkPage = async ({ searchParams }) => {
               </h2>
               <div className="mt-2 flex flex-wrap gap-3">
                 <Button asChild variant="primary">
-                  <Link href="/volunteer">Volunteer</Link>
+                  <TrackedInternalLink
+                    ctaName="Volunteer"
+                    ctaLocation="meet_mark_closing"
+                    href="/volunteer"
+                  >
+                    Volunteer
+                  </TrackedInternalLink>
                 </Button>
                 <Button asChild variant="ghost">
-                  <Link href="/events">View events</Link>
+                  <TrackedInternalLink
+                    ctaName="View events"
+                    ctaLocation="meet_mark_closing"
+                    href="/events"
+                  >
+                    View events
+                  </TrackedInternalLink>
                 </Button>
                 <Button asChild variant="ghost">
-                  <Link href="/ask-mark">Ask Mark a question</Link>
+                  <TrackedInternalLink
+                    ctaName="Ask Mark a question"
+                    ctaLocation="meet_mark_closing"
+                    href="/ask-mark"
+                  >
+                    Ask Mark a question
+                  </TrackedInternalLink>
                 </Button>
               </div>
             </div>
