@@ -10,14 +10,30 @@ export const metadata = {
   robots: { index: false, follow: false },
 }
 
-const readDesigns = (dir) => {
+/**
+ * Lists the published assets in a set.
+ *
+ * Carousels, stories and squares publish as PNG, so their titles are read from
+ * the source HTML that still lives at the repo root. Feed posts publish as HTML
+ * and are their own source.
+ */
+const readDesigns = (set, ext) => {
+  const publicDir = path.join(process.cwd(), 'public', set)
+  const sourceDir = ext === '.html' ? publicDir : path.join(process.cwd(), set)
+
   try {
-    return readdirSync(dir)
-      .filter((file) => file.endsWith('.html'))
+    return readdirSync(publicDir)
+      .filter((file) => file.endsWith(ext))
       .sort()
       .map((file) => {
-        const html = readFileSync(path.join(dir, file), 'utf8')
-        const title = html.match(/<title>(.*?)<\/title>/)?.[1] ?? file.replace('.html', '')
+        const fallback = file.replace(ext, '')
+        const source = path.join(sourceDir, `${fallback}.html`)
+        let title = fallback
+        try {
+          title = readFileSync(source, 'utf8').match(/<title>(.*?)<\/title>/)?.[1] ?? fallback
+        } catch (error) {
+          console.error(`[SocialPostsPage] no source for ${file}:`, error.message)
+        }
         return { file, title }
       })
   } catch (error) {
@@ -26,14 +42,14 @@ const readDesigns = (dir) => {
   }
 }
 
-const getPosts = () => readDesigns(path.join(process.cwd(), 'public', 'social-posts'))
+const getPosts = () => readDesigns('social-posts', '.html')
 
-const getStories = () => readDesigns(path.join(process.cwd(), 'public', 'social-stories'))
+const getStories = () => readDesigns('social-stories', '.png')
 
-const getSquares = () => readDesigns(path.join(process.cwd(), 'public', 'social-squares'))
+const getSquares = () => readDesigns('social-squares', '.png')
 
 const getCarousels = () => {
-  const slides = readDesigns(path.join(process.cwd(), 'public', 'social-carousels'))
+  const slides = readDesigns('social-carousels', '.png')
   const decks = new Map()
   for (const slide of slides) {
     const key = slide.file.match(/^c(\d+)/)?.[1]
@@ -114,6 +130,7 @@ const SocialPostsPage = () => {
                 href={`/social-stories/${story.file}`}
                 title={story.title}
                 aspect="story"
+                kind="image"
               />
             ))}
           </div>
@@ -134,6 +151,7 @@ const SocialPostsPage = () => {
                 href={`/social-squares/${square.file}`}
                 title={square.title}
                 aspect="feed"
+                kind="image"
               />
             ))}
           </div>
@@ -165,6 +183,7 @@ const SocialPostsPage = () => {
                       href={`/social-carousels/${slide.file}`}
                       title={slide.title}
                       aspect="feed"
+                      kind="image"
                     />
                   ))}
                 </div>
