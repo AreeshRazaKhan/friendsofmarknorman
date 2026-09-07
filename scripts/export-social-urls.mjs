@@ -10,9 +10,9 @@ import path from 'node:path'
  * scripts/export-social-urls.ps1 zips them into the .xlsx (no spreadsheet
  * dependency in this repo).
  *
- * The feed posts also keep their original HTML published, because the internal
- * preview page re-renders it at 9:16 via a ?v= query param. The sheet lists
- * the PNG only — that is the shareable asset.
+ * The feed posts publish two variants from one source: a square PNG and a
+ * `-9x16` vertical PNG. Both are listed, as separate sets. Their original HTML
+ * stays published but is not listed — it is no longer the shareable asset.
  *
  * Run: node scripts/export-social-urls.mjs <stagingDir>
  */
@@ -23,6 +23,8 @@ const SETS = [
   { label: 'Static Post', src: 'social-squares', route: '/social-squares', ext: '.png' },
   { label: 'Story', src: 'social-stories', route: '/social-stories', ext: '.png' },
   { label: 'Feed Post', src: 'social-posts', route: '/social-posts', ext: '.png' },
+  // same 10 sources, published again as a 9:16 crop
+  { label: 'Vertical Post', src: 'social-posts', route: '/social-posts', ext: '-9x16.png' },
 ]
 
 const stage = process.argv[2]
@@ -95,8 +97,8 @@ for (const set of SETS) {
       }
     }
 
-    let format = set.ext === '.html' ? 'HTML' : 'PNG'
-    if (set.ext === '.png' && existsSync(assetPath)) {
+    let format = set.ext.endsWith('.png') ? 'PNG' : 'HTML'
+    if (set.ext.endsWith('.png') && existsSync(assetPath)) {
       const d = pngSize(assetPath)
       if (d) format = `PNG ${d.w}×${d.h}`
     }
@@ -111,7 +113,7 @@ for (const set of SETS) {
       format,
       file: asset,
       url: `${DOMAIN}${set.route}/${asset}`,
-      missing: set.ext === '.png' && !existsSync(assetPath),
+      missing: set.ext.endsWith('.png') && !existsSync(assetPath),
       bytes: existsSync(assetPath) ? statSync(assetPath).size : 0,
     })
   }
