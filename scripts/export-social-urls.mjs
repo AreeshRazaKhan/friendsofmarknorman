@@ -4,12 +4,15 @@ import path from 'node:path'
 /**
  * Builds an Excel workbook of every published social asset URL.
  *
- * Carousels, static posts and stories publish as PNG; the feed posts still
- * publish as HTML. Metadata (deck label, headline, type) is read out of the
- * source HTML under the repo root — NOT out of public/, which now holds only
- * the exported PNGs. Writes the raw OOXML parts to a staging dir;
+ * Every set publishes as PNG. Metadata (deck label, headline, type) is read
+ * out of the source HTML under the repo root — NOT out of public/, which
+ * holds only the exported PNGs. Writes the raw OOXML parts to a staging dir;
  * scripts/export-social-urls.ps1 zips them into the .xlsx (no spreadsheet
  * dependency in this repo).
+ *
+ * The feed posts also publish a `-9x16` crop for the internal preview page.
+ * Those are deliberately not listed: they are still the previous round of
+ * artwork, so they should not reach a client-facing sheet.
  *
  * Run: node scripts/export-social-urls.mjs <stagingDir>
  */
@@ -19,7 +22,7 @@ const SETS = [
   { label: 'Carousel', src: 'social-carousels', route: '/social-carousels', ext: '.png' },
   { label: 'Static Post', src: 'social-squares', route: '/social-squares', ext: '.png' },
   { label: 'Story', src: 'social-stories', route: '/social-stories', ext: '.png' },
-  { label: 'Feed Post', src: 'social-posts', route: '/social-posts', ext: '.html' },
+  { label: 'Feed Post', src: 'social-posts', route: '/social-posts', ext: '.png' },
 ]
 
 const stage = process.argv[2]

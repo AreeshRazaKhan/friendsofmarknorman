@@ -10,27 +10,31 @@ export const metadata = {
   robots: { index: false, follow: false },
 }
 
+// feed posts publish a square and a 9:16 variant into the same directory
+const VERTICAL_SUFFIX = '-9x16'
+
 /**
  * Lists the published assets in a set.
  *
- * Carousels, stories and squares publish as PNG, so their titles are read from
- * the source HTML that still lives at the repo root. Feed posts publish as HTML
- * and are their own source.
+ * Every set publishes as PNG; titles come from the source HTML that still
+ * lives at the repo root, keyed by the asset's base name.
+ *
+ * `match` narrows a directory that holds more than one variant per post.
  */
-const readDesigns = (set, ext) => {
+const readDesigns = (set, { match = () => true } = {}) => {
   const publicDir = path.join(process.cwd(), 'public', set)
-  const sourceDir = ext === '.html' ? publicDir : path.join(process.cwd(), set)
+  const sourceDir = path.join(process.cwd(), set)
 
   try {
     return readdirSync(publicDir)
-      .filter((file) => file.endsWith(ext))
+      .filter((file) => file.endsWith('.png') && match(file))
       .sort()
       .map((file) => {
-        const fallback = file.replace(ext, '')
-        const source = path.join(sourceDir, `${fallback}.html`)
-        let title = fallback
+        const base = file.replace(/\.png$/, '').replace(VERTICAL_SUFFIX, '')
+        let title = base
         try {
-          title = readFileSync(source, 'utf8').match(/<title>(.*?)<\/title>/)?.[1] ?? fallback
+          const html = readFileSync(path.join(sourceDir, `${base}.html`), 'utf8')
+          title = html.match(/<title>(.*?)<\/title>/)?.[1] ?? base
         } catch (error) {
           console.error(`[SocialPostsPage] no source for ${file}:`, error.message)
         }
@@ -42,14 +46,18 @@ const readDesigns = (set, ext) => {
   }
 }
 
-const getPosts = () => readDesigns('social-posts', '.html')
+const getPosts = () =>
+  readDesigns('social-posts', { match: (f) => !f.includes(VERTICAL_SUFFIX) })
 
-const getStories = () => readDesigns('social-stories', '.png')
+const getPostStories = () =>
+  readDesigns('social-posts', { match: (f) => f.includes(VERTICAL_SUFFIX) })
 
-const getSquares = () => readDesigns('social-squares', '.png')
+const getStories = () => readDesigns('social-stories')
+
+const getSquares = () => readDesigns('social-squares')
 
 const getCarousels = () => {
-  const slides = readDesigns('social-carousels', '.png')
+  const slides = readDesigns('social-carousels')
   const decks = new Map()
   for (const slide of slides) {
     const key = slide.file.match(/^c(\d+)/)?.[1]
@@ -64,6 +72,7 @@ const getCarousels = () => {
 
 const SocialPostsPage = () => {
   const posts = getPosts()
+  const postStories = getPostStories()
   const stories = getStories()
   const squares = getSquares()
   const carousels = getCarousels()
@@ -90,6 +99,7 @@ const SocialPostsPage = () => {
                 href={`/social-posts/${post.file}`}
                 title={post.title}
                 aspect="feed"
+                kind="image"
               />
             ))}
           </div>
@@ -102,14 +112,20 @@ const SocialPostsPage = () => {
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
             Vertical <em>story posts.</em>
           </h2>
+          <p className="mt-4 max-w-2xl text-stone-d">
+            The feed posts in a 9:16 crop. These are still the previous round of
+            artwork — the squares above have since been redesigned, so the two
+            sets will not match until new vertical exports land.
+          </p>
 
           <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-            {posts.map((post) => (
+            {postStories.map((post) => (
               <PostPreviewCard
                 key={post.file}
-                href={`/social-posts/${post.file}?v=916`}
+                href={`/social-posts/${post.file}`}
                 title={post.title}
                 aspect="story"
+                kind="image"
               />
             ))}
           </div>
