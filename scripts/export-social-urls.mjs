@@ -10,9 +10,9 @@ import path from 'node:path'
  * scripts/export-social-urls.ps1 zips them into the .xlsx (no spreadsheet
  * dependency in this repo).
  *
- * The feed posts also publish a `-9x16` crop for the internal preview page.
- * Those are deliberately not listed: they are still the previous round of
- * artwork, so they should not reach a client-facing sheet.
+ * The feed posts also keep their original HTML published, because the internal
+ * preview page re-renders it at 9:16 via a ?v= query param. The sheet lists
+ * the PNG only — that is the shareable asset.
  *
  * Run: node scripts/export-social-urls.mjs <stagingDir>
  */

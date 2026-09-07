@@ -10,27 +10,24 @@ export const metadata = {
   robots: { index: false, follow: false },
 }
 
-// feed posts publish a square and a 9:16 variant into the same directory
-const VERTICAL_SUFFIX = '-9x16'
-
 /**
  * Lists the published assets in a set.
  *
- * Every set publishes as PNG; titles come from the source HTML that still
- * lives at the repo root, keyed by the asset's base name.
- *
- * `match` narrows a directory that holds more than one variant per post.
+ * Titles come from the source HTML at the repo root, keyed by the asset's
+ * base name. `ext` selects which published variant to list: the feed posts
+ * publish both a PNG (the square cards) and the original HTML, which the
+ * vertical section re-renders at 9:16 via a ?v= query param.
  */
-const readDesigns = (set, { match = () => true } = {}) => {
+const readDesigns = (set, ext = '.png') => {
   const publicDir = path.join(process.cwd(), 'public', set)
   const sourceDir = path.join(process.cwd(), set)
 
   try {
     return readdirSync(publicDir)
-      .filter((file) => file.endsWith('.png') && match(file))
+      .filter((file) => file.endsWith(ext))
       .sort()
       .map((file) => {
-        const base = file.replace(/\.png$/, '').replace(VERTICAL_SUFFIX, '')
+        const base = file.slice(0, -ext.length)
         let title = base
         try {
           const html = readFileSync(path.join(sourceDir, `${base}.html`), 'utf8')
@@ -46,11 +43,9 @@ const readDesigns = (set, { match = () => true } = {}) => {
   }
 }
 
-const getPosts = () =>
-  readDesigns('social-posts', { match: (f) => !f.includes(VERTICAL_SUFFIX) })
+const getPosts = () => readDesigns('social-posts')
 
-const getPostStories = () =>
-  readDesigns('social-posts', { match: (f) => f.includes(VERTICAL_SUFFIX) })
+const getPostStories = () => readDesigns('social-posts', '.html')
 
 const getStories = () => readDesigns('social-stories')
 
@@ -117,10 +112,9 @@ const SocialPostsPage = () => {
             {postStories.map((post) => (
               <PostPreviewCard
                 key={post.file}
-                href={`/social-posts/${post.file}`}
+                href={`/social-posts/${post.file}?v=916`}
                 title={post.title}
                 aspect="story"
-                kind="image"
               />
             ))}
           </div>
