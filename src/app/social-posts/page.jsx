@@ -112,11 +112,6 @@ const SocialPostsPage = () => {
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
             Vertical <em>story posts.</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-stone-d">
-            The feed posts in a 9:16 crop. These are still the previous round of
-            artwork — the squares above have since been redesigned, so the two
-            sets will not match until new vertical exports land.
-          </p>
 
           <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
             {postStories.map((post) => (
