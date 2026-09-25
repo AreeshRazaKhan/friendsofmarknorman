@@ -3,7 +3,7 @@ import path from 'node:path'
 import { FONTS, TOKENS, PAL, PORTRAITS, SQUARES, STAMPS, pad, pick, scaler, logoTag, stamp, ICONS, ICONFX } from './lib/post-content.mjs'
 
 /**
- * 50 square (1080x1080) posts, each a DISTINCT composition (no duplicate layouts).
+ * 50 square (1080x1350) posts, each a DISTINCT composition (no duplicate layouts).
  * ~14 layout families instantiated with varied palette / motif / topic / icon.
  * Rich concept style: layered backgrounds, highlighter headlines, icon-stamps,
  * portraits, big watermarks. No CTA, no PAC, real logo. QA + perceptual-dedupe.
@@ -45,7 +45,7 @@ ${scaler('.post')}
 </body></html>
 `
 // shared theme rule for a palette
-const theme = (p) => `.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:${PAL[p].bg};color:${PAL[p].text}}
+const theme = (p) => `.post{width:1080px;height:1350px;position:relative;overflow:hidden;background:${PAL[p].bg};color:${PAL[p].text}}
 .eyebrow{color:${PAL[p].red}}.eyebrow::before{background:${PAL[p].red}}
 .headline{color:${PAL[p].text}}.headline em{color:${PAL[p].red}}.headline em::after{background:${PAL[p].hl}}
 .body{font-size:28px;line-height:1.5;color:${PAL[p].body}}`
@@ -98,7 +98,7 @@ C.bigNum = (c) => {
 C.splitH = (c) => {
   const A = c.bg === 'navy' ? 'navy' : 'paper', B = c.bg === 'navy' ? 'paper' : 'navy'
   const pa = PAL[A], pb = PAL[B]
-  return HEAD(c, `.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:${pb.bg}}
+  return HEAD(c, `.post{width:1080px;height:1350px;position:relative;overflow:hidden;background:${pb.bg}}
 .top{position:absolute;top:0;left:0;right:0;height:560px;background:${pa.bg};color:${pa.text};padding:80px}
 .bot{position:absolute;top:560px;left:0;right:0;bottom:0;color:${pb.text};padding:60px 80px}
 .eyebrow{color:${pa.red};margin-top:120px}.eyebrow::before{background:${pa.red}}
@@ -116,7 +116,7 @@ C.splitH = (c) => {
 C.splitV = (c) => {
   const A = c.bg === 'navy' ? 'navy' : 'paper', B = c.bg === 'navy' ? 'paper' : 'navy'
   const pa = PAL[A], pb = PAL[B]
-  return HEAD(c, `.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:${pb.bg}}
+  return HEAD(c, `.post{width:1080px;height:1350px;position:relative;overflow:hidden;background:${pb.bg}}
 .left{position:absolute;top:0;bottom:0;left:0;width:430px;background:${pa.bg};color:${pa.text};padding:80px 50px;display:flex;flex-direction:column;justify-content:space-between}
 .right{position:absolute;top:0;bottom:0;left:430px;right:0;color:${pb.text};padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
 .eyebrow{color:${pa.red}}.eyebrow::before{background:${pa.red}}
@@ -260,7 +260,7 @@ C.card = (c) => {
   const base = onNavy ? 'navy' : 'paper', cardBg = onNavy ? 'var(--paper)' : 'var(--navy)'
   const cText = onNavy ? 'var(--navy)' : 'var(--paper)', cRed = onNavy ? 'var(--red)' : 'var(--red-3)', cBody = onNavy ? 'var(--stone-d)' : 'var(--paper-78)'
   const p = PAL[base]
-  return HEAD(c, `.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:${p.bg};display:flex;flex-direction:column;justify-content:center;padding:90px}
+  return HEAD(c, `.post{width:1080px;height:1350px;position:relative;overflow:hidden;background:${p.bg};display:flex;flex-direction:column;justify-content:center;padding:90px}
 .card{position:relative;z-index:3;background:${cardBg};border-radius:22px;padding:64px 58px;box-shadow:0 24px 50px rgba(11,40,68,.22)}
 .card::before{content:"";display:block;width:64px;height:6px;background:${cRed};margin-bottom:28px}
 .eyebrow{color:${cRed}}.eyebrow::before{background:${cRed}}
@@ -322,7 +322,7 @@ C.stripeField = (c) => {
   const pT = onNavy ? 'var(--navy)' : 'var(--paper)'
   const pR = onNavy ? 'var(--red)' : 'var(--red-3)'
   const pB = onNavy ? 'var(--stone-d)' : 'var(--paper-78)'
-  return HEAD(c, `.post{width:1080px;height:1080px;position:relative;overflow:hidden;background:${p.bg}}
+  return HEAD(c, `.post{width:1080px;height:1350px;position:relative;overflow:hidden;background:${p.bg}}
 .post{display:flex;flex-direction:column;justify-content:center;padding:90px}
 .panel{position:relative;z-index:3;background:${panelBg};border-left:12px solid var(--red);padding:56px 58px;max-width:720px;box-shadow:0 24px 50px rgba(11,40,68,.22)}
 .eyebrow{color:${pR}}.eyebrow::before{background:${pR}}
