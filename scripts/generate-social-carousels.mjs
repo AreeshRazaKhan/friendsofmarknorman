@@ -3,7 +3,7 @@ import path from 'node:path'
 import { FONTS, TOKENS, PAL, pad, scaler, logoTag, ICONFX } from './lib/post-content.mjs'
 
 /**
- * 10 Instagram carousels (5–7 slides each), every slide a standalone 1080x1080
+ * 10 Instagram carousels (5–7 slides each), every slide a standalone 1080x1350 (4:5)
  * HTML. A carousel is a cohesive SET: all slides in one deck share a template
  * so they read as a sequence (cover → numbered points → closer). Across the 10
  * decks the cover layout, motif, and accent rhythm vary so each deck is its own
@@ -90,7 +90,7 @@ ${scaler('.slide')}
 </body></html>
 `
 
-const base = (p) => `.slide{width:1080px;height:1080px;position:relative;overflow:hidden;background:${PAL[p].bg};color:${PAL[p].text}}
+const base = (p) => `.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:${PAL[p].bg};color:${PAL[p].text}}
 .eyebrow{color:${PAL[p].red}}.eyebrow::before{background:${PAL[p].red}}
 .headline,.title{color:${PAL[p].text}}.headline em,.title em{color:${PAL[p].red}}
 .headline em::after,.title em::after{background:${PAL[p].hl}}
