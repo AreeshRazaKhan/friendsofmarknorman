@@ -16,7 +16,7 @@ const PostPreviewCard = ({ href, title, aspect, kind }) => {
       <span
         className={cn(
           'relative block overflow-hidden rounded-2xl border border-bone bg-white transition-colors group-hover:border-navy',
-          aspect === 'story' ? 'aspect-[9/16]' : 'aspect-square'
+          aspect === 'story' ? 'aspect-[9/16]' : 'aspect-[4/5]'
         )}
       >
         {kind === 'image' ? (

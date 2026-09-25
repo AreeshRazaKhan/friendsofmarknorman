@@ -86,7 +86,7 @@ const SocialPostsPage = () => {
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
-          <p className="eyebrow-bracket eyebrow">[ feed posts / 1080 × 1080 ]</p>
+          <p className="eyebrow-bracket eyebrow">[ feed posts / 1080 × 1350 ]</p>
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
             Square <em>feed posts.</em>
           </h2>
@@ -149,7 +149,7 @@ const SocialPostsPage = () => {
 
       <section className="bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
-          <p className="eyebrow-bracket eyebrow">[ square designs / 1080 × 1080 ]</p>
+          <p className="eyebrow-bracket eyebrow">[ square designs / 1080 × 1350 ]</p>
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
             Square <em>design explorations.</em>
           </h2>
@@ -170,7 +170,7 @@ const SocialPostsPage = () => {
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
-          <p className="eyebrow-bracket eyebrow">[ carousels / 1080 × 1080 · 5–7 slides ]</p>
+          <p className="eyebrow-bracket eyebrow">[ carousels / 1080 × 1350 · 5–7 slides ]</p>
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
             Carousel <em>decks.</em>
           </h2>
