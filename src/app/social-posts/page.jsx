@@ -170,12 +170,12 @@ const SocialPostsPage = () => {
 
       <section className="bg-paper">
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
-          <p className="eyebrow-bracket eyebrow">[ carousels / 1080 × 1350 · 5–7 slides ]</p>
+          <p className="eyebrow-bracket eyebrow">[ carousels / 1080 × 1350 · 5–6 slides ]</p>
           <h2 className="display mt-4 text-3xl text-navy sm:text-4xl">
             Carousel <em>decks.</em>
           </h2>
           <p className="mt-4 max-w-2xl text-stone-d">
-            Ten multi-slide carousels. Each deck reads as a set — cover, numbered
+            Five multi-slide carousels. Each deck reads as a set — cover, numbered
             points, and a closer — so the slides are meant to share a look.
           </p>
 
