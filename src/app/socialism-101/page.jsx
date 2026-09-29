@@ -17,6 +17,9 @@ export const metadata = {
   openGraph: {
     images: ['/images/socialism-101-cover.png'],
   },
+  // Hidden from the site (no nav/footer link) and kept out of search results.
+  // The route stays live so direct, QR, and ad links keep working.
+  robots: { index: false, follow: true },
 }
 
 const DSA_AREAS = [

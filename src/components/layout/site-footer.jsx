@@ -35,12 +35,12 @@ const SOCIAL_ICONS = {
   TikTok: TikTokIcon,
 }
 
-// Socialism 101 is footer-only — kept out of NAV_LINKS so the top nav stays at five links.
+// /socialism-101 is intentionally unlinked: the funnel stays live for direct, QR, and ad
+// traffic only. Re-add { href: '/socialism-101', label: 'Socialism 101' } here to unhide it.
 const GET_INVOLVED_LINKS = [
   { href: '/volunteer', label: 'Volunteer' },
   { href: '/ask-mark', label: 'Ask Mark' },
   { href: '/events', label: 'Events' },
-  { href: '/socialism-101', label: 'Socialism 101' },
 ]
 
 // Whatever "get involved" already lists is dropped here so no link appears twice.
